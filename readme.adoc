@@ -1,0 +1,8 @@
+= Heterogeneous microservices
+
+image:https://github.com/rkudryashov/heterogeneous-microservices/workflows/Java%20CI/badge.svg?branch=master[Java CI,link=https://github.com/rkudryashov/heterogeneous-microservices/actions]
+
+Articles:
+
+- https://romankudryashov.com/blog/2020/01/heterogeneous-microservices/[in English]
+- https://habr.com/ru/company/raiffeisenbank/blog/456376/[in Russian]
