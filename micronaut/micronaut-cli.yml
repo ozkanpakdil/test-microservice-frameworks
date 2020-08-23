@@ -1,0 +1,6 @@
+applicationType: default
+defaultPackage: com.mascix
+testFramework: junit
+sourceLanguage: java
+buildTool: maven
+features: [annotation-api, app-name, docker, file-watch, http-client, java, java-application, jax-rs, junit, logback, maven, netty-server, readme, shade, yaml]

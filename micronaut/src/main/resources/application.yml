@@ -1,0 +1,4 @@
+micronaut:
+  version: ${micronaut.version}
+  application:
+    name: demo
