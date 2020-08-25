@@ -17,11 +17,12 @@ Here is total package generation times for separate modules,
 " >> test-result.md
 mvn -T 1C test package|grep SUCCESS|grep s >>test-result.md
 echo '{% endhighlight %}' >> test-result.md
-echo 'Size of created packages: 
+echo 'Size of created packages:
+
 | Size in MB |  Name |
-|----------|:------:|' >> test-result.md
+|------------|-------|' >> test-result.md
 ls -lh */target/*.jar|grep M|awk '{print "|",$5,"|",$9,"|"}' >>test-result.md
-printf '\n' >> test-result.md
+printf '\n\n' >> test-result.md
 echo 'Running jars and collecting test results...'
 
 test (){
@@ -40,7 +41,8 @@ test (){
 
     echo $frameworkVersion $startTime >> test-result.md
     printf "\nGatling test starting... for $jarPath"
-    echo '{% highlight bash %}' >> test-result.md
+    echo '
+    {% highlight bash %}' >> test-result.md
     mvn -f gatling/pom.xml gatling:test|grep -A10 "Global Information" >> test-result.md
     echo '{% endhighlight %}' >> test-result.md
     ps -ef|grep java|awk '{print $2}'|xargs kill
