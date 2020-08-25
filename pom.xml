@@ -7,9 +7,9 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>eclipse-microprofile</module>
-        <module>helidon-se</module>
-        <module>ktor-demo</module>
+        <!-- <module>eclipse-microprofile</module> -->
+        <!-- <module>helidon-se</module> helidon not supporting fat jar -->
+        <!-- <module>ktor-demo</module> -->
         <module>micronaut</module>
         <module>quarkus</module>
         <module>spring-boot</module>

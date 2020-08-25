@@ -3,26 +3,31 @@ name: Java CI
 on:
   push:
     branches:
-    - master
+      - master
   pull_request:
     branches:
-    - master
+      - master
 
 jobs:
   build:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        java: [ 11, 14 ]
+        java: [11, 14]
     steps:
-    - uses: actions/checkout@v2
-    - name: Set up JDK
-      uses: actions/setup-java@v1
-      with:
-        java-version: ${{ matrix.java }}
-    - name: Mvn build
-      run: mvn test package|grep SUCCESS|grep s > README.md
-    - name: Create size of jars table
-      run: ls -lh */target/*.jar|awk '{print "|",$5,"|",$9}'
-    - name: Run jars and get test results
-      run: ./runGatling.sh
+      - uses: actions/checkout@v2
+      - name: Set up JDK
+        uses: actions/setup-java@v1
+        with:
+          java-version: ${{ matrix.java }}
+      - name: Run jars and get test results
+        run: ./runGatling.sh
+      - name: Commit the test result
+        run: |
+          DATE=$(date +"%Y-%m-%d")
+          git clone https://${{ secrets.TOKEN_GIT }}@github.com/ozkanpakdil.github.io.git target
+          mv test-result.md target/_posts/$DATE-microservice-framework-test.markdown
+          cd target
+          git add .
+          git commit -m "Automatic publish from micro frameworks test"
+          # git push
