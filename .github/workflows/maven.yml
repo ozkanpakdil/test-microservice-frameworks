@@ -25,6 +25,8 @@ jobs:
       - name: Commit the test result
         run: |
           DATE=$(date +"%Y-%m-%d")
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
           git clone https://${{ secrets.TOKEN_GIT }}@github.com/ozkanpakdil/ozkanpakdil.github.io.git page
           mv test-result.md page/_posts/$DATE-microservice-framework-test.markdown
           cd page
