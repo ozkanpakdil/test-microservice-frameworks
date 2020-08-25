@@ -25,12 +25,11 @@ jobs:
       - name: Commit the test result
         run: |
           DATE=$(date +"%Y-%m-%d")
-          JAVA_VERSION=$(java -version 2>&1 |grep version)
           git config --global user.email "action@github.com"
           git config --global user.name "GitHub Action"
           git clone https://${{ secrets.TOKEN_GIT }}@github.com/ozkanpakdil/ozkanpakdil.github.io.git page
-          mv test-result.md page/_posts/$DATE-microservice-framework-test-$JAVA_VERSION.markdown
+          mv test-result.md page/_posts/$DATE-microservice-framework-test-${{ matrix.java }}.markdown
           cd page
-          git add _posts/$DATE-microservice-framework-test-$JAVA_VERSION.markdown
+          git add _posts/$DATE-microservice-framework-test-${{ matrix.java }}.markdown
           git commit -m "Automatic publish from micro frameworks test"
           git push
