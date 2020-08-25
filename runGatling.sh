@@ -32,6 +32,8 @@ test (){
     startTime=$3
     java -jar $jarPath > log.log & 
     
+    JPID=$!
+
     until curl -sf http://localhost:8080/hello; do
         printf '.'
         sleep 0.4
@@ -46,9 +48,8 @@ test (){
     {% highlight bash %}' >> test-result.md
     mvn -f gatling/pom.xml gatling:test|grep -A10 "Global Information" >> test-result.md
     echo '{% endhighlight %}' >> test-result.md
-    ps -ef|grep java|awk '{print $2}'|xargs kill
+    kill -9 $JPID
     printf '\n' >> test-result.md
-    
 }
 
 test "spring-boot/target/springboot-demo-0.0.1-SNAPSHOT.jar" ":: Spring Boot ::" "Started DemoApplication"
