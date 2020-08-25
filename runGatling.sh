@@ -26,6 +26,7 @@ printf '\n\n' >> test-result.md
 echo 'Running jars and collecting test results...'
 
 test (){
+    >log.log
     jarPath=$1
     verInfo=$2
     startTime=$3
@@ -33,11 +34,11 @@ test (){
     
     until curl -sf http://localhost:8080/hello; do
         printf '.'
-        sleep 0.2
+        sleep 0.4
     done
 
-    frameworkVersion=`grep --color=never -o "$verInfo.*" log.log`
-    startTime=`grep --color=never -o "$startTime.*" log.log`
+    frameworkVersion=`grep -o "$verInfo.*" log.log`
+    startTime=`grep -o "$startTime.*" log.log`
 
     echo $frameworkVersion $startTime >> test-result.md
     printf "\nGatling test starting... for $jarPath"
