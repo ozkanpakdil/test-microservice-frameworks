@@ -3,11 +3,12 @@
 
 >test-result.md
 
+JAVA_VERSION=$(java -version 2>&1 |grep version)
 
 DATE=$(date +"%Y-%m-%d %T")
 echo "---
 layout: post
-title:  \"Java microservice framework tests\"
+title:  \"Java microservice framework tests in $JAVA_VERSION\"
 date:   $DATE
 categories: java,fasterxml,json
 --- 
