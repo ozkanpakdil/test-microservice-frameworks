@@ -25,7 +25,7 @@ jobs:
       - name: Commit the test result
         run: |
           DATE=$(date +"%Y-%m-%d")
-          git clone https://${{ secrets.TOKEN_GIT }}@github.com/ozkanpakdil.github.io.git page
+          git clone https://${{ secrets.TOKEN_GIT }}@github.com/ozkanpakdil/ozkanpakdil.github.io.git page
           mv test-result.md page/_posts/$DATE-microservice-framework-test.markdown
           cd page
           git add .
