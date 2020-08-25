@@ -7,7 +7,7 @@
 DATE=$(date +"%Y-%m-%d %T")
 echo "---
 layout: post
-title:  \"Getting com.fasterxml.jackson.databind.exc.InvalidDefinitionException: No serializer found for class\"
+title:  \"Java microservice framework tests\"
 date:   $DATE
 categories: java,fasterxml,json
 --- 
