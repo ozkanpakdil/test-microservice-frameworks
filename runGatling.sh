@@ -4,11 +4,14 @@
 >test-result.md
 
 JAVA_VERSION=$(java -version 2>&1 |grep version)
-
 DATE=$(date +"%Y-%m-%d %T")
+SB=$(grep spring-boot-starter-parent spring-boot/pom.xml -A1|grep REL|grep -oPm1 "(?<=<version>)[^<]+")
+QU=$(grep quarkus.platform.version quarkus/pom.xml |grep -v "\\$"|grep -oPm1 "(?<=<quarkus.platform.version>)[^<]+")
+MICRO=$(grep parent micronaut/pom.xml -A1|grep -oPm1 "(?<=<version>)[^<]+")
+
 echo "---
 layout: post
-title:  'Java microservice framework tests in $JAVA_VERSION'
+title:  'Java microservice framework tests in SB:$SB Q:$QU M:$MICRO $JAVA_VERSION'
 date:   $DATE
 categories: java,fasterxml,json
 --- 
