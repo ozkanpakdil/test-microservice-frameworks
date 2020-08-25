@@ -32,4 +32,5 @@ jobs:
           cd page
           git add _posts/$DATE-microservice-framework-test-${{ matrix.java }}.markdown
           git commit -m "Automatic publish from micro frameworks test"
+          git pull
           git push
