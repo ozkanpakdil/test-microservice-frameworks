@@ -25,13 +25,13 @@ jobs:
       - name: Commit the test result
         run: |
           DATE=$(date +"%Y-%m-%d")
-          git config pull.rebase true
           git config --global user.email "action@github.com"
           git config --global user.name "GitHub Action"
           git clone https://${{ secrets.TOKEN_GIT }}@github.com/ozkanpakdil/ozkanpakdil.github.io.git page
+          # git config pull.rebase true
           mv test-result.md page/_posts/$DATE-microservice-framework-test-${{ matrix.java }}.markdown
           cd page
           git add _posts/$DATE-microservice-framework-test-${{ matrix.java }}.markdown
           git commit -m "Automatic publish from micro frameworks test"
-          git pull
+          git pull --rebase
           git push
