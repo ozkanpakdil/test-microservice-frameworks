@@ -13,6 +13,7 @@
         <module>micronaut</module>
         <module>quarkus</module>
         <module>spring-boot</module>
+        <module>vertx</module>
         <module>gatling</module>
     </modules>
 

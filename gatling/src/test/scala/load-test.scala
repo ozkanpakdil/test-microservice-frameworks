@@ -10,7 +10,7 @@ class LoadTest extends Simulation {
 
 	val httpProtocol = http.baseUrl("http://localhost:8080")
 
-	val scn = scenario("hello").repeat(4) {
+	val scn = scenario("hello").repeat(2) {
 		exec(http("GetApplicationInfo")
 			.get("/hello")
 			.check(status.is(200))
@@ -19,7 +19,7 @@ class LoadTest extends Simulation {
 
 	setUp(
 		scn.inject(
-			rampUsers(50) during (5 seconds)
+			rampUsers(1000) during (5 seconds)
 		).protocols(httpProtocol)
 	)
 }

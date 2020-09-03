@@ -8,10 +8,11 @@ DATE=$(date +"%Y-%m-%d %T")
 SB=$(grep spring-boot-starter-parent spring-boot/pom.xml -A1|grep REL|grep -oPm1 "(?<=<version>)[^<]+")
 QU=$(grep quarkus.platform.version quarkus/pom.xml |grep -v "\\$"|grep -oPm1 "(?<=<quarkus.platform.version>)[^<]+")
 MICRO=$(grep parent micronaut/pom.xml -A1|grep -oPm1 "(?<=<version>)[^<]+")
+VERTX=$(grep vertx vertx/pom.xml|grep -oPm1 "(?<=<vertx.version>)[^<]+")
 
 echo "---
 layout: post
-title:  'Java microservice framework tests in SB:$SB Q:$QU M:$MICRO $JAVA_VERSION'
+title:  'Java microservice framework tests in SB:$SB Q:$QU M:$MICRO V:$VERTX $JAVA_VERSION'
 date:   $DATE
 categories: java,fasterxml,json
 --- 
@@ -53,11 +54,13 @@ test (){
     echo '{% endhighlight %}' >> test-result.md
     kill -9 $JPID
     printf '\n' >> test-result.md
+    sleep 2
 }
 
 test "spring-boot/target/springboot-demo-0.0.1-SNAPSHOT.jar" ":: Spring Boot ::" "Started DemoApplication"
 test "quarkus/target/quarkus-demo-1.0.0-SNAPSHOT-runner.jar" "powered by Quarkus" "WWWWW"
 test "micronaut/target/micronaut-demo-0.1.jar" "micronaut version" "Startup completed in"
+test "vertx/target/vertx-demo-1.0.0-SNAPSHOT-fat.jar" "vertx version" "XXXXX"
 # test "helidon-se/target/helidon-quickstart-se.jar" "Helidon SE" "XXXXX"
 # test "eclipse-microprofile/target/eclipse-microprofile-demo-1.0-SNAPSHOT.jar" "Open Liberty" "The defaultServer server started"
 
