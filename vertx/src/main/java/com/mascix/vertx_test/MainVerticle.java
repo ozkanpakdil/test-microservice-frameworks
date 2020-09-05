@@ -23,11 +23,12 @@ public class MainVerticle extends AbstractVerticle {
 
   String vertxVersion;
 
-
   @Override
   public void start(Promise<Void> startPromise) throws Exception {
+    Properties prop = new Properties();
+    prop.load(MainVerticle.class.getClassLoader().getResourceAsStream("application.properties"));
 
-    vertxVersion = extractVersion(vertx.getClass()).get();
+    vertxVersion = prop.getProperty("version");
 
     System.out.println("vertx version:" + vertxVersion);
 
