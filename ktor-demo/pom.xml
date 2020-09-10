@@ -79,7 +79,7 @@
         <dependency>
             <groupId>io.ktor</groupId>
             <artifactId>ktor-jackson</artifactId>
-            <version>1.3.2-1.4.0-rc</version>
+            <version>1.4.0</version>
         </dependency>
         <dependency>
             <groupId>com.fasterxml.jackson.datatype</groupId>
