@@ -1,4 +1,4 @@
-package com.mascix.demo.metric;
+package com.mascix.eclipse.microprofile.kumuluz.test.metric;
 
 import org.eclipse.microprofile.metrics.Counter;
 import org.eclipse.microprofile.metrics.MetricUnits;

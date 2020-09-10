@@ -61,8 +61,8 @@ test "spring-boot/target/springboot-demo-0.0.1-SNAPSHOT.jar" ":: Spring Boot ::"
 test "quarkus/target/quarkus-demo-1.0.0-SNAPSHOT-runner.jar" "powered by Quarkus" "WWWWW"
 test "micronaut/target/micronaut-demo-0.1.jar" "micronaut version" "Startup completed in"
 test "vertx/target/vertx-demo-1.0.0-SNAPSHOT-fat.jar" "vertx version" "XXXXX"
+test "eclipse-microprofile-kumuluz-test/target/eclipse-microprofile-kumuluz-test.jar" "kumuluz version:" " Started"
 # test "helidon-se/target/helidon-quickstart-se.jar" "Helidon SE" "XXXXX"
-# test "eclipse-microprofile/target/eclipse-microprofile-demo-1.0-SNAPSHOT.jar" "Open Liberty" "The defaultServer server started"
 
 
 

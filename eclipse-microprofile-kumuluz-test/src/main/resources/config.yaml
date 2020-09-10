@@ -1,0 +1,19 @@
+kumuluzee:
+  name: eclipse-microprofile-kumuluz-test
+  version: 1.0-SNAPSHOT
+  env:
+    name: dev
+  metrics:
+    web-instrumentation:
+      - name: testEndpoint
+        url-pattern: /hello/*
+  rest-client:
+    registrations:
+      - class: com.mascix.eclipse.microprofile.kumuluz.test.client.Service
+        url: http://localhost:8180/data/client/service
+  server:
+    http:
+      port: 8080
+injected:
+  value: Injected value
+value: lookup value

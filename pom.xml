@@ -7,7 +7,7 @@
     <packaging>pom</packaging>
 
     <modules>
-        <!-- <module>eclipse-microprofile</module> -->
+        <module>eclipse-microprofile-kumuluz-test</module>
         <!-- <module>helidon-se</module> helidon not supporting fat jar -->
         <!-- <module>ktor-demo</module> -->
         <module>micronaut</module>
