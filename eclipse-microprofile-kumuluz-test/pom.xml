@@ -9,7 +9,7 @@
     <failOnMissingWebXml>false</failOnMissingWebXml>
     <maven.compiler.source>1.8</maven.compiler.source>
     <kumuluzee-microprofile.version>kumuluzee-microProfile-3.3</kumuluzee-microprofile.version>
-    <kumuluz.version>3.9.0</kumuluz.version>
+    <kumuluz.version>3.10.0</kumuluz.version>
     <final.name>eclipse-microprofile-kumuluz-test</final.name>
     <kumuluzee-config-mp.version>1.4.0</kumuluzee-config-mp.version>
   </properties>
