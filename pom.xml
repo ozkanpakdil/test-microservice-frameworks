@@ -7,6 +7,7 @@
     <packaging>pom</packaging>
 
     <modules>
+        <!-- <module>lagom-java-maven</module> lagom is not working properly -->
         <module>eclipse-microprofile-kumuluz-test</module>
         <!-- <module>helidon-se</module> helidon not supporting fat jar -->
         <!-- <module>ktor-demo</module> -->
