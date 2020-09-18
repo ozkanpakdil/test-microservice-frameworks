@@ -33,7 +33,7 @@ jobs:
           mv test-result.md page/my_collections/_microservicetests/$DATE-microservice-framework-test-${{ matrix.java }}.markdown
           cd page/my_collections/_microservicetests/
           git add $DATE-microservice-framework-test-${{ matrix.java }}.markdown
-          ls -1tr | head -n -10 | xargs -d '\n' git rm -f --
+          # ls -1tr | head -n -10 | xargs -d '\n' git rm -f --
           # git add .
           git commit -m "Automatic publish from micro frameworks test"
           git pull --rebase
