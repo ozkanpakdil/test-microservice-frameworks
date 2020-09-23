@@ -2,13 +2,11 @@ package com.mascix.controller;
 
 import java.time.LocalDate;
 
-import javax.annotation.PostConstruct;
 import javax.ws.rs.core.Response;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 
-import io.micronaut.context.annotation.Value;
 import io.micronaut.http.annotation.Controller;
 import io.micronaut.http.annotation.Get;
 

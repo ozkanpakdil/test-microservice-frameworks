@@ -14,7 +14,6 @@ public class EclipsemicroprofilekumuluztestRestApplication extends Application {
     @Override
     public Set<Class<?>> getClasses() {
         try {
-
             Properties prop = new Properties();
             prop.load(EclipsemicroprofilekumuluztestRestApplication.class.getClassLoader()
                     .getResourceAsStream("application.properties"));

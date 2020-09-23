@@ -13,3 +13,5 @@ bin
 logs
 .idea
 *.iml
+test-result.md
+log.log
