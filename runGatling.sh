@@ -1,5 +1,5 @@
 #!/bin/bash
-# set -x
+set -x
 
 >test-result.md
 
