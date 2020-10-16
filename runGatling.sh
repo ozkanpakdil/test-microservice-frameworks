@@ -11,6 +11,12 @@ QU=$(grep quarkus.platform.version quarkus/pom.xml |grep -v "\\$"|grep -oPm1 "(?
 MICRO=$(grep parent micronaut/pom.xml -A1|grep -oPm1 "(?<=<version>)[^<]+")
 VERTX=$(grep vertx vertx/pom.xml|grep -oPm1 "(?<=<vertx.version>)[^<]+")
 
+sed -i "s/Spring boot:.*/Spring boot:$SB/g" README.md
+sed -i "s/Helidon:.*/Helidon:$HEL/g" README.md
+sed -i "s/Quarkus:.*/Quarkus:$QU/g" README.md
+sed -i "s/Micronaut:.*/Micronaut:$MICRO/g" README.md
+sed -i "s/Vertx:.*/Vertx:$VERTX/g" README.md
+
 echo "---
 layout: post
 title:  'Java microservice framework tests in SB:$SB Q:$QU M:$MICRO V:$VERTX H:$HEL $JAVA_VERSION'
