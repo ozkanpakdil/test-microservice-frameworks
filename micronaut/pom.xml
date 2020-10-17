@@ -16,7 +16,7 @@
     <release.version>11</release.version>
     <micronaut.version>2.0.1</micronaut.version>
     <exec.mainClass>com.mascix.Application</exec.mainClass>
-    <micronaut.jaxrs.version>1.0.1</micronaut.jaxrs.version>
+    <micronaut.jaxrs.version>1.0.2</micronaut.jaxrs.version>
   </properties>
 
   <repositories>
