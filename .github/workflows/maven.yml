@@ -38,5 +38,5 @@ jobs:
           git add README.md
           git commit -m "Automatic publish from micro frameworks test"
           git status
-          git pull --rebase
+          # git pull --rebase
           git push
