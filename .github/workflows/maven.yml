@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        java: [14]
+        java: [11, 14]
     steps:
       - uses: actions/checkout@v2
       - name: Set up JDK
@@ -24,7 +24,6 @@ jobs:
         run: ./runGatling.sh
       - name: Commit the test result
         run: |
-          set -x
           DATE=$(date +"%Y-%m-%d")
           git config --global user.email "action@github.com"
           git config --global user.name "GitHub Action"
@@ -33,10 +32,10 @@ jobs:
           # git config pull.rebase true
           mv test-result.md page/my_collections/_microservicetests/$DATE-microservice-framework-test-${{ matrix.java }}.markdown
           cd page/my_collections/_microservicetests/
-          # git add $DATE-microservice-framework-test-${{ matrix.java }}.markdown
+          git add $DATE-microservice-framework-test-${{ matrix.java }}.markdown
           # ls -1tr | head -n -10 | xargs -d '\n' git rm -f --
           cd ../../../
-          git add --all
+          git add README.md
           git commit -m "Automatic publish from micro frameworks test"
           git status
           # git pull --rebase
