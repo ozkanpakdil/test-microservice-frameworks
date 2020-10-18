@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        java: [11, 14, 15]
+        java: [11, 15]
     steps:
       - uses: actions/checkout@v2
       - name: Set up JDK
@@ -40,7 +40,7 @@ jobs:
           git push
           cd ../../../
           # git pull --rebase
-          if ! git diff-index --quiet HEAD --; then
+          if git status | grep -q modified; then
             git add README.md
             git commit -m "Automatic publish from micro frameworks test"
             git push &>/dev/null
