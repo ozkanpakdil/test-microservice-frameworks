@@ -40,6 +40,7 @@ jobs:
           git push
           cd ../../../
           # git pull --rebase
+          echo "checking if there is change in git index"
           if git status | grep -q modified; then
             git add README.md
             git commit -m "Automatic publish from micro frameworks test"
