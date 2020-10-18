@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        java: [11, 14]
+        java: [11, 14, 15]
     steps:
       - uses: actions/checkout@v2
       - name: Set up JDK
@@ -28,8 +28,9 @@ jobs:
           git config --global user.email "action@github.com"
           git config --global user.name "GitHub Action"
           rm -rf ozkanpakdil.github.io
+          rm -rf page
           git clone https://${{ secrets.TOKEN_GIT }}@github.com/ozkanpakdil/ozkanpakdil.github.io.git page
-          # git config pull.rebase true
+          git config pull.rebase true
           mv test-result.md page/my_collections/_microservicetests/$DATE-microservice-framework-test-${{ matrix.java }}.markdown
           cd page/my_collections/_microservicetests/
           git add $DATE-microservice-framework-test-${{ matrix.java }}.markdown
@@ -37,10 +38,7 @@ jobs:
           git commit -m "Automatic publish from micro frameworks test"
           git push
           cd ../../../
-          ls -ltr
-          pwd
           git add README.md
-          git status
           git commit -m "Automatic publish from micro frameworks test"
           # git pull --rebase
           git push &>/dev/null
