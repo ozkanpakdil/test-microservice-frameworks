@@ -35,6 +35,8 @@ jobs:
           git add $DATE-microservice-framework-test-${{ matrix.java }}.markdown
           # ls -1tr | head -n -10 | xargs -d '\n' git rm -f --
           cd ../../../
+          ls -ltr
+          pwd
           git add README.md
           git status
           git commit -m "Automatic publish from micro frameworks test"
