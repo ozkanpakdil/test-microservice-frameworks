@@ -41,4 +41,7 @@ jobs:
           git add README.md
           git commit -m "Automatic publish from micro frameworks test"
           # git pull --rebase
-          git push &>/dev/null
+          if ! git diff-index --quiet HEAD --; then
+            git push &>/dev/null
+          fi
+
