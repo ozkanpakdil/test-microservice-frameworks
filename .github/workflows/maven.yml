@@ -44,6 +44,6 @@ jobs:
           if git status | grep -q modified; then
             git add README.md
             git commit -m "Automatic publish from micro frameworks test"
-            git push &>/dev/null
+            git push 
           fi
 
