@@ -5,7 +5,7 @@ set -x
 
 JAVA_VERSION=$(java -version 2>&1 |grep version)
 DATE=$(date +"%Y-%m-%d %T")
-SB=$(grep spring-boot-starter-parent spring-boot/pom.xml -A1|grep REL|grep -oPm1 "(?<=<version>)[^<]+")
+SB=$(grep spring-boot-starter-parent spring-boot/pom.xml -A1|grep -oPm1 "(?<=<version>)[^<]+")
 HEL=$(grep helidon-se helidon-se-netty/pom.xml -A1|grep ver|grep -oPm1 "(?<=<version>)[^<]+")
 QU=$(grep quarkus.platform.version quarkus/pom.xml |grep -v "\\$"|grep -oPm1 "(?<=<quarkus.platform.version>)[^<]+")
 MICRO=$(grep parent micronaut/pom.xml -A1|grep -oPm1 "(?<=<version>)[^<]+")
