@@ -41,9 +41,11 @@ jobs:
           cd ../../../
           rm -rf page
           # git pull --rebase
-          if git status | grep -q modified; then
-            git add README.md
-            git commit -m "Automatic publish from micro frameworks test"
-            git push -f 
+          if git branch | grep -q master; then
+            if git status | grep -q modified; then
+              git add README.md
+              git commit -m "Automatic publish from micro frameworks test"
+              git push -f 
+            fi
           fi
 
