@@ -26,7 +26,7 @@ categories: java,fasterxml,json
 Here is total package generation times for separate modules,
 {% highlight bash %}
 " >> test-result.md
-mvn -T 1C test package|grep SUCCESS|grep -Ev "(framework|gatling)" >>test-result.md
+mvn -T 1C test package|grep SUCCESS|grep -Ev "(framework|gatling|BUILD)" >>test-result.md
 echo '{% endhighlight %}' >> test-result.md
 echo 'Size of created packages:
 
