@@ -3,6 +3,12 @@ set -x
 
 >test-result.md
 
+mvn clean package
+rc=$?
+if [ $rc -ne 0 ] ; then
+  echo Could not perform mvn clean package, exit code [$rc]; exit $rc
+fi
+
 JAVA_VERSION=$(java -version 2>&1 |grep version)
 DATE=$(date +"%Y-%m-%d %T")
 SB=$(grep spring-boot-starter-parent spring-boot/pom.xml -A1|grep -oPm1 "(?<=<version>)[^<]+")
