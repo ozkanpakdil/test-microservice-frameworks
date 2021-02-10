@@ -9,6 +9,14 @@ on:
       - master
 
 jobs:
+  auto-approve:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+    - uses: hmarr/auto-approve-action@v2.0.0
+      if: github.actor == 'dependabot[bot]' || github.actor == 'dependabot-preview[bot]'
+      with:
+        github-token: "${{ secrets.TOKEN_GIT }}"
   build:
     runs-on: ubuntu-latest
     timeout-minutes: 30
