@@ -9,6 +9,6 @@ latest versions
 Spring boot:2.4.2
 Helidon:2.2.1
 Quarkus:1.11.2.Final
-Micronaut:2.3.1
+Micronaut:2.3.2
 Vertx:4.0.2
 ```
