@@ -22,7 +22,7 @@ jobs:
     timeout-minutes: 30
     strategy:
       matrix:
-        java: [11, 15]
+        java: [11, 16]
     steps:
       - uses: actions/checkout@v2
       - name: Set up JDK
