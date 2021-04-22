@@ -1,5 +1,5 @@
 #!/bin/bash
-set -x
+# set -x
 
 >test-result.md
 
@@ -51,9 +51,14 @@ test (){
     
     JPID=$!
 
+    COUNTER=120
     until curl -sf http://localhost:8080/hello; do
         printf '.'
-        sleep 0.4
+        sleep 1
+        let COUNTER-=1
+        if [[ "$COUNTER" == '0' ]]; then
+          break
+        fi
     done
 
     frameworkVersion=`grep -m1 -o "$verInfo.*" log.log`
@@ -76,7 +81,7 @@ test "micronaut/target/micronaut-demo-0.1.jar" "micronaut version" "Startup comp
 test "vertx/target/vertx-demo-1.0.0-SNAPSHOT-fat.jar" "vertx version" "XXXXX"
 test "eclipse-microprofile-kumuluz-test/target/eclipse-microprofile-kumuluz-test-1.0-SNAPSHOT.jar" "kumuluz version:" "Server -- Started"
 test "helidon-se-netty/target/helidon-quickstart-se.jar" "Helidon SE" "XXXXX"
-test "ktor-demo/target/ktor-demo-1.0.1-SNAPSHOT-jar-with-dependencies.jar" "ktor" "XXXXX"
+# test "ktor-demo/target/ktor-demo-1.0.1-SNAPSHOT-jar-with-dependencies.jar" "ktor" "XXXXX"
 
 
 
