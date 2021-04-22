@@ -47,7 +47,7 @@ test (){
     jarPath=$1
     verInfo=$2
     startTime=$3
-    java -jar $jarPath > log.log & 
+    java --add-opens java.base/java.lang=ALL-UNNAMED -jar $jarPath > log.log & 
     
     JPID=$!
 
