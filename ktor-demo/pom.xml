@@ -97,7 +97,7 @@
         <dependency>
             <groupId>io.ktor</groupId>
             <artifactId>ktor-jackson</artifactId>
-            <version>1.5.3</version>
+            <version>1.5.4</version>
         </dependency>
         <dependency>
             <groupId>com.fasterxml.jackson.datatype</groupId>
