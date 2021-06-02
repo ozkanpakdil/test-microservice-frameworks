@@ -10,5 +10,5 @@ Spring boot:2.5.0
 Helidon:2.3.0
 Quarkus:1.13.6.Final
 Micronaut:2.5.4
-Vertx:4.0.3
+Vertx:4.1.0
 ```
