@@ -9,14 +9,29 @@ on:
       - master
 
 jobs:
-  auto-approve:
+  dependabot:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    if: ${{ github.actor == 'dependabot[bot]' }}
     steps:
-    - uses: hmarr/auto-approve-action@v2.0.0
-      if: github.actor == 'dependabot[bot]' || github.actor == 'dependabot-preview[bot]'
-      with:
-        github-token: "${{ secrets.TOKEN_GIT }}"
+      - name: Dependabot metadata
+        id: metadata
+        uses: dependabot/fetch-metadata@v1.1.0
+        with:
+          github-token: "${{ secrets.TOKEN_GIT }}"
+      - name: Enable auto-merge for Dependabot PRs
+        if: ${{contains(steps.metadata.outputs.dependency-names, 'my-dependency') && steps.metadata.outputs.update-type == 'version-update:semver-patch'}}
+        run: gh pr merge --auto --merge "$PR_URL"
+        env:
+          PR_URL: ${{github.event.pull_request.html_url}}
+          GITHUB_TOKEN: ${{secrets.TOKEN_GIT}}
+#   auto-approve:
+#     runs-on: ubuntu-latest
+#     timeout-minutes: 30
+#     steps:
+#     - uses: hmarr/auto-approve-action@v2.0.0
+#       if: github.actor == 'dependabot[bot]' || github.actor == 'dependabot-preview[bot]'
+#       with:
+#         github-token: "${{ secrets.TOKEN_GIT }}"
   build:
     runs-on: ubuntu-latest
     timeout-minutes: 30
