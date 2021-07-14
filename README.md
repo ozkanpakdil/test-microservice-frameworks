@@ -7,8 +7,8 @@ Find the results at https://ozkanpakdil.github.io/ on top right menu
 latest versions
 ```
 Spring boot:2.5.2
-Helidon:2.3.1
-Quarkus:2.0.1.Final
-Micronaut:2.5.7
+Helidon:2.3.2
+Quarkus:2.0.2.Final
+Micronaut:2.5.8
 Vertx:4.1.1
 ```
