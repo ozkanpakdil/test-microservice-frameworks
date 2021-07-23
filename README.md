@@ -6,7 +6,7 @@ Find the results at https://ozkanpakdil.github.io/ on top right menu
 
 latest versions
 ```
-Spring boot:2.5.2
+Spring boot:2.5.3
 Helidon:2.3.2
 Quarkus:2.0.3.Final
 Micronaut:2.5.9
