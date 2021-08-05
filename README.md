@@ -8,7 +8,7 @@ latest versions
 ```
 Spring boot:2.5.3
 Helidon:2.3.2
-Quarkus:2.1.0.Final
+Quarkus:2.1.1.Final
 Micronaut:2.5.11
 Vertx:4.1.2
 ```
