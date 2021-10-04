@@ -14,9 +14,9 @@
   <properties>
     <jdk.version>11</jdk.version>
     <release.version>11</release.version>
-    <micronaut.version>2.0.1</micronaut.version>
+    <micronaut.version>3.0.3</micronaut.version>
     <exec.mainClass>com.mascix.Application</exec.mainClass>
-    <micronaut.jaxrs.version>1.0.2</micronaut.jaxrs.version>
+    <micronaut.runtime>netty</micronaut.runtime>
   </properties>
 
   <repositories>
@@ -64,6 +64,11 @@
       <scope>compile</scope>
     </dependency>
     <dependency>
+      <groupId>io.micronaut.test</groupId>
+      <artifactId>micronaut-test-junit5</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
       <groupId>ch.qos.logback</groupId>
       <artifactId>logback-classic</artifactId>
       <scope>runtime</scope>
@@ -99,33 +104,15 @@
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-shade-plugin</artifactId>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-failsafe-plugin</artifactId>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
         <configuration>
           <!-- Uncomment to enable incremental compilation -->
           <!-- <useIncrementalCompilation>false</useIncrementalCompilation> -->
-          <annotationProcessorPaths>
+          <annotationProcessorPaths combine.children="append">
             <path>
               <groupId>io.micronaut</groupId>
-              <artifactId>micronaut-inject-java</artifactId>
+              <artifactId>micronaut-http-validation</artifactId>
               <version>${micronaut.version}</version>
-            </path>
-            <path>
-              <groupId>io.micronaut</groupId>
-              <artifactId>micronaut-validation</artifactId>
-              <version>${micronaut.version}</version>
-            </path>
-            <path>
-              <groupId>io.micronaut.jaxrs</groupId>
-              <artifactId>micronaut-jaxrs-processor</artifactId>
-              <version>${micronaut.jaxrs.version}</version>
             </path>
           </annotationProcessorPaths>
           <compilerArgs>
@@ -133,36 +120,7 @@
             <arg>-Amicronaut.processing.module=demo</arg>
           </compilerArgs>
         </configuration>
-        <executions>
-          <execution>
-            <id>test-compile</id>
-            <goals>
-              <goal>testCompile</goal>
-            </goals>
-            <configuration>
-              <annotationProcessorPaths>
-                <path>
-                  <groupId>io.micronaut</groupId>
-                  <artifactId>micronaut-inject-java</artifactId>
-                  <version>${micronaut.version}</version>
-                </path>
-                <path>
-                  <groupId>io.micronaut</groupId>
-                  <artifactId>micronaut-validation</artifactId>
-                  <version>${micronaut.version}</version>
-                </path>
-                <path>
-                  <groupId>io.micronaut.jaxrs</groupId>
-                  <artifactId>micronaut-jaxrs-processor</artifactId>
-                  <version>${micronaut.jaxrs.version}</version>
-                </path>
-              </annotationProcessorPaths>
-            </configuration>
-          </execution>
-        </executions>
       </plugin>
     </plugins>
   </build>
-
-
 </project>
