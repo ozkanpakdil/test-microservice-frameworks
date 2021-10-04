@@ -9,7 +9,7 @@
     <maven.compiler.target>11</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-    <kumuluzee.version>3.12.1</kumuluzee.version>
+    <kumuluzee.version>3.12.2</kumuluzee.version>
   </properties>
   <dependencyManagement>
     <dependencies>
