@@ -7,8 +7,8 @@
     <packaging>pom</packaging>
 
     <properties>
-        <gatling.version>3.6.1</gatling.version>
-        <gatling-maven-plugin.version>3.1.2</gatling-maven-plugin.version>
+        <gatling.version>3.7.1</gatling.version>
+        <gatling-maven-plugin.version>4.0.1</gatling-maven-plugin.version>
     </properties>
     <dependencies>
         <dependency>
