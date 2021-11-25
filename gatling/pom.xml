@@ -9,6 +9,7 @@
     <properties>
         <gatling.version>3.7.1</gatling.version>
         <gatling-maven-plugin.version>4.0.1</gatling-maven-plugin.version>
+        <scala-maven-plugin.version>4.4.1</scala-maven-plugin.version>
     </properties>
     <dependencies>
         <dependency>
@@ -33,6 +34,31 @@
 
     <build>
         <plugins>
+            <plugin>
+                <groupId>net.alchim31.maven</groupId>
+                <artifactId>scala-maven-plugin</artifactId>
+                <version>${scala-maven-plugin.version}</version>
+                <executions>
+                    <execution>
+                        <goals>
+                        <goal>testCompile</goal>
+                        </goals>
+                        <configuration>
+                        <jvmArgs>
+                            <jvmArg>-Xss100M</jvmArg>
+                        </jvmArgs>
+                        <args>
+                            <arg>-target:jvm-1.8</arg>
+                            <arg>-deprecation</arg>
+                            <arg>-feature</arg>
+                            <arg>-unchecked</arg>
+                            <arg>-language:implicitConversions</arg>
+                            <arg>-language:postfixOps</arg>
+                        </args>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
             <plugin>
                 <groupId>io.gatling</groupId>
                 <artifactId>gatling-maven-plugin</artifactId>
