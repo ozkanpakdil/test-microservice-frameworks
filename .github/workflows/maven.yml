@@ -46,7 +46,7 @@ jobs:
             if git status | grep -q modified; then
               git add README.md
               git commit -m "Automatic publish from micro frameworks test"
-              git push -f 
+              git push -f https://${{ secrets.TOKEN_GIT }}@github.com/ozkanpakdil/ozkanpakdil.github.io.git
             fi
           fi
 
