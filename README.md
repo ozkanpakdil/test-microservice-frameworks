@@ -1,8 +1,6 @@
 # test-microservice-frameworks
 
-[![Known Vulnerabilities](https://snyk.io/test/github/{username}/{repo}/badge.svg)]
-
-(https://snyk.io/test/github/{username}/{repo})
+[![Known Vulnerabilities](https://snyk.io/test/github/ozkanpakdil/test-microservice-frameworks/badge.svg)](https://snyk.io/test/github/ozkanpakdil/test-microservice-frameworks)
 
 Testing spring,micronaut,quarkus with sample json creator from gatling.
 
