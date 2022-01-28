@@ -3,7 +3,7 @@
 
 >test-result.md
 
-mvn clean package
+mvn -ntp clean package
 rc=$?
 if [ $rc -ne 0 ] ; then
   echo Could not perform mvn clean package, exit code [$rc]; exit $rc
@@ -32,7 +32,7 @@ categories: java,fasterxml,json
 Here is total package generation times for separate modules,
 {% highlight bash %}
 " >> test-result.md
-mvn -T 1C test package|grep SUCCESS|grep -Ev "(framework|gatling|BUILD)" >>test-result.md
+mvn -ntp -T 1C test package|grep SUCCESS|grep -Ev "(framework|gatling|BUILD)" >>test-result.md
 echo '{% endhighlight %}' >> test-result.md
 echo 'Size of created packages:
 
@@ -68,7 +68,7 @@ test (){
     printf "\nGatling test starting... for $jarPath"
     echo '
     {% highlight bash %}' >> test-result.md
-    mvn -f gatling/pom.xml gatling:test|grep -A10 "Global Information" >> test-result.md
+    mvn -ntp -f gatling/pom.xml gatling:test|grep -A10 "Global Information" >> test-result.md
     echo '{% endhighlight %}' >> test-result.md
     kill -9 $JPID
     printf '\n' >> test-result.md
