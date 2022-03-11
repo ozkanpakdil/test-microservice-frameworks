@@ -121,13 +121,13 @@ printf '***  \n' >> test-result.md
 printf '## Rust rest services \n' >> test-result.md
 rustc --version >> test-result.md
 
-git clone git@github.com:ozkanpakdil/rust-examples.git
+git clone https://github.com/ozkanpakdil/rust-examples.git
 rustTest "rust-examples/warp-rest-api" "warp ="
 rustTest "rust-examples/actix-rest-api" "actix-web ="
 
 rm -rf rust-examples
 BUILD_URL="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
-printf '[source code for the test](https://github.com/ozkanpakdil/test-microservice-frameworks)  ' >> test-result.md
+printf '[source code for the test](https://github.com/ozkanpakdil/test-microservice-frameworks)  | ' >> test-result.md
 printf "[github action]($BUILD_URL)  " >> test-result.md
 printf '\n***  \n' >> test-result.md
 
