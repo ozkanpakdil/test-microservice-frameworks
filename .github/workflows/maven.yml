@@ -17,6 +17,15 @@ jobs:
         java: [11, 17]
     steps:
       - uses: actions/checkout@v2
+      - uses: actions/cache@v2
+        with:
+          path: |
+            ~/.cargo/bin/
+            ~/.cargo/registry/index/
+            ~/.cargo/registry/cache/
+            ~/.cargo/git/db/
+            target/
+          key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
       - name: Set up JDK
         uses: actions/setup-java@v1
         with:
@@ -25,6 +34,8 @@ jobs:
         run: ./runGatling.sh
       - name: Commit the test result
         run: |
+          curl https://sh.rustup.rs -sSf | sh -s -- -y
+          source $HOME/.cargo/env
           set -x
           DATE=$(date +"%Y-%m-%d")
           git config --global user.email "action@github.com"
