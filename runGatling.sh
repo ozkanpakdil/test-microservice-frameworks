@@ -46,6 +46,7 @@ test (){
     jarPath=$1
     verInfo=$2
     startTime=$3
+    projectLink=$4
     java --add-opens java.base/java.lang=ALL-UNNAMED -jar $jarPath > log.log &
 
     JPID=$!
@@ -63,7 +64,8 @@ test (){
     frameworkVersion=`grep -m1 -o "$verInfo.*" log.log`
     startTime=`grep -m1 -o "$startTime.*" log.log`
 
-    echo $frameworkVersion $startTime >> test-result.md
+    echo "[${frameworkVersion}](${projectLink}) " >> test-result.md
+    echo $startTime >> test-result.md
     printf "\nGatling test starting... for $jarPath"
     echo '{% highlight bash %}' >> test-result.md
     mvn -ntp -f gatling/pom.xml gatling:test|grep -A10 "Global Information" >> test-result.md
@@ -108,18 +110,19 @@ rustTest (){
     rm somefile.log
 }
 
-test "spring-boot/target/springboot-demo-0.0.1-SNAPSHOT.jar" ":: Spring Boot ::" "Started DemoApplication"
-test "quarkus/target/quarkus-demo-1.0.0-SNAPSHOT-runner.jar" "powered by Quarkus" "WWWWW"
-test "micronaut/target/micronaut-demo-0.1.jar" "micronaut version" "Startup completed in"
-test "vertx/target/vertx-demo-1.0.0-SNAPSHOT-fat.jar" "vertx version" "XXXXX"
-test "eclipse-microprofile-kumuluz-test/target/eclipse-microprofile-kumuluz-test-1.0-SNAPSHOT.jar" "kumuluz version:" "Server -- Started"
-test "helidon-se-netty/target/helidon-quickstart-se.jar" "Helidon SE" "XXXXX"
+test "spring-boot/target/springboot-demo-0.0.1-SNAPSHOT.jar" ":: Spring Boot ::" "Started DemoApplication" "https://spring.io/projects/spring-boot"
+test "quarkus/target/quarkus-demo-1.0.0-SNAPSHOT-runner.jar" "powered by Quarkus" "WWWWW" "https://quarkus.io/"
+test "micronaut/target/micronaut-demo-0.1.jar" "micronaut version" "Startup completed in" "https://micronaut.io/"
+test "vertx/target/vertx-demo-1.0.0-SNAPSHOT-fat.jar" "vertx version" "XXXXX" "https://vertx.io/"
+test "eclipse-microprofile-kumuluz-test/target/eclipse-microprofile-kumuluz-test-1.0-SNAPSHOT.jar" "kumuluz version:" "Server -- Started" "https://ee.kumuluz.com/"
+test "helidon-se-netty/target/helidon-quickstart-se.jar" "Helidon SE" "XXXXX" "https://helidon.io/"
 
 # too slow test "ktor-demo/target/ktor-demo-1.0.1-SNAPSHOT-jar-with-dependencies.jar" "ktor" "XXXXX"
 
 printf '***  \n' >> test-result.md
 printf '## Rust rest services \n' >> test-result.md
 rustc --version >> test-result.md
+printf '\n\n' >> test-result.md
 
 git clone https://github.com/ozkanpakdil/rust-examples.git
 rustTest "rust-examples/warp-rest-api" "warp ="
@@ -128,6 +131,5 @@ rustTest "rust-examples/actix-rest-api" "actix-web ="
 rm -rf rust-examples
 BUILD_URL="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
 printf '[source code for the test](https://github.com/ozkanpakdil/test-microservice-frameworks)  | ' >> test-result.md
-printf "[github action]($BUILD_URL)  " >> test-result.md
-printf '\n***  \n' >> test-result.md
+printf "[github action]($BUILD_URL)  \n" >> test-result.md
 
