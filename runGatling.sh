@@ -130,6 +130,7 @@ rustTest "rust-examples/actix-rest-api" "actix-web ="
 
 rm -rf rust-examples
 BUILD_URL="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
-printf '[source code for the test](https://github.com/ozkanpakdil/test-microservice-frameworks)  | ' >> test-result.md
-printf "[github action]($BUILD_URL)  \n" >> test-result.md
+printf '[source code for the java tests](https://github.com/ozkanpakdil/test-microservice-frameworks)  :point_left: ' >> test-result.md
+printf '[source code for the rust tests](/rust-examples)  :point_left: ' >> test-result.md
+printf "[github action]($BUILD_URL)  :point_left: \n" >> test-result.md
 
