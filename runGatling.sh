@@ -92,6 +92,7 @@ rustTest (){
           break
         fi
     done
+    set -x
     frameworkVersion=`grep -m1 -o "$verInfo.*" Cargo.toml|tr -d '"'`
     link=`echo $frameworkVersion| cut -d' ' -f1`
     echo "[${frameworkVersion}](http://docs.rs/${link})" >&3
@@ -126,7 +127,7 @@ rustTest "rust-examples/actix-rest-api" "actix-web ="
 
 rm -rf rust-examples
 BUILD_URL="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
-printf '(source code for the test)[https://github.com/ozkanpakdil/test-microservice-frameworks]  ' >> test-result.md
-printf "(github action)[$BUILD_URL]  " >> test-result.md
-printf '***  \n' >> test-result.md
+printf '[source code for the test](https://github.com/ozkanpakdil/test-microservice-frameworks)  ' >> test-result.md
+printf "[github action]($BUILD_URL)  " >> test-result.md
+printf '\n***  \n' >> test-result.md
 
