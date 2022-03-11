@@ -94,10 +94,10 @@ rustTest (){
     done
     frameworkVersion=`grep -m1 -o "$verInfo.*" Cargo.toml|tr -d '"'`
     link=`echo $frameworkVersion| cut -d' ' -f1`
-    echo "[$frameworkVersion](http://docs.rs/$link)" >&3
+    echo "[${frameworkVersion}](http://docs.rs/${link})" >&3
     printf "\nGatling test starting... for $exePath"
     echo '{% highlight bash %}'>&3
-    mvn -ntp -f $retDir/gatling/pom.xml gatling:test -Dusers=2000 -Drepeat=4|grep -A10 "Global Information" >&3
+    mvn -ntp -f $retDir/gatling/pom.xml gatling:test -Dusers=2000 -Drepeat=3|grep -A10 "Global Information" >&3
     echo '{% endhighlight %}' >&3
     kill -9 $JPID
     printf '\n' >&3
@@ -117,7 +117,7 @@ test "helidon-se-netty/target/helidon-quickstart-se.jar" "Helidon SE" "XXXXX"
 # too slow test "ktor-demo/target/ktor-demo-1.0.1-SNAPSHOT-jar-with-dependencies.jar" "ktor" "XXXXX"
 
 printf '***  \n' >> test-result.md
-printf '## Rust rest services tests are below\n' >> test-result.md
+printf '## Rust rest services \n' >> test-result.md
 rustc --version >> test-result.md
 
 git clone git@github.com:ozkanpakdil/rust-examples.git
@@ -125,6 +125,8 @@ rustTest "rust-examples/warp-rest-api" "warp ="
 rustTest "rust-examples/actix-rest-api" "actix-web ="
 
 rm -rf rust-examples
-printf 'https://github.com/ozkanpakdil/test-microservice-frameworks  \n' >> test-result.md
+BUILD_URL="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+printf '(source code for the test)[https://github.com/ozkanpakdil/test-microservice-frameworks]  ' >> test-result.md
+printf "(github action)[$BUILD_URL]  " >> test-result.md
 printf '***  \n' >> test-result.md
 
