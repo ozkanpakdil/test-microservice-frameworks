@@ -28,7 +28,7 @@ layout: post
 title:  'Java microservice framework tests in SB:$SB Q:$QU M:$MICRO V:$VERTX H:$HEL $JAVA_VERSION'
 date:   $DATE
 categories: java,rust,fasterxml,json
---- 
+---
 Here is total package generation times for separate modules,
 {% highlight bash %}
 " >> test-result.md
@@ -97,7 +97,7 @@ rustTest (){
     echo "[$frameworkVersion](http://docs.rs/$link)" >&3
     printf "\nGatling test starting... for $exePath"
     echo '{% highlight bash %}'>&3
-    mvn -ntp -f $retDir/gatling/pom.xml gatling:test|grep -A10 "Global Information" >&3
+    mvn -ntp -f $retDir/gatling/pom.xml gatling:test -Dusers=2000 -Drepeat=4|grep -A10 "Global Information" >&3
     echo '{% endhighlight %}' >&3
     kill -9 $JPID
     printf '\n' >&3
@@ -125,4 +125,6 @@ rustTest "rust-examples/warp-rest-api" "warp ="
 rustTest "rust-examples/actix-rest-api" "actix-web ="
 
 rm -rf rust-examples
+printf 'https://github.com/ozkanpakdil/test-microservice-frameworks  \n' >> test-result.md
+printf '***  \n' >> test-result.md
 
