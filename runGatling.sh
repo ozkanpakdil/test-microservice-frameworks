@@ -68,7 +68,7 @@ test (){
     echo $startTime >> test-result.md
     printf "\nGatling test starting... for $jarPath"
     echo '{% highlight bash %}' >> test-result.md
-    mvn -ntp -f gatling/pom.xml gatling:test -Dusers=2000 -Drepeat=3|grep -A10 "Global Information" >> test-result.md
+    mvn -ntp -f gatling/pom.xml gatling:test -Dusers=2000 -Drepeat=2|grep -A10 "Global Information" >> test-result.md
     echo '{% endhighlight %}' >> test-result.md
     kill -9 $JPID
     printf '\n' >> test-result.md
@@ -100,7 +100,7 @@ rustTest (){
     echo "[${frameworkVersion}](http://docs.rs/${link})" >&3
     printf "\nGatling test starting... for $exePath"
     echo '{% highlight bash %}'>&3
-    mvn -ntp -f $retDir/gatling/pom.xml gatling:test -Dusers=2000 -Drepeat=3|grep -A10 "Global Information" >&3
+    mvn -ntp -f $retDir/gatling/pom.xml gatling:test -Dusers=2000 -Drepeat=2|grep -A10 "Global Information" >&3
     echo '{% endhighlight %}' >&3
     kill -9 $JPID
     printf '\n' >&3
