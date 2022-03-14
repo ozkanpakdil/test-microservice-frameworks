@@ -1,3 +1,4 @@
+obj/
 target
 ideatarget
 .target
@@ -15,3 +16,4 @@ logs
 *.iml
 test-result.md
 log.log
+.vscode
