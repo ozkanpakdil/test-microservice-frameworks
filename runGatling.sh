@@ -150,6 +150,7 @@ kill -9 $DOTNETTEST
 printf '\n\n' >> test-result.md
 ##### DOTNET
 ##### graalvm
+set -x
 ./quarkus/target/quarkus-demo-1.0.0-SNAPSHOT-runner &
 EXETEST=$!
 rc=$?
