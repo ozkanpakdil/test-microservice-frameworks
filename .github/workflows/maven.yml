@@ -20,6 +20,7 @@ jobs:
       - uses: graalvm/setup-graalvm@v1
         with:
           version: 'latest'
+          java-version: '17'
       - uses: actions/setup-dotnet@v2
         with:
           dotnet-version: '6.0.x'
