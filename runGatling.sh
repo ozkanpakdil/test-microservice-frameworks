@@ -2,7 +2,8 @@
 set -x
 
 > test-result.md
-mvn -ntp clean package
+mvn clean -X
+mvn -ntp package
 mvn -ntp package -Pnative -Dpackaging=native-image -DskipTests
 rc=$?
 if [ $rc -ne 0 ] ; then
