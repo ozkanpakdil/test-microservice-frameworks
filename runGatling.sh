@@ -3,7 +3,7 @@
 
 > test-result.md
 
-mvn -ntp clean package -Pnative
+mvn -ntp clean package -Pnative -Dpackaging=native-image
 rc=$?
 if [ $rc -ne 0 ] ; then
   echo Could not perform mvn clean package, exit code [$rc]; exit $rc
@@ -149,6 +149,39 @@ echo '{% endhighlight %}' >> test-result.md
 kill -9 $DOTNETTEST
 printf '\n\n' >> test-result.md
 ##### DOTNET
+##### graalvm
+./quarkus/target/quarkus-demo-1.0.0-SNAPSHOT-runner &
+EXETEST=$!
+rc=$?
+if [ $rc -ne 0 ] ; then
+  echo Could not start quarkus native [$rc]; exit $rc
+fi
+sleep 5
+
+printf '***  \n' >> test-result.md
+printf '## graalvm native quarkus rest service \n' >> test-result.md
+echo '{% highlight bash %}' >> test-result.md
+mvn -ntp -f ./gatling/pom.xml gatling:test -Dusers=2000 -Drepeat=2|grep -A10 "Global Information" >> test-result.md
+echo '{% endhighlight %}' >> test-result.md
+kill -9 $EXETEST
+printf '\n\n' >> test-result.md
+
+./micronaut/target/micronaut-demo &
+EXETEST=$!
+rc=$?
+if [ $rc -ne 0 ] ; then
+  echo Could not start micronaut native [$rc]; exit $rc
+fi
+sleep 5
+
+printf '## graalvm native micronaut rest service \n' >> test-result.md
+echo '{% highlight bash %}' >> test-result.md
+mvn -ntp -f ./gatling/pom.xml gatling:test -Dusers=2000 -Drepeat=2|grep -A10 "Global Information" >> test-result.md
+echo '{% endhighlight %}' >> test-result.md
+kill -9 $EXETEST
+printf '\n\n' >> test-result.md
+
+##### graalvm
 
 BUILD_URL="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
 printf '[source code for the java and dotnet tests](https://github.com/ozkanpakdil/test-microservice-frameworks)  :point_left: ' >> test-result.md
