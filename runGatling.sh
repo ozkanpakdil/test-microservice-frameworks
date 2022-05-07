@@ -3,7 +3,8 @@
 
 > test-result.md
 
-mvn -ntp clean package -Pnative -Dpackaging=native-image
+mvn -ntp clean package
+mvn -ntp clean package -Pnative -Dpackaging=native-image -DskipTests
 rc=$?
 if [ $rc -ne 0 ] ; then
   echo Could not perform mvn clean package, exit code [$rc]; exit $rc
