@@ -1,8 +1,7 @@
 #!/bin/bash
 
 > test-result.md
-mvn clean
-mvn -ntp package -Pnative -Dpackaging=native-image -DskipTests
+mvn -ntp clean package -Pnative -Dpackaging=native-image -DskipTests
 mvn -ntp package
 rc=$?
 if [ $rc -ne 0 ] ; then
