@@ -129,8 +129,27 @@ rustTest "rust-examples/warp-rest-api" "warp ="
 rustTest "rust-examples/actix-rest-api" "actix-web ="
 
 rm -rf rust-examples
+
+##### DOTNET
+dotnet build --configuration Release Dotnet6Microservice/
+./Dotnet6Microservice/bin/Release/net6.0/Dotnet6Microservice &
+DOTNETTEST=$!
+rc=$?
+if [ $rc -ne 0 ] ; then
+  echo Could not start Dotnet6Microservice [$rc]; exit $rc
+fi
+sleep 5
+
+printf '***  \n' >> test-result.md
+printf '## Dotnet 6 rest service \n' >> test-result.md
+echo '{% highlight bash %}' >> test-result.md
+mvn -ntp -f ./gatling/pom.xml gatling:test -Dusers=2000 -Drepeat=2|grep -A10 "Global Information" >> test-result.md
+echo '{% endhighlight %}' >> test-result.md
+kill -9 $DOTNETTEST
+printf '\n\n' >> test-result.md
+##### DOTNET
+
 BUILD_URL="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
 printf '[source code for the java tests](https://github.com/ozkanpakdil/test-microservice-frameworks)  :point_left: ' >> test-result.md
 printf '[source code for the rust tests](https://github.com/ozkanpakdil/rust-examples)  :point_left: ' >> test-result.md
 printf "[github action]($BUILD_URL)  :point_left: \n" >> test-result.md
-
