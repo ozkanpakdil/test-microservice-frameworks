@@ -10,6 +10,7 @@ if [ $rc -ne 0 ] ; then
 fi
 
 JAVA_VERSION=$(java -version 2>&1 |grep version)
+RUST_VERSION=$(rustc --version)
 DATE=$(date +"%Y-%m-%d %T")
 SB=$(grep spring-boot-starter-parent spring-boot/pom.xml -A1|grep -oPm1 "(?<=<version>)[^<]+")
 HEL=$(grep helidon-se helidon-se-netty/pom.xml -A1|grep ver|grep -oPm1 "(?<=<version>)[^<]+")
@@ -25,7 +26,7 @@ sed -i "s/Vertx:.*/Vertx:$VERTX/g" README.md
 
 echo "---
 layout: post
-title:  'Java microservice framework tests in SB:$SB Q:$QU M:$MICRO V:$VERTX H:$HEL $JAVA_VERSION'
+title:  'Java microservice framework tests in SB:$SB Q:$QU M:$MICRO V:$VERTX H:$HEL Dotnet:6 $JAVA_VERSION $RUST_VERSION'
 date:   $DATE
 categories: java,rust,fasterxml,json
 ---
@@ -121,7 +122,7 @@ test "helidon-se-netty/target/helidon-quickstart-se.jar" "Helidon SE" "XXXXX" "h
 
 printf '***  \n' >> test-result.md
 printf '## Rust rest services \n' >> test-result.md
-rustc --version >> test-result.md
+$RUST_VERSION >> test-result.md
 printf '\n\n' >> test-result.md
 
 git clone https://github.com/ozkanpakdil/rust-examples.git
