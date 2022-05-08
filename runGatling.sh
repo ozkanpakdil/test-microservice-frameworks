@@ -125,6 +125,11 @@ $RUST_VERSION >> test-result.md
 printf '\n\n' >> test-result.md
 
 git clone https://github.com/ozkanpakdil/rust-examples.git
+cd rust-examples/warp-rest-api
+cargo build
+cd ../actix-rest-api/
+cargo build
+cd ../../
 rustTest "rust-examples/warp-rest-api" "warp ="
 rustTest "rust-examples/actix-rest-api" "actix-web ="
 
@@ -144,7 +149,7 @@ sleep 5
 printf '***  \n' >> ../test-result.md
 printf '## Dotnet 6 rest service \n' >> ../test-result.md
 echo '{% highlight bash %}' >> ../test-result.md
-mvn -ntp -f ./gatling/pom.xml gatling:test -Dusers=2000 -Drepeat=2|grep -A10 "Global Information" >> ../test-result.md
+mvn -ntp -f ../gatling/pom.xml gatling:test -Dusers=2000 -Drepeat=2|grep -A10 "Global Information" >> ../test-result.md
 echo '{% endhighlight %}' >> ../test-result.md
 printf '\n\n' >> ../test-result.md
 kill -9 $DOTNETTEST
@@ -160,7 +165,6 @@ rc=$?
 if [ $rc -ne 0 ] ; then
   echo Could not start quarkus native [$rc]; exit $rc
 fi
-sleep 5
 
 printf '***  \n' >> test-result.md
 printf '## graalvm native quarkus rest service \n' >> test-result.md
@@ -176,7 +180,6 @@ rc=$?
 if [ $rc -ne 0 ] ; then
   echo Could not start micronaut native [$rc]; exit $rc
 fi
-sleep 5
 
 printf '## graalvm native micronaut rest service \n' >> test-result.md
 echo '{% highlight bash %}' >> test-result.md
