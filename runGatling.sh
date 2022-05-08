@@ -1,10 +1,8 @@
 #!/bin/bash
-set -x
 
 > test-result.md
-mvn clean -X
-mvn -ntp package
-mvn -ntp package -Pnative -Dpackaging=native-image -DskipTests
+mvn -ntp clean package
+
 rc=$?
 if [ $rc -ne 0 ] ; then
   echo Could not perform mvn clean package, exit code [$rc]; exit $rc
@@ -150,7 +148,9 @@ echo '{% endhighlight %}' >> test-result.md
 kill -9 $DOTNETTEST
 printf '\n\n' >> test-result.md
 ##### DOTNET
+
 ##### graalvm
+mvn -ntp package -Pnative -Dpackaging=native-image -DskipTests
 set -x
 ./quarkus/target/quarkus-demo-1.0.0-SNAPSHOT-runner &
 EXETEST=$!
