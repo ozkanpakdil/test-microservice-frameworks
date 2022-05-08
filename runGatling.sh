@@ -141,13 +141,13 @@ if [ $rc -ne 0 ] ; then
 fi
 sleep 5
 
-printf '***  \n' >> test-result.md
-printf '## Dotnet 6 rest service \n' >> test-result.md
-echo '{% highlight bash %}' >> test-result.md
-mvn -ntp -f ./gatling/pom.xml gatling:test -Dusers=2000 -Drepeat=2|grep -A10 "Global Information" >> test-result.md
-echo '{% endhighlight %}' >> test-result.md
+printf '***  \n' >> ../test-result.md
+printf '## Dotnet 6 rest service \n' >> ../test-result.md
+echo '{% highlight bash %}' >> ../test-result.md
+mvn -ntp -f ./gatling/pom.xml gatling:test -Dusers=2000 -Drepeat=2|grep -A10 "Global Information" >> ../test-result.md
+echo '{% endhighlight %}' >> ../test-result.md
+printf '\n\n' >> ../test-result.md
 kill -9 $DOTNETTEST
-printf '\n\n' >> test-result.md
 cd ..
 ##### DOTNET
 
