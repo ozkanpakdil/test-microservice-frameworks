@@ -132,7 +132,8 @@ rm -rf rust-examples
 
 ##### DOTNET
 dotnet build --configuration Release Dotnet6Microservice/
-./Dotnet6Microservice/bin/Release/net6.0/Dotnet6Microservice &
+cd Dotnet6Microservice
+./bin/Release/net6.0/Dotnet6Microservice &
 DOTNETTEST=$!
 rc=$?
 if [ $rc -ne 0 ] ; then
@@ -147,6 +148,7 @@ mvn -ntp -f ./gatling/pom.xml gatling:test -Dusers=2000 -Drepeat=2|grep -A10 "Gl
 echo '{% endhighlight %}' >> test-result.md
 kill -9 $DOTNETTEST
 printf '\n\n' >> test-result.md
+cd ..
 ##### DOTNET
 
 ##### graalvm
