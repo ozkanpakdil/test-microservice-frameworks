@@ -7,7 +7,7 @@ import javax.ws.rs.core.Response;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 
-import io.micronaut.core.annotation.Introspected;
+import io.micronaut.core.annotation.ReflectiveAccess;
 import io.micronaut.http.annotation.Controller;
 import io.micronaut.http.annotation.Get;
 
@@ -19,7 +19,7 @@ public class GreetController {
     }
 }
 
-@Introspected
+@ReflectiveAccess
 @JsonAutoDetect(fieldVisibility = Visibility.ANY)
 class ApplicationInfo {
     public ApplicationInfo(String string, int year) {
