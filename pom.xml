@@ -12,7 +12,8 @@
         <!-- <module>ktor-demo</module> failing compile -->
         <module>micronaut</module>
         <module>quarkus</module>
-        <module>spring-boot</module>
+        <module>spring-boot-webflux</module>
+        <module>spring-boot-web</module>
         <module>vertx</module>
         <module>gatling</module>
     </modules>

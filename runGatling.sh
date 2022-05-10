@@ -11,7 +11,7 @@ fi
 JAVA_VERSION=$(java -version 2>&1 |grep version)
 RUST_VERSION=$(rustc --version)
 DATE=$(date +"%Y-%m-%d %T")
-SB=$(grep spring-boot-starter-parent spring-boot/pom.xml -A1|grep -oPm1 "(?<=<version>)[^<]+")
+SB=$(grep spring-boot-starter-parent spring-boot-web/pom.xml -A1|grep -oPm1 "(?<=<version>)[^<]+")
 HEL=$(grep helidon-se helidon-se-netty/pom.xml -A1|grep ver|grep -oPm1 "(?<=<version>)[^<]+")
 QU=$(grep quarkus.platform.version quarkus/pom.xml |grep -v "\\$"|grep -oPm1 "(?<=<quarkus.platform.version>)[^<]+")
 MICRO=$(grep parent micronaut/pom.xml -A1|grep -oPm1 "(?<=<version>)[^<]+")
@@ -110,7 +110,8 @@ rustTest (){
     rm somefile.log
 }
 
-test "spring-boot/target/springboot-demo-0.0.1-SNAPSHOT.jar" ":: Spring Boot ::" "Started DemoApplication" "https://spring.io/projects/spring-boot"
+test "spring-boot-webflux/target/springboot-demo-0.0.1-SNAPSHOT.jar" ":: Spring Boot ::" "Started DemoApplication" "https://spring.io/projects/spring-boot"
+test "spring-boot-web/target/springboot-demo-web-0.0.1-SNAPSHOT.jar" ":: Spring Boot ::" "Started DemoApplication" "https://spring.io/projects/spring-boot"
 test "quarkus/target/quarkus-demo-1.0.0-SNAPSHOT-runner.jar" "powered by Quarkus" "WWWWW" "https://quarkus.io/"
 test "micronaut/target/micronaut-demo-0.1.jar" "micronaut version" "Startup completed in" "https://micronaut.io/"
 test "vertx/target/vertx-demo-1.0.0-SNAPSHOT-fat.jar" "vertx version" "XXXXX" "https://vertx.io/"
@@ -182,6 +183,34 @@ if [ $rc -ne 0 ] ; then
 fi
 
 printf '## graalvm native micronaut rest service \n' >> test-result.md
+echo '{% highlight bash %}' >> test-result.md
+mvn -ntp -f ./gatling/pom.xml gatling:test -Dusers=2000 -Drepeat=2|grep -A10 "Global Information" >> test-result.md
+echo '{% endhighlight %}' >> test-result.md
+kill -9 $EXETEST
+printf '\n\n' >> test-result.md
+
+./spring-boot-web/target/springboot-demo-web &
+EXETEST=$!
+rc=$?
+if [ $rc -ne 0 ] ; then
+  echo Could not start spring-boot-web native [$rc]; exit $rc
+fi
+
+printf '## graalvm native spring-boot-web rest service \n' >> test-result.md
+echo '{% highlight bash %}' >> test-result.md
+mvn -ntp -f ./gatling/pom.xml gatling:test -Dusers=2000 -Drepeat=2|grep -A10 "Global Information" >> test-result.md
+echo '{% endhighlight %}' >> test-result.md
+kill -9 $EXETEST
+printf '\n\n' >> test-result.md
+
+./spring-boot-webflux/target/springboot-demo &
+EXETEST=$!
+rc=$?
+if [ $rc -ne 0 ] ; then
+  echo Could not start spring-boot-webflux native [$rc]; exit $rc
+fi
+
+printf '## graalvm native spring-boot-webflux rest service \n' >> test-result.md
 echo '{% highlight bash %}' >> test-result.md
 mvn -ntp -f ./gatling/pom.xml gatling:test -Dusers=2000 -Drepeat=2|grep -A10 "Global Information" >> test-result.md
 echo '{% endhighlight %}' >> test-result.md
