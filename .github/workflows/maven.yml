@@ -41,6 +41,7 @@ jobs:
         with:
           java-version: ${{ matrix.java }}
           cache: 'maven'
+          distribution: 'temurin'
       - name: Run jars and get test results
         run: ./runGatling.sh
       - name: Commit the test result
