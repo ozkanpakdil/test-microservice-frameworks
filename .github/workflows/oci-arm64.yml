@@ -26,7 +26,7 @@ jobs:
         with:
           dotnet-version: '6.0.x'
         env:
-          DOTNET_INSTALL_DIR: '/tmp/'
+          DOTNET_INSTALL_DIR: '/actions-runner/_work/_temp/'
       - uses: actions/cache@v2
         with:
           path: |
@@ -45,9 +45,7 @@ jobs:
           architecture: aarch64
       - name: Setup maven for OCI
         run: |
-          set
-          env
-          exit 1
+          export HOME=$RUNNER_TEMP
           mvn_version=${mvn_version:-3.8.5}
           url="http://www.mirrorservice.org/sites/ftp.apache.org/maven/maven-3/${mvn_version}/binaries/apache-maven-${mvn_version}-bin.tar.gz"
           install_dir="/opt/maven"
@@ -69,12 +67,13 @@ jobs:
           source /etc/profile.d/maven.sh
           echo maven installed to ${install_dir}
           mvn --version
-          
+                    
+      - name: Run jars and get test results
+        run: |
+          source /etc/profile.d/maven.sh
           curl https://sh.rustup.rs -sSf | sh -s -- -y
           source $HOME/.cargo/env
-          
-      - name: Run jars and get test results
-        run: source /etc/profile.d/maven.sh;./runGatling.sh
+          ./runGatling.sh
       - name: Commit the test result
         run: |
           set -x
@@ -93,12 +92,3 @@ jobs:
           git push
           cd ../../../
           rm -rf page
-          # git pull --rebase
-          #if git branch | grep -q master; then
-          #  if git status | grep -q modified; then
-          #    git add README.md
-          #    git commit -m "Automatic publish from micro frameworks test"
-          #    git push -f 
-          #  fi
-          #fi
-
