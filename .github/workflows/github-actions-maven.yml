@@ -1,0 +1,64 @@
+name: Java CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches-ignore: 
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    strategy:
+      matrix:
+        java: [11, 17]
+    steps:
+      - uses: actions/checkout@v2
+      - uses: graalvm/setup-graalvm@v1
+        with:
+          version: 'latest'
+          java-version: '17'
+      - uses: actions/setup-dotnet@v2
+        with:
+          dotnet-version: '6.0.x'
+      - uses: actions/cache@v2
+        with:
+          path: |
+            ~/.cargo/bin/
+            ~/.cargo/registry/index/
+            ~/.cargo/registry/cache/
+            ~/.cargo/git/db/
+            target/
+          key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
+      - name: Set up JDK
+        uses: actions/setup-java@v3
+        with:
+          java-version: ${{ matrix.java }}
+          cache: 'maven'
+          distribution: 'temurin'          
+      - name: Run jars and get test results
+        run: ./runGatling.sh
+      - name: Commit the test result
+        run: |
+          curl https://sh.rustup.rs -sSf | sh -s -- -y
+          source $HOME/.cargo/env
+          set -x
+          DATE=$(date +"%Y-%m-%d")
+          git config --global user.email "action@github.com"
+          git config --global user.name "GitHub Action"
+          rm -rf ozkanpakdil.github.io
+          rm -rf page
+          git clone https://${{ secrets.TOKEN_GIT }}@github.com/ozkanpakdil/ozkanpakdil.github.io.git page
+          git config pull.rebase true
+          mv test-result.md page/my_collections/_microservicetests/$DATE-microservice-framework-test-${{ matrix.java }}.markdown
+          cd page/my_collections/_microservicetests/
+          git add $DATE-microservice-framework-test-${{ matrix.java }}.markdown
+          # ls -1tr | head -n -10 | xargs -d '\n' git rm -f --
+          git commit -m "Automatic publish from micro frameworks test"
+          git push
+          cd ../../../
+          rm -rf page
+
