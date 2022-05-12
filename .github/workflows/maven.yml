@@ -42,6 +42,8 @@ jobs:
           java-version: ${{ matrix.java }}
           cache: 'maven'
           distribution: 'temurin'
+      - name: Setup maven
+        run: sudo yum install maven
       - name: Run jars and get test results
         run: ./runGatling.sh
       - name: Commit the test result
