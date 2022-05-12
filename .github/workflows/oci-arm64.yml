@@ -1,4 +1,4 @@
-name: Java CI
+name: Oracle Cloud OCI Java CI
 
 on:
   push:
