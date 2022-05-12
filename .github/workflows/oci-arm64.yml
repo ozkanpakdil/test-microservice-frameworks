@@ -45,7 +45,9 @@ jobs:
           architecture: aarch64
       - name: Setup maven for OCI
         run: |
-          sudo yum -y remove maven
+          set
+          env
+          exit 1
           mvn_version=${mvn_version:-3.8.5}
           url="http://www.mirrorservice.org/sites/ftp.apache.org/maven/maven-3/${mvn_version}/binaries/apache-maven-${mvn_version}-bin.tar.gz"
           install_dir="/opt/maven"
