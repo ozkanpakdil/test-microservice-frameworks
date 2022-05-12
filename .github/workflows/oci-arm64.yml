@@ -75,6 +75,7 @@ jobs:
           ./runGatling.sh
       - name: Commit the test result
         run: |
+          export HOME=/actions-runner/_work/_temp/
           set -x
           DATE=$(date +"%Y-%m-%d")
           git config --global user.email "action@github.com"
