@@ -25,7 +25,8 @@ jobs:
       - uses: actions/setup-dotnet@v2
         with:
           dotnet-version: '6.0.x'
-          DOTNET_INSTALL_DIR: /tmp/
+        env:
+          DOTNET_INSTALL_DIR: '/tmp/'
       - uses: actions/cache@v2
         with:
           path: |
