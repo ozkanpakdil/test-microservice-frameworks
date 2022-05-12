@@ -42,7 +42,7 @@ jobs:
           java-version: ${{ matrix.java }}
           cache: 'maven'
           distribution: 'temurin'
-          architecture: ARM64
+          architecture: aarch64
       - name: Setup maven for OCI
         run: sudo yum -y install maven
       - name: Run jars and get test results
