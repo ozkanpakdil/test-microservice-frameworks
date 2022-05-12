@@ -36,12 +36,12 @@ jobs:
             ~/.cargo/git/db/
             target/
           key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
-#       - name: Set up JDK
-#         uses: actions/setup-java@v3
-#         with:
-#           java-version: ${{ matrix.java }}
-#           cache: 'maven'
-#           distribution: 'temurin'
+      - name: Set up JDK
+        uses: actions/setup-java@v3
+        with:
+          java-version: ${{ matrix.java }}
+          cache: 'maven'
+          distribution: 'temurin'
       - name: Setup maven for OCI
         run: sudo yum -y install maven
       - name: Run jars and get test results
