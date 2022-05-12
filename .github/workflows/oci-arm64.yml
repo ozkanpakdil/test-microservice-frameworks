@@ -67,13 +67,14 @@ jobs:
           source /etc/profile.d/maven.sh
           echo maven installed to ${install_dir}
           mvn --version
-
+          
+          curl https://sh.rustup.rs -sSf | sh -s -- -y
+          source $HOME/.cargo/env
+          
       - name: Run jars and get test results
         run: source /etc/profile.d/maven.sh;./runGatling.sh
       - name: Commit the test result
         run: |
-          curl https://sh.rustup.rs -sSf | sh -s -- -y
-          source $HOME/.cargo/env
           set -x
           DATE=$(date +"%Y-%m-%d")
           git config --global user.email "action@github.com"
