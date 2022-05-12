@@ -54,13 +54,13 @@ jobs:
             mkdir ${install_dir}
             curl -fsSL ${url} | tar zx --strip-components=1 -C ${install_dir}
 
-            cat << EOF > /etc/profile.d/maven.sh
-            #!/bin/sh
-            export MAVEN_HOME=${install_dir}
-            export M2_HOME=${install_dir}
-            export M2=${install_dir}/bin
-            export PATH=${install_dir}/bin:$PATH
-            EOF
+          cat << EOF > /etc/profile.d/maven.sh
+          #!/bin/sh
+          export MAVEN_HOME=${install_dir}
+          export M2_HOME=${install_dir}
+          export M2=${install_dir}/bin
+          export PATH=${install_dir}/bin:$PATH
+          EOF
             echo maven installed to ${install_dir}
           fi
           source /etc/profile.d/maven.sh
