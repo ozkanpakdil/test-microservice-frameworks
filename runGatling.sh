@@ -23,13 +23,15 @@ sed -i "s/Quarkus:.*/Quarkus:$QU/g" README.md
 sed -i "s/Micronaut:.*/Micronaut:$MICRO/g" README.md
 sed -i "s/Vertx:.*/Vertx:$VERTX/g" README.md
 
+OS_NAME=$(uname -a)
+
 echo "---
 layout: post
 title:  'Java microservice framework tests in SB:$SB Q:$QU M:$MICRO V:$VERTX H:$HEL Dotnet:6 $JAVA_VERSION $RUST_VERSION'
 date:   $DATE
-categories: java,rust,fasterxml,json
+categories: java,rust,fasterxml,json,$OS_NAME
 ---
-Here is total package generation times for separate modules,
+In $OS_NAME, Here is total package generation times for separate modules,
 {% highlight bash %}
 " >> test-result.md
 mvn -ntp -T 4C test package|grep SUCCESS|grep -Ev "(framework|gatling|BUILD)" >>test-result.md
