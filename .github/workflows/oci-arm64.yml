@@ -65,7 +65,9 @@ jobs:
             echo maven installed to ${install_dir}
           fi
           source /etc/profile.d/maven.sh
+          set -x
           mvn --version
+          java -version
 
       - name: Run jars and get test results
         run: |
