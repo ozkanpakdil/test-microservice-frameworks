@@ -1,0 +1,96 @@
+name: Oracle Cloud OCI Java CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches-ignore: 
+      - main
+
+jobs:
+  build:
+    runs-on: self-hosted
+    timeout-minutes: 60
+    strategy:
+      matrix:
+        java: [17]
+    steps:
+      - name: clean git
+        run: sudo yum -y remove git
+      - uses: actions/checkout@v2
+      - uses: graalvm/setup-graalvm@v1
+        with:
+          version: 'latest'
+          java-version: '17'
+      - uses: actions/setup-dotnet@v2
+        with:
+          dotnet-version: '6.0.x'
+        env:
+          DOTNET_INSTALL_DIR: '/actions-runner/_work/_temp/'
+      - uses: actions/cache@v2
+        with:
+          path: |
+            ~/.cargo/bin/
+            ~/.cargo/registry/index/
+            ~/.cargo/registry/cache/
+            ~/.cargo/git/db/
+            target/
+          key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
+      - name: Set up JDK
+        uses: actions/setup-java@v3
+        with:
+          java-version: ${{ matrix.java }}
+          cache: 'maven'
+          distribution: 'temurin'
+          architecture: aarch64
+      - name: Setup maven for OCI
+        run: |
+          sudo yum -y install git 
+          mvn_version=${mvn_version:-3.8.5}
+          url="http://www.mirrorservice.org/sites/ftp.apache.org/maven/maven-3/${mvn_version}/binaries/apache-maven-${mvn_version}-bin.tar.gz"
+          install_dir="/opt/maven"
+
+          if [ ! -d ${install_dir} ]; then
+            mkdir ${install_dir}
+            curl -fsSL ${url} | tar zx --strip-components=1 -C ${install_dir}
+
+          cat << EOF > /etc/profile.d/maven.sh
+          #!/bin/sh
+          export MAVEN_HOME=${install_dir}
+          export M2_HOME=${install_dir}
+          export M2=${install_dir}/bin
+          export PATH=${install_dir}/bin:$PATH
+          EOF
+            echo maven installed to ${install_dir}
+          fi
+          source /etc/profile.d/maven.sh
+          set -x
+          mvn --version
+          java -version
+
+      - name: Run jars and get test results
+        run: |
+          export HOME=/actions-runner/_work/_temp/
+          source /etc/profile.d/maven.sh
+          curl https://sh.rustup.rs -sSf | sh -s -- -y
+          source $HOME/.cargo/env
+          ./runGatling.sh
+      - name: Commit the test result
+        run: |
+          export HOME=/actions-runner/_work/_temp/
+          set -x
+          DATE=$(date +"%Y-%m-%d")
+          git config --global user.email "action@github.com"
+          git config --global user.name "GitHub Action"
+          rm -rf ozkanpakdil.github.io
+          rm -rf page
+          git clone https://${{ secrets.TOKEN_GIT }}@github.com/ozkanpakdil/ozkanpakdil.github.io.git page
+          mv test-result.md page/my_collections/_microservicetests/OCI-ARM-$DATE-microservice-framework-test-${{ matrix.java }}.markdown
+          cd page/my_collections/_microservicetests/
+          git config pull.rebase true
+          git add OCI-ARM-$DATE-microservice-framework-test-${{ matrix.java }}.markdown
+          git commit -m "Automatic publish from micro frameworks test"
+          git push
+          cd ../../../
+          rm -rf page
