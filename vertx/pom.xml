@@ -14,7 +14,7 @@
     <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
     <exec-maven-plugin.version>3.0.0</exec-maven-plugin.version>
 
-    <vertx.version>4.2.7</vertx.version>
+    <vertx.version>4.3.0</vertx.version>
     <junit-jupiter.version>5.8.2</junit-jupiter.version>
 
     <main.verticle>com.mascix.vertx_test.MainVerticle</main.verticle>
@@ -142,5 +142,35 @@
     </plugins>
   </build>
 
+  <profiles>
+    <profile>
+      <id>native</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.graalvm.buildtools</groupId>
+            <artifactId>native-maven-plugin</artifactId>
+            <version>0.9.11</version>
+            <extensions>true</extensions>
+            <executions>
+              <execution>
+                <id>build-native</id>
+                <goals>
+                  <goal>build</goal>
+                </goals>
+                <phase>package</phase>
+              </execution>
+            </executions>
+            <configuration>
+              <mainClass>com.mascix.vertx_test.MainVerticle</mainClass>
+              <buildArgs>
+                <buildArg>--no-fallback</buildArg>
+              </buildArgs>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
 
 </project>
