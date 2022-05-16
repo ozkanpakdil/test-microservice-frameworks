@@ -9,8 +9,6 @@ import java.util.Properties;
 import java.util.concurrent.Callable;
 import java.util.jar.JarEntry;
 import java.util.jar.JarInputStream;
-import java.util.logging.LogManager;
-import java.util.logging.Logger;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -21,18 +19,6 @@ import io.vertx.core.Promise;
 import io.vertx.core.Vertx;
 
 public class MainVerticle extends AbstractVerticle {
-
-  private static final Logger LOGGER;
-  static {
-    /* try {
-      LogManager.getLogManager().readConfiguration(MainVerticle.class.getResourceAsStream("logging.properties"));
-    } catch (SecurityException e) {
-      e.printStackTrace();
-    } catch (IOException e) {
-      e.printStackTrace();
-    } */
-    LOGGER = Logger.getLogger(MainVerticle.class.getName());
-  }
 
   ObjectMapper mapper = new ObjectMapper();
 
@@ -98,9 +84,7 @@ public class MainVerticle extends AbstractVerticle {
   }
 
   public static void main(String[] args) {
-    LOGGER.info("starting...");
     Vertx.vertx().deployVerticle(new MainVerticle());
-    LOGGER.info("end");
   }
 }
 

@@ -219,6 +219,22 @@ echo '{% endhighlight %}' >> test-result.md
 kill -9 $EXETEST
 printf '\n\n' >> test-result.md
 
+./vertx/target/vertx-demo &
+EXETEST=$!
+rc=$?
+if [ $rc -ne 0 ] ; then
+  echo Could not start vertx native [$rc]; exit $rc
+fi
+
+printf '## graalvm native vertx rest service \n' >> test-result.md
+echo '{% highlight bash %}' >> test-result.md
+mvn -ntp -f ./gatling/pom.xml gatling:test -Dusers=2000 -Drepeat=2|grep -A10 "Global Information" >> test-result.md
+echo '{% endhighlight %}' >> test-result.md
+kill -9 $EXETEST
+printf '\n\n' >> test-result.md
+
+
+
 ##### graalvm
 
 BUILD_URL="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"

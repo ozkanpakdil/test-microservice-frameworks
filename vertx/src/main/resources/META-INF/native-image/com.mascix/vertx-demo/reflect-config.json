@@ -1,0 +1,15 @@
+[
+  {
+    "name": "com.mascix.vertx_test.ApplicationInfo",
+    "allDeclaredFields": true,
+    "queryAllDeclaredMethods": true,
+    "queryAllDeclaredConstructors": true
+  },
+  {
+    "name": "com.mascix.vertx_test.MainVerticle",
+    "allDeclaredFields": true,
+    "queryAllDeclaredMethods": true,
+    "queryAllDeclaredConstructors": true,
+    "methods": [{ "name": "<init>", "parameterTypes": [] }]
+  }
+]
