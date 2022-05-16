@@ -170,7 +170,7 @@ if [ $rc -ne 0 ] ; then
 fi
 
 printf '***  \n' >> test-result.md
-printf '## graalvm native quarkus rest service \n' >> test-result.md
+printf '## [graalvm native quarkus rest service](#graalvmquarkus) \n' >> test-result.md
 echo '{% highlight bash %}' >> test-result.md
 mvn -ntp -f ./gatling/pom.xml gatling:test -Dusers=2000 -Drepeat=2|grep -A10 "Global Information" >> test-result.md
 echo '{% endhighlight %}' >> test-result.md
@@ -184,7 +184,7 @@ if [ $rc -ne 0 ] ; then
   echo Could not start micronaut native [$rc]; exit $rc
 fi
 
-printf '## graalvm native micronaut rest service \n' >> test-result.md
+printf '## [graalvm native micronaut rest service](#graalvmmicronaut) \n' >> test-result.md
 echo '{% highlight bash %}' >> test-result.md
 mvn -ntp -f ./gatling/pom.xml gatling:test -Dusers=2000 -Drepeat=2|grep -A10 "Global Information" >> test-result.md
 echo '{% endhighlight %}' >> test-result.md
@@ -198,7 +198,7 @@ if [ $rc -ne 0 ] ; then
   echo Could not start spring-boot-web native [$rc]; exit $rc
 fi
 
-printf '## graalvm native spring-boot-web rest service \n' >> test-result.md
+printf '## [graalvm native spring-boot-web rest service](#graalvmsbweb) \n' >> test-result.md
 echo '{% highlight bash %}' >> test-result.md
 mvn -ntp -f ./gatling/pom.xml gatling:test -Dusers=2000 -Drepeat=2|grep -A10 "Global Information" >> test-result.md
 echo '{% endhighlight %}' >> test-result.md
@@ -212,7 +212,7 @@ if [ $rc -ne 0 ] ; then
   echo Could not start spring-boot-webflux native [$rc]; exit $rc
 fi
 
-printf '## graalvm native spring-boot-webflux rest service \n' >> test-result.md
+printf '## [graalvm native spring-boot-webflux rest service](#graalvmsbwebflux) \n' >> test-result.md
 echo '{% highlight bash %}' >> test-result.md
 mvn -ntp -f ./gatling/pom.xml gatling:test -Dusers=2000 -Drepeat=2|grep -A10 "Global Information" >> test-result.md
 echo '{% endhighlight %}' >> test-result.md
@@ -226,14 +226,12 @@ if [ $rc -ne 0 ] ; then
   echo Could not start vertx native [$rc]; exit $rc
 fi
 
-printf '## graalvm native vertx rest service \n' >> test-result.md
+printf '## [graalvm native vertx rest service](#graalvmvertx) \n' >> test-result.md
 echo '{% highlight bash %}' >> test-result.md
 mvn -ntp -f ./gatling/pom.xml gatling:test -Dusers=2000 -Drepeat=2|grep -A10 "Global Information" >> test-result.md
 echo '{% endhighlight %}' >> test-result.md
 kill -9 $EXETEST
 printf '\n\n' >> test-result.md
-
-
 
 ##### graalvm
 
