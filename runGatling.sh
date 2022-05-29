@@ -160,7 +160,7 @@ cd ..
 ##### DOTNET
 
 ##### graalvm
-mvn -ntp package -Pnative -Dpackaging=native-image -DskipTests
+mvn -ntp package -Pnative,native-image -Dpackaging=native-image -DskipTests
 set -x
 ./quarkus/target/quarkus-demo-1.0.0-SNAPSHOT-runner &
 EXETEST=$!
@@ -227,6 +227,21 @@ if [ $rc -ne 0 ] ; then
 fi
 
 printf '## graalvm native vertx rest service \n' >> test-result.md
+echo '{% highlight bash %}' >> test-result.md
+mvn -ntp -f ./gatling/pom.xml gatling:test -Dusers=2000 -Drepeat=2|grep -A10 "Global Information" >> test-result.md
+echo '{% endhighlight %}' >> test-result.md
+kill -9 $EXETEST
+printf '\n\n' >> test-result.md
+
+
+./helidon-se-netty/target/helidon-quickstart-se &
+EXETEST=$!
+rc=$?
+if [ $rc -ne 0 ] ; then
+  echo Could not start helidon native [$rc]; exit $rc
+fi
+
+printf '## graalvm native helidon rest service \n' >> test-result.md
 echo '{% highlight bash %}' >> test-result.md
 mvn -ntp -f ./gatling/pom.xml gatling:test -Dusers=2000 -Drepeat=2|grep -A10 "Global Information" >> test-result.md
 echo '{% endhighlight %}' >> test-result.md

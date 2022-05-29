@@ -1,1 +1,16 @@
-[]
+
+[
+  {
+    "name": "io.helidon.examples.quickstart.se.ApplicationInfo",
+    "allDeclaredFields": true,
+    "queryAllDeclaredMethods": true,
+    "queryAllDeclaredConstructors": true
+  },
+  {
+    "name": "io.helidon.examples.quickstart.se.GreetService",
+    "allDeclaredFields": true,
+    "queryAllDeclaredMethods": true,
+    "queryAllDeclaredConstructors": true,
+    "methods": [{ "name": "<init>", "parameterTypes": [] }]
+  }
+]
