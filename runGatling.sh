@@ -160,6 +160,7 @@ cd ..
 ##### DOTNET
 
 ##### graalvm
+gu install native-image
 mvn -ntp package -Pnative,native-image -Dpackaging=native-image -DskipTests
 set -x
 ./quarkus/target/quarkus-demo-1.0.0-SNAPSHOT-runner &
