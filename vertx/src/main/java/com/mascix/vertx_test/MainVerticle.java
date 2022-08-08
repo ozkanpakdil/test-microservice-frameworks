@@ -16,6 +16,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import io.vertx.core.AbstractVerticle;
 import io.vertx.core.Promise;
+import io.vertx.core.Vertx;
 
 public class MainVerticle extends AbstractVerticle {
 
@@ -80,6 +81,10 @@ public class MainVerticle extends AbstractVerticle {
     } catch (Exception ignored) {
       return null;
     }
+  }
+
+  public static void main(String[] args) {
+    Vertx.vertx().deployVerticle(new MainVerticle());
   }
 }
 

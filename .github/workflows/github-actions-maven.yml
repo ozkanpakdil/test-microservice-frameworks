@@ -1,4 +1,4 @@
-name: Java CI
+name: Github Actions Java CI
 
 on:
   push:
@@ -11,20 +11,40 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 60
     strategy:
       matrix:
         java: [11, 17]
     steps:
       - uses: actions/checkout@v2
+      - uses: graalvm/setup-graalvm@v1
+        with:
+          version: 'latest'
+          java-version: '17'
+      - uses: actions/setup-dotnet@v2
+        with:
+          dotnet-version: '6.0.x'
+      - uses: actions/cache@v2
+        with:
+          path: |
+            ~/.cargo/bin/
+            ~/.cargo/registry/index/
+            ~/.cargo/registry/cache/
+            ~/.cargo/git/db/
+            target/
+          key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
       - name: Set up JDK
-        uses: actions/setup-java@v1
+        uses: actions/setup-java@v3
         with:
           java-version: ${{ matrix.java }}
+          cache: 'maven'
+          distribution: 'temurin'          
       - name: Run jars and get test results
         run: ./runGatling.sh
       - name: Commit the test result
         run: |
+          curl https://sh.rustup.rs -sSf | sh -s -- -y
+          source $HOME/.cargo/env
           set -x
           DATE=$(date +"%Y-%m-%d")
           git config --global user.email "action@github.com"
@@ -41,12 +61,4 @@ jobs:
           git push
           cd ../../../
           rm -rf page
-          # git pull --rebase
-          #if git branch | grep -q master; then
-          #  if git status | grep -q modified; then
-          #    git add README.md
-          #    git commit -m "Automatic publish from micro frameworks test"
-          #    git push -f 
-          #  fi
-          #fi
 

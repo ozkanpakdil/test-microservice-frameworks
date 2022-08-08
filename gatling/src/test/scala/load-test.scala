@@ -8,9 +8,12 @@ import io.gatling.jdbc.Predef._
 
 class LoadTest extends Simulation {
 
+	val nbUsers = Integer.getInteger("users", 1000)
+	val myRepeat = java.lang.Long.getLong("repeat", 2)
+
 	val httpProtocol = http.baseUrl("http://localhost:8080")
 
-	val scn = scenario("hello").repeat(2) {
+	val scn = scenario("hello").repeat(myRepeat.toInt) {
 		exec(http("GetApplicationInfo")
 			.get("/hello")
 			.check(status.is(200))
@@ -19,7 +22,7 @@ class LoadTest extends Simulation {
 
 	setUp(
 		scn.inject(
-			rampUsers(1000) during (5 seconds)
+			rampUsers(nbUsers) during (5 seconds)
 		).protocols(httpProtocol)
 	)
 }

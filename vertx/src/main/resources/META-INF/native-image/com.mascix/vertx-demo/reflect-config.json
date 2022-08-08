@@ -1,13 +1,12 @@
-
 [
   {
-    "name": "io.helidon.examples.quickstart.se.ApplicationInfo",
+    "name": "com.mascix.vertx_test.ApplicationInfo",
     "allDeclaredFields": true,
     "queryAllDeclaredMethods": true,
     "queryAllDeclaredConstructors": true
   },
   {
-    "name": "io.helidon.examples.quickstart.se.GreetService",
+    "name": "com.mascix.vertx_test.MainVerticle",
     "allDeclaredFields": true,
     "queryAllDeclaredMethods": true,
     "queryAllDeclaredConstructors": true,
