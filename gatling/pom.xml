@@ -9,7 +9,7 @@
     <properties>
         <gatling.version>3.8.4</gatling.version>
         <gatling-maven-plugin.version>4.2.7</gatling-maven-plugin.version>
-        <scala-maven-plugin.version>4.7.1</scala-maven-plugin.version>
+        <scala-maven-plugin.version>4.7.2</scala-maven-plugin.version>
     </properties>
     <dependencies>
         <dependency>
