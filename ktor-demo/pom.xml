@@ -7,7 +7,7 @@
     <name>ktor-demo</name>
     <description>ktor-demo</description>
     <properties>
-        <logback_version>1.4.1</logback_version>
+        <logback_version>1.4.2</logback_version>
         <ktor_version>1.6.8</ktor_version>
         <kotlin.code.style>official</kotlin.code.style>
         <kotlin_version>1.7.10</kotlin_version>
