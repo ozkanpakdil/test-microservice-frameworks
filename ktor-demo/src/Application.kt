@@ -13,8 +13,11 @@ import io.ktor.server.response.*
 import io.ktor.server.routing.*
 import io.ktor.util.*
 import java.time.LocalDate
+import java.util.*
 
+val props = Properties()
 fun main() {
+    props.load(ClassLoader.getSystemResourceAsStream("app.properties"))
     embeddedServer(Netty, port = 8080, host = "0.0.0.0") {
         mainModule()
     }.start(wait = true)
@@ -34,7 +37,7 @@ val info = ApplicationInfo("ktor", ApplicationInfo.Framework("ktor", LocalDate.n
 
 @OptIn(InternalAPI::class)
 fun Application.mainModule() {
-    println("${KotlinVersion.CURRENT} ${environment.config.propertyOrNull("ktor_version")}")
+    println("kotlin version:${KotlinVersion.CURRENT} ktor:${props["ktor_version"]}")
     install(ContentNegotiation) {
         jackson {
             configure(SerializationFeature.INDENT_OUTPUT, true)
