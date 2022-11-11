@@ -1,5 +1,5 @@
 #!/bin/bash
-
+set -e
 > test-result.md
 mvn -version
 mvn -ntp clean package
@@ -17,12 +17,6 @@ HEL=$(grep helidon-se helidon-se-netty/pom.xml -A1|grep ver|grep -oPm1 "(?<=<ver
 QU=$(grep quarkus.platform.version quarkus/pom.xml |grep -v "\\$"|grep -oPm1 "(?<=<quarkus.platform.version>)[^<]+")
 MICRO=$(grep parent micronaut/pom.xml -A1|grep -oPm1 "(?<=<version>)[^<]+")
 VERTX=$(grep vertx vertx/pom.xml|grep -oPm1 "(?<=<vertx.version>)[^<]+")
-
-sed -i "s/Spring boot:.*/Spring boot:$SB/g" README.md
-sed -i "s/Helidon:.*/Helidon:$HEL/g" README.md
-sed -i "s/Quarkus:.*/Quarkus:$QU/g" README.md
-sed -i "s/Micronaut:.*/Micronaut:$MICRO/g" README.md
-sed -i "s/Vertx:.*/Vertx:$VERTX/g" README.md
 
 OS_NAME=$(uname -a)
 
@@ -44,6 +38,13 @@ echo 'Size of created packages:
 ls -lh */target/*.jar|grep M|grep -v shaded|awk '{print "|",$5,"|",$9,"|"}' >>test-result.md
 printf '\n\n' >> test-result.md
 echo 'Running jars and collecting test results...'
+
+writeGraph(){
+  TABLE=$1
+  MR=`echo $TABLE| tr '>' '\n'|grep 'mean response time'|awk '{print $4}'`
+  R1=`echo $2|sed 's/ //g'|sed 's/-//g'` # clearing empty string and dashes
+  sed -i "s/$R1:$MR/g" graph.html
+}
 
 test (){
     jarPath=$1
@@ -71,7 +72,9 @@ test (){
     echo $startTime >> test-result.md
     printf "\nGatling test starting... for $jarPath"
     echo '{% highlight bash %}' >> test-result.md
-    mvn -ntp -f gatling/pom.xml gatling:test -Dusers=2000 -Drepeat=2|grep -A10 "Global Information" >> test-result.md
+    TABLE=`mvn -ntp -f gatling/pom.xml gatling:test -Dusers=2000 -Drepeat=2|grep -A10 "Global Information"` 
+    echo $TABLE >> test-result.md
+    writeGraph $TABLE $3
     echo '{% endhighlight %}' >> test-result.md
     kill -9 $JPID
     printf '\n' >> test-result.md
@@ -103,7 +106,9 @@ rustTest (){
     echo "[${frameworkVersion}](http://docs.rs/${link})" >&3
     printf "\nGatling test starting... for $exePath"
     echo '{% highlight bash %}'>&3
-    mvn -ntp -f $retDir/gatling/pom.xml gatling:test -Dusers=2000 -Drepeat=2|grep -A10 "Global Information" >&3
+    TABLE=`mvn -ntp -f $retDir/gatling/pom.xml gatling:test -Dusers=2000 -Drepeat=2|grep -A10 "Global Information"`
+    echo $TABLE >&3
+    writeGraph $TABLE $2
     echo '{% endhighlight %}' >&3
     kill -9 $JPID
     printf '\n' >&3
@@ -115,12 +120,12 @@ rustTest (){
 
 test "spring-boot-webflux/target/springboot-demo-0.0.1-SNAPSHOT.jar" ":: Spring Boot ::" "Started DemoWebFluxApplication" "https://spring.io/projects/spring-boot"
 test "spring-boot-web/target/springboot-demo-web-0.0.1-SNAPSHOT.jar" ":: Spring Boot ::" "Started DemoApplication" "https://spring.io/projects/spring-boot"
-test "quarkus/target/quarkus-demo-1.0.0-SNAPSHOT-runner.jar" "powered by Quarkus" "WWWWW" "https://quarkus.io/"
+test "quarkus/target/quarkus-demo-1.0.0-SNAPSHOT-runner.jar" "powered by Quarkus" "QUARKUS" "https://quarkus.io/"
 test "micronaut/target/micronaut-demo-0.1.jar" "micronaut version" "Startup completed in" "https://micronaut.io/"
-test "vertx/target/vertx-demo-1.0.0-SNAPSHOT-fat.jar" "vertx version" "XXXXX" "https://vertx.io/"
+test "vertx/target/vertx-demo-1.0.0-SNAPSHOT-fat.jar" "vertx version" "VERTX" "https://vertx.io/"
 test "eclipse-microprofile-kumuluz-test/target/eclipse-microprofile-kumuluz-test-1.0-SNAPSHOT.jar" "kumuluz version:" "Server -- Started" "https://ee.kumuluz.com/"
-test "helidon-se-netty/target/helidon-quickstart-se.jar" "Helidon SE" "XXXXX" "https://helidon.io/"
-test "ktor-demo/target/ktor-demo-1.0.1-SNAPSHOT-jar-with-dependencies.jar" "ktor" "XXXXX" "https://ktor.io/"
+test "helidon-se-netty/target/helidon-quickstart-se.jar" "Helidon SE" "HELIDON" "https://helidon.io/"
+test "ktor-demo/target/ktor-demo-1.0.1-SNAPSHOT-jar-with-dependencies.jar" "ktor" "KTOR" "https://ktor.io/"
 
 printf '***  \n' >> test-result.md
 printf '## Rust rest services \n' >> test-result.md
@@ -152,7 +157,9 @@ sleep 5
 printf '***  \n' >> ../test-result.md
 printf '## Dotnet 6 rest service \n' >> ../test-result.md
 echo '{% highlight bash %}' >> ../test-result.md
-mvn -ntp -f ../gatling/pom.xml gatling:test -Dusers=2000 -Drepeat=2|grep -A10 "Global Information" >> ../test-result.md
+TABLE=`mvn -ntp -f ../gatling/pom.xml gatling:test -Dusers=2000 -Drepeat=2|grep -A10 "Global Information"` 
+echo $TABLE >> ../test-result.md
+writeGraph $TABLE "DOTNET6"
 echo '{% endhighlight %}' >> ../test-result.md
 printf '\n\n' >> ../test-result.md
 kill -9 $DOTNETTEST
@@ -173,7 +180,9 @@ fi
 printf '***  \n' >> test-result.md
 printf '## graalvm native quarkus rest service \n' >> test-result.md
 echo '{% highlight bash %}' >> test-result.md
-mvn -ntp -f ./gatling/pom.xml gatling:test -Dusers=2000 -Drepeat=2|grep -A10 "Global Information" >> test-result.md
+TABLE=`mvn -ntp -f ./gatling/pom.xml gatling:test -Dusers=2000 -Drepeat=2|grep -A10 "Global Information"`
+echo $TABLE >> test-result.md
+writeGraph $TABLE "GRAALQUARKUS"
 echo '{% endhighlight %}' >> test-result.md
 kill -9 $EXETEST
 printf '\n\n' >> test-result.md
@@ -187,7 +196,9 @@ fi
 
 printf '## graalvm native micronaut rest service \n' >> test-result.md
 echo '{% highlight bash %}' >> test-result.md
-mvn -ntp -f ./gatling/pom.xml gatling:test -Dusers=2000 -Drepeat=2|grep -A10 "Global Information" >> test-result.md
+TABLE=`mvn -ntp -f ./gatling/pom.xml gatling:test -Dusers=2000 -Drepeat=2|grep -A10 "Global Information"`
+echo $TABLE >> test-result.md
+writeGraph $TABLE "GRAALMICRONAUT"
 echo '{% endhighlight %}' >> test-result.md
 kill -9 $EXETEST
 printf '\n\n' >> test-result.md
@@ -201,7 +212,9 @@ fi
 
 printf '## graalvm native spring-boot-web rest service \n' >> test-result.md
 echo '{% highlight bash %}' >> test-result.md
-mvn -ntp -f ./gatling/pom.xml gatling:test -Dusers=2000 -Drepeat=2|grep -A10 "Global Information" >> test-result.md
+TABLE=`mvn -ntp -f ./gatling/pom.xml gatling:test -Dusers=2000 -Drepeat=2|grep -A10 "Global Information"`
+echo $TABLE >> test-result.md
+writeGraph $TABLE "GRAALSPRING"
 echo '{% endhighlight %}' >> test-result.md
 kill -9 $EXETEST
 printf '\n\n' >> test-result.md
@@ -215,7 +228,10 @@ fi
 
 printf '## graalvm native spring-boot-webflux rest service \n' >> test-result.md
 echo '{% highlight bash %}' >> test-result.md
-mvn -ntp -f ./gatling/pom.xml gatling:test -Dusers=2000 -Drepeat=2|grep -A10 "Global Information" >> test-result.md
+TABLE=`mvn -ntp -f ./gatling/pom.xml gatling:test -Dusers=2000 -Drepeat=2|grep -A10 "Global Information"`
+echo $TABLE >> test-result.md
+writeGraph $TABLE "GRAALWEBFLUX"
+
 echo '{% endhighlight %}' >> test-result.md
 kill -9 $EXETEST
 printf '\n\n' >> test-result.md
@@ -229,7 +245,10 @@ fi
 
 printf '## graalvm native vertx rest service \n' >> test-result.md
 echo '{% highlight bash %}' >> test-result.md
-mvn -ntp -f ./gatling/pom.xml gatling:test -Dusers=2000 -Drepeat=2|grep -A10 "Global Information" >> test-result.md
+TABLE=`mvn -ntp -f ./gatling/pom.xml gatling:test -Dusers=2000 -Drepeat=2|grep -A10 "Global Information"`
+echo $TABLE >> test-result.md
+writeGraph $TABLE "GRAALVERTX"
+
 echo '{% endhighlight %}' >> test-result.md
 kill -9 $EXETEST
 printf '\n\n' >> test-result.md
@@ -244,7 +263,10 @@ fi
 
 printf '## graalvm native helidon rest service \n' >> test-result.md
 echo '{% highlight bash %}' >> test-result.md
-mvn -ntp -f ./gatling/pom.xml gatling:test -Dusers=2000 -Drepeat=2|grep -A10 "Global Information" >> test-result.md
+TABLE=`mvn -ntp -f ./gatling/pom.xml gatling:test -Dusers=2000 -Drepeat=2|grep -A10 "Global Information"`
+echo $TABLE >> test-result.md
+writeGraph $TABLE "GRAALHELIDON"
+
 echo '{% endhighlight %}' >> test-result.md
 kill -9 $EXETEST
 printf '\n\n' >> test-result.md
@@ -255,3 +277,6 @@ BUILD_URL="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_I
 printf '[source code for the java and dotnet tests](https://github.com/ozkanpakdil/test-microservice-frameworks)  :point_left: ' >> test-result.md
 printf '[source code for the rust tests](https://github.com/ozkanpakdil/rust-examples)  :point_left: ' >> test-result.md
 printf "[github action]($BUILD_URL)  :point_left: \n" >> test-result.md
+cat graph.html >> test-result.md
+
+cat graph.html 

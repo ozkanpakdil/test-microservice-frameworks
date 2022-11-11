@@ -1,0 +1,48 @@
+<script src="https://www.gstatic.com/charts/loader.js"></script>
+
+<script type="text/javascript">
+  google.charts.load('current', {
+    packages: ['corechart'],
+    callback: drawChart
+  });
+  const chartOptions = {
+    width: 1000,
+    height: 600,
+    annotations: {
+      textStyle: {
+        fontName: 'Times-Roman',
+        fontSize: 10,
+        bold: false,
+        italic: false,
+        color: '#871b47',
+        auraColor: '#d799ae',
+        opacity: 0.8
+      }
+    }
+  };
+
+  function drawChart() {
+    var data = new google.visualization.arrayToDataTable([
+      ['Framework', 'Mean Response', 'Graal'],
+      ["Spring", StartedDemoApplication, GRAALSPRING],
+      ["Spring webflux", StartedDemoWebFluxApplication, GRAALWEBFLUX],
+      ["Quarkus", QUARKUS, GRAALQUARKUS],
+      ["Micronaut", Startupcompletedin, GRAALMICRONAUT],
+      ['Vertx', VERTX, GRAALVERTX]
+      ['Ktor', KTOR, 0]
+      ['Helidon', HELIDON, GRAALHELIDON]
+      ['Kumuluz', ServerStarted, 0]
+      ['Rust - Actix', ACTIX, 0]
+      ['Rust - Warp', WARP, 0]
+      ['Dotnet 6', DOTNET6, 0]
+    ]);
+
+
+    var data = google.visualization.arrayToDataTable(data);
+    const newDiv = document.createElement("div");
+
+    var chart = new google.visualization.ColumnChart(newDiv);
+    chart.draw(data, chartOptions);
+    document.getElementsByClassName('post-content').prepend(newDiv);
+  }
+</script>
