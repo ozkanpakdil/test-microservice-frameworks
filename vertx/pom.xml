@@ -164,7 +164,7 @@
             <configuration>
               <mainClass>com.mascix.vertx_test.MainVerticle</mainClass>
               <buildArgs>
-                <buildArg>--no-fallback</buildArg>
+                <buildArg>--enable-all-security-services</buildArg>
               </buildArgs>
             </configuration>
           </plugin>
