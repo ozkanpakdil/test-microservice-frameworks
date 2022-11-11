@@ -1,13 +1,8 @@
 #!/bin/bash
-set -e
+set -ex
 > test-result.md
 mvn -version
 mvn -ntp clean package
-
-rc=$?
-if [ $rc -ne 0 ] ; then
-  echo Could not perform mvn clean package, exit code [$rc]; exit $rc
-fi
 
 JAVA_VERSION=$(java -version 2>&1 |grep version)
 RUST_VERSION=$(rustc --version)
@@ -19,6 +14,7 @@ MICRO=$(grep parent micronaut/pom.xml -A1|grep -oPm1 "(?<=<version>)[^<]+")
 VERTX=$(grep vertx vertx/pom.xml|grep -oPm1 "(?<=<vertx.version>)[^<]+")
 
 OS_NAME=$(uname -a)
+FOLDERHOME=`pwd`
 
 echo "---
 layout: post
@@ -43,7 +39,7 @@ writeGraph(){
   TABLE=$1
   MR=`echo $TABLE| tr '>' '\n'|grep 'mean response time'|awk '{print $4}'`
   R1=`echo $2|sed 's/ //g'|sed 's/-//g'` # clearing empty string and dashes
-  sed -i "s/$R1:$MR/g" graph.html
+  sed -i "s/$R1/$MR/g" $FOLDERHOME/graph.html
 }
 
 test (){
@@ -66,15 +62,15 @@ test (){
     done
 
     frameworkVersion=`grep -m1 -o "$verInfo.*" log.log`
-    startTime=`grep -m1 -o "$startTime.*" log.log`
+    startTime=`grep -m1 -o "$startTime.*" log.log || true; `
 
     echo "[${frameworkVersion}](${projectLink}) " >> test-result.md
     echo $startTime >> test-result.md
     printf "\nGatling test starting... for $jarPath"
     echo '{% highlight bash %}' >> test-result.md
     TABLE=`mvn -ntp -f gatling/pom.xml gatling:test -Dusers=2000 -Drepeat=2|grep -A10 "Global Information"` 
-    echo $TABLE >> test-result.md
-    writeGraph $TABLE $3
+    echo "$TABLE" >> test-result.md
+    writeGraph "$TABLE" "$3"
     echo '{% endhighlight %}' >> test-result.md
     kill -9 $JPID
     printf '\n' >> test-result.md
@@ -107,8 +103,8 @@ rustTest (){
     printf "\nGatling test starting... for $exePath"
     echo '{% highlight bash %}'>&3
     TABLE=`mvn -ntp -f $retDir/gatling/pom.xml gatling:test -Dusers=2000 -Drepeat=2|grep -A10 "Global Information"`
-    echo $TABLE >&3
-    writeGraph $TABLE $2
+    echo "$TABLE" >&3
+    writeGraph "$TABLE" "$2"
     echo '{% endhighlight %}' >&3
     kill -9 $JPID
     printf '\n' >&3
@@ -129,9 +125,10 @@ test "ktor-demo/target/ktor-demo-1.0.1-SNAPSHOT-jar-with-dependencies.jar" "ktor
 
 printf '***  \n' >> test-result.md
 printf '## Rust rest services \n' >> test-result.md
-$RUST_VERSION >> test-result.md
+echo $RUST_VERSION >> test-result.md
 printf '\n\n' >> test-result.md
 
+rm -rf rust-examples
 git clone https://github.com/ozkanpakdil/rust-examples.git
 cd rust-examples/warp-rest-api
 cargo build
@@ -158,8 +155,8 @@ printf '***  \n' >> ../test-result.md
 printf '## Dotnet 6 rest service \n' >> ../test-result.md
 echo '{% highlight bash %}' >> ../test-result.md
 TABLE=`mvn -ntp -f ../gatling/pom.xml gatling:test -Dusers=2000 -Drepeat=2|grep -A10 "Global Information"` 
-echo $TABLE >> ../test-result.md
-writeGraph $TABLE "DOTNET6"
+echo "$TABLE" >> ../test-result.md
+writeGraph "$TABLE" "DOTNET6"
 echo '{% endhighlight %}' >> ../test-result.md
 printf '\n\n' >> ../test-result.md
 kill -9 $DOTNETTEST
@@ -181,8 +178,8 @@ printf '***  \n' >> test-result.md
 printf '## graalvm native quarkus rest service \n' >> test-result.md
 echo '{% highlight bash %}' >> test-result.md
 TABLE=`mvn -ntp -f ./gatling/pom.xml gatling:test -Dusers=2000 -Drepeat=2|grep -A10 "Global Information"`
-echo $TABLE >> test-result.md
-writeGraph $TABLE "GRAALQUARKUS"
+echo "$TABLE" >> test-result.md
+writeGraph "$TABLE" "GRAALQUARKUS"
 echo '{% endhighlight %}' >> test-result.md
 kill -9 $EXETEST
 printf '\n\n' >> test-result.md
@@ -197,8 +194,8 @@ fi
 printf '## graalvm native micronaut rest service \n' >> test-result.md
 echo '{% highlight bash %}' >> test-result.md
 TABLE=`mvn -ntp -f ./gatling/pom.xml gatling:test -Dusers=2000 -Drepeat=2|grep -A10 "Global Information"`
-echo $TABLE >> test-result.md
-writeGraph $TABLE "GRAALMICRONAUT"
+echo "$TABLE" >> test-result.md
+writeGraph "$TABLE" "GRAALMICRONAUT"
 echo '{% endhighlight %}' >> test-result.md
 kill -9 $EXETEST
 printf '\n\n' >> test-result.md
@@ -213,8 +210,8 @@ fi
 printf '## graalvm native spring-boot-web rest service \n' >> test-result.md
 echo '{% highlight bash %}' >> test-result.md
 TABLE=`mvn -ntp -f ./gatling/pom.xml gatling:test -Dusers=2000 -Drepeat=2|grep -A10 "Global Information"`
-echo $TABLE >> test-result.md
-writeGraph $TABLE "GRAALSPRING"
+echo "$TABLE" >> test-result.md
+writeGraph "$TABLE" "GRAALSPRING"
 echo '{% endhighlight %}' >> test-result.md
 kill -9 $EXETEST
 printf '\n\n' >> test-result.md
@@ -229,8 +226,8 @@ fi
 printf '## graalvm native spring-boot-webflux rest service \n' >> test-result.md
 echo '{% highlight bash %}' >> test-result.md
 TABLE=`mvn -ntp -f ./gatling/pom.xml gatling:test -Dusers=2000 -Drepeat=2|grep -A10 "Global Information"`
-echo $TABLE >> test-result.md
-writeGraph $TABLE "GRAALWEBFLUX"
+echo "$TABLE" >> test-result.md
+writeGraph "$TABLE" "GRAALWEBFLUX"
 
 echo '{% endhighlight %}' >> test-result.md
 kill -9 $EXETEST
@@ -246,8 +243,8 @@ fi
 printf '## graalvm native vertx rest service \n' >> test-result.md
 echo '{% highlight bash %}' >> test-result.md
 TABLE=`mvn -ntp -f ./gatling/pom.xml gatling:test -Dusers=2000 -Drepeat=2|grep -A10 "Global Information"`
-echo $TABLE >> test-result.md
-writeGraph $TABLE "GRAALVERTX"
+echo "$TABLE" >> test-result.md
+writeGraph "$TABLE" "GRAALVERTX"
 
 echo '{% endhighlight %}' >> test-result.md
 kill -9 $EXETEST
@@ -264,8 +261,8 @@ fi
 printf '## graalvm native helidon rest service \n' >> test-result.md
 echo '{% highlight bash %}' >> test-result.md
 TABLE=`mvn -ntp -f ./gatling/pom.xml gatling:test -Dusers=2000 -Drepeat=2|grep -A10 "Global Information"`
-echo $TABLE >> test-result.md
-writeGraph $TABLE "GRAALHELIDON"
+echo "$TABLE" >> test-result.md
+writeGraph "$TABLE" "GRAALHELIDON"
 
 echo '{% endhighlight %}' >> test-result.md
 kill -9 $EXETEST
