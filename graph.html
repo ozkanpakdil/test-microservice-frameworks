@@ -28,12 +28,12 @@
       ["Spring webflux", StartedDemoWebFluxApplication, GRAALWEBFLUX],
       ["Quarkus", QUARKUS, GRAALQ1UARKUS],
       ["Micronaut", Startupcompletedin, GRAALM1ICRONAUT],
-      ['Vertx', VERTX, GRAALV1ERTX]
-      ['Ktor', KTOR, 0]
-      ['Helidon', HELIDON, GRAALH1ELIDON]
-      ['Kumuluz', ServerStarted, 0]
-      ['RustActix', ACTIX, 0]
-      ['RustWarp', WARP, 0]
+      ['Vertx', VERTX, GRAALV1ERTX],
+      ['Ktor', KTOR, 0],
+      ['Helidon', HELIDON, GRAALH1ELIDON],
+      ['Kumuluz', ServerStarted, 0],
+      ['RustActix', ACTIX, 0],
+      ['RustWarp', WARP, 0],
       ['Dotnet 6', DOTNET6, 0]
     ]);
 
@@ -43,6 +43,6 @@
 
     var chart = new google.visualization.ColumnChart(newDiv);
     chart.draw(data, chartOptions);
-    document.getElementsByClassName('post-content').prepend(newDiv);
+    console.log(data);
   }
 </script>
