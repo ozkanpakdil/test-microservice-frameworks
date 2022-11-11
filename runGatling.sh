@@ -104,7 +104,7 @@ rustTest (){
     echo '{% highlight bash %}'>&3
     TABLE=`mvn -ntp -f $retDir/gatling/pom.xml gatling:test -Dusers=2000 -Drepeat=2|grep -A10 "Global Information"`
     echo "$TABLE" >&3
-    writeGraph "$TABLE" "$2"
+    writeGraph "$TABLE" "$3"
     echo '{% endhighlight %}' >&3
     kill -9 $JPID
     printf '\n' >&3
@@ -135,8 +135,8 @@ cargo build
 cd ../actix-rest-api/
 cargo build
 cd ../../
-rustTest "rust-examples/warp-rest-api" "warp ="
-rustTest "rust-examples/actix-rest-api" "actix-web ="
+rustTest "rust-examples/warp-rest-api" "warp =" "WARP"
+rustTest "rust-examples/actix-rest-api" "actix-web =" "ACTIX"
 
 rm -rf rust-examples
 
