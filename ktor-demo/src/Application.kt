@@ -25,15 +25,8 @@ fun main() {
 
 data class ApplicationInfo(
     val name: String,
-    val framework: Framework
-) {
-    data class Framework(
-        val name: String,
-        val releaseYear: Int
-    )
-}
-
-val info = ApplicationInfo("ktor", ApplicationInfo.Framework("ktor", LocalDate.now().getYear()))
+    val releaseYear: Int
+)
 
 @OptIn(InternalAPI::class)
 fun Application.mainModule() {
@@ -49,7 +42,9 @@ fun Application.mainModule() {
     }
     routing {
         get("/hello") {
-            call.respond(info)
+            call.respond(
+                ApplicationInfo("ktor", LocalDate.now().getYear())
+            )
         }
     }
 }
