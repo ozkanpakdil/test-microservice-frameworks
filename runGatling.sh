@@ -267,6 +267,23 @@ echo '{% endhighlight %}' >> test-result.md
 kill -9 $EXETEST
 printf '\n\n' >> test-result.md
 
+./ktor-demo/target/ktor-demo &
+EXETEST=$!
+rc=$?
+if [ $rc -ne 0 ] ; then
+  echo Could not start ktor native [$rc]; exit $rc
+fi
+
+printf '## graalvm native ktor rest service \n' >> test-result.md
+echo '{% highlight bash %}' >> test-result.md
+TABLE=`mvn -ntp -f ./gatling/pom.xml gatling:test -Dusers=2000 -Drepeat=2|grep -A10 "Global Information"`
+echo "$TABLE" >> test-result.md
+writeGraph "$TABLE" "GRAALK1TOR"
+
+echo '{% endhighlight %}' >> test-result.md
+kill -9 $EXETEST
+printf '\n\n' >> test-result.md
+
 ##### graalvm
 
 BUILD_URL="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"

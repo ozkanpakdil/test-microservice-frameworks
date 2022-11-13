@@ -42,9 +42,7 @@ fun Application.mainModule() {
     }
     routing {
         get("/hello") {
-            call.respond(
-                ApplicationInfo("ktor", LocalDate.now().getYear())
-            )
+            call.respond(ApplicationInfo("ktor", LocalDate.now().getYear()))
         }
     }
 }
