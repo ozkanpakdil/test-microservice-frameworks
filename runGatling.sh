@@ -131,9 +131,9 @@ printf '\n\n' >> test-result.md
 rm -rf rust-examples
 git clone https://github.com/ozkanpakdil/rust-examples.git
 cd rust-examples/warp-rest-api
-cargo build
+cargo build --release
 cd ../actix-rest-api/
-cargo build
+cargo build --release
 cd ../../
 rustTest "rust-examples/warp-rest-api" "warp =" "WARP"
 rustTest "rust-examples/actix-rest-api" "actix-web =" "ACTIX"
