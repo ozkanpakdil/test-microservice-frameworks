@@ -83,7 +83,7 @@ rustTest (){
     verInfo=$2
     retDir=`pwd`
     cd $exePath
-    cargo run > log.log &
+    cargo run --release > log.log &
 
     JPID=$!
 
