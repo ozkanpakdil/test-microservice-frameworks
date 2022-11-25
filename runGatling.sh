@@ -114,7 +114,7 @@ rustTest (){
     rm somefile.log
 }
 
-test "spring-boot-webflux/target/springboot-demo-0.0.1-SNAPSHOT.jar" ":: Spring Boot ::" "Started DemoWebFluxApplication" "https://spring.io/projects/spring-boot"
+test "spring-boot-webflux/target/springboot-webflux-demo-0.0.1-SNAPSHOT.jar" ":: Spring Boot ::" "Started DemoWebFluxApplication" "https://spring.io/projects/spring-boot"
 test "spring-boot-web/target/springboot-demo-web-0.0.1-SNAPSHOT.jar" ":: Spring Boot ::" "Started DemoApplication" "https://spring.io/projects/spring-boot"
 test "quarkus/target/quarkus-demo-1.0.0-SNAPSHOT-runner.jar" "powered by Quarkus" "QUARKUS" "https://quarkus.io/"
 test "micronaut/target/micronaut-demo-0.1.jar" "micronaut version" "Startup completed in" "https://micronaut.io/"
@@ -165,7 +165,8 @@ cd ..
 
 ##### graalvm
 gu install native-image
-mvn -ntp package -Pnative,native-image -Dpackaging=native-image -DskipTests
+#native:compile <-- Spring boot
+mvn -ntp package native:compile -Pnative,native-image -Dpackaging=native-image -DskipTests
 ./quarkus/target/quarkus-demo-1.0.0-SNAPSHOT-runner &
 EXETEST=$!
 rc=$?
@@ -215,7 +216,7 @@ echo '{% endhighlight %}' >> test-result.md
 kill -9 $EXETEST
 printf '\n\n' >> test-result.md
 
-./spring-boot-webflux/target/springboot-demo &
+./spring-boot-webflux/target/springboot-webflux-demo &
 EXETEST=$!
 rc=$?
 if [ $rc -ne 0 ] ; then
