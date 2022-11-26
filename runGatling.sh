@@ -68,7 +68,7 @@ test (){
     echo $startTime >> test-result.md
     printf "\nGatling test starting... for $jarPath"
     echo '{% highlight bash %}' >> test-result.md
-    TABLE=`mvn -ntp -f gatling/pom.xml gatling:test -Dusers=2000 -Drepeat=2|grep -A10 "Global Information"` 
+    TABLE=`mvn -ntp -f gatling/pom.xml gatling:test -Dusers=4000 -Drepeat=2|grep -A10 "Global Information"`
     echo "$TABLE" >> test-result.md
     writeGraph "$TABLE" "$3"
     echo '{% endhighlight %}' >> test-result.md
@@ -102,7 +102,7 @@ rustTest (){
     echo "[${frameworkVersion}](http://docs.rs/${link})" >&3
     printf "\nGatling test starting... for $exePath"
     echo '{% highlight bash %}'>&3
-    TABLE=`mvn -ntp -f $retDir/gatling/pom.xml gatling:test -Dusers=2000 -Drepeat=2|grep -A10 "Global Information"`
+    TABLE=`mvn -ntp -f $retDir/gatling/pom.xml gatling:test -Dusers=4000 -Drepeat=2|grep -A10 "Global Information"`
     echo "$TABLE" >&3
     writeGraph "$TABLE" "$3"
     echo '{% endhighlight %}' >&3
@@ -112,6 +112,30 @@ rustTest (){
     cd $retDir
     cat somefile.log >> test-result.md
     rm somefile.log
+}
+
+runNativeBinaryTests(){
+  exePath=$1
+  title=$2
+  graphVar=$3
+
+  $exePath > log.log &
+  EXETEST=$!
+  rc=$?
+  if [ $rc -ne 0 ] ; then
+    echo Could not start $exePath [$rc]; exit $rc
+  fi
+  sleep 5
+
+  printf '***  \n' >> test-result.md
+  printf "## $title \n" >> test-result.md
+  echo '{% highlight bash %}' >> test-result.md
+  TABLE=`mvn -ntp -f gatling/pom.xml gatling:test -Dusers=4000 -Drepeat=2|grep -A10 "Global Information"`
+  echo "$TABLE" >> test-result.md
+  writeGraph "$TABLE" "$graphVar"
+  echo '{% endhighlight %}' >> test-result.md
+  printf '\n\n' >> test-result.md
+  kill -9 $EXETEST
 }
 
 test "spring-boot-webflux/target/springboot-webflux-demo-0.0.1-SNAPSHOT.jar" ":: Spring Boot ::" "Started DemoWebFluxApplication" "https://spring.io/projects/spring-boot"
@@ -142,25 +166,7 @@ rm -rf rust-examples
 
 ##### DOTNET
 dotnet build --configuration Release Dotnet6Microservice/
-cd Dotnet6Microservice
-./bin/Release/net6.0/Dotnet6Microservice &
-DOTNETTEST=$!
-rc=$?
-if [ $rc -ne 0 ] ; then
-  echo Could not start Dotnet6Microservice [$rc]; exit $rc
-fi
-sleep 5
-
-printf '***  \n' >> ../test-result.md
-printf '## Dotnet 6 rest service \n' >> ../test-result.md
-echo '{% highlight bash %}' >> ../test-result.md
-TABLE=`mvn -ntp -f ../gatling/pom.xml gatling:test -Dusers=2000 -Drepeat=2|grep -A10 "Global Information"` 
-echo "$TABLE" >> ../test-result.md
-writeGraph "$TABLE" "DOTNET6"
-echo '{% endhighlight %}' >> ../test-result.md
-printf '\n\n' >> ../test-result.md
-kill -9 $DOTNETTEST
-cd ..
+runNativeBinaryTests "Dotnet6Microservice/bin/Release/net6.0/Dotnet6Microservice" "Dotnet 6 rest service" "DOTNET6"
 ##### DOTNET
 
 ##### graalvm
@@ -173,124 +179,13 @@ mvn -ntp package -Pnative,native-image -Dpackaging=native-image -DskipTests -f k
 mvn -ntp package -Pnative,native-image -Dpackaging=native-image -DskipTests -f helidon-se-netty/pom.xml
 mvn -ntp package -Pnative,native-image -Dpackaging=native-image -DskipTests -f vertx/pom.xml
 
-./quarkus/target/quarkus-demo-1.0.0-SNAPSHOT-runner &
-EXETEST=$!
-rc=$?
-if [ $rc -ne 0 ] ; then
-  echo Could not start quarkus native [$rc]; exit $rc
-fi
-
-printf '***  \n' >> test-result.md
-printf '## graalvm native quarkus rest service \n' >> test-result.md
-echo '{% highlight bash %}' >> test-result.md
-TABLE=`mvn -ntp -f ./gatling/pom.xml gatling:test -Dusers=2000 -Drepeat=2|grep -A10 "Global Information"`
-echo "$TABLE" >> test-result.md
-writeGraph "$TABLE" "GRAALQ1UARKUS"
-echo '{% endhighlight %}' >> test-result.md
-kill -9 $EXETEST
-printf '\n\n' >> test-result.md
-
-./micronaut/target/micronaut-demo &
-EXETEST=$!
-rc=$?
-if [ $rc -ne 0 ] ; then
-  echo Could not start micronaut native [$rc]; exit $rc
-fi
-
-printf '## graalvm native micronaut rest service \n' >> test-result.md
-echo '{% highlight bash %}' >> test-result.md
-TABLE=`mvn -ntp -f ./gatling/pom.xml gatling:test -Dusers=2000 -Drepeat=2|grep -A10 "Global Information"`
-echo "$TABLE" >> test-result.md
-writeGraph "$TABLE" "GRAALM1ICRONAUT"
-echo '{% endhighlight %}' >> test-result.md
-kill -9 $EXETEST
-printf '\n\n' >> test-result.md
-
-./spring-boot-web/target/springboot-demo-web &
-EXETEST=$!
-rc=$?
-if [ $rc -ne 0 ] ; then
-  echo Could not start spring-boot-web native [$rc]; exit $rc
-fi
-
-printf '## graalvm native spring-boot-web rest service \n' >> test-result.md
-echo '{% highlight bash %}' >> test-result.md
-TABLE=`mvn -ntp -f ./gatling/pom.xml gatling:test -Dusers=2000 -Drepeat=2|grep -A10 "Global Information"`
-echo "$TABLE" >> test-result.md
-writeGraph "$TABLE" "GRAALSPRING"
-echo '{% endhighlight %}' >> test-result.md
-kill -9 $EXETEST
-printf '\n\n' >> test-result.md
-
-./spring-boot-webflux/target/springboot-webflux-demo &
-EXETEST=$!
-rc=$?
-if [ $rc -ne 0 ] ; then
-  echo Could not start spring-boot-webflux native [$rc]; exit $rc
-fi
-
-printf '## graalvm native spring-boot-webflux rest service \n' >> test-result.md
-echo '{% highlight bash %}' >> test-result.md
-TABLE=`mvn -ntp -f ./gatling/pom.xml gatling:test -Dusers=2000 -Drepeat=2|grep -A10 "Global Information"`
-echo "$TABLE" >> test-result.md
-writeGraph "$TABLE" "GRAALWEBFLUX"
-
-echo '{% endhighlight %}' >> test-result.md
-kill -9 $EXETEST
-printf '\n\n' >> test-result.md
-
-./vertx/target/vertx-demo &
-EXETEST=$!
-rc=$?
-if [ $rc -ne 0 ] ; then
-  echo Could not start vertx native [$rc]; exit $rc
-fi
-
-printf '## graalvm native vertx rest service \n' >> test-result.md
-echo '{% highlight bash %}' >> test-result.md
-TABLE=`mvn -ntp -f ./gatling/pom.xml gatling:test -Dusers=2000 -Drepeat=2|grep -A10 "Global Information"`
-echo "$TABLE" >> test-result.md
-writeGraph "$TABLE" "GRAALV1ERTX"
-
-echo '{% endhighlight %}' >> test-result.md
-kill -9 $EXETEST
-printf '\n\n' >> test-result.md
-
-
-./helidon-se-netty/target/helidon-quickstart-se &
-EXETEST=$!
-rc=$?
-if [ $rc -ne 0 ] ; then
-  echo Could not start helidon native [$rc]; exit $rc
-fi
-
-printf '## graalvm native helidon rest service \n' >> test-result.md
-echo '{% highlight bash %}' >> test-result.md
-TABLE=`mvn -ntp -f ./gatling/pom.xml gatling:test -Dusers=2000 -Drepeat=2|grep -A10 "Global Information"`
-echo "$TABLE" >> test-result.md
-writeGraph "$TABLE" "GRAALH1ELIDON"
-
-echo '{% endhighlight %}' >> test-result.md
-kill -9 $EXETEST
-printf '\n\n' >> test-result.md
-
-./ktor-demo/target/ktor-demo &
-EXETEST=$!
-rc=$?
-if [ $rc -ne 0 ] ; then
-  echo Could not start ktor native [$rc]; exit $rc
-fi
-
-printf '## graalvm native ktor rest service \n' >> test-result.md
-echo '{% highlight bash %}' >> test-result.md
-TABLE=`mvn -ntp -f ./gatling/pom.xml gatling:test -Dusers=2000 -Drepeat=2|grep -A10 "Global Information"`
-echo "$TABLE" >> test-result.md
-writeGraph "$TABLE" "GRAALK1TOR"
-
-echo '{% endhighlight %}' >> test-result.md
-kill -9 $EXETEST
-printf '\n\n' >> test-result.md
-
+runNativeBinaryTests "./quarkus/target/quarkus-demo-1.0.0-SNAPSHOT-runner" "graalvm native quarkus" "GRAALQ1UARKUS"
+runNativeBinaryTests "./micronaut/target/micronaut-demo" "graalvm native micronaut" "GRAALM1ICRONAUT"
+runNativeBinaryTests "./spring-boot-web/target/springboot-demo-web" "graalvm native spring-boot-web" "GRAALSPRING"
+runNativeBinaryTests "./spring-boot-webflux/target/springboot-webflux-demo" "graalvm native spring-boot-webflux" "GRAALWEBFLUX"
+runNativeBinaryTests "./vertx/target/vertx-demo" "graalvm native vertx" "GRAALV1ERTX"
+runNativeBinaryTests "./helidon-se-netty/target/helidon-quickstart-se" "graalvm native helidon" "GRAALH1ELIDON"
+runNativeBinaryTests "./ktor-demo/target/ktor-demo" "graalvm native ktor rest service" "GRAALK1TOR"
 ##### graalvm
 
 BUILD_URL="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
