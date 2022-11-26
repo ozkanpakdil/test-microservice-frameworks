@@ -82,8 +82,7 @@ rustTest (){
     exePath=$1
     verInfo=$2
     retDir=`pwd`
-    cd $exePath
-    cargo run --release > log.log &
+    $exePath > log.log &
 
     JPID=$!
 
@@ -96,8 +95,8 @@ rustTest (){
           break
         fi
     done
-    set -x
-    frameworkVersion=`grep -m1 -o "$verInfo.*" Cargo.toml|tr -d '"'`
+    CARGOP=`echo $exePath |awk -F'/' '{print $2, $4}'|tr ' ' '/'`
+    frameworkVersion=`grep -m1 -o "$verInfo.*" $CARGOP/Cargo.toml|tr -d '"'`
     link=`echo $frameworkVersion| cut -d' ' -f1`
     echo "[${frameworkVersion}](http://docs.rs/${link})" >&3
     printf "\nGatling test starting... for $exePath"
@@ -154,14 +153,16 @@ printf '\n\n' >> test-result.md
 
 rm -rf rust-examples
 git clone https://github.com/ozkanpakdil/rust-examples.git
-cd rust-examples/warp-rest-api
-cargo build --release
-cd ../actix-rest-api/
-cargo build --release
-cd ../../
-rustTest "rust-examples/warp-rest-api" "warp =" "WARP"
-rustTest "rust-examples/actix-rest-api" "actix-web =" "ACTIX"
-
+mkdir rust-examples/exe
+cd rust-examples/exe
+wget https://github.com/ozkanpakdil/rust-examples/releases/download/latest/actix-rest-api
+wget https://github.com/ozkanpakdil/rust-examples/releases/download/latest/rocket-rest-api
+wget https://github.com/ozkanpakdil/rust-examples/releases/download/latest/warp-rest-api
+chmod a+x warp-rest-api actix-rest-api rocket-rest-api
+cd ../..
+rustTest "./rust-examples/exe/warp-rest-api" "warp =" "WARP"
+rustTest "./rust-examples/exe/actix-rest-api" "actix-web =" "ACTIX"
+rustTest "./rust-examples/exe/rocket-rest-api" "rocket =" "ROCKET"
 rm -rf rust-examples
 
 ##### DOTNET
