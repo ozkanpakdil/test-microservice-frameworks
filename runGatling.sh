@@ -1,6 +1,5 @@
 #!/bin/bash
 set -ex
-echo '' > test-result.md
 mvn -version
 mvn -ntp clean package
 
@@ -24,7 +23,7 @@ categories: java,rust,fasterxml,json,$OS_NAME
 ---
 In $OS_NAME, Here is total package generation times for separate modules,
 {% highlight bash %}
-" >> test-result.md
+" > test-result.md
 mvn -ntp -T 4C test package|grep SUCCESS|grep -Ev "(framework|gatling|BUILD)" >>test-result.md
 echo '{% endhighlight %}' >> test-result.md
 echo 'Size of created packages:
