@@ -157,11 +157,13 @@ cd rust-examples/exe
 wget https://github.com/ozkanpakdil/rust-examples/releases/download/latest/actix-rest-api
 wget https://github.com/ozkanpakdil/rust-examples/releases/download/latest/rocket-rest-api
 wget https://github.com/ozkanpakdil/rust-examples/releases/download/latest/warp-rest-api
-chmod a+x warp-rest-api actix-rest-api rocket-rest-api
+wget https://github.com/ozkanpakdil/rust-examples/releases/download/latest/axum-rest-api
+chmod a+x warp-rest-api actix-rest-api rocket-rest-api axum-rest-api
 cd ../..
 rustTest "./rust-examples/exe/warp-rest-api" "warp =" "WARP"
 rustTest "./rust-examples/exe/actix-rest-api" "actix-web =" "ACTIX"
 rustTest "./rust-examples/exe/rocket-rest-api" "rocket =" "ROCKET"
+rustTest "./rust-examples/exe/axum-rest-api" "axum =" "AXUM"
 rm -rf rust-examples
 
 ##### DOTNET
