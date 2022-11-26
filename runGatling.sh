@@ -165,8 +165,14 @@ cd ..
 
 ##### graalvm
 gu install native-image
-#native:compile <-- Spring boot
-mvn -ntp package native:compile -Pnative,native-image -Dpackaging=native-image -DskipTests
+mvn -ntp package -Pnative native:compile -DskipTests -f spring-boot-web/pom.xml
+mvn -ntp package -Pnative native:compile -DskipTests -f spring-boot-webflux/pom.xml
+mvn -ntp package -Pnative,native-image -Dpackaging=native-image -DskipTests -f quarkus/pom.xml
+mvn -ntp package -Pnative,native-image -Dpackaging=native-image -DskipTests -f micronaut/pom.xml
+mvn -ntp package -Pnative,native-image -Dpackaging=native-image -DskipTests -f ktor-demo/pom.xml
+mvn -ntp package -Pnative,native-image -Dpackaging=native-image -DskipTests -f helidon/pom.xml
+mvn -ntp package -Pnative,native-image -Dpackaging=native-image -DskipTests -f vertx/pom.xml
+
 ./quarkus/target/quarkus-demo-1.0.0-SNAPSHOT-runner &
 EXETEST=$!
 rc=$?
