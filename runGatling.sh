@@ -1,6 +1,6 @@
 #!/bin/bash
 set -ex
-> test-result.md
+echo '' > test-result.md
 mvn -version
 mvn -ntp clean package
 
@@ -166,7 +166,7 @@ rm -rf rust-examples
 
 ##### DOTNET
 dotnet build --configuration Release Dotnet6Microservice/
-runNativeBinaryTests "Dotnet6Microservice/bin/Release/net6.0/Dotnet6Microservice" "Dotnet 6 rest service" "DOTNET6"
+runNativeBinaryTests "./Dotnet6Microservice/bin/Release/net6.0/Dotnet6Microservice" "Dotnet 6 rest service" "DOTNET6"
 ##### DOTNET
 
 ##### graalvm
@@ -184,6 +184,7 @@ runNativeBinaryTests "./micronaut/target/micronaut-demo" "graalvm native microna
 runNativeBinaryTests "./spring-boot-web/target/springboot-demo-web" "graalvm native spring-boot-web" "GRAALSPRING"
 runNativeBinaryTests "./spring-boot-webflux/target/springboot-webflux-demo" "graalvm native spring-boot-webflux" "GRAALWEBFLUX"
 runNativeBinaryTests "./vertx/target/vertx-demo" "graalvm native vertx" "GRAALV1ERTX"
+cat log.log
 runNativeBinaryTests "./helidon-se-netty/target/helidon-quickstart-se" "graalvm native helidon" "GRAALH1ELIDON"
 runNativeBinaryTests "./ktor-demo/target/ktor-demo" "graalvm native ktor rest service" "GRAALK1TOR"
 ##### graalvm
