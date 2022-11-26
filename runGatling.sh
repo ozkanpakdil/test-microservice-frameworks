@@ -170,7 +170,7 @@ mvn -ntp package -Pnative native:compile -DskipTests -f spring-boot-webflux/pom.
 mvn -ntp package -Pnative,native-image -Dpackaging=native-image -DskipTests -f quarkus/pom.xml
 mvn -ntp package -Pnative,native-image -Dpackaging=native-image -DskipTests -f micronaut/pom.xml
 mvn -ntp package -Pnative,native-image -Dpackaging=native-image -DskipTests -f ktor-demo/pom.xml
-mvn -ntp package -Pnative,native-image -Dpackaging=native-image -DskipTests -f helidon/pom.xml
+mvn -ntp package -Pnative,native-image -Dpackaging=native-image -DskipTests -f helidon-se-netty/pom.xml
 mvn -ntp package -Pnative,native-image -Dpackaging=native-image -DskipTests -f vertx/pom.xml
 
 ./quarkus/target/quarkus-demo-1.0.0-SNAPSHOT-runner &
