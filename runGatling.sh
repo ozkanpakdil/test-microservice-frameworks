@@ -1,5 +1,6 @@
 #!/bin/bash
 set -ex
+kill -9 $(lsof -t -i :8080) || true
 mvn -version
 mvn -ntp clean package
 
@@ -41,6 +42,20 @@ writeGraph(){
   sed -i "s/$R1/$MR/g" $FOLDERHOME/graph.html
 }
 
+checkIs8080Up(){
+    COUNTER=30
+    until curl -sf http://localhost:8080/hello; do
+        printf '.'
+        sleep 1
+        lsof -i :8080 || true
+        tail log.log
+        let COUNTER-=1
+        if [[ "$COUNTER" == '0' ]]; then
+          exit 1
+        fi
+    done
+}
+
 test (){
     jarPath=$1
     verInfo=$2
@@ -50,15 +65,7 @@ test (){
 
     JPID=$!
 
-    COUNTER=120
-    until curl -sf http://localhost:8080/hello; do
-        printf '.'
-        sleep 1
-        let COUNTER-=1
-        if [[ "$COUNTER" == '0' ]]; then
-          break
-        fi
-    done
+    checkIs8080Up
 
     frameworkVersion=`grep -m1 -o "$verInfo.*" log.log`
     startTime=`grep -m1 -o "$startTime.*" log.log || true; `
@@ -84,16 +91,7 @@ rustTest (){
     $exePath > log.log &
 
     JPID=$!
-
-    COUNTER=120
-    until curl -sf http://localhost:8080/hello; do
-        printf '.'
-        sleep 1
-        let COUNTER-=1
-        if [[ "$COUNTER" == '0' ]]; then
-          break
-        fi
-    done
+    checkIs8080Up
     CARGOP=`echo $exePath |awk -F'/' '{print $2, $4}'|tr ' ' '/'`
     frameworkVersion=`grep -m1 -o "$verInfo.*" $CARGOP/Cargo.toml|tr -d '"'`
     link=`echo $frameworkVersion| cut -d' ' -f1`
@@ -119,11 +117,8 @@ runNativeBinaryTests(){
 
   $exePath > log.log &
   EXETEST=$!
-  rc=$?
-  if [ $rc -ne 0 ] ; then
-    echo Could not start $exePath [$rc]; exit $rc
-  fi
-  sleep 5
+
+  checkIs8080Up
 
   printf '***  \n' >> test-result.md
   printf "## $title \n" >> test-result.md
