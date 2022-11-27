@@ -22,7 +22,8 @@ title:  'Java microservice framework tests in SB:$SB Q:$QU M:$MICRO V:$VERTX H:$
 date:   $DATE
 categories: java,rust,fasterxml,json,$OS_NAME
 ---
-In $OS_NAME, Here is total package generation times for separate modules,
+In $OS_NAME,
+Below is total package generation times for separate modules,
 {% highlight bash %}
 " > test-result.md
 mvn -ntp -T 4C test package|grep SUCCESS|grep -Ev "(framework|gatling|BUILD)" >>test-result.md
