@@ -9,7 +9,7 @@
     <properties>
         <ktor_version>2.2.1</ktor_version>
         <kotlin.code.style>official</kotlin.code.style>
-        <kotlin_version>1.7.22</kotlin_version>
+        <kotlin_version>1.8.0</kotlin_version>
         <logback_version>1.4.5</logback_version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <kotlin.compiler.incremental>true</kotlin.compiler.incremental>
