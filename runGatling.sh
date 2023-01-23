@@ -167,22 +167,22 @@ runNativeBinaryTests "./Dotnet6Microservice/bin/Release/net6.0/Dotnet6Microservi
 ##### DOTNET
 
 ##### graalvm
-gu install native-image
-mvn -ntp package -Pnative native:compile -DskipTests -f spring-boot-web/pom.xml
-mvn -ntp package -Pnative native:compile -DskipTests -f spring-boot-webflux/pom.xml
-mvn -ntp package -Pnative,native-image -Dpackaging=native-image -DskipTests -f quarkus/pom.xml
-mvn -ntp package -Pnative,native-image -Dpackaging=native-image -DskipTests -f micronaut/pom.xml
-mvn -ntp package -Pnative,native-image -Dpackaging=native-image -DskipTests -f ktor-demo/pom.xml
-mvn -ntp package -Pnative,native-image -Dpackaging=native-image -DskipTests -f helidon-se-netty/pom.xml
-mvn -ntp package -Pnative,native-image -Dpackaging=native-image -DskipTests -f vertx/pom.xml
+wget https://github.com/ozkanpakdil/test-microservice-frameworks/releases/download/latest/quarkus-demo-1.0.0-SNAPSHOT-runner
+wget https://github.com/ozkanpakdil/test-microservice-frameworks/releases/download/latest/micronaut-demo
+wget https://github.com/ozkanpakdil/test-microservice-frameworks/releases/download/latest/springboot-demo-web
+wget https://github.com/ozkanpakdil/test-microservice-frameworks/releases/download/latest/springboot-webflux-demo
+wget https://github.com/ozkanpakdil/test-microservice-frameworks/releases/download/latest/vertx-demo
+wget https://github.com/ozkanpakdil/test-microservice-frameworks/releases/download/latest/helidon-quickstart-se
+wget https://github.com/ozkanpakdil/test-microservice-frameworks/releases/download/latest/ktor-demo
+chmod a+x quarkus-demo-1.0.0-SNAPSHOT-runner micronaut-demo springboot-demo-web springboot-webflux-demo vertx-demo helidon-quickstart-se ktor-demo
 
-runNativeBinaryTests "./quarkus/target/quarkus-demo-1.0.0-SNAPSHOT-runner" "graalvm native quarkus" "GRAALQ1UARKUS"
-runNativeBinaryTests "./micronaut/target/micronaut-demo" "graalvm native micronaut" "GRAALM1ICRONAUT"
-runNativeBinaryTests "./spring-boot-web/target/springboot-demo-web" "graalvm native spring-boot-web" "GRAALSPRING"
-runNativeBinaryTests "./spring-boot-webflux/target/springboot-webflux-demo" "graalvm native spring-boot-webflux" "GRAALWEBFLUX"
-runNativeBinaryTests "./vertx/target/vertx-demo" "graalvm native vertx" "GRAALV1ERTX"
-runNativeBinaryTests "./helidon-se-netty/target/helidon-quickstart-se" "graalvm native helidon" "GRAALH1ELIDON"
-runNativeBinaryTests "./ktor-demo/target/ktor-demo" "graalvm native ktor rest service" "GRAALK1TOR"
+runNativeBinaryTests "./quarkus-demo-1.0.0-SNAPSHOT-runner" "graalvm native quarkus" "GRAALQ1UARKUS"
+runNativeBinaryTests "./micronaut-demo" "graalvm native micronaut" "GRAALM1ICRONAUT"
+runNativeBinaryTests "./springboot-demo-web" "graalvm native spring-boot-web" "GRAALSPRING"
+runNativeBinaryTests "./springboot-webflux-demo" "graalvm native spring-boot-webflux" "GRAALWEBFLUX"
+runNativeBinaryTests "./vertx-demo" "graalvm native vertx" "GRAALV1ERTX"
+runNativeBinaryTests "./helidon-quickstart-se" "graalvm native helidon" "GRAALH1ELIDON"
+runNativeBinaryTests "./ktor-demo" "graalvm native ktor rest service" "GRAALK1TOR"
 ##### graalvm
 
 BUILD_URL="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"

@@ -40,7 +40,14 @@ jobs:
         with:
           java-version: ${{ matrix.java }}
           cache: 'maven'
-          distribution: 'temurin'          
+          distribution: 'temurin'
+      - name: Wait for native build to succeed
+        uses: lewagon/wait-on-check-action@v1.2.0
+        with:
+          ref: ${{ github.ref }}
+          check-name: 'native release packages'
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          wait-interval: 10          
       - name: Run jars and get test results
         run: ./runGatling.sh
       - name: Commit the test result
