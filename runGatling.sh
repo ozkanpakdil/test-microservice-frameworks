@@ -167,13 +167,14 @@ runNativeBinaryTests "./Dotnet6Microservice/bin/Release/net6.0/Dotnet6Microservi
 ##### DOTNET
 
 ##### graalvm
-wget https://github.com/ozkanpakdil/test-microservice-frameworks/releases/download/latest/quarkus-demo-1.0.0-SNAPSHOT-runner
-wget https://github.com/ozkanpakdil/test-microservice-frameworks/releases/download/latest/micronaut-demo
-wget https://github.com/ozkanpakdil/test-microservice-frameworks/releases/download/latest/springboot-demo-web
-wget https://github.com/ozkanpakdil/test-microservice-frameworks/releases/download/latest/springboot-webflux-demo
-wget https://github.com/ozkanpakdil/test-microservice-frameworks/releases/download/latest/vertx-demo
-wget https://github.com/ozkanpakdil/test-microservice-frameworks/releases/download/latest/helidon-quickstart-se
-wget https://github.com/ozkanpakdil/test-microservice-frameworks/releases/download/latest/ktor-demo
+wget -qc https://github.com/ozkanpakdil/test-microservice-frameworks/releases/download/latest/quarkus-demo-1.0.0-SNAPSHOT-runner
+wget -qc https://github.com/ozkanpakdil/test-microservice-frameworks/releases/download/latest/micronaut-demo
+wget -qc https://github.com/ozkanpakdil/test-microservice-frameworks/releases/download/latest/springboot-demo-web
+wget -qc https://github.com/ozkanpakdil/test-microservice-frameworks/releases/download/latest/springboot-webflux-demo
+wget -qc https://github.com/ozkanpakdil/test-microservice-frameworks/releases/download/latest/vertx-demo
+wget -qc https://github.com/ozkanpakdil/test-microservice-frameworks/releases/download/latest/helidon-quickstart-se
+rm -rf ktor-demo
+wget -qc https://github.com/ozkanpakdil/test-microservice-frameworks/releases/download/latest/ktor-demo
 chmod a+x quarkus-demo-1.0.0-SNAPSHOT-runner micronaut-demo springboot-demo-web springboot-webflux-demo vertx-demo helidon-quickstart-se ktor-demo
 
 runNativeBinaryTests "./quarkus-demo-1.0.0-SNAPSHOT-runner" "graalvm native quarkus" "GRAALQ1UARKUS"
