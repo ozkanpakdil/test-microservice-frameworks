@@ -64,5 +64,4 @@ jobs:
             ./vertx/target/vertx-demo
             ./helidon-se-netty/target/helidon-quickstart-se
             ./ktor-demo/target/ktor-demo
-            ./Dotnet6Microservice/bin/Release/net6.0/publish/Dotnet6Microservice
             ./Dotnet7Microservice/bin/Release/net7.0/linux-x64/publish/Dotnet7Microservice
