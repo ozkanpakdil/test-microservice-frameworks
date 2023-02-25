@@ -162,8 +162,10 @@ rustTest "./rust-examples/exe/axum-rest-api" "axum =" "AXUM"
 rm -rf rust-examples
 
 ##### DOTNET
-dotnet build --configuration Release Dotnet6Microservice/
-runNativeBinaryTests "./Dotnet6Microservice/bin/Release/net6.0/Dotnet6Microservice" "Dotnet 6 rest service" "DOTNET6"
+dotnet publish --configuration Release Dotnet6Microservice/
+runNativeBinaryTests "./Dotnet6Microservice/bin/Release/net6.0/publish/Dotnet6Microservice" "Dotnet 6 rest service" "DOTNET6"
+dotnet publish --configuration Release Dotnet7Microservice/
+runNativeBinaryTests "./Dotnet7Microservice/bin/Release/net7.0/publish/linux-x64/Dotnet7Microservice" "Dotnet 7 rest service" "DOTNET7AOT"
 ##### DOTNET
 
 ##### graalvm
