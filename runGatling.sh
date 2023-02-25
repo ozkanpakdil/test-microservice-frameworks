@@ -162,7 +162,7 @@ rustTest "./rust-examples/exe/axum-rest-api" "axum =" "AXUM"
 rm -rf rust-examples
 
 ##### DOTNET
-wget -qc https://github.com/ozkanpakdil/test-microservice-frameworks/releases/download/latest/Dotnet6Microservice
+dotnet publish --configuration Release Dotnet6Microservice/
 wget -qc https://github.com/ozkanpakdil/test-microservice-frameworks/releases/download/latest/Dotnet7Microservice
 runNativeBinaryTests "./Dotnet6Microservice" "Dotnet 6 rest service" "DOTNET6"
 runNativeBinaryTests "./Dotnet7Microservice" "Dotnet 7 rest service" "DOTNET7AOT"

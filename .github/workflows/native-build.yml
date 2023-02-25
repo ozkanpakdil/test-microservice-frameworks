@@ -48,7 +48,6 @@ jobs:
           mvn -ntp package -Pnative,native-image -Dpackaging=native-image -DskipTests -f ktor-demo/pom.xml
           mvn -ntp package -Pnative,native-image -Dpackaging=native-image -DskipTests -f helidon-se-netty/pom.xml
           mvn -ntp package -Pnative,native-image -Dpackaging=native-image -DskipTests -f vertx/pom.xml
-          dotnet publish --configuration Release Dotnet6Microservice/
           dotnet publish --configuration Release Dotnet7Microservice/
       - name: native release packages
         uses: marvinpinto/action-automatic-releases@latest
