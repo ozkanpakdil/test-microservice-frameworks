@@ -7,7 +7,7 @@
     <packaging>pom</packaging>
 
     <properties>
-        <gatling.version>3.9.2</gatling.version>
+        <gatling.version>3.9.3</gatling.version>
         <gatling-maven-plugin.version>4.3.0</gatling-maven-plugin.version>
         <scala-maven-plugin.version>4.8.1</scala-maven-plugin.version>
     </properties>
