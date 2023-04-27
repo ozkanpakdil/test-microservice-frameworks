@@ -35,9 +35,12 @@ on:
 
 #testing https://stackoverflow.com/questions/73017107/getting-error-httperror-resource-not-accessible-by-integration-when-using-acti
 permissions:
-  contents: 'read'
+  contents: 'write'
   id-token: 'write'
-  issues: 'write'
+  packages: 'write'
+  deployments: 'write'
+  repository-projects: 'write'
+  pull-requests: 'write'
   
 jobs:
   build:
