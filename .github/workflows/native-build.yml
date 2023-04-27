@@ -32,6 +32,12 @@ on:
       - '.github/*.yml'
       - '.github/*.java'
       - '.github/*.conf'  
+
+permissions:
+  contents: 'read'
+  id-token: 'write'
+  issues: 'write'
+  
 jobs:
   build:
     runs-on: ubuntu-latest
