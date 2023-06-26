@@ -77,7 +77,6 @@ jobs:
           distribution: 'temurin'          
       - name: graalvm builds
         run: |
-          gu install native-image
           mvn -ntp package -Pnative native:compile -DskipTests -f spring-boot-web/pom.xml
           mvn -ntp package -Pnative native:compile -DskipTests -f spring-boot-webflux/pom.xml
           mvn -ntp package -Pnative,native-image -Dpackaging=native-image -DskipTests -f quarkus/pom.xml
