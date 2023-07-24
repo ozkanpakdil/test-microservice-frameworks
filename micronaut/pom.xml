@@ -135,7 +135,7 @@
               <version>4.0.1</version>
             </path>
           </annotationProcessorPaths>
-          <release>19</release>
+          <release>20</release>
           <compilerArgs>
             <arg>--enable-preview</arg>
             <arg>-Amicronaut.processing.group=com.mascix</arg>
