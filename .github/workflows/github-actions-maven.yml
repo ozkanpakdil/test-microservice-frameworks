@@ -19,8 +19,9 @@ jobs:
       - uses: graalvm/setup-graalvm@v1
         with:
           version: 'latest'
-          java-version: '20'
+          java-version: ${{ matrix.java }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
+          distribution: 'graalvm'
           native-image-job-reports: 'true'
       - uses: actions/setup-dotnet@v3
         with:
