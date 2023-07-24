@@ -74,7 +74,7 @@ test (){
     echo $startTime >> test-result.md
     printf "\nGatling test starting... for $jarPath"
     echo '{% highlight bash %}' >> test-result.md
-    TABLE=`mvn -ntp -f gatling/pom.xml gatling:test -Dusers=4000 -Drepeat=2|grep -A10 "Global Information"`
+    TABLE=`mvn -ntp -f gatling/pom.xml gatling:test -Dusers=4000 -Drepeat=4|grep -A10 "Global Information"`
     echo "$TABLE" >> test-result.md
     writeGraph "$TABLE" "$3"
     echo '{% endhighlight %}' >> test-result.md
@@ -98,7 +98,7 @@ rustTest (){
     echo "[${frameworkVersion}](http://docs.rs/${link})" >&3
     printf "\nGatling test starting... for $exePath"
     echo '{% highlight bash %}'>&3
-    TABLE=`mvn -ntp -f $retDir/gatling/pom.xml gatling:test -Dusers=4000 -Drepeat=2|grep -A10 "Global Information"`
+    TABLE=`mvn -ntp -f $retDir/gatling/pom.xml gatling:test -Dusers=4000 -Drepeat=4|grep -A10 "Global Information"`
     echo "$TABLE" >&3
     writeGraph "$TABLE" "$3"
     echo '{% endhighlight %}' >&3
@@ -123,7 +123,7 @@ runNativeBinaryTests(){
   printf '***  \n' >> test-result.md
   printf "## $title \n" >> test-result.md
   echo '{% highlight bash %}' >> test-result.md
-  TABLE=`mvn -ntp -f gatling/pom.xml gatling:test -Dusers=4000 -Drepeat=2|grep -A10 "Global Information"`
+  TABLE=`mvn -ntp -f gatling/pom.xml gatling:test -Dusers=4000 -Drepeat=4|grep -A10 "Global Information"`
   echo "$TABLE" >> test-result.md
   writeGraph "$TABLE" "$graphVar"
   echo '{% endhighlight %}' >> test-result.md
