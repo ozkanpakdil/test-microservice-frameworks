@@ -2,31 +2,49 @@ package com.mascix.controller;
 
 import java.time.LocalDate;
 
-import javax.ws.rs.core.Response;
-
-import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import io.micronaut.core.annotation.ReflectiveAccess;
 import io.micronaut.http.annotation.Controller;
 import io.micronaut.http.annotation.Get;
+import io.micronaut.serde.annotation.Serdeable;
 
 @Controller("/hello")
 public class GreetController {
     @Get
-    public Response hello() {
-        return Response.ok(new ApplicationInfo("micronaut", LocalDate.now().getYear())).build();
+    public ApplicationInfo hello() {
+        return new ApplicationInfo("micronaut", LocalDate.now().getYear());
     }
 }
 
 @ReflectiveAccess
-@JsonAutoDetect(fieldVisibility = Visibility.ANY)
+// @JsonAutoDetect(fieldVisibility = Visibility.ANY)
+@Serdeable
 class ApplicationInfo {
     public ApplicationInfo(String string, int year) {
         this.name = string;
         this.releaseYear = year;
     }
 
+    @JsonProperty
     String name;
+
+    @JsonProperty
     int releaseYear;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getReleaseYear() {
+        return releaseYear;
+    }
+
+    public void setReleaseYear(int releaseYear) {
+        this.releaseYear = releaseYear;
+    }
 }
