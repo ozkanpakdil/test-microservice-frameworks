@@ -14,7 +14,7 @@
     <maven-surefire-plugin.version>3.1.2</maven-surefire-plugin.version>
     <exec-maven-plugin.version>3.1.0</exec-maven-plugin.version>
 
-    <vertx.version>4.4.4</vertx.version>
+    <vertx.version>4.4.5</vertx.version>
     <junit-jupiter.version>5.10.0</junit-jupiter.version>
 
     <main.verticle>com.mascix.vertx_test.MainVerticle</main.verticle>
@@ -150,7 +150,7 @@
           <plugin>
             <groupId>org.graalvm.buildtools</groupId>
             <artifactId>native-maven-plugin</artifactId>
-            <version>0.9.23</version>
+            <version>0.9.25</version>
             <extensions>true</extensions>
             <executions>
               <execution>

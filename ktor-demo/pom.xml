@@ -7,10 +7,10 @@
     <name>ktor-demo</name>
     <description>ktor-demo</description>
     <properties>
-        <ktor_version>2.3.3</ktor_version>
+        <ktor_version>2.3.4</ktor_version>
         <kotlin.code.style>official</kotlin.code.style>
-        <kotlin_version>1.9.0</kotlin_version>
         <logback_version>1.4.9</logback_version>
+        <kotlin_version>1.9.10</kotlin_version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <kotlin.compiler.incremental>true</kotlin.compiler.incremental>
         <main.class>com.mascix.ApplicationKt</main.class>
@@ -157,7 +157,7 @@
                     <plugin>
                         <groupId>org.graalvm.buildtools</groupId>
                         <artifactId>native-maven-plugin</artifactId>
-                        <version>0.9.23</version>
+                        <version>0.9.25</version>
                         <extensions>true</extensions>
                         <executions>
                             <execution>
