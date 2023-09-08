@@ -11,14 +11,14 @@
   <parent>
     <groupId>io.micronaut.platform</groupId>
     <artifactId>micronaut-parent</artifactId>
-    <version>4.0.1</version>
+    <version>4.1.0</version>
   </parent>
 
   <properties>
     <packaging>jar</packaging>
     <jdk.version>19</jdk.version>
     <release.version>19</release.version>
-    <micronaut.version>4.0.1</micronaut.version>
+    <micronaut.version>4.1.0</micronaut.version>
     <micronaut.aot.enabled>false</micronaut.aot.enabled>
     <micronaut.aot.packageName>com.mascix.aot.generated</micronaut.aot.packageName>
     <micronaut.runtime>netty</micronaut.runtime>
