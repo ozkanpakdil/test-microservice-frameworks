@@ -49,8 +49,6 @@ jobs:
           source $HOME/.cargo/env
           set -x
           DATE=$(date +"%Y-%m-%d")
-          git config --global user.email "action@github.com"
-          git config --global user.name "GitHub Action"
           rm -rf ozkanpakdil.github.io
           rm -rf page
           git clone https://${{ secrets.TOKEN_GIT }}@github.com/ozkanpakdil/ozkanpakdil.github.io.git page
