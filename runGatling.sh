@@ -15,7 +15,7 @@ VERTX=$(grep vertx vertx/pom.xml|grep -oPm1 "(?<=<vertx.version>)[^<]+")
 
 OS_NAME=$(uname -a)
 FOLDERHOME=`pwd`
-MVNTESTCMD='mvn -ntp -f $FOLDERHOME/gatling/pom.xml gatling:test -Dusers=8000 -Drepeat=4'
+MVNTESTCMD="mvn -ntp -f ${FOLDERHOME}/gatling/pom.xml gatling:test -Dusers=8000 -Drepeat=4"
 
 echo "---
 layout: post
@@ -88,7 +88,6 @@ rustTest (){
     exec 3>> somefile.log
     exePath=$1
     verInfo=$2
-    retDir=`pwd`
     $exePath > log.log &
 
     JPID=$!
@@ -106,7 +105,7 @@ rustTest (){
     kill -9 $JPID
     printf '\n' >&3
     sleep 2
-    cd $retDir
+    cd $FOLDERHOME
     cat somefile.log >> test-result.md
     rm somefile.log
 }
