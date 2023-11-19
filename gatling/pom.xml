@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
-    xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+        xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.mascix</groupId>
     <artifactId>gatling</artifactId>
@@ -9,9 +9,12 @@
     <packaging>pom</packaging>
 
     <properties>
+        <java.version>21</java.version>
         <gatling.version>3.9.5</gatling.version>
         <gatling-maven-plugin.version>4.6.0</gatling-maven-plugin.version>
-        <scala-maven-plugin.version>4.8.1</scala-maven-plugin.version>
+        <maven-compiler-plugin.version>3.11.0</maven-compiler-plugin.version>
+        <maven-resources-plugin.version>3.3.1</maven-resources-plugin.version>
+        <maven-jar-plugin.version>3.3.0</maven-jar-plugin.version>
     </properties>
     <dependencies>
         <dependency>
@@ -37,30 +40,23 @@
     <build>
         <plugins>
             <plugin>
-                <groupId>net.alchim31.maven</groupId>
-                <artifactId>scala-maven-plugin</artifactId>
-                <version>${scala-maven-plugin.version}</version>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven-compiler-plugin.version}</version>
                 <executions>
                     <execution>
                         <goals>
                             <goal>testCompile</goal>
                         </goals>
-                        <configuration>
-                            <jvmArgs>
-                                <jvmArg>-Xss100M</jvmArg>
-                            </jvmArgs>
-                            <args>
-                                <arg>-feature</arg>
-                                <arg>-unchecked</arg>
-                                <arg>-language:implicitConversions</arg>
-                                <arg>-language:postfixOps</arg>
-                            </args>
-                        </configuration>
                     </execution>
                 </executions>
-                <configuration>
-                    <scalaVersion>3.2.2</scalaVersion>
-                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>${maven-resources-plugin.version}</version>
+            </plugin>
+            <plugin>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>${maven-jar-plugin.version}</version>
             </plugin>
             <plugin>
                 <groupId>io.gatling</groupId>
