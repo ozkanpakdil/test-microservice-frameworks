@@ -15,7 +15,7 @@ VERTX=$(grep vertx vertx/pom.xml|grep -oPm1 "(?<=<vertx.version>)[^<]+")
 
 OS_NAME=$(uname -a)
 FOLDERHOME=`pwd`
-MVNTESTCMD='mvn -ntp -f gatling/pom.xml gatling:test -Dusers=8000 -Drepeat=4'
+MVNTESTCMD='mvn -ntp -f $FOLDERHOME/gatling/pom.xml gatling:test -Dusers=8000 -Drepeat=4'
 
 echo "---
 layout: post
@@ -99,7 +99,7 @@ rustTest (){
     echo "[${frameworkVersion}](http://docs.rs/${link})" >&3
     printf "\nGatling test starting... for $exePath"
     echo '{% highlight bash %}'>&3
-    TABLE=`mvn -ntp -f $retDir/gatling/pom.xml gatling:test -Dusers=4000 -Drepeat=4|grep -A10 "Global Information"`
+    TABLE=`$MVNTESTCMD|grep -A10 "Global Information"`
     echo "$TABLE" >&3
     writeGraph "$TABLE" "$3"
     echo '{% endhighlight %}' >&3
