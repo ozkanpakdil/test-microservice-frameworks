@@ -11,35 +11,29 @@ import io.helidon.webserver.http.ServerRequest;
 import io.helidon.webserver.http.ServerResponse;
 import jakarta.json.Json;
 import jakarta.json.JsonBuilderFactory;
-import jakarta.json.JsonException;
 import jakarta.json.JsonObject;
 
 import java.time.LocalDate;
 import java.util.Collections;
-import java.util.concurrent.atomic.AtomicReference;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class GreetService implements HttpService {
 
-    private String artifactId;
+    public static final String ERROR = "error";
+    public static final String GREETING = "greeting";
+    private final String artifactId;
 
     /**
      * The config value for the key {@code greeting}.
      */
-    private final AtomicReference<String> greeting = new AtomicReference<>();
 
     private static final JsonBuilderFactory JSON = Json.createBuilderFactory(Collections.emptyMap());
-
-    private static final Logger LOGGER = Logger.getLogger(GreetService.class.getName());
 
     GreetService() {
         this(Config.global().get("app"));
     }
 
     GreetService(final Config config) {
-        greeting.set(config.get("app.greeting").asString().orElse("Ciao"));
-        artifactId = config.get("app.artifactId").asString().get();
+        artifactId = config.get("artifactId").asString().get();
     }
 
     /**
@@ -49,7 +43,9 @@ public class GreetService implements HttpService {
      */
     @Override
     public void routing(final HttpRules rules) {
-        rules.get("/", this::getDefaultMessageHandler).get("/{name}", this::getMessageHandler).put("/helloing",
+        rules.get("/",
+                this::getDefaultMessageHandler).get("/{name}",
+                this::getMessageHandler).put("/hello",
                 this::updateGreetingHandler);
     }
 
@@ -60,7 +56,7 @@ public class GreetService implements HttpService {
      * @param response the server response
      */
     private void getDefaultMessageHandler(final ServerRequest request, final ServerResponse response) {
-        sendResponse(response, "World");
+        sendResponse(response);
     }
 
     /**
@@ -70,39 +66,20 @@ public class GreetService implements HttpService {
      * @param response the server response
      */
     private void getMessageHandler(final ServerRequest request, final ServerResponse response) {
-        final String name = request.path().pathParameters().get("name");
-        sendResponse(response, name);
+        sendResponse(response);
     }
 
-    private void sendResponse(final ServerResponse response, final String name) {
+    private void sendResponse(final ServerResponse response) {
         response.send(new ApplicationInfo(artifactId, LocalDate.now().getYear()));
     }
 
-    private static <T> T processErrors(final Throwable ex, final ServerRequest request, final ServerResponse response) {
-
-        if (ex.getCause() instanceof JsonException) {
-
-            LOGGER.log(Level.FINE, "Invalid JSON", ex);
-            final JsonObject jsonErrorObject = JSON.createObjectBuilder().add("error", "Invalid JSON").build();
-            response.status(Status.BAD_REQUEST_400).send(jsonErrorObject);
-        } else {
-
-            LOGGER.log(Level.FINE, "Internal error", ex);
-            final JsonObject jsonErrorObject = JSON.createObjectBuilder().add("error", "Internal error").build();
-            response.status(Status.INTERNAL_SERVER_ERROR_500).send(jsonErrorObject);
-        }
-
-        return null;
-    }
-
     private void updateGreetingFromJson(final JsonObject jo, final ServerResponse response) {
-        if (!jo.containsKey("greeting")) {
-            final JsonObject jsonErrorObject = JSON.createObjectBuilder().add("error", "No greeting provided").build();
+        if (!jo.containsKey(GREETING)) {
+            final JsonObject jsonErrorObject = JSON.createObjectBuilder().add(ERROR, "No greeting provided").build();
             response.status(Status.BAD_REQUEST_400).send(jsonErrorObject);
             return;
         }
 
-        greeting.set(jo.getString("greeting"));
         response.status(Status.NO_CONTENT_204).send();
     }
 
