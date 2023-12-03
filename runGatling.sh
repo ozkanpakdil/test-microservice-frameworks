@@ -45,8 +45,8 @@ writeGraph(){
 }
 
 checkIs8080Up(){
-    COUNTER=30
-    until curl -sf http://localhost:8080/hello; do
+    COUNTER=10
+    until curl http://localhost:8080/hello -X GET -v; do
         sleep 1
         lsof -i :8080 || true
         tail log.log
