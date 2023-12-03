@@ -62,7 +62,7 @@ test (){
     verInfo=$2
     startTime=$3
     projectLink=$4
-    java --add-opens java.base/java.lang=ALL-UNNAMED -jar $jarPath > log.log &
+    java --add-opens java.base/java.lang=ALL-UNNAMED -jar $jarPath &> log.log &
 
     JPID=$!
 
