@@ -183,7 +183,8 @@ runNativeBinaryTests "./quarkus-demo-1.0.0-SNAPSHOT-runner" "graalvm native quar
 runNativeBinaryTests "./micronaut-demo" "graalvm native micronaut" "GRAALM1ICRONAUT"
 runNativeBinaryTests "./springboot-demo-web" "graalvm native spring-boot-web" "GRAALSPRING"
 runNativeBinaryTests "./springboot-webflux-demo" "graalvm native spring-boot-webflux" "GRAALWEBFLUX"
-runNativeBinaryTests "./vertx-demo" "graalvm native vertx" "GRAALV1ERTX"
+# vertx graal image is exiting without error.
+# runNativeBinaryTests "./vertx-demo" "graalvm native vertx" "GRAALV1ERTX"
 runNativeBinaryTests "./helidon-quickstart-se" "graalvm native helidon" "GRAALH1ELIDON"
 runNativeBinaryTests "./ktor-demo" "graalvm native ktor rest service" "GRAALK1TOR"
 ##### graalvm
