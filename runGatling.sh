@@ -115,7 +115,7 @@ runNativeBinaryTests(){
   title=$2
   graphVar=$3
 
-  $exePath &> log.log &
+  $exePath 2>&1 log.log &
   EXETEST=$!
 
   checkIs8080Up
