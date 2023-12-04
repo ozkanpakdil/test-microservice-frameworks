@@ -81,7 +81,7 @@ test (){
     echo '{% endhighlight %}' >> test-result.md
     kill -9 $JPID
     printf '\n' >> test-result.md
-    sleep 2
+    kill -9 $(lsof -t -i :8080) || true
 }
 
 rustTest (){
@@ -129,6 +129,7 @@ runNativeBinaryTests(){
   echo '{% endhighlight %}' >> test-result.md
   printf '\n\n' >> test-result.md
   kill -9 $EXETEST
+  kill -9 $(lsof -t -i :8080) || true
 }
 
 test "spring-boot-webflux/target/springboot-webflux-demo-0.0.1-SNAPSHOT.jar" ":: Spring Boot ::" "Started DemoWebFluxApplication" "https://spring.io/projects/spring-boot"
@@ -183,8 +184,7 @@ runNativeBinaryTests "./quarkus-demo-1.0.0-SNAPSHOT-runner" "graalvm native quar
 runNativeBinaryTests "./micronaut-demo" "graalvm native micronaut" "GRAALM1ICRONAUT"
 runNativeBinaryTests "./springboot-demo-web" "graalvm native spring-boot-web" "GRAALSPRING"
 runNativeBinaryTests "./springboot-webflux-demo" "graalvm native spring-boot-webflux" "GRAALWEBFLUX"
-# vertx graal image is exiting without error.
-# runNativeBinaryTests "./vertx-demo" "graalvm native vertx" "GRAALV1ERTX"
+runNativeBinaryTests "./vertx-demo" "graalvm native vertx" "GRAALV1ERTX"
 runNativeBinaryTests "./helidon-quickstart-se" "graalvm native helidon" "GRAALH1ELIDON"
 runNativeBinaryTests "./ktor-demo" "graalvm native ktor rest service" "GRAALK1TOR"
 ##### graalvm
