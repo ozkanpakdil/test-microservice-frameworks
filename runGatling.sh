@@ -167,6 +167,8 @@ dotnet publish --configuration Release Dotnet6Microservice/
 runNativeBinaryTests "./Dotnet6Microservice/bin/Release/net6.0/publish/Dotnet6Microservice" "Dotnet 6 rest service" "DOTNET6"
 dotnet publish --configuration Release Dotnet7Microservice/
 runNativeBinaryTests "./Dotnet7Microservice/bin/Release/net7.0/linux-x64/publish/Dotnet7Microservice" "Dotnet 7 rest service" "DOTNET7AOT"
+dotnet publish --configuration Release Dotnet8Microservice/
+runNativeBinaryTests "./Dotnet8Microservice/bin/Release/net8.0/linux-x64/publish/Dotnet8Microservice" "Dotnet 8 rest service" "DOTNET8AOT"
 ##### DOTNET
 
 ##### graalvm
