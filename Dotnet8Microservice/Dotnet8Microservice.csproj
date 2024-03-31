@@ -5,10 +5,7 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <StripSymbols>true</StripSymbols>
+    <PublishAot>true</PublishAot>
   </PropertyGroup>
-
-  <!-- <ItemGroup>
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
-  </ItemGroup> -->
 
 </Project>
