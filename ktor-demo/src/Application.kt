@@ -28,8 +28,9 @@ data class ApplicationInfo(
     val releaseYear: Int
 )
 
-@OptIn(InternalAPI::class)
 fun Application.mainModule() {
+    log.info("Hello from module!")
+    log.info("--------")
     println("kotlin version:${KotlinVersion.CURRENT} ktor:${props["ktor_version"]}")
     install(ContentNegotiation) {
         jackson {
