@@ -190,6 +190,22 @@ runNativeBinaryTests "./springboot-webflux-demo" "graalvm native spring-boot-web
 runNativeBinaryTests "./vertx-demo" "graalvm native vertx" "GRAALV1ERTX"
 runNativeBinaryTests "./helidon-quickstart-se" "graalvm native helidon" "GRAALH1ELIDON"
 runNativeBinaryTests "./ktor-${KTOR}-kotlin-${KOTLIN}" "graalvm native ktor rest service" "GRAALK1TOR"
+
+echo 'GraalVM Native Binaries Sizes:
+
+| Size in MB | Name |
+|------------|-------|' > test-result.md
+for binary in "./quarkus-demo-1.0.0-SNAPSHOT-runner" \
+              "./micronaut-demo" \
+              "./springboot-demo-web" \
+              "./springboot-webflux-demo" \
+              "./vertx-demo" \
+              "./helidon-quickstart-se" \
+              "./ktor-${KTOR}-kotlin-${KOTLIN}"; do
+    size=$(du -m "$binary" | cut -f1) # Get size in MB
+    echo "| $size | $(basename "$binary") |" >> test-result.md
+done
+
 ##### graalvm
 
 BUILD_URL="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
