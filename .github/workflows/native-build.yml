@@ -67,16 +67,6 @@ jobs:
           mvn -ntp package -Pnative,native-image -Dpackaging=native-image -DskipTests -f ktor-demo/pom.xml
           mvn -ntp package -Pnative,native-image -Dpackaging=native-image -DskipTests -f helidon-se-netty/pom.xml
           mvn -ntp package -Pnative,native-image -Dpackaging=native-image -DskipTests -f vertx/pom.xml
-      - name: native release packages
-        run: |
-          set -e
-          KTOR_BINARY=$(find ./ktor-demo/target -type f -executable -name "ktor-*" ! -name "*.jar" ! -name "*.kotlin_module")
-          if [ -z "$KTOR_BINARY" ]; then
-            echo "Error: Ktor binary not found"
-            exit 1
-          fi
-          echo "Found Ktor binary: $KTOR_BINARY"
-
       - uses: marvinpinto/action-automatic-releases@latest
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
@@ -90,4 +80,4 @@ jobs:
             ./spring-boot-webflux/target/springboot-webflux-demo
             ./vertx/target/vertx-demo
             ./helidon-se-netty/target/helidon-quickstart-se
-            ${{ env.KTOR_BINARY }}
+            ./ktor-demo/target/ktor-3.0.1-kotlin-2.0.21
