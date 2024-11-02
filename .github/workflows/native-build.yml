@@ -82,4 +82,4 @@ jobs:
             ./spring-boot-webflux/target/springboot-webflux-demo
             ./vertx/target/vertx-demo
             ./helidon-se-netty/target/helidon-quickstart-se
-            ./ktor-demo/target/ktor-*-kotlin-*-*
+            $(find ./ktor-demo/target -type f -executable -name "ktor-*") # Locate executable
