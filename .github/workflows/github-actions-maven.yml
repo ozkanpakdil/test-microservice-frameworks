@@ -49,18 +49,20 @@ jobs:
           source $HOME/.cargo/env
           set -x
           DATE=$(date +"%Y-%m-%d")
+          YEAR=$(date +"%Y")
           git config --global user.email "ozkan.pakdil@gmail.com"
           git config --global user.name "ozkanpakdil"
           rm -rf ozkanpakdil.github.io
           rm -rf page
           git clone https://${{ secrets.TOKEN_GIT }}@github.com/ozkanpakdil/ozkanpakdil.github.io.git page
           git config pull.rebase true
-          mv test-result.md page/my_collections/_microservicetests/$DATE-microservice-framework-test-${{ matrix.java }}.markdown
-          cd page/my_collections/_microservicetests/
+          mkdir -p page/my_collections/_microservicetests/$YEAR/
+          mv test-result.md page/my_collections/_microservicetests/$YEAR/$DATE-microservice-framework-test-${{ matrix.java }}.markdown
+          cd page/my_collections/_microservicetests/$YEAR
           git add $DATE-microservice-framework-test-${{ matrix.java }}.markdown
           # ls -1tr | head -n -10 | xargs -d '\n' git rm -f --
           git commit -m "Automatic publish from micro frameworks test"
           git push
-          cd ../../../
+          cd ../../../../
           rm -rf page
 

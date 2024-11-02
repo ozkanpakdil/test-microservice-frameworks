@@ -1,6 +1,6 @@
 #!/bin/bash
 set -ex
-kill -9 $(lsof -t -i :8080) || true
+kill -9 "$(lsof -t -i :8080)" || true
 mvn -version
 mvn -ntp clean package
 
@@ -12,6 +12,8 @@ HEL=$(grep helidon-se helidon-se-netty/pom.xml -A1|grep ver|grep -oPm1 "(?<=<ver
 QU=$(grep quarkus.platform.version quarkus/pom.xml |grep -v "\\$"|grep -oPm1 "(?<=<quarkus.platform.version>)[^<]+")
 MICRO=$(grep parent micronaut/pom.xml -A1|grep -oPm1 "(?<=<version>)[^<]+")
 VERTX=$(grep vertx vertx/pom.xml|grep -oPm1 "(?<=<vertx.version>)[^<]+")
+KTOR=$(grep ktor ktor-demo/pom.xml|grep -oPm1 "(?<=<ktor_version>)[^<]+")
+KOTLIN=$(grep kotlin ktor-demo/pom.xml|grep -oPm1 "(?<=<kotlin.version>)[^<]+")
 
 OS_NAME=$(uname -a)
 FOLDERHOME=`pwd`
@@ -19,7 +21,7 @@ MVNTESTCMD="mvn -ntp -f ${FOLDERHOME}/gatling/pom.xml gatling:test -Dusers=8000 
 
 echo "---
 layout: post
-title:  'Java microservice framework tests in SB:$SB Q:$QU M:$MICRO V:$VERTX H:$HEL Dotnet:6 $JAVA_VERSION $RUST_VERSION'
+title:  'Java microservice framework tests in SB:$SB Q:$QU M:$MICRO V:$VERTX H:$HEL Dotnet:6,7,8 $JAVA_VERSION $RUST_VERSION'
 date:   $DATE
 categories: java,rust,fasterxml,json,$OS_NAME
 ---
@@ -33,7 +35,7 @@ echo 'Size of created packages:
 
 | Size in MB |  Name |
 |------------|-------|' >> test-result.md
-ls -lh */target/*.jar|grep M|grep -v shaded|awk '{print "|",$5,"|",$9,"|"}' >>test-result.md
+find ./*/target/ -maxdepth 1 -name "*.jar" ! -name "*shaded*" -exec ls -lh {} + | awk '{print "|", $5, "|", $9, "|"}' >>test-result.md
 printf '\n\n' >> test-result.md
 echo 'Running jars and collecting test results...'
 
@@ -81,7 +83,7 @@ test (){
     echo '{% endhighlight %}' >> test-result.md
     kill -9 $JPID
     printf '\n' >> test-result.md
-    kill -9 $(lsof -t -i :8080) || true
+    kill -9 "$(lsof -t -i :8080)" || true
 }
 
 rustTest (){
@@ -129,7 +131,7 @@ runNativeBinaryTests(){
   echo '{% endhighlight %}' >> test-result.md
   printf '\n\n' >> test-result.md
   kill -9 $EXETEST
-  kill -9 $(lsof -t -i :8080) || true
+  kill -9 "$(lsof -t -i :8080)" || true
 }
 
 test "spring-boot-webflux/target/springboot-webflux-demo-0.0.1-SNAPSHOT.jar" ":: Spring Boot ::" "Started DemoWebFluxApplication" "https://spring.io/projects/spring-boot"
@@ -139,7 +141,7 @@ test "micronaut/target/micronaut-demo-0.1.jar" "micronaut version" "Startup comp
 test "vertx/target/vertx-demo-1.0.0-SNAPSHOT-fat.jar" "vertx version" "VERTX" "https://vertx.io/"
 test "eclipse-microprofile-kumuluz-test/target/eclipse-microprofile-kumuluz-test-1.0-SNAPSHOT.jar" "kumuluz version:" "Server -- Started" "https://ee.kumuluz.com/"
 test "helidon-se-netty/target/helidon-quickstart-se.jar" "Helidon SE" "HELIDON" "https://helidon.io/"
-test "ktor-demo/target/ktor-demo-1.0.1-SNAPSHOT-jar-with-dependencies.jar" "ktor" "KTOR" "https://ktor.io/"
+test "ktor-demo/target/ktor-${KTOR}-kotlin-${KOTLIN}-1.0.1-SNAPSHOT-jar-with-dependencies.jar" "ktor" "KTOR" "https://ktor.io/"
 
 printf '***  \n' >> test-result.md
 printf '## Rust rest services \n' >> test-result.md
@@ -178,9 +180,8 @@ wget -qc https://github.com/ozkanpakdil/test-microservice-frameworks/releases/do
 wget -qc https://github.com/ozkanpakdil/test-microservice-frameworks/releases/download/latest/springboot-webflux-demo
 wget -qc https://github.com/ozkanpakdil/test-microservice-frameworks/releases/download/latest/vertx-demo
 wget -qc https://github.com/ozkanpakdil/test-microservice-frameworks/releases/download/latest/helidon-quickstart-se
-rm -rf ktor-demo
-wget -qc https://github.com/ozkanpakdil/test-microservice-frameworks/releases/download/latest/ktor-demo
-chmod a+x quarkus-demo-1.0.0-SNAPSHOT-runner micronaut-demo springboot-demo-web springboot-webflux-demo vertx-demo helidon-quickstart-se ktor-demo
+wget -qc https://github.com/ozkanpakdil/test-microservice-frameworks/releases/download/latest/ktor-${KTOR}-kotlin-${KOTLIN}
+chmod a+x quarkus-demo-1.0.0-SNAPSHOT-runner micronaut-demo springboot-demo-web springboot-webflux-demo vertx-demo helidon-quickstart-se ktor-${KTOR}-kotlin-${KOTLIN}
 
 runNativeBinaryTests "./quarkus-demo-1.0.0-SNAPSHOT-runner" "graalvm native quarkus" "GRAALQ1UARKUS"
 runNativeBinaryTests "./micronaut-demo" "graalvm native micronaut" "GRAALM1ICRONAUT"
@@ -188,7 +189,7 @@ runNativeBinaryTests "./springboot-demo-web" "graalvm native spring-boot-web" "G
 runNativeBinaryTests "./springboot-webflux-demo" "graalvm native spring-boot-webflux" "GRAALWEBFLUX"
 runNativeBinaryTests "./vertx-demo" "graalvm native vertx" "GRAALV1ERTX"
 runNativeBinaryTests "./helidon-quickstart-se" "graalvm native helidon" "GRAALH1ELIDON"
-runNativeBinaryTests "./ktor-demo" "graalvm native ktor rest service" "GRAALK1TOR"
+runNativeBinaryTests "./ktor-${KTOR}-kotlin-${KOTLIN}" "graalvm native ktor rest service" "GRAALK1TOR"
 ##### graalvm
 
 BUILD_URL="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"

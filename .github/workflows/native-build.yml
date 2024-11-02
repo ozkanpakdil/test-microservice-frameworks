@@ -48,7 +48,7 @@ jobs:
     timeout-minutes: 120
     strategy:
       matrix:
-        java: [21]
+        java: [23]
     steps:
       - uses: actions/checkout@v2
       - uses: graalvm/setup-graalvm@v1
@@ -82,4 +82,4 @@ jobs:
             ./spring-boot-webflux/target/springboot-webflux-demo
             ./vertx/target/vertx-demo
             ./helidon-se-netty/target/helidon-quickstart-se
-            ./ktor-demo/target/ktor-demo
+            ./ktor-demo/target/ktor*

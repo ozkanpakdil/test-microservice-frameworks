@@ -27,8 +27,6 @@ data class ApplicationInfo(
 )
 
 fun Application.mainModule() {
-    log.info("Hello from module!")
-    log.info("--------")
     println("kotlin version:${KotlinVersion.CURRENT} ktor:${props["ktor_version"]}")
     install(ContentNegotiation) {
         jackson {
