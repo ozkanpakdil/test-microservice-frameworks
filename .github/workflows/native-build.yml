@@ -31,9 +31,8 @@ on:
       - '.github/ISSUE_TEMPLATE/**'
       - '.github/*.yml'
       - '.github/*.java'
-      - '.github/*.conf'  
+      - '.github/*.conf'
 
-#testing https://stackoverflow.com/questions/73017107/getting-error-httperror-resource-not-accessible-by-integration-when-using-acti
 permissions:
   contents: 'write'
   id-token: 'write'
@@ -41,7 +40,7 @@ permissions:
   deployments: 'write'
   repository-projects: 'write'
   pull-requests: 'write'
-  
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -69,7 +68,16 @@ jobs:
           mvn -ntp package -Pnative,native-image -Dpackaging=native-image -DskipTests -f helidon-se-netty/pom.xml
           mvn -ntp package -Pnative,native-image -Dpackaging=native-image -DskipTests -f vertx/pom.xml
       - name: native release packages
-        uses: marvinpinto/action-automatic-releases@latest
+        run: |
+          set -e
+          KTOR_BINARY=$(find ./ktor-demo/target -type f -executable -name "ktor-*" ! -name "*.jar" ! -name "*.kotlin_module")
+          if [ -z "$KTOR_BINARY" ]; then
+            echo "Error: Ktor binary not found"
+            exit 1
+          fi
+          echo "Found Ktor binary: $KTOR_BINARY"
+
+      - uses: marvinpinto/action-automatic-releases@latest
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           automatic_release_tag: latest
@@ -82,4 +90,4 @@ jobs:
             ./spring-boot-webflux/target/springboot-webflux-demo
             ./vertx/target/vertx-demo
             ./helidon-se-netty/target/helidon-quickstart-se
-            ./$(find ./ktor-demo/target -type f -executable -name "ktor-*" ! -name "*.jar" ! -name "*.kotlin_module")
+            ${{ env.KTOR_BINARY }}
