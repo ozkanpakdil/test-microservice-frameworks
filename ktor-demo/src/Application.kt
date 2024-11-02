@@ -13,11 +13,25 @@ import io.ktor.server.routing.*
 import java.time.LocalDate
 import java.util.*
 
-val props = Properties()
 fun main() {
-    props.load(ClassLoader.getSystemResourceAsStream("application.properties"))
     embeddedServer(Netty, port = 8080, host = "0.0.0.0") {
-        mainModule()
+        val props = Properties()
+        props.load(ClassLoader.getSystemResourceAsStream("application.properties"))
+        println("kotlin version:${KotlinVersion.CURRENT} ktor:${props["ktor_version"]}")
+        install(ContentNegotiation) {
+            jackson {
+                configure(SerializationFeature.INDENT_OUTPUT, true)
+                setDefaultPrettyPrinter(DefaultPrettyPrinter().apply {
+                    indentArraysWith(DefaultPrettyPrinter.FixedSpaceIndenter.instance)
+                    indentObjectsWith(DefaultIndenter("  ", "\n"))
+                })
+            }
+        }
+        routing {
+            get("/hello") {
+                call.respond(ApplicationInfo("ktor", LocalDate.now().getYear()))
+            }
+        }
     }.start(wait = true)
 }
 
@@ -26,22 +40,5 @@ data class ApplicationInfo(
     val releaseYear: Int
 )
 
-fun Application.mainModule() {
-    println("kotlin version:${KotlinVersion.CURRENT} ktor:${props["ktor_version"]}")
-    install(ContentNegotiation) {
-        jackson {
-            configure(SerializationFeature.INDENT_OUTPUT, true)
-            setDefaultPrettyPrinter(DefaultPrettyPrinter().apply {
-                indentArraysWith(DefaultPrettyPrinter.FixedSpaceIndenter.instance)
-                indentObjectsWith(DefaultIndenter("  ", "\n"))
-            })
-        }
-    }
-    routing {
-        get("/hello") {
-            call.respond(ApplicationInfo("ktor", LocalDate.now().getYear()))
-        }
-    }
-}
 
 
