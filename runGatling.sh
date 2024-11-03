@@ -24,7 +24,7 @@ echo "---
 layout: post
 title:  'Java microservice framework tests in SB:$SB Q:$QU M:$MICRO V:$VERTX H:$HEL Dotnet:6,7,8 $JAVA_VERSION $RUST_VERSION'
 date:   $DATE
-categories: [java,rust,fasterxml,json,$OS_NAME]
+categories: [java,rust,fasterxml,json,'$OS_NAME']
 ---
 In $OS_NAME,
 Below is total package generation times for separate modules,
@@ -195,7 +195,7 @@ runNativeBinaryTests "./ktor-demo" "graalvm native ktor rest service" "GRAALK1TO
 printf '***  \n' >> test-result.md
 printf '## GraalVM Native Binaries Sizes:
 
-| Size in MB | Name |
+| Size in MB |  Name |
 |------------|-------|\n' >> test-result.md
 for binary in "./quarkus-demo-runner" \
               "./micronaut-demo" \
@@ -207,6 +207,8 @@ for binary in "./quarkus-demo-runner" \
     size=$(du -m "$binary" | cut -f1) # Get size in MB
     printf "| %s | %s |\n" "$size" "$(basename "$binary")" >> test-result.md
 done
+
+printf '***  \n' >> test-result.md
 
 ##### graalvm
 
