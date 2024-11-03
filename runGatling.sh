@@ -191,10 +191,11 @@ runNativeBinaryTests "./vertx-demo" "graalvm native vertx" "GRAALV1ERTX"
 runNativeBinaryTests "./helidon-quickstart-se" "graalvm native helidon" "GRAALH1ELIDON"
 runNativeBinaryTests "./ktor-${KTOR}-kotlin-${KOTLIN}" "graalvm native ktor rest service" "GRAALK1TOR"
 
-echo 'GraalVM Native Binaries Sizes:
+printf '***  \n' >> test-result.md
+printf '## GraalVM Native Binaries Sizes:
 
 | Size in MB | Name |
-|------------|-------|' >> test-result.md
+|------------|-------|\n' >> test-result.md
 for binary in "./quarkus-demo-1.0.0-SNAPSHOT-runner" \
               "./micronaut-demo" \
               "./springboot-demo-web" \
@@ -203,7 +204,7 @@ for binary in "./quarkus-demo-1.0.0-SNAPSHOT-runner" \
               "./helidon-quickstart-se" \
               "./ktor-${KTOR}-kotlin-${KOTLIN}"; do
     size=$(du -m "$binary" | cut -f1) # Get size in MB
-    echo "| $size | $(basename "$binary") |" >> test-result.md
+    printf "| %s | %s |\n" "$size" "$(basename "$binary")" >> test-result.md
 done
 
 ##### graalvm
