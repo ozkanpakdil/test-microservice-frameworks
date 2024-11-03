@@ -23,7 +23,7 @@ echo "---
 layout: post
 title:  'Java microservice framework tests in SB:$SB Q:$QU M:$MICRO V:$VERTX H:$HEL Dotnet:6,7,8 $JAVA_VERSION $RUST_VERSION'
 date:   $DATE
-categories: java,rust,fasterxml,json,$OS_NAME
+categories: [java,rust,fasterxml,json,$OS_NAME]
 ---
 In $OS_NAME,
 Below is total package generation times for separate modules,
@@ -35,7 +35,7 @@ echo 'Size of created packages:
 
 | Size in MB |  Name |
 |------------|-------|' >> test-result.md
-find ./*/target/ -maxdepth 1 -name "*.jar" ! -name "*shaded*" -exec ls -lh {} + | awk '{print "|", $5, "|", $9, "|"}' >>test-result.md
+find ./*/target/ -maxdepth 1 -name "*.jar" ! -name "*shaded*" -size +1M -exec ls -lh {} + | awk '{print "|", $5, "|", $9, "|"}' >>test-result.md
 printf '\n\n' >> test-result.md
 echo 'Running jars and collecting test results...'
 

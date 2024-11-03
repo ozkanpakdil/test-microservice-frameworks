@@ -4,34 +4,12 @@ on:
   push:
     branches-ignore:
       - 'dependabot/**'
-    paths-ignore:
-      - '.gitignore'
-      - '.dockerignore'
-      - '*.md'
-      - '*.adoc'
-      - '*.txt'
-      - 'adr/**'
-      - 'jakarta/**'
-      - 'docs/src/main/asciidoc/**'
-      - '.github/ISSUE_TEMPLATE/**'
-      - '.github/*.yml'
-      - '.github/*.java'
-      - '.github/*.conf'
+    paths:
+      - '**/pom.xml'  # Only trigger if any pom.xml file is modified
   pull_request:
     types: [opened, synchronize, reopened, ready_for_review]
-    paths-ignore:
-      - '.gitignore'
-      - '.dockerignore'
-      - '*.md'
-      - '*.adoc'
-      - '*.txt'
-      - 'adr/**'
-      - 'jakarta/**'
-      - 'docs/src/main/asciidoc/**'
-      - '.github/ISSUE_TEMPLATE/**'
-      - '.github/*.yml'
-      - '.github/*.java'
-      - '.github/*.conf'
+    paths:
+      - '**/pom.xml'  # Only trigger if any pom.xml file is modified
 
 permissions:
   contents: 'write'
