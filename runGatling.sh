@@ -137,7 +137,7 @@ runNativeBinaryTests(){
 
 test "spring-boot-webflux/target/springboot-webflux-demo-$SB.jar" ":: Spring Boot ::" "Started DemoWebFluxApplication" "https://spring.io/projects/spring-boot"
 test "spring-boot-web/target/springboot-demo-web-$SB.jar" ":: Spring Boot ::" "Started DemoApplication" "https://spring.io/projects/spring-boot"
-test "quarkus/target/quarkus-demo-$QU-runner.jar" "powered by Quarkus" "QUARKUS" "https://quarkus.io/"
+test "quarkus/target/quarkus-demo-runner.jar" "powered by Quarkus" "QUARKUS" "https://quarkus.io/"
 test "micronaut/target/micronaut-demo-$MICRO.jar" "micronaut version" "Startup completed in" "https://micronaut.io/"
 test "vertx/target/vertx-demo-$VERTX-fat.jar" "vertx version" "VERTX" "https://vertx.io/"
 test "eclipse-microprofile-kumuluz-test/target/eclipse-microprofile-kumuluz-test-$KUMULUZ.jar" "kumuluz version:" "Server -- Started" "https://ee.kumuluz.com/"
@@ -182,7 +182,7 @@ wget -qc https://github.com/ozkanpakdil/test-microservice-frameworks/releases/do
 wget -qc https://github.com/ozkanpakdil/test-microservice-frameworks/releases/download/latest/vertx-demo
 wget -qc https://github.com/ozkanpakdil/test-microservice-frameworks/releases/download/latest/helidon-quickstart-se
 wget -qc https://github.com/ozkanpakdil/test-microservice-frameworks/releases/download/latest/ktor-demo
-chmod a+x quarkus-demo-1.0.0-SNAPSHOT-runner micronaut-demo springboot-demo-web springboot-webflux-demo vertx-demo helidon-quickstart-se ktor-demo
+chmod a+x quarkus-demo-runner micronaut-demo springboot-demo-web springboot-webflux-demo vertx-demo helidon-quickstart-se ktor-demo
 
 runNativeBinaryTests "./quarkus-demo-runner" "graalvm native quarkus" "GRAALQ1UARKUS"
 runNativeBinaryTests "./micronaut-demo" "graalvm native micronaut" "GRAALM1ICRONAUT"
