@@ -2,9 +2,8 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.mascix</groupId>
-    <artifactId>ktor-${ktor_version}-kotlin-${kotlin.version}</artifactId>
-    <version>1.0.1-SNAPSHOT</version>
-    <name>ktor-${ktor_version}-kotlin-${kotlin.version}</name>
+    <artifactId>ktor-demo</artifactId>
+    <version>${ktor_version}-kotlin-${kotlin.version}</version>
     <description>ktor-demo</description>
     <properties>
         <kotlin.code.style>official</kotlin.code.style>

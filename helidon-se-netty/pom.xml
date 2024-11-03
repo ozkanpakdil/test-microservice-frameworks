@@ -11,7 +11,7 @@
     </parent>
     <groupId>io.helidon.examples</groupId>
     <artifactId>helidon-quickstart-se</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>${parent.version}</version>
 
     <properties>
         <mainClass>io.helidon.examples.quickstart.se.Main</mainClass>

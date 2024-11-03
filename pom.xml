@@ -9,7 +9,7 @@
     <modules>
         <module>eclipse-microprofile-kumuluz-test</module>
         <module>helidon-se-netty</module>
-        <module>ktor-demo</module>
+        <module>ktor</module>
         <module>micronaut</module>
         <module>quarkus</module>
         <module>spring-boot-webflux</module>

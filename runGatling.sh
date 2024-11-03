@@ -10,10 +10,11 @@ DATE=$(date +"%Y-%m-%d %T")
 SB=$(grep spring-boot-starter-parent spring-boot-web/pom.xml -A1|grep -oPm1 "(?<=<version>)[^<]+")
 HEL=$(grep helidon-se helidon-se-netty/pom.xml -A1|grep ver|grep -oPm1 "(?<=<version>)[^<]+")
 QU=$(grep quarkus.platform.version quarkus/pom.xml |grep -v "\\$"|grep -oPm1 "(?<=<quarkus.platform.version>)[^<]+")
-MICRO=$(grep parent micronaut/pom.xml -A1|grep -oPm1 "(?<=<version>)[^<]+")
+KUMULUZ=$(grep kumuluzee.version eclipse-microprofile-kumuluz-test/pom.xml |grep -v "\\$"|grep -oPm1 "(?<=<kumuluzee.version>)[^<]+")
+MICRO=$(grep micronaut-parent micronaut/pom.xml -A1|grep -oPm1 "(?<=<version>)[^<]+")
 VERTX=$(grep vertx vertx/pom.xml|grep -oPm1 "(?<=<vertx.version>)[^<]+")
-KTOR=$(grep ktor ktor-demo/pom.xml|grep -oPm1 "(?<=<ktor_version>)[^<]+")
-KOTLIN=$(grep kotlin ktor-demo/pom.xml|grep -oPm1 "(?<=<kotlin.version>)[^<]+")
+KTOR=$(grep ktor ktor/pom.xml|grep -oPm1 "(?<=<ktor_version>)[^<]+")
+KOTLIN=$(grep kotlin ktor/pom.xml|grep -oPm1 "(?<=<kotlin.version>)[^<]+")
 
 OS_NAME=$(uname -a)
 FOLDERHOME=`pwd`
@@ -136,12 +137,12 @@ runNativeBinaryTests(){
 
 test "spring-boot-webflux/target/springboot-webflux-demo-$SB.jar" ":: Spring Boot ::" "Started DemoWebFluxApplication" "https://spring.io/projects/spring-boot"
 test "spring-boot-web/target/springboot-demo-web-$SB.jar" ":: Spring Boot ::" "Started DemoApplication" "https://spring.io/projects/spring-boot"
-test "quarkus/target/quarkus-demo-1.0.0-SNAPSHOT-runner.jar" "powered by Quarkus" "QUARKUS" "https://quarkus.io/"
-test "micronaut/target/micronaut-demo-0.1.jar" "micronaut version" "Startup completed in" "https://micronaut.io/"
-test "vertx/target/vertx-demo-1.0.0-SNAPSHOT-fat.jar" "vertx version" "VERTX" "https://vertx.io/"
-test "eclipse-microprofile-kumuluz-test/target/eclipse-microprofile-kumuluz-test-1.0-SNAPSHOT.jar" "kumuluz version:" "Server -- Started" "https://ee.kumuluz.com/"
+test "quarkus/target/quarkus-demo-$QU-runner.jar" "powered by Quarkus" "QUARKUS" "https://quarkus.io/"
+test "micronaut/target/micronaut-demo-$MICRO.jar" "micronaut version" "Startup completed in" "https://micronaut.io/"
+test "vertx/target/vertx-demo-$VERTX-fat.jar" "vertx version" "VERTX" "https://vertx.io/"
+test "eclipse-microprofile-kumuluz-test/target/eclipse-microprofile-kumuluz-test-$KUMULUZ.jar" "kumuluz version:" "Server -- Started" "https://ee.kumuluz.com/"
 test "helidon-se-netty/target/helidon-quickstart-se.jar" "Helidon SE" "HELIDON" "https://helidon.io/"
-test "ktor-demo/target/ktor-${KTOR}-kotlin-${KOTLIN}-1.0.1-SNAPSHOT-jar-with-dependencies.jar" "ktor" "KTOR" "https://ktor.io/"
+test "ktor/target/ktor-demo-${KTOR}-kotlin-${KOTLIN}-jar-with-dependencies.jar" "ktor" "KTOR" "https://ktor.io/"
 
 printf '***  \n' >> test-result.md
 printf '## Rust rest services \n' >> test-result.md
@@ -180,8 +181,8 @@ wget -qc https://github.com/ozkanpakdil/test-microservice-frameworks/releases/do
 wget -qc https://github.com/ozkanpakdil/test-microservice-frameworks/releases/download/latest/springboot-webflux-demo
 wget -qc https://github.com/ozkanpakdil/test-microservice-frameworks/releases/download/latest/vertx-demo
 wget -qc https://github.com/ozkanpakdil/test-microservice-frameworks/releases/download/latest/helidon-quickstart-se
-wget -qc https://github.com/ozkanpakdil/test-microservice-frameworks/releases/download/latest/ktor-${KTOR}-kotlin-${KOTLIN}
-chmod a+x quarkus-demo-1.0.0-SNAPSHOT-runner micronaut-demo springboot-demo-web springboot-webflux-demo vertx-demo helidon-quickstart-se ktor-${KTOR}-kotlin-${KOTLIN}
+wget -qc https://github.com/ozkanpakdil/test-microservice-frameworks/releases/download/latest/ktor-demo
+chmod a+x quarkus-demo-1.0.0-SNAPSHOT-runner micronaut-demo springboot-demo-web springboot-webflux-demo vertx-demo helidon-quickstart-se ktor-demo
 
 runNativeBinaryTests "./quarkus-demo-1.0.0-SNAPSHOT-runner" "graalvm native quarkus" "GRAALQ1UARKUS"
 runNativeBinaryTests "./micronaut-demo" "graalvm native micronaut" "GRAALM1ICRONAUT"
@@ -189,7 +190,7 @@ runNativeBinaryTests "./springboot-demo-web" "graalvm native spring-boot-web" "G
 runNativeBinaryTests "./springboot-webflux-demo" "graalvm native spring-boot-webflux" "GRAALWEBFLUX"
 runNativeBinaryTests "./vertx-demo" "graalvm native vertx" "GRAALV1ERTX"
 runNativeBinaryTests "./helidon-quickstart-se" "graalvm native helidon" "GRAALH1ELIDON"
-runNativeBinaryTests "./ktor-${KTOR}-kotlin-${KOTLIN}" "graalvm native ktor rest service" "GRAALK1TOR"
+runNativeBinaryTests "./ktor-demo" "graalvm native ktor rest service" "GRAALK1TOR"
 
 printf '***  \n' >> test-result.md
 printf '## GraalVM Native Binaries Sizes:
@@ -202,7 +203,7 @@ for binary in "./quarkus-demo-1.0.0-SNAPSHOT-runner" \
               "./springboot-webflux-demo" \
               "./vertx-demo" \
               "./helidon-quickstart-se" \
-              "./ktor-${KTOR}-kotlin-${KOTLIN}"; do
+              "./ktor-demo"; do
     size=$(du -m "$binary" | cut -f1) # Get size in MB
     printf "| %s | %s |\n" "$size" "$(basename "$binary")" >> test-result.md
 done

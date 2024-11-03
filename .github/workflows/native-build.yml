@@ -41,17 +41,9 @@ jobs:
           mvn -ntp package -Pnative native:compile -DskipTests -f spring-boot-webflux/pom.xml
           mvn -ntp package -Pnative,native-image -Dpackaging=native-image -DskipTests -f quarkus/pom.xml
           mvn -ntp package -Pnative,native-image -Dpackaging=native-image -DskipTests -f micronaut/pom.xml
-          mvn -ntp package -Pnative,native-image -Dpackaging=native-image -DskipTests -f ktor-demo/pom.xml
+          mvn -ntp package -Pnative,native-image -Dpackaging=native-image -DskipTests -f ktor/pom.xml
           mvn -ntp package -Pnative,native-image -Dpackaging=native-image -DskipTests -f helidon-se-netty/pom.xml
           mvn -ntp package -Pnative,native-image -Dpackaging=native-image -DskipTests -f vertx/pom.xml
-
-      - name: Extract Versions from pom.xml
-        id: extract_versions
-        run: |
-          KTOR=$(grep -oPm1 "(?<=<ktor.version>)[^<]+" ktor-demo/pom.xml)
-          KOTLIN=$(grep -oPm1 "(?<=<kotlin.version>)[^<]+" ktor-demo/pom.xml)
-          echo "KTOR_VERSION=$KTOR" >> $GITHUB_ENV
-          echo "KOTLIN_VERSION=$KOTLIN" >> $GITHUB_ENV
 
       - uses: marvinpinto/action-automatic-releases@latest
         with:
@@ -66,4 +58,4 @@ jobs:
             ./spring-boot-webflux/target/springboot-webflux-demo
             ./vertx/target/vertx-demo
             ./helidon-se-netty/target/helidon-quickstart-se
-            ./ktor-demo/target/ktor-${{ env.KTOR_VERSION }}-kotlin-${{ env.KOTLIN_VERSION }}
+            ./ktor/target/ktor-demo

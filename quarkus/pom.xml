@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.mascix</groupId>
   <artifactId>quarkus-demo</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
+  <version>${quarkus.platform.version}</version>
   <properties>
     <surefire-plugin.version>3.5.1</surefire-plugin.version>
     <maven.compiler.release>17</maven.compiler.release>
@@ -84,7 +84,6 @@
         <configuration>
           <systemPropertyVariables>
             <java.util.logging.manager>org.jboss.logmanager.LogManager</java.util.logging.manager>
-            <maven.home>${maven.home}</maven.home>
           </systemPropertyVariables>
         </configuration>
       </plugin>
