@@ -194,7 +194,7 @@ runNativeBinaryTests "./ktor-${KTOR}-kotlin-${KOTLIN}" "graalvm native ktor rest
 echo 'GraalVM Native Binaries Sizes:
 
 | Size in MB | Name |
-|------------|-------|' > test-result.md
+|------------|-------|' >> test-result.md
 for binary in "./quarkus-demo-1.0.0-SNAPSHOT-runner" \
               "./micronaut-demo" \
               "./springboot-demo-web" \
