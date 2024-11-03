@@ -4,9 +4,3 @@ updates:
   directory: "/"
   schedule:
     interval: monthly
-- package-ecosystem: maven
-  directory: "/ktor"
-  schedule:
-    interval: "monthly"
-  ignore:
-    - dependency-name: "*"
