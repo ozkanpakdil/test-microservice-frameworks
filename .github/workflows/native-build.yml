@@ -52,7 +52,7 @@ jobs:
           prerelease: true
           title: Development Build
           files: |
-            ./quarkus/target/quarkus-demo-1.0.0-SNAPSHOT-runner
+            ./quarkus/target/quarkus-demo-runner
             ./micronaut/target/micronaut-demo
             ./spring-boot-web/target/springboot-demo-web
             ./spring-boot-webflux/target/springboot-webflux-demo

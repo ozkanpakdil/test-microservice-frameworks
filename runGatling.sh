@@ -175,7 +175,7 @@ runNativeBinaryTests "./Dotnet8Microservice/bin/Release/net8.0/linux-x64/Dotnet8
 ##### DOTNET
 
 ##### graalvm
-wget -qc https://github.com/ozkanpakdil/test-microservice-frameworks/releases/download/latest/quarkus-demo-1.0.0-SNAPSHOT-runner
+wget -qc https://github.com/ozkanpakdil/test-microservice-frameworks/releases/download/latest/quarkus-demo-runner
 wget -qc https://github.com/ozkanpakdil/test-microservice-frameworks/releases/download/latest/micronaut-demo
 wget -qc https://github.com/ozkanpakdil/test-microservice-frameworks/releases/download/latest/springboot-demo-web
 wget -qc https://github.com/ozkanpakdil/test-microservice-frameworks/releases/download/latest/springboot-webflux-demo
@@ -184,7 +184,7 @@ wget -qc https://github.com/ozkanpakdil/test-microservice-frameworks/releases/do
 wget -qc https://github.com/ozkanpakdil/test-microservice-frameworks/releases/download/latest/ktor-demo
 chmod a+x quarkus-demo-1.0.0-SNAPSHOT-runner micronaut-demo springboot-demo-web springboot-webflux-demo vertx-demo helidon-quickstart-se ktor-demo
 
-runNativeBinaryTests "./quarkus-demo-1.0.0-SNAPSHOT-runner" "graalvm native quarkus" "GRAALQ1UARKUS"
+runNativeBinaryTests "./quarkus-demo-runner" "graalvm native quarkus" "GRAALQ1UARKUS"
 runNativeBinaryTests "./micronaut-demo" "graalvm native micronaut" "GRAALM1ICRONAUT"
 runNativeBinaryTests "./springboot-demo-web" "graalvm native spring-boot-web" "GRAALSPRING"
 runNativeBinaryTests "./springboot-webflux-demo" "graalvm native spring-boot-webflux" "GRAALWEBFLUX"
@@ -197,7 +197,7 @@ printf '## GraalVM Native Binaries Sizes:
 
 | Size in MB | Name |
 |------------|-------|\n' >> test-result.md
-for binary in "./quarkus-demo-1.0.0-SNAPSHOT-runner" \
+for binary in "./quarkus-demo-runner" \
               "./micronaut-demo" \
               "./springboot-demo-web" \
               "./springboot-webflux-demo" \
