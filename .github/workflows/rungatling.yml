@@ -1,4 +1,4 @@
-name: Github Actions Java CI
+name: Run Gatling And Java CI
 
 on:
   workflow_run:
