@@ -22,7 +22,7 @@ MVNTESTCMD="mvn -ntp -f ${FOLDERHOME}/gatling/pom.xml gatling:test -Dusers=8000 
 
 echo "---
 layout: post
-title:  'Java microservice framework tests in SB:$SB Q:$QU M:$MICRO V:$VERTX H:$HEL Dotnet:6,7,8 $JAVA_VERSION $RUST_VERSION'
+title:  'Java microservice framework tests in SB:$SB Q:$QU M:$MICRO V:$VERTX H:$HEL Dotnet:7,8,9 $JAVA_VERSION $RUST_VERSION'
 date:   $DATE
 categories: [java,rust,fasterxml,json,'$OS_NAME']
 ---
@@ -165,12 +165,12 @@ rustTest "./rust-examples/exe/axum-rest-api" "axum =" "AXUM"
 rm -rf rust-examples
 
 ##### DOTNET
-dotnet publish --configuration Release Dotnet6Microservice/
-runNativeBinaryTests "./Dotnet6Microservice/bin/Release/net6.0/publish/Dotnet6Microservice" "Dotnet 6 rest service" "DOTNET6"
-dotnet publish --configuration Release Dotnet7Microservice/
-runNativeBinaryTests "./Dotnet7Microservice/bin/Release/net7.0/linux-x64/publish/Dotnet7Microservice" "Dotnet 7 rest service" "DOTNET7AOT"
-dotnet publish --configuration Release Dotnet8Microservice/
-runNativeBinaryTests "./Dotnet8Microservice/bin/Release/net8.0/linux-x64/Dotnet8Microservice" "Dotnet 8 rest service" "DOTNET8AOT"
+wget -qc https://github.com/ozkanpakdil/dotnet-examples/releases/download/latest/Dotnet7Microservice
+runNativeBinaryTests "./Dotnet7Microservice" "Dotnet 7 rest service" "DOTNET7AOT"
+wget -qc https://github.com/ozkanpakdil/dotnet-examples/releases/download/latest/Dotnet8Microservice
+runNativeBinaryTests "./Dotnet8Microservice" "Dotnet 8 rest service" "DOTNET8AOT"
+wget -qc https://github.com/ozkanpakdil/dotnet-examples/releases/download/latest/Dotnet9Microservice
+runNativeBinaryTests "./Dotnet9Microservice" "Dotnet 9 rest service" "DOTNET9AOT"
 ##### DOTNET
 
 ##### graalvm
