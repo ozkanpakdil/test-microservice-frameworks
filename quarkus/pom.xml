@@ -6,14 +6,14 @@
   <artifactId>quarkus-demo</artifactId>
   <version>${quarkus.platform.version}</version>
   <properties>
-    <surefire-plugin.version>3.5.1</surefire-plugin.version>
+    <surefire-plugin.version>3.5.2</surefire-plugin.version>
     <maven.compiler.release>17</maven.compiler.release>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <compiler-plugin.version>3.13.0</compiler-plugin.version>
     <quarkus.platform.group-id>io.quarkus</quarkus.platform.group-id>
     <quarkus.platform.artifact-id>quarkus-bom</quarkus.platform.artifact-id>
-    <quarkus.platform.version>3.16.1</quarkus.platform.version>
+    <quarkus.platform.version>3.17.2</quarkus.platform.version>
   </properties>
 
     <dependencyManagement>
