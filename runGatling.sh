@@ -116,7 +116,7 @@ runNativeBinaryTests(){
   exePath=$1
   title=$2
   graphVar=$3
-  chmod +x $exePath
+  chmod +x "$exePath"
 
   $exePath 2>&1 log.log &
   EXETEST=$!
