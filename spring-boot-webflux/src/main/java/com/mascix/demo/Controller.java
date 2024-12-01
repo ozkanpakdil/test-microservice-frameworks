@@ -14,7 +14,7 @@ public class Controller {
     @GetMapping("/hello")
     @ResponseBody
     public ApplicationInfo hello() {
-        return new ApplicationInfo("spring-boot", LocalDate.now().getYear());
+        return new ApplicationInfo("spring-boot-webflux", LocalDate.now().getYear());
     }
 }
 
