@@ -208,7 +208,7 @@ for binary in "./quarkus-demo-runner" \
     printf "| %s | %s |\n" "$size" "$(basename "$binary")" >> test-result.md
 done
 
-printf '***  \n' >> test-result.md
+printf '\n\n***  \n\n' >> test-result.md
 
 ##### graalvm
 
