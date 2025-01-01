@@ -262,7 +262,7 @@
           "name": "_prev"
         },
         {
-          "name": "_removedRef"
+          "name": "removedRef"
         }
       ]
     },
@@ -418,6 +418,18 @@
       ]
     },
     {
+      "type": "io.netty.util.internal.NativeLibraryUtil",
+      "methods": [
+        {
+          "name": "loadLibrary",
+          "parameterTypes": [
+            "java.lang.String",
+            "boolean"
+          ]
+        }
+      ]
+    },
+    {
       "type": "io.netty.util.internal.shaded.org.jctools.queues.BaseMpscLinkedArrayQueueColdProducerFields",
       "fields": [
         {
@@ -442,7 +454,7 @@
       ]
     },
     {
-      "type": "io.netty.util.internal.shaded.org.jctools.queues.MpscArrayQueueConsumerIndexField",
+      "type": "io.netty.util.internal.shaded.org.jctools.queues.unpadded.MpscUnpaddedArrayQueueConsumerIndexField",
       "fields": [
         {
           "name": "consumerIndex"
@@ -450,7 +462,7 @@
       ]
     },
     {
-      "type": "io.netty.util.internal.shaded.org.jctools.queues.MpscArrayQueueProducerIndexField",
+      "type": "io.netty.util.internal.shaded.org.jctools.queues.unpadded.MpscUnpaddedArrayQueueProducerIndexField",
       "fields": [
         {
           "name": "producerIndex"
@@ -458,7 +470,7 @@
       ]
     },
     {
-      "type": "io.netty.util.internal.shaded.org.jctools.queues.MpscArrayQueueProducerLimitField",
+      "type": "io.netty.util.internal.shaded.org.jctools.queues.unpadded.MpscUnpaddedArrayQueueProducerLimitField",
       "fields": [
         {
           "name": "producerLimit"
@@ -915,38 +927,15 @@
           "name": "selectedKeys"
         }
       ]
-    },
-    {
-      "type": "sun.security.provider.DRBG",
-      "methods": [
-        {
-          "name": "<init>",
-          "parameterTypes": [
-            "java.security.SecureRandomParameters"
-          ]
-        }
-      ]
-    },
-    {
-      "type": "sun.security.provider.SHA",
-      "methods": [
-        {
-          "name": "<init>",
-          "parameterTypes": []
-        }
-      ]
-    },
-    {
-      "type": "sun.security.provider.SHA2$SHA256",
-      "methods": [
-        {
-          "name": "<init>",
-          "parameterTypes": []
-        }
-      ]
     }
   ],
   "resources": [
+    {
+      "glob": "META-INF/native/libnetty_transport_native_epoll.so"
+    },
+    {
+      "glob": "META-INF/native/libnetty_transport_native_epoll_x86_64.so"
+    },
     {
       "glob": "META-INF/services/ch.qos.logback.classic.spi.Configurator"
     },
@@ -997,17 +986,6 @@
   "bundles": [],
   "jni": [
     {
-      "type": "com.mascix.ApplicationKt",
-      "methods": [
-        {
-          "name": "main",
-          "parameterTypes": [
-            "java.lang.String[]"
-          ]
-        }
-      ]
-    },
-    {
       "type": "java.lang.Boolean",
       "methods": [
         {
@@ -1015,23 +993,6 @@
           "parameterTypes": [
             "java.lang.String"
           ]
-        }
-      ]
-    },
-    {
-      "type": "sun.launcher.LauncherHelper",
-      "fields": [
-        {
-          "name": "isStaticMain"
-        },
-        {
-          "name": "noArgMain"
-        }
-      ],
-      "methods": [
-        {
-          "name": "getApplicationClass",
-          "parameterTypes": []
         }
       ]
     },
