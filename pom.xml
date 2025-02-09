@@ -17,5 +17,4 @@
         <module>vertx</module>
         <module>gatling</module>
     </modules>
-
 </project>
