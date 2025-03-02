@@ -13,6 +13,8 @@ jobs:
   send_mastodon:
     runs-on: ubuntu-latest
     steps:
+      - name: Check out repository
+        uses: actions/checkout@v2
       - name: Generate URL and send toot to Mastodon
         id: mastodon
         run: |
@@ -21,9 +23,24 @@ jobs:
           JAVA_VERSION=$(grep -oP '(?<=java: \[)\d+(?=\])' .github/workflows/rungatling.yml)
           URL="https://ozkanpakdil.github.io/microservicetests/$YEAR/$DATE-microservice-framework-test-$JAVA_VERSION.html"
           echo "URL=$URL" >> $GITHUB_ENV
+          WORKFLOWS=("Run Gatling And Java CI" "Native CI" "Another Workflow")
+          RUN_TIMES=""
+          for WORKFLOW in "${WORKFLOWS[@]}"; do
+            RUN_ID=$(gh api -X GET /repos/${{ github.repository }}/actions/workflows | jq -r ".workflows[] | select(.name==\"$WORKFLOW\") | .id")
+            LAST_RUN=$(gh api -X GET /repos/${{ github.repository }}/actions/workflows/$RUN_ID/runs?per_page=1 | jq -r '.workflow_runs[0]')
+            START_TIME=$(echo $LAST_RUN | jq -r '.run_started_at')
+            END_TIME=$(echo $LAST_RUN | jq -r '.updated_at')
+            DURATION=$(date -u -d @$(( $(date -d $END_TIME +%s) - $(date -d $START_TIME +%s) )) +%H:%M:%S)
+            RUN_TIMES="$RUN_TIMES\n$WORKFLOW: $DURATION"
+          done
+          echo "RUN_TIMES=$RUN_TIMES" >> $GITHUB_ENV
+
       - name: Send toot to Mastodon
         uses: cbrgm/mastodon-github-action@v2
         with:
           access-token: ${{ secrets.MASTODON_ACCESS_TOKEN }} 
           url: ${{ secrets.MASTODON_URL }} 
-          message: "Latest microservice test framework comparison is released here ${{ env.URL }}"
+          message: |
+            Latest microservice test framework comparison is released here ${{ env.URL }}
+            Last build times:
+            ${{ env.RUN_TIMES }}
