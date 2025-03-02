@@ -1,0 +1,29 @@
+name: Send Mastodon Post
+
+on:
+  workflow_run:
+    workflows: [ "Run Gatling And Java CI" ]
+    types:
+      - completed
+  release:
+    types: [ published ]
+  workflow_dispatch:
+
+jobs:
+  send_mastodon:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Generate URL and send toot to Mastodon
+        id: mastodon
+        run: |
+          DATE=$(date +"%Y-%m-%d")
+          YEAR=$(date +"%Y")
+          JAVA_VERSION="${{ github.event.workflow_run.outputs.java_version }}"
+          URL="https://ozkanpakdil.github.io/microservicetests/$YEAR/$DATE-microservice-framework-test-$JAVA_VERSION.html"
+          echo "URL=$URL" >> $GITHUB_ENV
+      - name: Send toot to Mastodon
+        uses: cbrgm/mastodon-github-action@v2
+        with:
+          access-token: ${{ secrets.MASTODON_ACCESS_TOKEN }} 
+          url: ${{ secrets.MASTODON_URL }} 
+          message: "Latest microservice test framework comparison is released here ${{ env.URL }}"
