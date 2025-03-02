@@ -15,8 +15,11 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v2
+
       - name: Generate URL and send toot to Mastodon
         id: mastodon
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           DATE=$(date +"%Y-%m-%d")
           YEAR=$(date +"%Y")
@@ -30,7 +33,9 @@ jobs:
             LAST_RUN=$(gh api -X GET /repos/${{ github.repository }}/actions/workflows/$RUN_ID/runs?per_page=1 | jq -r '.workflow_runs[0]')
             START_TIME=$(echo $LAST_RUN | jq -r '.run_started_at')
             END_TIME=$(echo $LAST_RUN | jq -r '.updated_at')
-            DURATION=$(date -u -d @$(( $(date -d $END_TIME +%s) - $(date -d $START_TIME +%s) )) +%H:%M:%S)
+            START_TIMESTAMP=$(date -d "$START_TIME" +%s)
+            END_TIMESTAMP=$(date -d "$END_TIME" +%s)
+            DURATION=$(date -u -d @$(( END_TIMESTAMP - START_TIMESTAMP )) +%H:%M:%S)
             RUN_TIMES="$RUN_TIMES\n$WORKFLOW: $DURATION"
           done
           echo "RUN_TIMES=$RUN_TIMES" >> $GITHUB_ENV
