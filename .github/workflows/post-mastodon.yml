@@ -18,7 +18,7 @@ jobs:
         run: |
           DATE=$(date +"%Y-%m-%d")
           YEAR=$(date +"%Y")
-          JAVA_VERSION="${{ github.event.workflow_run.outputs.java_version }}"
+          JAVA_VERSION=$(grep -oP '(?<=java: \[)\d+(?=\])' .github/workflows/rungatling.yml)
           URL="https://ozkanpakdil.github.io/microservicetests/$YEAR/$DATE-microservice-framework-test-$JAVA_VERSION.html"
           echo "URL=$URL" >> $GITHUB_ENV
       - name: Send toot to Mastodon
