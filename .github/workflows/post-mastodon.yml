@@ -15,6 +15,7 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v2
+      - uses: actions4gh/setup-gh@v1
 
       - name: Generate URL and send toot to Mastodon
         id: mastodon
@@ -48,4 +49,4 @@ jobs:
           message: |
             Latest microservice test framework comparison is released here ${{ env.URL }}
             Last build times:
-            ${{ env.RUN_TIMES }}
+            ${{ env.RUN_TIMES }} 
