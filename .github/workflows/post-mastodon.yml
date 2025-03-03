@@ -26,9 +26,8 @@ jobs:
           JAVA_VERSION=$(grep -oP '(?<=java: \[)\d+(?=\])' .github/workflows/rungatling.yml)
           URL="https://ozkanpakdil.github.io/microservicetests/$YEAR/$DATE-microservice-framework-test-$JAVA_VERSION.html"
           echo "URL=$URL" >> $GITHUB_ENV
-          CHANGELOG=$(git log -5 --pretty=format:"%h - %s")
+          CHANGELOG=$(git log -3 --pretty=format:"- %s")
           echo "CHANGELOG=$CHANGELOG" >> $GITHUB_ENV
-
 
       - name: Send toot to Mastodon
         uses: cbrgm/mastodon-github-action@v2
