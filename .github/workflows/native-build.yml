@@ -2,10 +2,13 @@ name: Native CI
 
 on:
   push:
+    branches:
+      - main
     branches-ignore:
       - 'dependabot/**'
     paths:
       - '**/*.json'
+      - '**/*.java'
       - '**/*.yml'
       - '**/pom.xml'  # Only trigger if any pom.xml file is modified
   pull_request:
