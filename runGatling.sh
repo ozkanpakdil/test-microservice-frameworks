@@ -34,9 +34,9 @@ categories: [java,rust,fasterxml,json,'$OS_NAME']
 ---
 In $OS_NAME,
 {% highlight bash %}
-Memory:$MEMORY
-Disk:$DISK
-CPU Load:$CPU_LOAD
+$MEMORY
+$DISK
+$CPU_LOAD
 CPU core count:$CPU_CORE
 CPUs
 $CPU_MHZ
