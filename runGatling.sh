@@ -23,7 +23,7 @@ MVNTESTCMD="mvn -ntp -f ${FOLDERHOME}/gatling/pom.xml gatling:test -Dusers=8000 
 MEMORY=$(free -m | awk 'NR==2{printf "Memory Usage: %s/%sMB (%.2f%%)\n", $3,$2,$3*100/$2 }')
 DISK=$(df -h | awk '$NF=="/"{printf "Disk Usage: %d/%dGB (%s)\n", $3,$2,$5}')
 CPU_LOAD=$(top -bn1 | grep load | awk '{printf "CPU Load: %.2f\n", $(NF-2)}') 
-CPU_CORE=$(nprocs --all)
+CPU_CORE=$(nproc --all)
 CPU_MHZ=$(cat /proc/cpuinfo | grep "MHz")
 
 echo "---
