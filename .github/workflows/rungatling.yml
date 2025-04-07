@@ -7,6 +7,9 @@ on:
     types:
       - completed
 
+permissions:
+  pull-requests: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -15,8 +18,6 @@ jobs:
       matrix:
         java: [23]
     steps:
-      - name: Collect Workflow Telemetry
-        uses: catchpoint/workflow-telemetry-action@v2
       - uses: actions/checkout@v2
       - uses: graalvm/setup-graalvm@v1
         with:
@@ -31,6 +32,12 @@ jobs:
           java-version: ${{ matrix.java }}
           cache: 'maven'
           distribution: 'temurin'
+      - name: Collect Workflow Telemetry
+        uses: catchpoint/workflow-telemetry-action@v2
+        with:
+          proc_trace_sys_enable: true
+          comment_on_pr: false
+          theme: dark
       - name: Run jars and get test results
         run: ./runGatling.sh
       - name: Commit the test result
