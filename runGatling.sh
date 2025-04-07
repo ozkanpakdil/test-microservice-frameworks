@@ -20,6 +20,12 @@ OS_NAME=$(uname -a)
 FOLDERHOME=`pwd`
 MVNTESTCMD="mvn -ntp -f ${FOLDERHOME}/gatling/pom.xml gatling:test -Dusers=8000 -Drepeat=4"
 
+MEMORY=$(free -m | awk 'NR==2{printf "Memory Usage: %s/%sMB (%.2f%%)\n", $3,$2,$3*100/$2 }')
+DISK=$(df -h | awk '$NF=="/"{printf "Disk Usage: %d/%dGB (%s)\n", $3,$2,$5}')
+CPU_LOAD=$(top -bn1 | grep load | awk '{printf "CPU Load: %.2f\n", $(NF-2)}') 
+CPU_CORE=$(nprocs --all)
+CPU_MHZ=$(cat /proc/cpuinfo | grep "MHz")
+
 echo "---
 layout: post
 title:  'Java microservice framework tests in SB:$SB Q:$QU M:$MICRO V:$VERTX H:$HEL Dotnet:7,8,9 $JAVA_VERSION $RUST_VERSION'
@@ -27,6 +33,14 @@ date:   $DATE
 categories: [java,rust,fasterxml,json,'$OS_NAME']
 ---
 In $OS_NAME,
+{% highlight bash %}
+Memory:$MEMORY
+Disk:$DISK
+CPU Load:$CPU_LOAD
+CPU core count:$CPU_CORE
+CPUs
+$CPU_MHZ
+{% endhighlight %}
 Below is total package generation times for separate modules,
 {% highlight bash %}" > test-result.md
 mvn -ntp -T 4C test package|grep SUCCESS|grep -Ev "(framework|gatling|BUILD)" >>test-result.md
