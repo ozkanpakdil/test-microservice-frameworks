@@ -1,6 +1,7 @@
 name: Native CI
 
 on:
+  workflow_call:
   push:
     branches:
       - main
