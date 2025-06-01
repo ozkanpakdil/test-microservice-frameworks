@@ -1,21 +1,15 @@
 name: Send Mastodon Post
 
 on:
-  workflow_run:
-    workflows: [ "Run Gatling And Java CI" ]
-    types:
-      - completed
-  release:
-    types: [ published ]
-  workflow_dispatch:
+  workflow_call:
 
 jobs:
   send_mastodon:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
         uses: actions/checkout@v2
-
       - name: Generate URL and send toot to Mastodon
         id: mastodon
         env:

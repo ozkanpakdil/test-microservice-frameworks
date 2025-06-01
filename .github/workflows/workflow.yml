@@ -1,0 +1,23 @@
+name: Workflow for tests
+
+on:
+  push:
+    branches:
+      - main
+permissions:
+  contents: write
+  id-token: write
+  pages: write
+  pull-requests: write
+  deployments: write
+  statuses: write
+  checks: write
+jobs:
+  native-build:
+    uses: ./.github/workflows/native-build.yml
+  rungatling:
+    needs: native-build
+    uses: ./.github/workflows/rungatling.yml
+  post-mastodon:
+    needs: rungatling
+    uses: ./.github/workflows/post-mastodon.yml
