@@ -2,19 +2,6 @@ name: Native CI
 
 on:
   workflow_call:
-  push:
-    branches:
-      - main
-    paths:
-      - '**/*.json'
-      - '**/*.java'
-      - '**/*.yml'
-      - '**/pom.xml'  # Only trigger if any pom.xml file is modified
-  pull_request:
-    types: [opened, synchronize, reopened, ready_for_review]
-    paths:
-      - '**/pom.xml'  # Only trigger if any pom.xml file is modified
-      - '**/*.json'
 
 permissions:
   contents: 'write'
