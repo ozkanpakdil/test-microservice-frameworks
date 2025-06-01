@@ -12,6 +12,9 @@ permissions:
   deployments: write
   statuses: write
   checks: write
+  packages: write
+  repository-projects: write
+
 jobs:
   native-build:
     uses: ./.github/workflows/native-build.yml
