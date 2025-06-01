@@ -32,7 +32,7 @@ public class MainVerticle extends AbstractVerticle {
       } catch (JsonProcessingException e) {
         e.printStackTrace();
       }
-    }).listen(8888).onSuccess(http -> System.out.println("HTTP server started on port 8888"));
+    }).listen(8080).onSuccess(http -> System.out.println("HTTP server started on port 8080"));
   }
 
   public static void main(String[] args) {
