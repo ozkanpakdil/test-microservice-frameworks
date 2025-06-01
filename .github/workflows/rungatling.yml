@@ -16,7 +16,7 @@ jobs:
     timeout-minutes: 60
     strategy:
       matrix:
-        java: [23]
+        java: [24]
     steps:
       - uses: actions/checkout@v2
       - uses: graalvm/setup-graalvm@v1
