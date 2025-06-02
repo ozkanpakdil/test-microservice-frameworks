@@ -5,9 +5,13 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.vertx.core.AbstractVerticle;
 import io.vertx.core.Vertx;
+import io.vertx.core.VertxOptions;
+import io.vertx.core.dns.AddressResolverOptions;
 
 import java.io.IOException;
 import java.time.LocalDate;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Properties;
 
 public class MainVerticle extends AbstractVerticle {
@@ -36,8 +40,14 @@ public class MainVerticle extends AbstractVerticle {
   }
 
   public static void main(String[] args) {
+    System.setProperty("java.net.preferIPv4Stack", "true");
+    System.setProperty("java.net.preferIPv6Addresses", "false");
+    System.setProperty("vertx.disableDnsResolver", "true");
+    System.setProperty("io.netty.allocator.type", "unpooled");
+
     Vertx.vertx().deployVerticle(new MainVerticle());
   }
+
 }
 
 @JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
