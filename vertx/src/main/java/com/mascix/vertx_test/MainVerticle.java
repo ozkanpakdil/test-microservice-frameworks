@@ -40,12 +40,13 @@ public class MainVerticle extends AbstractVerticle {
   }
 
   public static void main(String[] args) {
-    System.setProperty("java.net.preferIPv4Stack", "true");
-    System.setProperty("java.net.preferIPv6Addresses", "false");
-    System.setProperty("vertx.disableDnsResolver", "true");
+    // System.setProperty("java.net.preferIPv4Stack", "true");
+    // System.setProperty("java.net.preferIPv6Addresses", "false");
+    // System.setProperty("vertx.disableDnsResolver", "true");
     System.setProperty("io.netty.allocator.type", "unpooled");
+    System.setProperty("io.netty.noUnsafe", "true");
 
-    Vertx.vertx().deployVerticle(new MainVerticle());
+    Vertx.vertx().deployVerticle(new MainVerticle()).onFailure(Throwable::printStackTrace);
   }
 
 }

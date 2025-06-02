@@ -1,15 +1,36 @@
 [
   {
-    "name": "com.mascix.vertx_test.ApplicationInfo",
-    "allDeclaredFields": true,
-    "queryAllDeclaredMethods": true,
-    "queryAllDeclaredConstructors": true
+    "name": "io.vertx.core.net.impl.VertxHandler",
+    "methods": [
+      { "name": "channelReadComplete", "parameterTypes": ["io.netty.channel.ChannelHandlerContext"] },
+      { "name": "channelWritabilityChanged", "parameterTypes": ["io.netty.channel.ChannelHandlerContext"] },
+      { "name": "userEventTriggered", "parameterTypes": ["io.netty.channel.ChannelHandlerContext", "java.lang.Object"] },
+      { "name": "close", "parameterTypes": ["io.netty.channel.ChannelHandlerContext", "io.netty.channel.ChannelPromise"] },
+      { "name": "exceptionCaught", "parameterTypes": ["io.netty.channel.ChannelHandlerContext", "java.lang.Throwable"] }
+    ]
   },
   {
-    "name": "com.mascix.vertx_test.MainVerticle",
+    "name": "io.vertx.core.http.impl.HttpServerConnectionInitializer$1",
+    "methods": [
+      { "name": "channelRead", "parameterTypes": ["io.netty.channel.ChannelHandlerContext", "java.lang.Object"] },
+      { "name": "exceptionCaught", "parameterTypes": ["io.netty.channel.ChannelHandlerContext", "java.lang.Throwable"] }
+    ]
+  },
+  {
+    "name": "io.netty.util.ReferenceCountUtil",
+    "allDeclaredMethods": true
+  },
+  {
+    "name": "io.netty.util.internal.PlatformDependent0",
+    "allDeclaredMethods": true
+  },
+  {
+    "name": "com.fasterxml.jackson.databind.JavaType",
+    "fields": [
+      { "name": "_asStatic" }
+    ],
     "allDeclaredFields": true,
-    "queryAllDeclaredMethods": true,
-    "queryAllDeclaredConstructors": true,
-    "methods": [{ "name": "<init>", "parameterTypes": [] }]
+    "allDeclaredMethods": true,
+    "allDeclaredConstructors": true
   }
 ]

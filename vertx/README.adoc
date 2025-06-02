@@ -1,6 +1,6 @@
 = Vertx-test
 
-image:https://img.shields.io/badge/vert.x-3.9.2-purple.svg[link="https://vertx.io"]
+image:https://img.shields.io/badge/vert.x-${vertx.version}-purple.svg[link="https://vertx.io"]
 
 This application was generated using http://start.vertx.io
 
@@ -20,6 +20,8 @@ To run your application:
 ```
 ./mvnw clean compile exec:java
 ```
+
+
 
 == Help
 

@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.mascix</groupId>
@@ -68,7 +70,7 @@
     <dependency>
       <groupId>com.fasterxml.jackson.core</groupId>
       <artifactId>jackson-annotations</artifactId>
-      <version>3.0-rc5</version>
+      <version>2.19.0</version>
     </dependency>
     <dependency>
       <groupId>com.fasterxml.jackson.core</groupId>
@@ -85,6 +87,13 @@
 
   <build>
     <resources>
+      <resource>
+        <directory>${project.basedir}</directory>
+        <includes>
+          <include>README.adoc</include>
+        </includes>
+        <filtering>true</filtering>
+      </resource>
       <resource>
         <directory>src/main/resources</directory>
         <filtering>true</filtering>
@@ -116,9 +125,11 @@
                     <Main-Verticle>${main.verticle}</Main-Verticle>
                   </manifestEntries>
                 </transformer>
-                <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
+                <transformer
+                  implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer" />
               </transformers>
-              <outputFile>${project.build.directory}/${project.artifactId}-${project.version}-fat.jar
+              <outputFile>
+                ${project.build.directory}/${project.artifactId}-${project.version}-fat.jar
               </outputFile>
             </configuration>
           </execution>
@@ -151,7 +162,7 @@
           <plugin>
             <groupId>org.graalvm.buildtools</groupId>
             <artifactId>native-maven-plugin</artifactId>
-            <version>0.10.4</version>
+            <version>0.10.6</version>
             <extensions>true</extensions>
             <executions>
               <execution>
@@ -165,7 +176,60 @@
             <configuration>
               <mainClass>com.mascix.vertx_test.MainVerticle</mainClass>
               <buildArgs>
-                <buildArg>--enable-all-security-services</buildArg>
+                <buildArg>--no-fallback</buildArg>
+                <buildArg>-march=native</buildArg>
+                <buildArg>-H:+UnlockExperimentalVMOptions</buildArg>
+                <buildArg>-H:IncludeResources=.*.properties|.*logback.xml</buildArg>
+                <buildArg>--add-opens</buildArg>
+                <buildArg>java.base/sun.nio.ch=ALL-UNNAMED</buildArg>
+                <buildArg>--add-opens</buildArg>
+                <buildArg>java.base/java.lang=ALL-UNNAMED</buildArg>
+                <buildArg>--add-opens</buildArg>
+                <buildArg>java.base/java.nio=ALL-UNNAMED</buildArg>
+                <buildArg>--add-opens</buildArg>
+                <buildArg>java.base/java.util=ALL-UNNAMED</buildArg>
+                <buildArg>--add-opens</buildArg>
+                <buildArg>java.base/java.util.concurrent=ALL-UNNAMED</buildArg>
+                <buildArg>--add-opens</buildArg>
+                <buildArg>java.base/java.lang.invoke=ALL-UNNAMED</buildArg>
+                <buildArg>--add-opens</buildArg>
+                <buildArg>java.base/java.lang.reflect=ALL-UNNAMED</buildArg>
+                <buildArg>--add-opens</buildArg>
+                <buildArg>java.base/java.io=ALL-UNNAMED</buildArg>
+                <buildArg>--add-opens</buildArg>
+                <buildArg>java.base/java.nio.file=ALL-UNNAMED</buildArg>
+                <buildArg>--add-opens</buildArg>
+                <buildArg>java.base/java.util.regex=ALL-UNNAMED</buildArg>
+                <buildArg>--add-opens</buildArg>
+                <buildArg>java.base/java.util.stream=ALL-UNNAMED</buildArg>
+                <buildArg>--add-opens</buildArg>
+                <buildArg>java.base/java.util.function=ALL-UNNAMED</buildArg>
+                <buildArg>--add-opens</buildArg>
+                <buildArg>java.base/sun.security.util=ALL-UNNAMED</buildArg>
+                <buildArg>--add-opens</buildArg>
+                <buildArg>java.base/sun.security.provider=ALL-UNNAMED</buildArg>
+                <buildArg>--add-opens</buildArg>
+                <buildArg>java.base/jdk.internal.misc=ALL-UNNAMED</buildArg>
+                <buildArg>--add-opens</buildArg>
+                <buildArg>java.base/java.security=ALL-UNNAMED</buildArg>
+                <buildArg>--add-opens</buildArg>
+                <buildArg>jdk.unsupported/sun.misc=ALL-UNNAMED</buildArg>
+                <buildArg>--add-opens</buildArg>
+                <buildArg>jdk.naming.rmi/com.sun.jndi.rmi.registry=ALL-UNNAMED</buildArg>
+                <buildArg>--add-opens</buildArg>
+                <buildArg>java.base/sun.net=ALL-UNNAMED</buildArg>
+                <buildArg>--initialize-at-run-time=io.netty.channel.DefaultFileRegion</buildArg>
+                <buildArg>--initialize-at-run-time=io.netty.channel.epoll.Native</buildArg>
+                <buildArg>--initialize-at-run-time=io.netty.channel.unix.Errors</buildArg>
+                <buildArg>--initialize-at-run-time=io.netty.channel.unix.IovArray</buildArg>
+                <buildArg>--initialize-at-run-time=io.netty.channel.unix.Limits</buildArg>
+                <buildArg>--initialize-at-run-time=io.netty.util.internal.logging.Log4JLogger</buildArg>
+                <buildArg>--initialize-at-run-time=com.fasterxml.jackson.databind.JavaType</buildArg>
+                <buildArg>--initialize-at-run-time=com.fasterxml.jackson.databind.ObjectMapper</buildArg>
+                <buildArg>--initialize-at-run-time=com.fasterxml.jackson.databind.type</buildArg>
+                <buildArg>-H:+ReportExceptionStackTraces</buildArg>
+                <buildArg>
+                  -H:ReflectionConfigurationFiles=${project.basedir}/src/main/resources/META-INF/native-image/com.mascix/vertx-demo/reflect-config.json</buildArg>
               </buildArgs>
             </configuration>
           </plugin>
