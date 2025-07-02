@@ -16,10 +16,10 @@
 
   <properties>
     <packaging>jar</packaging>
-    <jdk.version>17</jdk.version>
-    <release.version>17</release.version>
-    <micronaut.version>4.2.0</micronaut.version>
-    <micronaut.aot.enabled>false</micronaut.aot.enabled>
+    <jdk.version>21</jdk.version>
+    <release.version>21</release.version>
+    <micronaut.version>4.9.0</micronaut.version>
+    <micronaut.aot.enabled>true</micronaut.aot.enabled>
     <micronaut.aot.packageName>com.mascix.aot.generated</micronaut.aot.packageName>
     <micronaut.runtime>netty</micronaut.runtime>
     <exec.mainClass>com.mascix.Application</exec.mainClass>
