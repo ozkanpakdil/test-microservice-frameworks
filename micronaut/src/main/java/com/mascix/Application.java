@@ -14,6 +14,8 @@ public class Application {
 
             System.out.println("micronaut version:" + prop.getProperty("version"));
         } catch (Exception e) {
+            System.err.println("Error loading properties: " + e.getMessage());
+            e.printStackTrace();
         }
 
 
