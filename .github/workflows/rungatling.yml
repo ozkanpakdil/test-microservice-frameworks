@@ -36,7 +36,14 @@ jobs:
           theme: dark
       - name: Run jars and get test results
         run: ./runGatling.sh
+      - name: Upload test result as artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: test-result
+          path: test-result.md
       - name: Commit the test result
+        env:
+          TOKEN_GIT: ${{ secrets.TOKEN_GIT }}
         run: |
           curl https://sh.rustup.rs -sSf | sh -s -- -y
           source $HOME/.cargo/env
@@ -47,7 +54,7 @@ jobs:
           git config --global user.name "ozkanpakdil"
           rm -rf ozkanpakdil.github.io
           rm -rf page
-          git clone https://${{ secrets.TOKEN_GIT }}@github.com/ozkanpakdil/ozkanpakdil.github.io.git page
+          git clone https://${TOKEN_GIT}@github.com/ozkanpakdil/ozkanpakdil.github.io.git page
           git config pull.rebase true
           mkdir -p page/my_collections/_microservicetests/$YEAR/
           mv test-result.md page/my_collections/_microservicetests/$YEAR/$DATE-microservice-framework-test-${{ matrix.java }}.markdown
