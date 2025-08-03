@@ -21,6 +21,9 @@ To run your application:
 ./mvnw clean compile exec:java
 ```
 
+in order to update the reachability json
+
+java -agentlib:native-image-agent=config-output-dir=src/main/resources/META-INF/native-image   -jar target/vertx-demo-5.0.1-fat.jar
 
 
 == Help

@@ -1,6 +1,12 @@
 {
   "reflection": [
     {
+      "type": "[Lcom.fasterxml.jackson.databind.deser.Deserializers;"
+    },
+    {
+      "type": "[Lcom.fasterxml.jackson.databind.ser.Serializers;"
+    },
+    {
       "type": "com.fasterxml.jackson.databind.ext.Java7SupportImpl",
       "methods": [
         {
@@ -17,7 +23,7 @@
       "allDeclaredFields": true
     },
     {
-      "type": "com.mascix.vertx_test.MainVerticle",
+      "type": "com.mascix.vertx_test.MainVertical",
       "methods": [
         {
           "name": "<init>",
@@ -154,6 +160,18 @@
         },
         {
           "name": "threadProperties"
+        }
+      ]
+    },
+    {
+      "type": "io.netty.util.internal.CleanerJava24$CleanableDirectBufferImpl",
+      "methods": [
+        {
+          "name": "<init>",
+          "parameterTypes": [
+            "java.lang.AutoCloseable",
+            "java.nio.ByteBuffer"
+          ]
         }
       ]
     },
@@ -298,6 +316,30 @@
       ]
     },
     {
+      "type": "java.lang.foreign.Arena",
+      "methods": [
+        {
+          "name": "allocate",
+          "parameterTypes": [
+            "long"
+          ]
+        },
+        {
+          "name": "ofShared",
+          "parameterTypes": []
+        }
+      ]
+    },
+    {
+      "type": "java.lang.foreign.MemorySegment",
+      "methods": [
+        {
+          "name": "asByteBuffer",
+          "parameterTypes": []
+        }
+      ]
+    },
+    {
       "type": "java.lang.management.ManagementFactory",
       "methods": [
         {
@@ -419,7 +461,7 @@
       ]
     },
     {
-      "type": "sun.security.provider.DRBG",
+      "type": "sun.security.provider.NativePRNG",
       "methods": [
         {
           "name": "<init>",
@@ -437,20 +479,14 @@
           "parameterTypes": []
         }
       ]
-    },
-    {
-      "type": "sun.security.provider.SHA2$SHA256",
-      "methods": [
-        {
-          "name": "<init>",
-          "parameterTypes": []
-        }
-      ]
     }
   ],
   "resources": [
     {
       "glob": "META-INF/MANIFEST.MF"
+    },
+    {
+      "glob": "META-INF/services/io.vertx.core.spi.JsonFactory"
     },
     {
       "glob": "META-INF/services/io.vertx.core.spi.VerticleFactory"
@@ -462,9 +498,6 @@
       "glob": "META-INF/services/java.lang.System$LoggerFinder"
     },
     {
-      "glob": "META-INF/services/java.net.spi.InetAddressResolverProvider"
-    },
-    {
       "glob": "META-INF/services/java.nio.channels.spi.SelectorProvider"
     },
     {
@@ -472,9 +505,6 @@
     },
     {
       "glob": "application.properties"
-    },
-    {
-      "glob": "jndi.properties"
     },
     {
       "glob": "vertx-default-jul-logging.properties"
@@ -491,17 +521,6 @@
   "bundles": [],
   "jni": [
     {
-      "type": "io.vertx.launcher.application.VertxApplication",
-      "methods": [
-        {
-          "name": "main",
-          "parameterTypes": [
-            "java.lang.String[]"
-          ]
-        }
-      ]
-    },
-    {
       "type": "java.lang.Boolean",
       "methods": [
         {
@@ -509,23 +528,6 @@
           "parameterTypes": [
             "java.lang.String"
           ]
-        }
-      ]
-    },
-    {
-      "type": "sun.launcher.LauncherHelper",
-      "fields": [
-        {
-          "name": "isStaticMain"
-        },
-        {
-          "name": "noArgMain"
-        }
-      ],
-      "methods": [
-        {
-          "name": "getApplicationClass",
-          "parameterTypes": []
         }
       ]
     },

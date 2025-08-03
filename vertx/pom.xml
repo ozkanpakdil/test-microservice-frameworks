@@ -16,11 +16,11 @@
     <maven-surefire-plugin.version>3.5.3</maven-surefire-plugin.version>
     <exec-maven-plugin.version>3.5.1</exec-maven-plugin.version>
 
-    <vertx.version>5.0.1</vertx.version>
+    <vertx.version>4.5.16</vertx.version>
     <junit-jupiter.version>5.12.2</junit-jupiter.version>
 
-    <main.verticle>com.mascix.vertx_test.MainVerticle</main.verticle>
-    <launcher.class>io.vertx.launcher.application.VertxApplication</launcher.class>
+    <main.verticle>com.mascix.vertx_test.MainVertical</main.verticle>
+    <launcher.class>io.vertx.core.Launcher</launcher.class>
   </properties>
 
   <dependencyManagement>
@@ -39,10 +39,6 @@
     <dependency>
       <groupId>io.vertx</groupId>
       <artifactId>vertx-web</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>io.vertx</groupId>
-      <artifactId>vertx-launcher-application</artifactId>
     </dependency>
     <dependency>
       <groupId>io.vertx</groupId>
@@ -172,50 +168,21 @@
               </execution>
             </executions>
             <configuration>
-              <mainClass>com.mascix.vertx_test.MainVerticle</mainClass>
+              <mainClass>com.mascix.vertx_test.MainVertical</mainClass>
+              <metadataRepository>
+                <enabled>true</enabled>
+              </metadataRepository>
               <buildArgs>
                 <buildArg>--no-fallback</buildArg>
-                <buildArg>-march=native</buildArg>
+                <buildArg>-H:+ReportExceptionStackTraces</buildArg>
                 <buildArg>-H:+UnlockExperimentalVMOptions</buildArg>
-                <buildArg>-H:IncludeResources=.*.properties|.*logback.xml</buildArg>
-                <buildArg>--add-opens</buildArg>
-                <buildArg>java.base/sun.nio.ch=ALL-UNNAMED</buildArg>
-                <buildArg>--add-opens</buildArg>
-                <buildArg>java.base/java.lang=ALL-UNNAMED</buildArg>
-                <buildArg>--add-opens</buildArg>
-                <buildArg>java.base/java.nio=ALL-UNNAMED</buildArg>
-                <buildArg>--add-opens</buildArg>
-                <buildArg>java.base/java.util=ALL-UNNAMED</buildArg>
-                <buildArg>--add-opens</buildArg>
-                <buildArg>java.base/java.util.concurrent=ALL-UNNAMED</buildArg>
-                <buildArg>--add-opens</buildArg>
-                <buildArg>java.base/java.lang.invoke=ALL-UNNAMED</buildArg>
-                <buildArg>--add-opens</buildArg>
-                <buildArg>java.base/java.lang.reflect=ALL-UNNAMED</buildArg>
-                <buildArg>--add-opens</buildArg>
-                <buildArg>java.base/java.io=ALL-UNNAMED</buildArg>
-                <buildArg>--add-opens</buildArg>
-                <buildArg>java.base/java.nio.file=ALL-UNNAMED</buildArg>
-                <buildArg>--add-opens</buildArg>
-                <buildArg>java.base/java.util.regex=ALL-UNNAMED</buildArg>
-                <buildArg>--add-opens</buildArg>
-                <buildArg>java.base/java.util.stream=ALL-UNNAMED</buildArg>
-                <buildArg>--add-opens</buildArg>
-                <buildArg>java.base/java.util.function=ALL-UNNAMED</buildArg>
-                <buildArg>--add-opens</buildArg>
-                <buildArg>java.base/sun.security.util=ALL-UNNAMED</buildArg>
-                <buildArg>--add-opens</buildArg>
-                <buildArg>java.base/sun.security.provider=ALL-UNNAMED</buildArg>
-                <buildArg>--add-opens</buildArg>
-                <buildArg>java.base/jdk.internal.misc=ALL-UNNAMED</buildArg>
-                <buildArg>--add-opens</buildArg>
-                <buildArg>java.base/java.security=ALL-UNNAMED</buildArg>
-                <buildArg>--add-opens</buildArg>
-                <buildArg>jdk.unsupported/sun.misc=ALL-UNNAMED</buildArg>
-                <buildArg>--add-opens</buildArg>
-                <buildArg>jdk.naming.rmi/com.sun.jndi.rmi.registry=ALL-UNNAMED</buildArg>
-                <buildArg>--add-opens</buildArg>
-                <buildArg>java.base/sun.net=ALL-UNNAMED</buildArg>
+                <buildArg>-H:+PrintClassInitialization</buildArg>
+
+                <!-- Include resources -->
+                <buildArg>-H:IncludeResources=.*\.properties</buildArg>
+                <buildArg>-H:IncludeResources=META-INF/.*</buildArg>
+
+                <!-- Initialize at runtime (safer for Vert.x) -->
                 <buildArg>--initialize-at-run-time=io.netty.channel.DefaultFileRegion</buildArg>
                 <buildArg>--initialize-at-run-time=io.netty.channel.epoll.Native</buildArg>
                 <buildArg>--initialize-at-run-time=io.netty.channel.unix.Errors</buildArg>
@@ -225,9 +192,48 @@
                 <buildArg>--initialize-at-run-time=com.fasterxml.jackson.databind.JavaType</buildArg>
                 <buildArg>--initialize-at-run-time=com.fasterxml.jackson.databind.ObjectMapper</buildArg>
                 <buildArg>--initialize-at-run-time=com.fasterxml.jackson.databind.type</buildArg>
-                <buildArg>-H:+ReportExceptionStackTraces</buildArg>
-                <buildArg>
-                  -H:ReflectionConfigurationFiles=${project.basedir}/src/main/resources/META-INF/native-image/com.mascix/vertx-demo/reflect-config.json</buildArg>
+
+                <!-- Enable native features -->
+                <buildArg>--enable-http</buildArg>
+                <buildArg>--enable-https</buildArg>
+
+                <!-- Add opens for Java modules -->
+                <buildArg>--add-opens</buildArg>
+                <buildArg>java.base/java.lang=ALL-UNNAMED</buildArg>
+                <buildArg>--add-opens</buildArg>
+                <buildArg>java.base/java.nio=ALL-UNNAMED</buildArg>
+                <buildArg>--add-opens</buildArg>
+                <buildArg>java.base/sun.nio.ch=ALL-UNNAMED</buildArg>
+                <buildArg>--add-opens</buildArg>
+                <buildArg>java.base/java.util=ALL-UNNAMED</buildArg>
+                <buildArg>--add-opens</buildArg>
+                <buildArg>java.base/java.util.concurrent=ALL-UNNAMED</buildArg>
+
+                <!-- System properties for native image -->
+                <buildArg>-Dvertx.disableNativeTransport=false</buildArg>
+                <buildArg>-Djava.net.preferIPv6Addresses=false</buildArg>
+                <buildArg>-Dio.netty.noUnsafe=true</buildArg>
+                <buildArg>-Dio.netty.allocator.type=unpooled</buildArg>
+                <buildArg>-Dvertx.disableDnsResolver=false</buildArg>
+
+                <!-- Network-specific configurations -->
+                <!-- Security services option removed -->
+                <buildArg>--enable-url-protocols=http,https</buildArg>
+                <buildArg>--initialize-at-build-time=io.netty.util.internal.logging.InternalLoggerFactory</buildArg>
+                <buildArg>--initialize-at-build-time=io.netty.util.internal.logging.JdkLoggerFactory</buildArg>
+                <buildArg>--initialize-at-run-time=io.netty.channel.epoll.Epoll</buildArg>
+                <buildArg>--initialize-at-run-time=io.netty.channel.epoll.EpollEventLoop</buildArg>
+                <buildArg>--initialize-at-run-time=io.netty.channel.epoll.EpollEventArray</buildArg>
+                <buildArg>--initialize-at-run-time=io.netty.channel.epoll.EpollDatagramChannel</buildArg>
+                <buildArg>--initialize-at-run-time=io.netty.channel.epoll.EpollSocketChannel</buildArg>
+                <buildArg>--initialize-at-run-time=io.netty.channel.epoll.EpollServerSocketChannel</buildArg>
+                <buildArg>--initialize-at-run-time=io.netty.channel.socket.nio.NioDatagramChannel</buildArg>
+                <buildArg>--initialize-at-run-time=io.netty.channel.socket.nio.NioSocketChannel</buildArg>
+                <buildArg>--initialize-at-run-time=io.netty.channel.socket.nio.NioServerSocketChannel</buildArg>
+
+                <!-- Verbose output for debugging -->
+                <buildArg>-H:Log=registerResource:verbose</buildArg>
+                <!-- Removed unsupported PrintNetworkStatistics option -->
               </buildArgs>
             </configuration>
           </plugin>
