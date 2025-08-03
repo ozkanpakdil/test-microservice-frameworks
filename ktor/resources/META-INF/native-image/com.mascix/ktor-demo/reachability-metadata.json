@@ -239,6 +239,9 @@
       "type": "io.ktor.server.plugins.MutableOriginConnectionPoint"
     },
     {
+      "type": "io.ktor.server.routing.RoutingCall"
+    },
+    {
       "type": "io.ktor.server.routing.RoutingRoot"
     },
     {
@@ -297,6 +300,22 @@
       "fields": [
         {
           "name": "refCnt"
+        }
+      ]
+    },
+    {
+      "type": "io.netty.buffer.AdaptivePoolingAllocator$Chunk",
+      "fields": [
+        {
+          "name": "refCnt"
+        }
+      ]
+    },
+    {
+      "type": "io.netty.buffer.AdaptivePoolingAllocator$Magazine",
+      "fields": [
+        {
+          "name": "nextInLine"
         }
       ]
     },
@@ -418,6 +437,18 @@
       ]
     },
     {
+      "type": "io.netty.util.internal.CleanerJava24$CleanableDirectBufferImpl",
+      "methods": [
+        {
+          "name": "<init>",
+          "parameterTypes": [
+            "java.lang.AutoCloseable",
+            "java.nio.ByteBuffer"
+          ]
+        }
+      ]
+    },
+    {
       "type": "io.netty.util.internal.NativeLibraryUtil",
       "methods": [
         {
@@ -430,7 +461,7 @@
       ]
     },
     {
-      "type": "io.netty.util.internal.shaded.org.jctools.queues.BaseMpscLinkedArrayQueueColdProducerFields",
+      "type": "io.netty.util.internal.shaded.org.jctools.queues.atomic.BaseMpscLinkedAtomicArrayQueueColdProducerFields",
       "fields": [
         {
           "name": "producerLimit"
@@ -438,7 +469,7 @@
       ]
     },
     {
-      "type": "io.netty.util.internal.shaded.org.jctools.queues.BaseMpscLinkedArrayQueueConsumerFields",
+      "type": "io.netty.util.internal.shaded.org.jctools.queues.atomic.BaseMpscLinkedAtomicArrayQueueConsumerFields",
       "fields": [
         {
           "name": "consumerIndex"
@@ -446,7 +477,7 @@
       ]
     },
     {
-      "type": "io.netty.util.internal.shaded.org.jctools.queues.BaseMpscLinkedArrayQueueProducerFields",
+      "type": "io.netty.util.internal.shaded.org.jctools.queues.atomic.BaseMpscLinkedAtomicArrayQueueProducerFields",
       "fields": [
         {
           "name": "producerIndex"
@@ -454,7 +485,7 @@
       ]
     },
     {
-      "type": "io.netty.util.internal.shaded.org.jctools.queues.unpadded.MpscUnpaddedArrayQueueConsumerIndexField",
+      "type": "io.netty.util.internal.shaded.org.jctools.queues.atomic.MpmcAtomicArrayQueueConsumerIndexField",
       "fields": [
         {
           "name": "consumerIndex"
@@ -462,26 +493,15 @@
       ]
     },
     {
-      "type": "io.netty.util.internal.shaded.org.jctools.queues.unpadded.MpscUnpaddedArrayQueueProducerIndexField",
+      "type": "io.netty.util.internal.shaded.org.jctools.queues.atomic.MpmcAtomicArrayQueueProducerIndexField",
       "fields": [
         {
           "name": "producerIndex"
-        }
-      ]
-    },
-    {
-      "type": "io.netty.util.internal.shaded.org.jctools.queues.unpadded.MpscUnpaddedArrayQueueProducerLimitField",
-      "fields": [
-        {
-          "name": "producerLimit"
         }
       ]
     },
     {
       "type": "java.io.FileDescriptor"
-    },
-    {
-      "type": "java.io.FilePermission"
     },
     {
       "type": "java.lang.ClassValue"
@@ -506,61 +526,69 @@
       ]
     },
     {
-      "type": "java.lang.RuntimePermission"
-    },
-    {
       "type": "java.lang.String"
     },
     {
       "type": "java.lang.Thread",
-      "fields": [
+      "methods": [
         {
-          "name": "threadLocalRandomProbe"
+          "name": "isVirtual",
+          "parameterTypes": []
         }
       ]
     },
     {
-      "type": "java.net.NetPermission"
-    },
-    {
-      "type": "java.net.SocketPermission"
-    },
-    {
-      "type": "java.net.URLPermission",
+      "type": "java.lang.foreign.Arena",
       "methods": [
         {
-          "name": "<init>",
+          "name": "allocate",
           "parameterTypes": [
-            "java.lang.String",
-            "java.lang.String"
+            "long"
+          ]
+        },
+        {
+          "name": "ofShared",
+          "parameterTypes": []
+        }
+      ]
+    },
+    {
+      "type": "java.lang.foreign.MemorySegment",
+      "methods": [
+        {
+          "name": "asByteBuffer",
+          "parameterTypes": []
+        }
+      ]
+    },
+    {
+      "type": "java.lang.management.ManagementFactory",
+      "methods": [
+        {
+          "name": "getRuntimeMXBean",
+          "parameterTypes": []
+        }
+      ]
+    },
+    {
+      "type": "java.lang.management.RuntimeMXBean",
+      "methods": [
+        {
+          "name": "getInputArguments",
+          "parameterTypes": []
+        }
+      ]
+    },
+    {
+      "type": "java.nio.ByteBuffer",
+      "methods": [
+        {
+          "name": "alignedSlice",
+          "parameterTypes": [
+            "int"
           ]
         }
       ]
-    },
-    {
-      "type": "java.nio.Bits",
-      "fields": [
-        {
-          "name": "MAX_MEMORY"
-        },
-        {
-          "name": "UNALIGNED"
-        }
-      ]
-    },
-    {
-      "type": "java.nio.Buffer",
-      "fields": [
-        {
-          "name": "address"
-        }
-      ]
-    },
-    {
-      "type": "java.nio.ByteBuffer"
-    },
-    {
-      "type": "java.nio.DirectByteBuffer"
     },
     {
       "type": "java.nio.channels.FileChannel"
@@ -569,44 +597,7 @@
       "type": "java.nio.channels.spi.SelectorProvider"
     },
     {
-      "type": "java.security.AllPermission"
-    },
-    {
-      "type": "java.security.SecurityPermission"
-    },
-    {
-      "type": "java.util.PropertyPermission"
-    },
-    {
-      "type": "java.util.concurrent.atomic.AtomicBoolean",
-      "fields": [
-        {
-          "name": "value"
-        }
-      ]
-    },
-    {
-      "type": "java.util.concurrent.atomic.Striped64",
-      "fields": [
-        {
-          "name": "base"
-        },
-        {
-          "name": "cellsBusy"
-        }
-      ]
-    },
-    {
-      "type": "javax.smartcardio.CardPermission"
-    },
-    {
-      "type": "jdk.internal.misc.Unsafe",
-      "methods": [
-        {
-          "name": "getUnsafe",
-          "parameterTypes": []
-        }
-      ]
+      "type": "java.util.concurrent.ScheduledThreadPoolExecutor"
     },
     {
       "type": "kotlin.Any"
@@ -863,6 +854,14 @@
       ]
     },
     {
+      "type": "kotlinx.coroutines.internal.ThreadSafeHeap",
+      "fields": [
+        {
+          "name": "_size$volatile"
+        }
+      ]
+    },
+    {
       "type": "kotlinx.coroutines.scheduling.CoroutineScheduler",
       "fields": [
         {
@@ -898,22 +897,6 @@
         },
         {
           "name": "producerIndex$volatile"
-        }
-      ]
-    },
-    {
-      "type": "sun.misc.Unsafe",
-      "fields": [
-        {
-          "name": "theUnsafe"
-        }
-      ],
-      "methods": [
-        {
-          "name": "invokeCleaner",
-          "parameterTypes": [
-            "java.nio.ByteBuffer"
-          ]
         }
       ]
     },
