@@ -59,6 +59,7 @@ jobs:
           mkdir -p page/content/posts/microservicetests/$YEAR/
           # Check if test-result.md exists before trying to move it
           if [ -f "test-result.md" ]; then
+            ls -R
             mv test-result.md page/content/posts/microservicetests/$YEAR/$DATE-microservice-framework-test-${{ matrix.java }}.md
             cd page
             git remote set-url origin https://${TOKEN_GIT}@github.com/ozkanpakdil/ozkanpakdil.github.io.git
