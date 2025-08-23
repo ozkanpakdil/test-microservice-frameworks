@@ -1,51 +1,55 @@
-
 <script src="https://www.gstatic.com/charts/loader.js"></script>
 <script type="text/javascript">
-  google.charts.load('current', {
-    packages: ['corechart'],
-    callback: drawChart
-  });
-  function drawChart() {
-    var dataSource = new google.visualization.arrayToDataTable([
-      ['Framework', 'Response', 'Graal'],
-      ["Spring", StartedDemoApplication, GRAALSPRING],
-      ["Webflux", StartedDemoWebFluxApplication, GRAALWEBFLUX],
-      ["Quarkus", QUARKUS, GRAALQ1UARKUS],
-      ["Micronaut", Startupcompletedin, GRAALM1ICRONAUT],
-      ['Vertx', VERTX, GRAALV1ERTX],
-      ['Ktor', KTOR, GRAALK1TOR],
-      ['Helidon', HELIDON, GRAALH1ELIDON],
-      ['Kumuluz', ServerStarted, 0],
-      ['R-Rocket', ROCKET, 0],
-      ['RustAxum', AXUM, 0],
-      ['R-Actix', ACTIX, 0],
-      ['R-Warp', WARP, 0],
-      ['.net 7 AOT', DOTNET7AOT, 0],
-      ['.net 8 AOT', DOTNET8AOT, 0],
-      ['.net 9 AOT', DOTNET9AOT, 0],
-    ]);
-    const newDiv = document.createElement("div");
-    var chart = new google.visualization.ColumnChart(newDiv);
-    var view = new google.visualization.DataView(dataSource);
-    view.setColumns([0, 1,
-                       { calc: "stringify",
-                         sourceColumn: 1,
-                         type: "string",
-                         role: "annotation" },
-                       2,{ calc: "stringify",
-                         sourceColumn: 2,
-                         type: "string",
-                         role: "annotation" },]);
-    const chartOptions = {
-      width: 1380,
-      height: 400,
-      is3D: true,
-      vAxis: {title: 'Mean response in milli seconds'},
-      bar: {groupWidth: "95%"},
-      title: "Frameworks vs JVM vs Rust vs Graal(lower is the better/faster)",
-      'chartArea': {'width': '80%', 'height': '80%'},
-    };
-    chart.draw(view, chartOptions);
-    document.getElementsByClassName('post-content').item(0).prepend(newDiv);
-  }
+    google.charts.load('current', {
+        packages: ['corechart'],
+        callback: drawChart
+    });
+
+    function drawChart() {
+        var dataSource = new google.visualization.arrayToDataTable([
+            ['Framework', 'Response', 'Graal'],
+            ["Spring", StartedDemoApplication, GRAALSPRING],
+            ["Webflux", StartedDemoWebFluxApplication, GRAALWEBFLUX],
+            ["Quarkus", QUARKUS, GRAALQ1UARKUS],
+            ["Micronaut", Startupcompletedin, GRAALM1ICRONAUT],
+            ['Vertx', VERTX, GRAALV1ERTX],
+            ['Ktor', KTOR, GRAALK1TOR],
+            ['Helidon', HELIDON, GRAALH1ELIDON],
+            ['Kumuluz', ServerStarted, 0],
+            ['R-Rocket', ROCKET, 0],
+            ['RustAxum', AXUM, 0],
+            ['R-Actix', ACTIX, 0],
+            ['R-Warp', WARP, 0],
+            ['.net 7 AOT', DOTNET7AOT, 0],
+            ['.net 8 AOT', DOTNET8AOT, 0],
+            ['.net 9 AOT', DOTNET9AOT, 0],
+        ]);
+        const postContentDiv = document.getElementsByClassName('post-content').item(0);
+        const chartDiv = document.createElement("div");
+        postContentDiv.prepend(chartDiv);
+
+        var chart = new google.visualization.BarChart(chartDiv);
+        var view = new google.visualization.DataView(dataSource);
+        view.setColumns([0, 1,
+            {calc: "stringify", sourceColumn: 1, type: "string", role: "annotation"},
+            2, {calc: "stringify", sourceColumn: 2, type: "string", role: "annotation"},]);
+
+        function drawDynamicChart() {
+            const containerWidth = postContentDiv.offsetWidth;
+            const chartOptions = {
+                width: containerWidth,
+                height: 800,
+                hAxis: {title: 'Mean response in milli seconds'},
+                vAxis: {title: 'Framework', slantedText: true, slantedTextAngle: 45},
+                bar: {groupWidth: "95%"},
+                title: "Frameworks vs JVM vs Rust vs Graal(lower is the better/faster)",
+                chartArea: {width: '80%', height: '80%'},
+                legend: {position: 'bottom'}
+            };
+            chart.draw(view, chartOptions);
+        }
+
+        drawDynamicChart();
+        window.addEventListener('resize', drawDynamicChart, false);
+    }
 </script>
