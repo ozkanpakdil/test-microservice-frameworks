@@ -52,3 +52,4 @@ build/
 
 ### VS Code ###
 .vscode/
+/hugo/public/
