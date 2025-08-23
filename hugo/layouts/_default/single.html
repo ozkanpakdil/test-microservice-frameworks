@@ -1,0 +1,11 @@
+{{ define "title" }}{{ .Title }}{{ end }}
+{{ define "main" }}
+  <article>
+    <h2>{{ .Title }}</h2>
+    <p class="muted">Date: {{ .Date.Format "2006-01-02" }} • Java: {{ with .Params.java }}{{ . }}{{ end }}</p>
+    <div>
+      {{ .Content }}
+    </div>
+  </article>
+  <p><a href="/test-microservice-frameworks/">Back to home</a></p>
+{{ end }}

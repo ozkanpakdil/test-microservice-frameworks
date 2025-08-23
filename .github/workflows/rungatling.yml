@@ -4,6 +4,7 @@ on:
   workflow_call:
 
 permissions:
+  contents: write
   pull-requests: write
 
 jobs:
@@ -41,35 +42,61 @@ jobs:
         with:
           name: test-result
           path: test-result.md
-      - name: Commit the test result
+      - name: Commit test result back to this repo (and update JSON index)
         env:
-          TOKEN_GIT: ${{ secrets.TOKEN_GIT }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          curl https://sh.rustup.rs -sSf | sh -s -- -y
-          source $HOME/.cargo/env
-          set -x
+          set -euxo pipefail
           DATE=$(date +"%Y-%m-%d")
           YEAR=$(date +"%Y")
-          git config --global user.email "ozkan.pakdil@gmail.com"
-          git config --global user.name "ozkanpakdil"
-          rm -rf ozkanpakdil.github.io
-          rm -rf page
-          git clone https://${TOKEN_GIT}@github.com/ozkanpakdil/ozkanpakdil.github.io.git page
-          git config pull.rebase true
-          mkdir -p page/content/posts/microservicetests/$YEAR/
-          # Check if test-result.md exists before trying to move it
+          FILE_DIR="results/$YEAR"
+          FILE_PATH="$FILE_DIR/${DATE}-microservice-framework-test-${{ matrix.java }}.md"
+          INDEX_PATH="results/index.json"
+
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.name "github-actions[bot]"
+
+          mkdir -p "$FILE_DIR"
+
           if [ -f "test-result.md" ]; then
-            ls -R
-            mv test-result.md page/content/posts/microservicetests/$YEAR/$DATE-microservice-framework-test-${{ matrix.java }}.md
-            cd page
-            git remote set-url origin https://${TOKEN_GIT}@github.com/ozkanpakdil/ozkanpakdil.github.io.git
-            git add content/posts/microservicetests/$YEAR/$DATE-microservice-framework-test-${{ matrix.java }}.md
-            # ls -1tr | head -n -10 | xargs -d '\n' git rm -f --
-            git commit -m "Automatic publish from micro frameworks test"
-            git push origin main
+            mv test-result.md "$FILE_PATH"
+
+            # Commit the result file (feed generation handled by Hugo)
+            git add "$FILE_PATH"
+            git commit -m "chore(results): add $FILE_PATH [skip ci]"
+            # actions/checkout sets up an authenticated origin using GITHUB_TOKEN
+            git push origin HEAD:main
+
+            # Also create a Hugo post under hugo/content/posts/YYYY/ and commit it
+            HUGO_POST_DIR="hugo/content/posts/$YEAR"
+            HUGO_POST_PATH="$HUGO_POST_DIR/${DATE}-microservice-framework-test-${{ matrix.java }}.md"
+            mkdir -p "$HUGO_POST_DIR"
+
+            # Use the existing front matter from test-result.md and convert Liquid highlight to fenced code blocks for Hugo
+            sed -e 's/{% highlight bash %}/```bash/g' \
+                -e 's/{% endhighlight %}/```/g' \
+                "$FILE_PATH" > "$HUGO_POST_PATH"
+
+            git add "$HUGO_POST_PATH"
+            git commit -m "chore(hugo): add post $HUGO_POST_PATH [skip ci]" || echo "No changes to commit for Hugo post"
+            git push origin HEAD:main
           else
             echo "test-result.md file not found, skipping commit"
           fi
-          cd $GITHUB_WORKSPACE
-          rm -rf page
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: 'latest'
+          extended: true
+
+      - name: Build Hugo site
+        run: |
+          hugo -s hugo -d public
+
+      - name: Deploy to GitHub Pages (gh-pages)
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
 

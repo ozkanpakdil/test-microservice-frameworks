@@ -1,0 +1,16 @@
+baseURL = "https://ozkanpakdil.github.io/test-microservice-frameworks/"
+title = "Microservice Framework Tests"
+languageCode = "en-us"
+theme = ""
+
+# Keep taxonomy/term disabled, but enable RSS and allow JSON outputs via [outputs]
+disableKinds = ["taxonomy", "term", "sitemap", "robotsTXT", "404"]
+
+[params]
+  subtitle = "Automated Gatling results"
+  repo = "ozkanpakdil/test-microservice-frameworks"
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+  section = ["HTML", "RSS", "JSON"]
+  page = ["HTML"]
