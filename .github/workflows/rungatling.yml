@@ -60,8 +60,8 @@ jobs:
           # Check if test-result.md exists before trying to move it
           if [ -f "test-result.md" ]; then
             mv test-result.md page/content/posts/microservicetests/$YEAR/$DATE-microservice-framework-test-${{ matrix.java }}.md
-            cd page/content/posts/microservicetests/$YEAR
-            git add $DATE-microservice-framework-test-${{ matrix.java }}.md
+            cd page
+            git add content/posts/microservicetests/$YEAR/$DATE-microservice-framework-test-${{ matrix.java }}.md
             # ls -1tr | head -n -10 | xargs -d '\n' git rm -f --
             git commit -m "Automatic publish from micro frameworks test"
             git push
