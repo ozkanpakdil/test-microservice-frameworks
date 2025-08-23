@@ -61,10 +61,11 @@ jobs:
           if [ -f "test-result.md" ]; then
             mv test-result.md page/content/posts/microservicetests/$YEAR/$DATE-microservice-framework-test-${{ matrix.java }}.md
             cd page
+            git remote set-url origin https://${TOKEN_GIT}@github.com/ozkanpakdil/ozkanpakdil.github.io.git
             git add content/posts/microservicetests/$YEAR/$DATE-microservice-framework-test-${{ matrix.java }}.md
             # ls -1tr | head -n -10 | xargs -d '\n' git rm -f --
             git commit -m "Automatic publish from micro frameworks test"
-            git push
+            git push origin main
           else
             echo "test-result.md file not found, skipping commit"
           fi
