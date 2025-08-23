@@ -57,12 +57,17 @@ jobs:
           git clone https://${TOKEN_GIT}@github.com/ozkanpakdil/ozkanpakdil.github.io.git page
           git config pull.rebase true
           mkdir -p page/content/posts/microservicetests/$YEAR/
-          mv test-result.md page/microservicetests/$YEAR/$DATE-microservice-framework-test-${{ matrix.java }}.md
-          cd page/microservicetests/$YEAR
-          git add $DATE-microservice-framework-test-${{ matrix.java }}.md
-          # ls -1tr | head -n -10 | xargs -d '\n' git rm -f --
-          git commit -m "Automatic publish from micro frameworks test"
-          git push
-          cd ../../../../
+          # Check if test-result.md exists before trying to move it
+          if [ -f "test-result.md" ]; then
+            mv test-result.md page/content/posts/microservicetests/$YEAR/$DATE-microservice-framework-test-${{ matrix.java }}.md
+            cd page/content/posts/microservicetests/$YEAR
+            git add $DATE-microservice-framework-test-${{ matrix.java }}.md
+            # ls -1tr | head -n -10 | xargs -d '\n' git rm -f --
+            git commit -m "Automatic publish from micro frameworks test"
+            git push
+          else
+            echo "test-result.md file not found, skipping commit"
+          fi
+          cd $GITHUB_WORKSPACE
           rm -rf page
 
