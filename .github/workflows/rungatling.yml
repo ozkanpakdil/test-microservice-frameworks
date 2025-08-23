@@ -56,10 +56,10 @@ jobs:
           rm -rf page
           git clone https://${TOKEN_GIT}@github.com/ozkanpakdil/ozkanpakdil.github.io.git page
           git config pull.rebase true
-          mkdir -p page/my_collections/_microservicetests/$YEAR/
-          mv test-result.md page/my_collections/_microservicetests/$YEAR/$DATE-microservice-framework-test-${{ matrix.java }}.markdown
-          cd page/my_collections/_microservicetests/$YEAR
-          git add $DATE-microservice-framework-test-${{ matrix.java }}.markdown
+          mkdir -p page/content/posts/microservicetests/$YEAR/
+          mv test-result.md page/microservicetests/$YEAR/$DATE-microservice-framework-test-${{ matrix.java }}.md
+          cd page/microservicetests/$YEAR
+          git add $DATE-microservice-framework-test-${{ matrix.java }}.md
           # ls -1tr | head -n -10 | xargs -d '\n' git rm -f --
           git commit -m "Automatic publish from micro frameworks test"
           git push

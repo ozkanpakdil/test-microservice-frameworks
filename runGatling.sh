@@ -27,10 +27,10 @@ CPU_CORE=$(nproc --all)
 CPU_MHZ=$(cat /proc/cpuinfo | grep "MHz")
 
 echo "---
-layout: post
+type: post
 title:  'Java microservice framework tests in SB:$SB Q:$QU M:$MICRO V:$VERTX H:$HEL Dotnet:7,8,9 $JAVA_VERSION $RUST_VERSION'
 date:   $DATE
-categories: [java,rust,fasterxml,json,'$OS_NAME']
+tags: [ "microservice","quarkus","graalvm","kotlin","rust","dotnet" ]
 ---
 In $OS_NAME,
 {% highlight bash %}
