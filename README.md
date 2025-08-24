@@ -4,7 +4,6 @@
 
 Testing spring,micronaut,quarkus with sample json creator from gatling.
 
-Find the results at https://ozkanpakdil.github.io/ on top right menu
-
+Find the results at https://ozkanpakdil.github.io/test-microservice-frameworks/
 
 <a rel="me" href="https://mas.to/@microservicetestall">Mastodon</a>
