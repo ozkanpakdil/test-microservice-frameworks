@@ -6,13 +6,6 @@ languageCode = "en-us"
 # rather than the repository path.
 theme = "PaperMod"
 
-# Configure Hugo Modules to import PaperMod theme
-[module]
-  # Use direct to allow fetching from GitHub; adjust proxy if your environment requires it
-  proxy = "direct"
-  [[module.imports]]
-    path = "github.com/adityatelange/hugo-PaperMod"
-
 # Keep taxonomy/term disabled, but enable RSS and allow JSON outputs via [outputs]
 disableKinds = ["taxonomy", "term", "sitemap", "robotsTXT", "404"]
 
