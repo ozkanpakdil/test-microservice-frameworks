@@ -6,6 +6,16 @@ languageCode = "en-us"
 # rather than the repository path.
 theme = "PaperMod"
 
+[[menu.main]]
+name = "Main Blog"
+url = "https://ozkanpakdil.github.io/"
+weight = 10
+
+[[menu.main]]
+name = "Home"
+url = "/"
+weight = 20
+
 # Use PaperMod via Hugo Modules (fetch theme automatically)
 [module]
   [[module.imports]]
@@ -25,3 +35,23 @@ theme = "PaperMod"
     [markup.goldmark.renderer]
       unsafe = true
 
+[pagination]
+pagerSize = 7
+enableInlineShortcodes = true
+enableRobotsTXT = true
+canonifyURLs = true
+buildDrafts = false
+buildFuture = false
+buildExpired = false
+enableEmoji = true
+pygmentsUseClasses = true
+mainsections = ["post", "posts", "pages", "projects", "wiki"]
+
+[params.socialIcons]
+[[params.socialIcons]]
+name = "website"
+url = "https://ozkanpakdil.github.io/"
+
+[[params.socialIcons]]
+name = "github"
+url = "https://github.com/ozkanpakdil"
