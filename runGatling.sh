@@ -232,9 +232,9 @@ printf '\n\n***  \n\n' >> test-result.md
 ##### graalvm
 
 BUILD_URL="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
-printf '[source code for the java and dotnet tests](https://github.com/ozkanpakdil/test-microservice-frameworks)  :point_left: ' >> test-result.md
-printf '[source code for the rust tests](https://github.com/ozkanpakdil/rust-examples)  :point_left: ' >> test-result.md
-printf "[github action]($BUILD_URL)  :point_left: \n" >> test-result.md
+printf '[source code for the java and dotnet tests](https://github.com/ozkanpakdil/test-microservice-frameworks)  👈 ' >> test-result.md
+printf '[source code for the rust tests](https://github.com/ozkanpakdil/rust-examples)  👈 ' >> test-result.md
+printf "[github action]($BUILD_URL)  👈 \n" >> test-result.md
 cat graph.html >> test-result.md
 
 cat graph.html 
