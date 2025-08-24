@@ -42,43 +42,27 @@ jobs:
         with:
           name: test-result
           path: test-result.md
-      - name: Commit test result back to this repo (and update JSON index)
+      - name: Commit test result to Hugo content (year/month path)
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           set -euxo pipefail
           DATE=$(date +"%Y-%m-%d")
           YEAR=$(date +"%Y")
-          FILE_DIR="results/$YEAR"
-          FILE_PATH="$FILE_DIR/${DATE}-microservice-framework-test-${{ matrix.java }}.md"
-          INDEX_PATH="results/index.json"
+          MONTH=$(date +"%m")
 
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git config user.name "github-actions[bot]"
 
-          mkdir -p "$FILE_DIR"
-
           if [ -f "test-result.md" ]; then
-            mv test-result.md "$FILE_PATH"
-
-            # Commit the result file (feed generation handled by Hugo)
-            git add "$FILE_PATH"
-            git commit -m "chore(results): add $FILE_PATH [skip ci]"
-            # actions/checkout sets up an authenticated origin using GITHUB_TOKEN
-            git push origin HEAD:main
-
-            # Also create a Hugo post under hugo/content/posts/YYYY/ and commit it
+            # Create Hugo post under hugo/content/posts/YYYY/MM/ and commit it
             HUGO_POST_DIR="hugo/content/posts/$YEAR"
             HUGO_POST_PATH="$HUGO_POST_DIR/${DATE}-microservice-framework-test-${{ matrix.java }}.md"
             mkdir -p "$HUGO_POST_DIR"
 
-            # Use the existing front matter from test-result.md and convert Liquid highlight to fenced code blocks for Hugo
-            sed -e 's/{% highlight bash %}/```bash/g' \
-                -e 's/{% endhighlight %}/```/g' \
-                "$FILE_PATH" > "$HUGO_POST_PATH"
-
             git add "$HUGO_POST_PATH"
             git commit -m "chore(hugo): add post $HUGO_POST_PATH [skip ci]" || echo "No changes to commit for Hugo post"
+            # actions/checkout sets up an authenticated origin using GITHUB_TOKEN
             git push origin HEAD:main
           else
             echo "test-result.md file not found, skipping commit"
