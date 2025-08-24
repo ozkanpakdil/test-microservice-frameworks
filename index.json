@@ -1,7 +1,7 @@
 {
   "title": "Microservice Framework Tests",
   "baseURL": "https://ozkanpakdil.github.io/test-microservice-frameworks/",
-  "updated": "2025-08-24T00:16:03Z",
+  "updated": "2025-08-24T00:56:34Z",
   "items": [
     {
       "title": "Java microservice framework tests in SB:3.5.4 Q:3.25.0 M:4.9.2 V:4.5.16 H:4.2.2 Dotnet:7,8,9 openjdk version \"24.0.2\" 2025-07-15 rustc 1.89.0 (29483883e 2025-08-04)",
