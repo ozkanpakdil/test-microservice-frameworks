@@ -47,11 +47,3 @@ enableEmoji = true
 pygmentsUseClasses = true
 mainsections = ["post", "posts", "pages", "projects", "wiki"]
 
-[params.socialIcons]
-[[params.socialIcons]]
-name = "website"
-url = "https://ozkanpakdil.github.io/"
-
-[[params.socialIcons]]
-name = "github"
-url = "https://github.com/ozkanpakdil"
