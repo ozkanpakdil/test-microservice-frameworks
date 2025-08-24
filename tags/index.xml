@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Tags on Microservice Framework Tests</title>
+    <link>https://ozkanpakdil.github.io/test-microservice-frameworks/tags/</link>
+    <description>Recent content in Tags on Microservice Framework Tests</description>
+    <generator>Hugo -- 0.148.2</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 24 Aug 2025 08:59:10 +0000</lastBuildDate>
+    <atom:link href="https://ozkanpakdil.github.io/test-microservice-frameworks/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Dotnet</title>
+      <link>https://ozkanpakdil.github.io/test-microservice-frameworks/tags/dotnet/</link>
+      <pubDate>Sun, 24 Aug 2025 08:59:10 +0000</pubDate>
+      <guid>https://ozkanpakdil.github.io/test-microservice-frameworks/tags/dotnet/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Graalvm</title>
+      <link>https://ozkanpakdil.github.io/test-microservice-frameworks/tags/graalvm/</link>
+      <pubDate>Sun, 24 Aug 2025 08:59:10 +0000</pubDate>
+      <guid>https://ozkanpakdil.github.io/test-microservice-frameworks/tags/graalvm/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Kotlin</title>
+      <link>https://ozkanpakdil.github.io/test-microservice-frameworks/tags/kotlin/</link>
+      <pubDate>Sun, 24 Aug 2025 08:59:10 +0000</pubDate>
+      <guid>https://ozkanpakdil.github.io/test-microservice-frameworks/tags/kotlin/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Microservice</title>
+      <link>https://ozkanpakdil.github.io/test-microservice-frameworks/tags/microservice/</link>
+      <pubDate>Sun, 24 Aug 2025 08:59:10 +0000</pubDate>
+      <guid>https://ozkanpakdil.github.io/test-microservice-frameworks/tags/microservice/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Quarkus</title>
+      <link>https://ozkanpakdil.github.io/test-microservice-frameworks/tags/quarkus/</link>
+      <pubDate>Sun, 24 Aug 2025 08:59:10 +0000</pubDate>
+      <guid>https://ozkanpakdil.github.io/test-microservice-frameworks/tags/quarkus/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Rust</title>
+      <link>https://ozkanpakdil.github.io/test-microservice-frameworks/tags/rust/</link>
+      <pubDate>Sun, 24 Aug 2025 08:59:10 +0000</pubDate>
+      <guid>https://ozkanpakdil.github.io/test-microservice-frameworks/tags/rust/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

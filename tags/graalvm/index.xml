@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Microservice Framework Tests</title>
-    <link>https://ozkanpakdil.github.io/test-microservice-frameworks/</link>
-    <description>Recent content on Microservice Framework Tests</description>
+    <title>Graalvm on Microservice Framework Tests</title>
+    <link>https://ozkanpakdil.github.io/test-microservice-frameworks/tags/graalvm/</link>
+    <description>Recent content in Graalvm on Microservice Framework Tests</description>
     <generator>Hugo -- 0.148.2</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 24 Aug 2025 08:59:10 +0000</lastBuildDate>
-    <atom:link href="https://ozkanpakdil.github.io/test-microservice-frameworks/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://ozkanpakdil.github.io/test-microservice-frameworks/tags/graalvm/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Java microservice framework tests in SB:3.5.4 Q:3.25.0 M:4.9.2 V:4.5.16 H:4.2.2 Dotnet:7,8,9 openjdk version &#34;24.0.2&#34; 2025-07-15 rustc 1.89.0 (29483883e 2025-08-04)</title>
       <link>https://ozkanpakdil.github.io/test-microservice-frameworks/posts/2025/2025-08-24-microservice-framework-test-24/</link>
