@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Java microservice framework tests in SB:2.4.3 Q:1.12.2.Final M:2.4.0 V:4.0.3 H:2.2.1 openjdk version &#34;15.0.2&#34; 2021-01-19 | Microservice Framework Tests</title>
+<meta name="keywords" content="microservice, quarkus, graalvm">
+<meta name="description" content="Here is total package generation times for separate modules,
+[INFO] eclipse-microprofile-kumuluz-test 1.0-SNAPSHOT ..... SUCCESS [  3.634 s]
+[INFO] helidon-quickstart-se 1.0-SNAPSHOT ................. SUCCESS [ 10.795 s]
+[INFO] ktor-demo 1.0.1-SNAPSHOT ........................... SUCCESS [ 11.941 s]
+[INFO] micronaut-demo 0.1 ................................. SUCCESS [  7.250 s]
+[INFO] quarkus-demo 1.0.0-SNAPSHOT ........................ SUCCESS [ 14.274 s]
+[INFO] springboot-demo 0.0.1-SNAPSHOT ..................... SUCCESS [  6.527 s]
+[INFO] vertx-demo 1.0.0-SNAPSHOT .......................... SUCCESS [  3.971 s]
+Size of created packages:
+
+  
+      
+          Size in MB
+          Name
+      
+  
+  
+      
+          22M
+          eclipse-microprofile-kumuluz-test/target/eclipse-microprofile-kumuluz-test-1.0-SNAPSHOT.jar
+      
+      
+          7.2M
+          helidon-se-netty/target/helidon-quickstart-se.jar
+      
+      
+          11K
+          helidon-se-netty/target/original-helidon-quickstart-se.jar
+      
+      
+          19M
+          ktor-demo/target/ktor-demo-1.0.1-SNAPSHOT-jar-with-dependencies.jar
+      
+      
+          18K
+          ktor-demo/target/ktor-demo-1.0.1-SNAPSHOT.jar
+      
+      
+          14M
+          micronaut/target/micronaut-demo-0.1.jar
+      
+      
+          11K
+          micronaut/target/original-micronaut-demo-0.1.jar
+      
+      
+          14M
+          quarkus/target/quarkus-demo-1.0.0-SNAPSHOT-runner.jar
+      
+      
+          19M
+          spring-boot/target/springboot-demo-0.0.1-SNAPSHOT.jar
+      
+      
+          7.2M
+          vertx/target/vertx-demo-1.0.0-SNAPSHOT-fat.jar
+      
+      
+          6.8K
+          vertx/target/vertx-demo-1.0.0-SNAPSHOT.jar
+      
+  
+
+:: Spring Boot :: (v2.4.3) Started DemoApplication in 2.082 seconds (JVM running for 2.542)">
+<meta name="author" content="">
+<link rel="canonical" href="https://ozkanpakdil.github.io/test-microservice-frameworks/posts/2021/2021-03-15-microservice-framework-test-15/">
+<link crossorigin="anonymous" href="/test-microservice-frameworks/assets/css/stylesheet.8fe10233a706bc87f2e08b3cf97b8bd4c0a80f10675a143675d59212121037c0.css" integrity="sha256-j&#43;ECM6cGvIfy4Is8&#43;XuL1MCoDxBnWhQ2ddWSEhIQN8A=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://ozkanpakdil.github.io/test-microservice-frameworks/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://ozkanpakdil.github.io/test-microservice-frameworks/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://ozkanpakdil.github.io/test-microservice-frameworks/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://ozkanpakdil.github.io/test-microservice-frameworks/apple-touch-icon.png">
+<link rel="mask-icon" href="https://ozkanpakdil.github.io/test-microservice-frameworks/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://ozkanpakdil.github.io/test-microservice-frameworks/posts/2021/2021-03-15-microservice-framework-test-15/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:url" content="https://ozkanpakdil.github.io/test-microservice-frameworks/posts/2021/2021-03-15-microservice-framework-test-15/">
+  <meta property="og:site_name" content="Microservice Framework Tests">
+  <meta property="og:title" content="Java microservice framework tests in SB:2.4.3 Q:1.12.2.Final M:2.4.0 V:4.0.3 H:2.2.1 openjdk version &#34;15.0.2&#34; 2021-01-19">
+  <meta property="og:description" content="Here is total package generation times for separate modules, [INFO] eclipse-microprofile-kumuluz-test 1.0-SNAPSHOT ..... SUCCESS [ 3.634 s] [INFO] helidon-quickstart-se 1.0-SNAPSHOT ................. SUCCESS [ 10.795 s] [INFO] ktor-demo 1.0.1-SNAPSHOT ........................... SUCCESS [ 11.941 s] [INFO] micronaut-demo 0.1 ................................. SUCCESS [ 7.250 s] [INFO] quarkus-demo 1.0.0-SNAPSHOT ........................ SUCCESS [ 14.274 s] [INFO] springboot-demo 0.0.1-SNAPSHOT ..................... SUCCESS [ 6.527 s] [INFO] vertx-demo 1.0.0-SNAPSHOT .......................... SUCCESS [ 3.971 s] Size of created packages:
+Size in MB Name 22M eclipse-microprofile-kumuluz-test/target/eclipse-microprofile-kumuluz-test-1.0-SNAPSHOT.jar 7.2M helidon-se-netty/target/helidon-quickstart-se.jar 11K helidon-se-netty/target/original-helidon-quickstart-se.jar 19M ktor-demo/target/ktor-demo-1.0.1-SNAPSHOT-jar-with-dependencies.jar 18K ktor-demo/target/ktor-demo-1.0.1-SNAPSHOT.jar 14M micronaut/target/micronaut-demo-0.1.jar 11K micronaut/target/original-micronaut-demo-0.1.jar 14M quarkus/target/quarkus-demo-1.0.0-SNAPSHOT-runner.jar 19M spring-boot/target/springboot-demo-0.0.1-SNAPSHOT.jar 7.2M vertx/target/vertx-demo-1.0.0-SNAPSHOT-fat.jar 6.8K vertx/target/vertx-demo-1.0.0-SNAPSHOT.jar :: Spring Boot :: (v2.4.3) Started DemoApplication in 2.082 seconds (JVM running for 2.542)">
+  <meta property="og:locale" content="en-us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:tag" content="Microservice">
+    <meta property="article:tag" content="Quarkus">
+    <meta property="article:tag" content="Graalvm">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java microservice framework tests in SB:2.4.3 Q:1.12.2.Final M:2.4.0 V:4.0.3 H:2.2.1 openjdk version &#34;15.0.2&#34; 2021-01-19">
+<meta name="twitter:description" content="Here is total package generation times for separate modules,
+[INFO] eclipse-microprofile-kumuluz-test 1.0-SNAPSHOT ..... SUCCESS [  3.634 s]
+[INFO] helidon-quickstart-se 1.0-SNAPSHOT ................. SUCCESS [ 10.795 s]
+[INFO] ktor-demo 1.0.1-SNAPSHOT ........................... SUCCESS [ 11.941 s]
+[INFO] micronaut-demo 0.1 ................................. SUCCESS [  7.250 s]
+[INFO] quarkus-demo 1.0.0-SNAPSHOT ........................ SUCCESS [ 14.274 s]
+[INFO] springboot-demo 0.0.1-SNAPSHOT ..................... SUCCESS [  6.527 s]
+[INFO] vertx-demo 1.0.0-SNAPSHOT .......................... SUCCESS [  3.971 s]
+Size of created packages:
+
+  
+      
+          Size in MB
+          Name
+      
+  
+  
+      
+          22M
+          eclipse-microprofile-kumuluz-test/target/eclipse-microprofile-kumuluz-test-1.0-SNAPSHOT.jar
+      
+      
+          7.2M
+          helidon-se-netty/target/helidon-quickstart-se.jar
+      
+      
+          11K
+          helidon-se-netty/target/original-helidon-quickstart-se.jar
+      
+      
+          19M
+          ktor-demo/target/ktor-demo-1.0.1-SNAPSHOT-jar-with-dependencies.jar
+      
+      
+          18K
+          ktor-demo/target/ktor-demo-1.0.1-SNAPSHOT.jar
+      
+      
+          14M
+          micronaut/target/micronaut-demo-0.1.jar
+      
+      
+          11K
+          micronaut/target/original-micronaut-demo-0.1.jar
+      
+      
+          14M
+          quarkus/target/quarkus-demo-1.0.0-SNAPSHOT-runner.jar
+      
+      
+          19M
+          spring-boot/target/springboot-demo-0.0.1-SNAPSHOT.jar
+      
+      
+          7.2M
+          vertx/target/vertx-demo-1.0.0-SNAPSHOT-fat.jar
+      
+      
+          6.8K
+          vertx/target/vertx-demo-1.0.0-SNAPSHOT.jar
+      
+  
+
+:: Spring Boot :: (v2.4.3) Started DemoApplication in 2.082 seconds (JVM running for 2.542)">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://ozkanpakdil.github.io/test-microservice-frameworks/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Java microservice framework tests in SB:2.4.3 Q:1.12.2.Final M:2.4.0 V:4.0.3 H:2.2.1 openjdk version \"15.0.2\" 2021-01-19",
+      "item": "https://ozkanpakdil.github.io/test-microservice-frameworks/posts/2021/2021-03-15-microservice-framework-test-15/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Java microservice framework tests in SB:2.4.3 Q:1.12.2.Final M:2.4.0 V:4.0.3 H:2.2.1 openjdk version \"15.0.2\" 2021-01-19",
+  "name": "Java microservice framework tests in SB:2.4.3 Q:1.12.2.Final M:2.4.0 V:4.0.3 H:2.2.1 openjdk version \u002215.0.2\u0022 2021-01-19",
+  "description": "Here is total package generation times for separate modules, [INFO] eclipse-microprofile-kumuluz-test 1.0-SNAPSHOT ..... SUCCESS [ 3.634 s] [INFO] helidon-quickstart-se 1.0-SNAPSHOT ................. SUCCESS [ 10.795 s] [INFO] ktor-demo 1.0.1-SNAPSHOT ........................... SUCCESS [ 11.941 s] [INFO] micronaut-demo 0.1 ................................. SUCCESS [ 7.250 s] [INFO] quarkus-demo 1.0.0-SNAPSHOT ........................ SUCCESS [ 14.274 s] [INFO] springboot-demo 0.0.1-SNAPSHOT ..................... SUCCESS [ 6.527 s] [INFO] vertx-demo 1.0.0-SNAPSHOT .......................... SUCCESS [ 3.971 s] Size of created packages:\nSize in MB Name 22M eclipse-microprofile-kumuluz-test/target/eclipse-microprofile-kumuluz-test-1.0-SNAPSHOT.jar 7.2M helidon-se-netty/target/helidon-quickstart-se.jar 11K helidon-se-netty/target/original-helidon-quickstart-se.jar 19M ktor-demo/target/ktor-demo-1.0.1-SNAPSHOT-jar-with-dependencies.jar 18K ktor-demo/target/ktor-demo-1.0.1-SNAPSHOT.jar 14M micronaut/target/micronaut-demo-0.1.jar 11K micronaut/target/original-micronaut-demo-0.1.jar 14M quarkus/target/quarkus-demo-1.0.0-SNAPSHOT-runner.jar 19M spring-boot/target/springboot-demo-0.0.1-SNAPSHOT.jar 7.2M vertx/target/vertx-demo-1.0.0-SNAPSHOT-fat.jar 6.8K vertx/target/vertx-demo-1.0.0-SNAPSHOT.jar :: Spring Boot :: (v2.4.3) Started DemoApplication in 2.082 seconds (JVM running for 2.542)\n",
+  "keywords": [
+    "microservice", "quarkus", "graalvm"
+  ],
+  "articleBody": "Here is total package generation times for separate modules, [INFO] eclipse-microprofile-kumuluz-test 1.0-SNAPSHOT ..... SUCCESS [ 3.634 s] [INFO] helidon-quickstart-se 1.0-SNAPSHOT ................. SUCCESS [ 10.795 s] [INFO] ktor-demo 1.0.1-SNAPSHOT ........................... SUCCESS [ 11.941 s] [INFO] micronaut-demo 0.1 ................................. SUCCESS [ 7.250 s] [INFO] quarkus-demo 1.0.0-SNAPSHOT ........................ SUCCESS [ 14.274 s] [INFO] springboot-demo 0.0.1-SNAPSHOT ..................... SUCCESS [ 6.527 s] [INFO] vertx-demo 1.0.0-SNAPSHOT .......................... SUCCESS [ 3.971 s] Size of created packages:\nSize in MB Name 22M eclipse-microprofile-kumuluz-test/target/eclipse-microprofile-kumuluz-test-1.0-SNAPSHOT.jar 7.2M helidon-se-netty/target/helidon-quickstart-se.jar 11K helidon-se-netty/target/original-helidon-quickstart-se.jar 19M ktor-demo/target/ktor-demo-1.0.1-SNAPSHOT-jar-with-dependencies.jar 18K ktor-demo/target/ktor-demo-1.0.1-SNAPSHOT.jar 14M micronaut/target/micronaut-demo-0.1.jar 11K micronaut/target/original-micronaut-demo-0.1.jar 14M quarkus/target/quarkus-demo-1.0.0-SNAPSHOT-runner.jar 19M spring-boot/target/springboot-demo-0.0.1-SNAPSHOT.jar 7.2M vertx/target/vertx-demo-1.0.0-SNAPSHOT-fat.jar 6.8K vertx/target/vertx-demo-1.0.0-SNAPSHOT.jar :: Spring Boot :: (v2.4.3) Started DemoApplication in 2.082 seconds (JVM running for 2.542)\n---- Global Information -------------------------------------------------------- \u003e request count 2000 (OK=2000 KO=0 ) \u003e min response time 0 (OK=0 KO=- ) \u003e max response time 187 (OK=187 KO=- ) \u003e mean response time 11 (OK=11 KO=- ) \u003e std deviation 27 (OK=27 KO=- ) \u003e response time 50th percentile 1 (OK=1 KO=- ) \u003e response time 75th percentile 2 (OK=2 KO=- ) \u003e response time 95th percentile 76 (OK=76 KO=- ) \u003e response time 99th percentile 125 (OK=125 KO=- ) \u003e mean requests/sec 400 (OK=400 KO=- ) powered by Quarkus 1.12.2.Final) started in 0.920s. Listening on: http://0.0.0.0:8080\n---- Global Information -------------------------------------------------------- \u003e request count 2000 (OK=2000 KO=0 ) \u003e min response time 0 (OK=0 KO=- ) \u003e max response time 237 (OK=237 KO=- ) \u003e mean response time 8 (OK=8 KO=- ) \u003e std deviation 21 (OK=21 KO=- ) \u003e response time 50th percentile 1 (OK=1 KO=- ) \u003e response time 75th percentile 2 (OK=2 KO=- ) \u003e response time 95th percentile 50 (OK=50 KO=- ) \u003e response time 99th percentile 102 (OK=102 KO=- ) \u003e mean requests/sec 400 (OK=400 KO=- ) micronaut version:2.0.1 Startup completed in 903ms. Server Running: http://localhost:8080\n---- Global Information -------------------------------------------------------- \u003e request count 2000 (OK=2000 KO=0 ) \u003e min response time 0 (OK=0 KO=- ) \u003e max response time 193 (OK=193 KO=- ) \u003e mean response time 10 (OK=10 KO=- ) \u003e std deviation 24 (OK=24 KO=- ) \u003e response time 50th percentile 1 (OK=1 KO=- ) \u003e response time 75th percentile 3 (OK=3 KO=- ) \u003e response time 95th percentile 70 (OK=70 KO=- ) \u003e response time 99th percentile 111 (OK=111 KO=- ) \u003e mean requests/sec 400 (OK=400 KO=- ) vertx version:4.0.3\n---- Global Information -------------------------------------------------------- \u003e request count 2000 (OK=2000 KO=0 ) \u003e min response time 0 (OK=0 KO=- ) \u003e max response time 116 (OK=116 KO=- ) \u003e mean response time 5 (OK=5 KO=- ) \u003e std deviation 14 (OK=14 KO=- ) \u003e response time 50th percentile 1 (OK=1 KO=- ) \u003e response time 75th percentile 1 (OK=1 KO=- ) \u003e response time 95th percentile 35 (OK=35 KO=- ) \u003e response time 99th percentile 71 (OK=71 KO=- ) \u003e mean requests/sec 400 (OK=400 KO=- ) kumuluz version:${kumuluz.version} Server – Started @3744ms\n---- Global Information -------------------------------------------------------- \u003e request count 2000 (OK=2000 KO=0 ) \u003e min response time 0 (OK=0 KO=- ) \u003e max response time 167 (OK=167 KO=- ) \u003e mean response time 13 (OK=13 KO=- ) \u003e std deviation 28 (OK=28 KO=- ) \u003e response time 50th percentile 1 (OK=1 KO=- ) \u003e response time 75th percentile 3 (OK=3 KO=- ) \u003e response time 95th percentile 85 (OK=85 KO=- ) \u003e response time 99th percentile 120 (OK=120 KO=- ) \u003e mean requests/sec 400 (OK=400 KO=- ) Helidon SE 2.2.1 features: [Config, Health, Metrics, WebServer]\n---- Global Information -------------------------------------------------------- \u003e request count 2000 (OK=2000 KO=0 ) \u003e min response time 0 (OK=0 KO=- ) \u003e max response time 181 (OK=181 KO=- ) \u003e mean response time 16 (OK=16 KO=- ) \u003e std deviation 34 (OK=34 KO=- ) \u003e response time 50th percentile 1 (OK=1 KO=- ) \u003e response time 75th percentile 7 (OK=7 KO=- ) \u003e response time 95th percentile 111 (OK=111 KO=- ) \u003e response time 99th percentile 140 (OK=140 KO=- ) \u003e mean requests/sec 400 (OK=400 KO=- ) ktor-demo/target/ktor-demo-1.0.1-SNAPSHOT-jar-with-dependencies.jar!/application.conf: 6\n---- Global Information -------------------------------------------------------- \u003e request count 2000 (OK=2000 KO=0 ) \u003e min response time 0 (OK=0 KO=- ) \u003e max response time 533 (OK=533 KO=- ) \u003e mean response time 132 (OK=132 KO=- ) \u003e std deviation 138 (OK=138 KO=- ) \u003e response time 50th percentile 104 (OK=104 KO=- ) \u003e response time 75th percentile 237 (OK=237 KO=- ) \u003e response time 95th percentile 388 (OK=388 KO=- ) \u003e response time 99th percentile 469 (OK=469 KO=- ) \u003e mean requests/sec 400 (OK=400 KO=- ) ",
+  "wordCount" : "741",
+  "inLanguage": "en",
+  "datePublished": "0001-01-01T00:00:00Z",
+  "dateModified": "0001-01-01T00:00:00Z",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://ozkanpakdil.github.io/test-microservice-frameworks/posts/2021/2021-03-15-microservice-framework-test-15/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Microservice Framework Tests",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://ozkanpakdil.github.io/test-microservice-frameworks/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://ozkanpakdil.github.io/test-microservice-frameworks/" accesskey="h" title="Microservice Framework Tests (Alt + H)">Microservice Framework Tests</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://ozkanpakdil.github.io/" title="Main Blog">
+                    <span>Main Blog</span>&nbsp;
+                    <svg fill="none" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round" stroke-width="2.5" viewBox="0 0 24 24" height="12" width="12">
+                        <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
+                        <path d="M15 3h6v6"></path>
+                        <path d="M10 14L21 3"></path>
+                    </svg>
+                </a>
+            </li>
+            <li>
+                <a href="https://ozkanpakdil.github.io/test-microservice-frameworks/" title="Home">
+                    <span>Home</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      Java microservice framework tests in SB:2.4.3 Q:1.12.2.Final M:2.4.0 V:4.0.3 H:2.2.1 openjdk version &#34;15.0.2&#34; 2021-01-19
+    </h1>
+    <div class="post-meta">
+
+</div>
+  </header> 
+  <div class="post-content"><p>Here is total package generation times for separate modules,
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#f92672">[</span>INFO<span style="color:#f92672">]</span> eclipse-microprofile-kumuluz-test 1.0-SNAPSHOT ..... SUCCESS <span style="color:#f92672">[</span>  3.634 s<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>INFO<span style="color:#f92672">]</span> helidon-quickstart-se 1.0-SNAPSHOT ................. SUCCESS <span style="color:#f92672">[</span> 10.795 s<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>INFO<span style="color:#f92672">]</span> ktor-demo 1.0.1-SNAPSHOT ........................... SUCCESS <span style="color:#f92672">[</span> 11.941 s<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>INFO<span style="color:#f92672">]</span> micronaut-demo 0.1 ................................. SUCCESS <span style="color:#f92672">[</span>  7.250 s<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>INFO<span style="color:#f92672">]</span> quarkus-demo 1.0.0-SNAPSHOT ........................ SUCCESS <span style="color:#f92672">[</span> 14.274 s<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>INFO<span style="color:#f92672">]</span> springboot-demo 0.0.1-SNAPSHOT ..................... SUCCESS <span style="color:#f92672">[</span>  6.527 s<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>INFO<span style="color:#f92672">]</span> vertx-demo 1.0.0-SNAPSHOT .......................... SUCCESS <span style="color:#f92672">[</span>  3.971 s<span style="color:#f92672">]</span></span></span></code></pre></div>
+Size of created packages:</p>
+<table>
+  <thead>
+      <tr>
+          <th>Size in MB</th>
+          <th>Name</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>22M</td>
+          <td>eclipse-microprofile-kumuluz-test/target/eclipse-microprofile-kumuluz-test-1.0-SNAPSHOT.jar</td>
+      </tr>
+      <tr>
+          <td>7.2M</td>
+          <td>helidon-se-netty/target/helidon-quickstart-se.jar</td>
+      </tr>
+      <tr>
+          <td>11K</td>
+          <td>helidon-se-netty/target/original-helidon-quickstart-se.jar</td>
+      </tr>
+      <tr>
+          <td>19M</td>
+          <td>ktor-demo/target/ktor-demo-1.0.1-SNAPSHOT-jar-with-dependencies.jar</td>
+      </tr>
+      <tr>
+          <td>18K</td>
+          <td>ktor-demo/target/ktor-demo-1.0.1-SNAPSHOT.jar</td>
+      </tr>
+      <tr>
+          <td>14M</td>
+          <td>micronaut/target/micronaut-demo-0.1.jar</td>
+      </tr>
+      <tr>
+          <td>11K</td>
+          <td>micronaut/target/original-micronaut-demo-0.1.jar</td>
+      </tr>
+      <tr>
+          <td>14M</td>
+          <td>quarkus/target/quarkus-demo-1.0.0-SNAPSHOT-runner.jar</td>
+      </tr>
+      <tr>
+          <td>19M</td>
+          <td>spring-boot/target/springboot-demo-0.0.1-SNAPSHOT.jar</td>
+      </tr>
+      <tr>
+          <td>7.2M</td>
+          <td>vertx/target/vertx-demo-1.0.0-SNAPSHOT-fat.jar</td>
+      </tr>
+      <tr>
+          <td>6.8K</td>
+          <td>vertx/target/vertx-demo-1.0.0-SNAPSHOT.jar</td>
+      </tr>
+  </tbody>
+</table>
+<p>:: Spring Boot :: (v2.4.3) Started DemoApplication in 2.082 seconds (JVM running for 2.542)</p>
+<pre><code><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>---- Global Information --------------------------------------------------------
+</span></span><span style="display:flex;"><span>&gt; request count                                       <span style="color:#ae81ff">2000</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">2000</span>   KO<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; min response time                                      <span style="color:#ae81ff">0</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>      KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; max response time                                    <span style="color:#ae81ff">187</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">187</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; mean response time                                    <span style="color:#ae81ff">11</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">11</span>     KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; std deviation                                         <span style="color:#ae81ff">27</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">27</span>     KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 50th percentile                          <span style="color:#ae81ff">1</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>      KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 75th percentile                          <span style="color:#ae81ff">2</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>      KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 95th percentile                         <span style="color:#ae81ff">76</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">76</span>     KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 99th percentile                        <span style="color:#ae81ff">125</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">125</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; mean requests/sec                                    <span style="color:#ae81ff">400</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">400</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span></span></span></code></pre></div>
+</code></pre>
+<p>powered by Quarkus 1.12.2.Final) started in 0.920s. Listening on: http://0.0.0.0:8080</p>
+<pre><code><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>---- Global Information --------------------------------------------------------
+</span></span><span style="display:flex;"><span>&gt; request count                                       <span style="color:#ae81ff">2000</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">2000</span>   KO<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; min response time                                      <span style="color:#ae81ff">0</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>      KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; max response time                                    <span style="color:#ae81ff">237</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">237</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; mean response time                                     <span style="color:#ae81ff">8</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">8</span>      KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; std deviation                                         <span style="color:#ae81ff">21</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">21</span>     KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 50th percentile                          <span style="color:#ae81ff">1</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>      KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 75th percentile                          <span style="color:#ae81ff">2</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>      KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 95th percentile                         <span style="color:#ae81ff">50</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">50</span>     KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 99th percentile                        <span style="color:#ae81ff">102</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">102</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; mean requests/sec                                    <span style="color:#ae81ff">400</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">400</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span></span></span></code></pre></div>
+</code></pre>
+<p>micronaut version:2.0.1 Startup completed in 903ms. Server Running: http://localhost:8080</p>
+<pre><code><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>---- Global Information --------------------------------------------------------
+</span></span><span style="display:flex;"><span>&gt; request count                                       <span style="color:#ae81ff">2000</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">2000</span>   KO<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; min response time                                      <span style="color:#ae81ff">0</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>      KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; max response time                                    <span style="color:#ae81ff">193</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">193</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; mean response time                                    <span style="color:#ae81ff">10</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span>     KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; std deviation                                         <span style="color:#ae81ff">24</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">24</span>     KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 50th percentile                          <span style="color:#ae81ff">1</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>      KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 75th percentile                          <span style="color:#ae81ff">3</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>      KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 95th percentile                         <span style="color:#ae81ff">70</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">70</span>     KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 99th percentile                        <span style="color:#ae81ff">111</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">111</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; mean requests/sec                                    <span style="color:#ae81ff">400</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">400</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span></span></span></code></pre></div>
+</code></pre>
+<p>vertx version:4.0.3</p>
+<pre><code><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>---- Global Information --------------------------------------------------------
+</span></span><span style="display:flex;"><span>&gt; request count                                       <span style="color:#ae81ff">2000</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">2000</span>   KO<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; min response time                                      <span style="color:#ae81ff">0</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>      KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; max response time                                    <span style="color:#ae81ff">116</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">116</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; mean response time                                     <span style="color:#ae81ff">5</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">5</span>      KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; std deviation                                         <span style="color:#ae81ff">14</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">14</span>     KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 50th percentile                          <span style="color:#ae81ff">1</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>      KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 75th percentile                          <span style="color:#ae81ff">1</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>      KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 95th percentile                         <span style="color:#ae81ff">35</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">35</span>     KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 99th percentile                         <span style="color:#ae81ff">71</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">71</span>     KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; mean requests/sec                                    <span style="color:#ae81ff">400</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">400</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span></span></span></code></pre></div>
+</code></pre>
+<p>kumuluz version:${kumuluz.version} Server &ndash; Started @3744ms</p>
+<pre><code><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>---- Global Information --------------------------------------------------------
+</span></span><span style="display:flex;"><span>&gt; request count                                       <span style="color:#ae81ff">2000</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">2000</span>   KO<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; min response time                                      <span style="color:#ae81ff">0</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>      KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; max response time                                    <span style="color:#ae81ff">167</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">167</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; mean response time                                    <span style="color:#ae81ff">13</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">13</span>     KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; std deviation                                         <span style="color:#ae81ff">28</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">28</span>     KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 50th percentile                          <span style="color:#ae81ff">1</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>      KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 75th percentile                          <span style="color:#ae81ff">3</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>      KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 95th percentile                         <span style="color:#ae81ff">85</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">85</span>     KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 99th percentile                        <span style="color:#ae81ff">120</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">120</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; mean requests/sec                                    <span style="color:#ae81ff">400</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">400</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span></span></span></code></pre></div>
+</code></pre>
+<p>Helidon SE 2.2.1 features: [Config, Health, Metrics, WebServer]</p>
+<pre><code><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>---- Global Information --------------------------------------------------------
+</span></span><span style="display:flex;"><span>&gt; request count                                       <span style="color:#ae81ff">2000</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">2000</span>   KO<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; min response time                                      <span style="color:#ae81ff">0</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>      KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; max response time                                    <span style="color:#ae81ff">181</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">181</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; mean response time                                    <span style="color:#ae81ff">16</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">16</span>     KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; std deviation                                         <span style="color:#ae81ff">34</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">34</span>     KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 50th percentile                          <span style="color:#ae81ff">1</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>      KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 75th percentile                          <span style="color:#ae81ff">7</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">7</span>      KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 95th percentile                        <span style="color:#ae81ff">111</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">111</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 99th percentile                        <span style="color:#ae81ff">140</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">140</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; mean requests/sec                                    <span style="color:#ae81ff">400</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">400</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span></span></span></code></pre></div>
+</code></pre>
+<p>ktor-demo/target/ktor-demo-1.0.1-SNAPSHOT-jar-with-dependencies.jar!/application.conf: 6</p>
+<pre><code><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>---- Global Information --------------------------------------------------------
+</span></span><span style="display:flex;"><span>&gt; request count                                       <span style="color:#ae81ff">2000</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">2000</span>   KO<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; min response time                                      <span style="color:#ae81ff">0</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>      KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; max response time                                    <span style="color:#ae81ff">533</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">533</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; mean response time                                   <span style="color:#ae81ff">132</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">132</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; std deviation                                        <span style="color:#ae81ff">138</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">138</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 50th percentile                        <span style="color:#ae81ff">104</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">104</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 75th percentile                        <span style="color:#ae81ff">237</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">237</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 95th percentile                        <span style="color:#ae81ff">388</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">388</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 99th percentile                        <span style="color:#ae81ff">469</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">469</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; mean requests/sec                                    <span style="color:#ae81ff">400</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">400</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span></span></span></code></pre></div>
+</code></pre>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://ozkanpakdil.github.io/test-microservice-frameworks/tags/microservice/">Microservice</a></li>
+      <li><a href="https://ozkanpakdil.github.io/test-microservice-frameworks/tags/quarkus/">Quarkus</a></li>
+      <li><a href="https://ozkanpakdil.github.io/test-microservice-frameworks/tags/graalvm/">Graalvm</a></li>
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2025 <a href="https://ozkanpakdil.github.io/test-microservice-frameworks/">Microservice Framework Tests</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

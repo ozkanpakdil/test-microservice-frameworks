@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Benchmarks | Microservice Framework Tests</title>
+<meta name="keywords" content="">
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="canonical" href="https://ozkanpakdil.github.io/test-microservice-frameworks/categories/benchmarks/">
+<link crossorigin="anonymous" href="/test-microservice-frameworks/assets/css/stylesheet.8fe10233a706bc87f2e08b3cf97b8bd4c0a80f10675a143675d59212121037c0.css" integrity="sha256-j&#43;ECM6cGvIfy4Is8&#43;XuL1MCoDxBnWhQ2ddWSEhIQN8A=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://ozkanpakdil.github.io/test-microservice-frameworks/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://ozkanpakdil.github.io/test-microservice-frameworks/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://ozkanpakdil.github.io/test-microservice-frameworks/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://ozkanpakdil.github.io/test-microservice-frameworks/apple-touch-icon.png">
+<link rel="mask-icon" href="https://ozkanpakdil.github.io/test-microservice-frameworks/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" type="application/rss+xml" href="https://ozkanpakdil.github.io/test-microservice-frameworks/categories/benchmarks/index.xml">
+<link rel="alternate" hreflang="en" href="https://ozkanpakdil.github.io/test-microservice-frameworks/categories/benchmarks/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:url" content="https://ozkanpakdil.github.io/test-microservice-frameworks/categories/benchmarks/">
+  <meta property="og:site_name" content="Microservice Framework Tests">
+  <meta property="og:title" content="Benchmarks">
+  <meta property="og:locale" content="en-us">
+  <meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Benchmarks">
+<meta name="twitter:description" content="">
+
+</head>
+
+<body class="list" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://ozkanpakdil.github.io/test-microservice-frameworks/" accesskey="h" title="Microservice Framework Tests (Alt + H)">Microservice Framework Tests</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://ozkanpakdil.github.io/" title="Main Blog">
+                    <span>Main Blog</span>&nbsp;
+                    <svg fill="none" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round" stroke-width="2.5" viewBox="0 0 24 24" height="12" width="12">
+                        <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
+                        <path d="M15 3h6v6"></path>
+                        <path d="M10 14L21 3"></path>
+                    </svg>
+                </a>
+            </li>
+            <li>
+                <a href="https://ozkanpakdil.github.io/test-microservice-frameworks/" title="Home">
+                    <span>Home</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main"> 
+<header class="page-header">
+  <h1>
+    Benchmarks
+  </h1>
+</header>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Java microservice framework tests in SB:3.0.6 Q:3.0.3.Final M:3.9.1 V:4.4.2 H:3.2.1 Dotnet:6 openjdk version &#34;17.0.7&#34; 2023-04-18 rustc 1.69.0 (84c898d65 2023-04-16)
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>In Linux fv-az586-63 5.15.0-1037-azure #44-Ubuntu SMP Thu Apr 20 13:19:31 UTC 2023 x86_64 x86_64 x86_64 GNU/Linux, Below is total package generation times for separate modules, [INFO] eclipse-microprofile-kumuluz-test 1.0-SNAPSHOT ..... SUCCESS [ 21.583 s] [INFO] helidon-quickstart-se 1.0-SNAPSHOT ................. SUCCESS [ 29.201 s] [INFO] ktor-demo 1.0.1-SNAPSHOT ........................... SUCCESS [ 29.027 s] [INFO] micronaut-demo 0.1 ................................. SUCCESS [ 28.219 s] [INFO] quarkus-demo 1.0.0-SNAPSHOT ........................ SUCCESS [ 37.265 s] [INFO] springboot-webflux-demo 0.0.1-SNAPSHOT ............. SUCCESS [ 6.249 s] [INFO] springboot-demo-web 0.0.1-SNAPSHOT ................. SUCCESS [ 6.342 s] [INFO] vertx-demo 1.0.0-SNAPSHOT .......................... SUCCESS [ 16.234 s] Size of created packages:
+...</p>
+  </div>
+  <footer class="entry-footer"></footer>
+  <a class="entry-link" aria-label="post link to Java microservice framework tests in SB:3.0.6 Q:3.0.3.Final M:3.9.1 V:4.4.2 H:3.2.1 Dotnet:6 openjdk version &#34;17.0.7&#34; 2023-04-18 rustc 1.69.0 (84c898d65 2023-04-16)" href="https://ozkanpakdil.github.io/test-microservice-frameworks/posts/2023/2023-05-17-microservice-framework-test-17/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Java microservice framework tests in SB:3.1.0 Q:3.0.3.Final M:3.9.1 V:4.4.2 H:3.2.1 Dotnet:6 openjdk version &#34;17.0.7&#34; 2023-04-18 rustc 1.69.0 (84c898d65 2023-04-16)
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>In Linux fv-az993-662 5.15.0-1037-azure #44-Ubuntu SMP Thu Apr 20 13:19:31 UTC 2023 x86_64 x86_64 x86_64 GNU/Linux, Below is total package generation times for separate modules, [INFO] eclipse-microprofile-kumuluz-test 1.0-SNAPSHOT ..... SUCCESS [ 19.752 s] [INFO] helidon-quickstart-se 1.0-SNAPSHOT ................. SUCCESS [ 25.995 s] [INFO] ktor-demo 1.0.1-SNAPSHOT ........................... SUCCESS [ 25.537 s] [INFO] micronaut-demo 0.1 ................................. SUCCESS [ 25.399 s] [INFO] quarkus-demo 1.0.0-SNAPSHOT ........................ SUCCESS [ 33.247 s] [INFO] springboot-webflux-demo 0.0.1-SNAPSHOT ............. SUCCESS [ 4.609 s] [INFO] springboot-demo-web 0.0.1-SNAPSHOT ................. SUCCESS [ 4.593 s] [INFO] vertx-demo 1.0.0-SNAPSHOT .......................... SUCCESS [ 15.540 s] Size of created packages:
+...</p>
+  </div>
+  <footer class="entry-footer"></footer>
+  <a class="entry-link" aria-label="post link to Java microservice framework tests in SB:3.1.0 Q:3.0.3.Final M:3.9.1 V:4.4.2 H:3.2.1 Dotnet:6 openjdk version &#34;17.0.7&#34; 2023-04-18 rustc 1.69.0 (84c898d65 2023-04-16)" href="https://ozkanpakdil.github.io/test-microservice-frameworks/posts/2023/2023-05-19-microservice-framework-test-17/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Java microservice framework tests in SB:3.1.0 Q:3.0.3.Final M:3.9.2 V:4.4.2 H:3.2.1 Dotnet:6 openjdk version &#34;17.0.7&#34; 2023-04-18 rustc 1.69.0 (84c898d65 2023-04-16)
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>In Linux fv-az622-799 5.15.0-1037-azure #44-Ubuntu SMP Thu Apr 20 13:19:31 UTC 2023 x86_64 x86_64 x86_64 GNU/Linux, Below is total package generation times for separate modules, [INFO] eclipse-microprofile-kumuluz-test 1.0-SNAPSHOT ..... SUCCESS [ 18.217 s] [INFO] helidon-quickstart-se 1.0-SNAPSHOT ................. SUCCESS [ 23.797 s] [INFO] ktor-demo 1.0.1-SNAPSHOT ........................... SUCCESS [ 23.410 s] [INFO] micronaut-demo 0.1 ................................. SUCCESS [ 22.327 s] [INFO] quarkus-demo 1.0.0-SNAPSHOT ........................ SUCCESS [ 29.782 s] [INFO] springboot-webflux-demo 0.0.1-SNAPSHOT ............. SUCCESS [ 4.849 s] [INFO] springboot-demo-web 0.0.1-SNAPSHOT ................. SUCCESS [ 4.854 s] [INFO] vertx-demo 1.0.0-SNAPSHOT .......................... SUCCESS [ 13.577 s] Size of created packages:
+...</p>
+  </div>
+  <footer class="entry-footer"></footer>
+  <a class="entry-link" aria-label="post link to Java microservice framework tests in SB:3.1.0 Q:3.0.3.Final M:3.9.2 V:4.4.2 H:3.2.1 Dotnet:6 openjdk version &#34;17.0.7&#34; 2023-04-18 rustc 1.69.0 (84c898d65 2023-04-16)" href="https://ozkanpakdil.github.io/test-microservice-frameworks/posts/2023/2023-05-22-microservice-framework-test-17/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Java microservice framework tests in SB:3.1.0 Q:3.1.0.Final M:3.9.2 V:4.4.2 H:3.2.1 Dotnet:6 openjdk version &#34;17.0.7&#34; 2023-04-18 rustc 1.69.0 (84c898d65 2023-04-16)
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>In Linux fv-az175-14 5.15.0-1037-azure #44-Ubuntu SMP Thu Apr 20 13:19:31 UTC 2023 x86_64 x86_64 x86_64 GNU/Linux, Below is total package generation times for separate modules, [INFO] eclipse-microprofile-kumuluz-test 1.0-SNAPSHOT ..... SUCCESS [ 22.774 s] [INFO] helidon-quickstart-se 1.0-SNAPSHOT ................. SUCCESS [ 34.276 s] [INFO] ktor-demo 1.0.1-SNAPSHOT ........................... SUCCESS [ 33.612 s] [INFO] micronaut-demo 0.1 ................................. SUCCESS [ 30.761 s] [INFO] quarkus-demo 1.0.0-SNAPSHOT ........................ SUCCESS [ 43.953 s] [INFO] springboot-webflux-demo 0.0.1-SNAPSHOT ............. SUCCESS [ 7.293 s] [INFO] springboot-demo-web 0.0.1-SNAPSHOT ................. SUCCESS [ 7.285 s] [INFO] vertx-demo 1.0.0-SNAPSHOT .......................... SUCCESS [ 19.660 s] Size of created packages:
+...</p>
+  </div>
+  <footer class="entry-footer"></footer>
+  <a class="entry-link" aria-label="post link to Java microservice framework tests in SB:3.1.0 Q:3.1.0.Final M:3.9.2 V:4.4.2 H:3.2.1 Dotnet:6 openjdk version &#34;17.0.7&#34; 2023-04-18 rustc 1.69.0 (84c898d65 2023-04-16)" href="https://ozkanpakdil.github.io/test-microservice-frameworks/posts/2023/2023-05-25-microservice-framework-test-17/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Java microservice framework tests in SB:3.1.0 Q:3.1.0.Final M:3.9.2 V:4.4.2 H:3.2.1 Dotnet:6 openjdk version &#34;17.0.7&#34; 2023-04-18 rustc 1.69.0 (84c898d65 2023-04-16)
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>In Linux fv-az573-717 5.15.0-1037-azure #44-Ubuntu SMP Thu Apr 20 13:19:31 UTC 2023 x86_64 x86_64 x86_64 GNU/Linux, Below is total package generation times for separate modules, [INFO] eclipse-microprofile-kumuluz-test 1.0-SNAPSHOT ..... SUCCESS [ 17.120 s] [INFO] helidon-quickstart-se 1.0-SNAPSHOT ................. SUCCESS [ 24.368 s] [INFO] ktor-demo 1.0.1-SNAPSHOT ........................... SUCCESS [ 24.276 s] [INFO] micronaut-demo 0.1 ................................. SUCCESS [ 22.369 s] [INFO] quarkus-demo 1.0.0-SNAPSHOT ........................ SUCCESS [ 31.923 s] [INFO] springboot-webflux-demo 0.0.1-SNAPSHOT ............. SUCCESS [ 5.311 s] [INFO] springboot-demo-web 0.0.1-SNAPSHOT ................. SUCCESS [ 5.292 s] [INFO] vertx-demo 1.0.0-SNAPSHOT .......................... SUCCESS [ 14.959 s] Size of created packages:
+...</p>
+  </div>
+  <footer class="entry-footer"></footer>
+  <a class="entry-link" aria-label="post link to Java microservice framework tests in SB:3.1.0 Q:3.1.0.Final M:3.9.2 V:4.4.2 H:3.2.1 Dotnet:6 openjdk version &#34;17.0.7&#34; 2023-04-18 rustc 1.69.0 (84c898d65 2023-04-16)" href="https://ozkanpakdil.github.io/test-microservice-frameworks/posts/2023/2023-05-26-microservice-framework-test-17/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Java microservice framework tests in SB:3.1.0 Q:3.1.2.Final M:3.9.3 V:4.4.3 H:3.2.1 Dotnet:6 openjdk version &#34;17.0.7&#34; 2023-04-18 rustc 1.70.0 (90c541806 2023-05-31)
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>In Linux fv-az256-987 5.15.0-1039-azure #46-Ubuntu SMP Mon May 22 15:18:07 UTC 2023 x86_64 x86_64 x86_64 GNU/Linux, Below is total package generation times for separate modules, [INFO] eclipse-microprofile-kumuluz-test 1.0-SNAPSHOT ..... SUCCESS [ 18.029 s] [INFO] helidon-quickstart-se 1.0-SNAPSHOT ................. SUCCESS [ 24.881 s] [INFO] ktor-demo 1.0.1-SNAPSHOT ........................... SUCCESS [ 24.660 s] [INFO] micronaut-demo 0.1 ................................. SUCCESS [ 23.548 s] [INFO] quarkus-demo 1.0.0-SNAPSHOT ........................ SUCCESS [ 32.331 s] [INFO] springboot-webflux-demo 0.0.1-SNAPSHOT ............. SUCCESS [ 4.866 s] [INFO] springboot-demo-web 0.0.1-SNAPSHOT ................. SUCCESS [ 4.858 s] [INFO] vertx-demo 1.0.0-SNAPSHOT .......................... SUCCESS [ 16.243 s] Size of created packages:
+...</p>
+  </div>
+  <footer class="entry-footer"></footer>
+  <a class="entry-link" aria-label="post link to Java microservice framework tests in SB:3.1.0 Q:3.1.2.Final M:3.9.3 V:4.4.3 H:3.2.1 Dotnet:6 openjdk version &#34;17.0.7&#34; 2023-04-18 rustc 1.70.0 (90c541806 2023-05-31)" href="https://ozkanpakdil.github.io/test-microservice-frameworks/posts/2023/2023-06-20-microservice-framework-test-17/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Java microservice framework tests in SB:3.1.1 Q:3.1.2.Final M:3.9.4 V:4.4.4 H:3.2.1 Dotnet:6 openjdk version &#34;17.0.7&#34; 2023-04-18 rustc 1.70.0 (90c541806 2023-05-31)
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>In Linux fv-az749-760 5.15.0-1040-azure #47-Ubuntu SMP Thu Jun 1 19:38:24 UTC 2023 x86_64 x86_64 x86_64 GNU/Linux, Below is total package generation times for separate modules, [INFO] eclipse-microprofile-kumuluz-test 1.0-SNAPSHOT ..... SUCCESS [ 16.812 s] [INFO] helidon-quickstart-se 1.0-SNAPSHOT ................. SUCCESS [ 23.614 s] [INFO] ktor-demo 1.0.1-SNAPSHOT ........................... SUCCESS [ 23.533 s] [INFO] micronaut-demo 0.1 ................................. SUCCESS [ 21.890 s] [INFO] quarkus-demo 1.0.0-SNAPSHOT ........................ SUCCESS [ 31.149 s] [INFO] springboot-webflux-demo 0.0.1-SNAPSHOT ............. SUCCESS [ 5.579 s] [INFO] springboot-demo-web 0.0.1-SNAPSHOT ................. SUCCESS [ 5.573 s] [INFO] vertx-demo 1.0.0-SNAPSHOT .......................... SUCCESS [ 14.794 s] Size of created packages:
+...</p>
+  </div>
+  <footer class="entry-footer"></footer>
+  <a class="entry-link" aria-label="post link to Java microservice framework tests in SB:3.1.1 Q:3.1.2.Final M:3.9.4 V:4.4.4 H:3.2.1 Dotnet:6 openjdk version &#34;17.0.7&#34; 2023-04-18 rustc 1.70.0 (90c541806 2023-05-31)" href="https://ozkanpakdil.github.io/test-microservice-frameworks/posts/2023/2023-06-26-microservice-framework-test-17/"></a>
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="https://ozkanpakdil.github.io/test-microservice-frameworks/categories/benchmarks/page/17/">
+      «&nbsp;Prev&nbsp;
+    </a>
+    <a class="next" href="https://ozkanpakdil.github.io/test-microservice-frameworks/categories/benchmarks/page/19/">Next&nbsp;&nbsp;»
+    </a>
+  </nav>
+</footer>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2025 <a href="https://ozkanpakdil.github.io/test-microservice-frameworks/">Microservice Framework Tests</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

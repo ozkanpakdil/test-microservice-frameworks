@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Microservice | Microservice Framework Tests</title>
+<meta name="keywords" content="">
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="canonical" href="https://ozkanpakdil.github.io/test-microservice-frameworks/tags/microservice/">
+<link crossorigin="anonymous" href="/test-microservice-frameworks/assets/css/stylesheet.8fe10233a706bc87f2e08b3cf97b8bd4c0a80f10675a143675d59212121037c0.css" integrity="sha256-j&#43;ECM6cGvIfy4Is8&#43;XuL1MCoDxBnWhQ2ddWSEhIQN8A=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://ozkanpakdil.github.io/test-microservice-frameworks/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://ozkanpakdil.github.io/test-microservice-frameworks/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://ozkanpakdil.github.io/test-microservice-frameworks/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://ozkanpakdil.github.io/test-microservice-frameworks/apple-touch-icon.png">
+<link rel="mask-icon" href="https://ozkanpakdil.github.io/test-microservice-frameworks/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" type="application/rss+xml" href="https://ozkanpakdil.github.io/test-microservice-frameworks/tags/microservice/index.xml">
+<link rel="alternate" hreflang="en" href="https://ozkanpakdil.github.io/test-microservice-frameworks/tags/microservice/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:url" content="https://ozkanpakdil.github.io/test-microservice-frameworks/tags/microservice/">
+  <meta property="og:site_name" content="Microservice Framework Tests">
+  <meta property="og:title" content="Microservice">
+  <meta property="og:locale" content="en-us">
+  <meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Microservice">
+<meta name="twitter:description" content="">
+
+</head>
+
+<body class="list" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://ozkanpakdil.github.io/test-microservice-frameworks/" accesskey="h" title="Microservice Framework Tests (Alt + H)">Microservice Framework Tests</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://ozkanpakdil.github.io/" title="Main Blog">
+                    <span>Main Blog</span>&nbsp;
+                    <svg fill="none" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round" stroke-width="2.5" viewBox="0 0 24 24" height="12" width="12">
+                        <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
+                        <path d="M15 3h6v6"></path>
+                        <path d="M10 14L21 3"></path>
+                    </svg>
+                </a>
+            </li>
+            <li>
+                <a href="https://ozkanpakdil.github.io/test-microservice-frameworks/" title="Home">
+                    <span>Home</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main"> 
+<header class="page-header">
+  <h1>
+    Microservice
+  </h1>
+</header>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Java microservice framework tests in SB:2.3.4.RELEASE Q:1.8.3.Final M:2.1.1 V:3.9.3 H:2.0.2 openjdk version &#34;14.0.2&#34; 2020-07-14
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Here is total package generation times for separate modules, [INFO] eclipse-microprofile-kumuluz-test 1.0-SNAPSHOT ..... SUCCESS [ 25.623 s] [INFO] helidon-quickstart-se 1.0-SNAPSHOT ................. SUCCESS [ 26.689 s] [INFO] micronaut-demo 0.1 ................................. SUCCESS [ 32.394 s] [INFO] quarkus-demo 1.0.0-SNAPSHOT ........................ SUCCESS [ 34.321 s] [INFO] springboot-demo 0.0.1-SNAPSHOT ..................... SUCCESS [ 10.446 s] [INFO] vertx-demo 1.0.0-SNAPSHOT .......................... SUCCESS [ 5.988 s] [INFO] gatling 1.0-SNAPSHOT ............................... SUCCESS [ 0.044 s] [INFO] framewrok-benchmark 1.0-SNAPSHOT ................... SUCCESS [ 0.001 s] Size of created packages:
+Size in MB Name 21M eclipse-microprofile-kumuluz-test/target/eclipse-microprofile-kumuluz-test.jar 7.0M helidon-se-netty/target/helidon-quickstart-se.jar 14M micronaut/target/micronaut-demo-0.1.jar 17M quarkus/target/quarkus-demo-1.0.0-SNAPSHOT-runner.jar 18M spring-boot/target/springboot-demo-0.0.1-SNAPSHOT.jar 6.8M vertx/target/vertx-demo-1.0.0-SNAPSHOT-fat.jar :: Spring Boot :: (v2.3.4.RELEASE) Started DemoApplication in 2.624 seconds (JVM running for 3.174)
+...</p>
+  </div>
+  <footer class="entry-footer"></footer>
+  <a class="entry-link" aria-label="post link to Java microservice framework tests in SB:2.3.4.RELEASE Q:1.8.3.Final M:2.1.1 V:3.9.3 H:2.0.2 openjdk version &#34;14.0.2&#34; 2020-07-14" href="https://ozkanpakdil.github.io/test-microservice-frameworks/posts/2020/2020-10-15-microservice-framework-test-14/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Java microservice framework tests in SB:2.3.4.RELEASE Q:1.8.3.Final M:2.1.1 V:3.9.4 H:2.0.2 openjdk version &#34;11.0.8&#34; 2020-07-14 LTS
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Here is total package generation times for separate modules, [INFO] eclipse-microprofile-kumuluz-test 1.0-SNAPSHOT ..... SUCCESS [ 18.170 s] [INFO] helidon-quickstart-se 1.0-SNAPSHOT ................. SUCCESS [ 20.059 s] [INFO] micronaut-demo 0.1 ................................. SUCCESS [ 40.411 s] [INFO] quarkus-demo 1.0.0-SNAPSHOT ........................ SUCCESS [ 28.943 s] [INFO] springboot-demo 0.0.1-SNAPSHOT ..................... SUCCESS [ 10.127 s] [INFO] vertx-demo 1.0.0-SNAPSHOT .......................... SUCCESS [ 4.211 s] [INFO] gatling 1.0-SNAPSHOT ............................... SUCCESS [ 0.116 s] [INFO] framewrok-benchmark 1.0-SNAPSHOT ................... SUCCESS [ 0.001 s] Size of created packages:
+Size in MB Name 21M eclipse-microprofile-kumuluz-test/target/eclipse-microprofile-kumuluz-test.jar 7.0M helidon-se-netty/target/helidon-quickstart-se.jar 14M micronaut/target/micronaut-demo-0.1.jar 17M quarkus/target/quarkus-demo-1.0.0-SNAPSHOT-runner.jar 18M spring-boot/target/springboot-demo-0.0.1-SNAPSHOT.jar 6.8M vertx/target/vertx-demo-1.0.0-SNAPSHOT-fat.jar :: Spring Boot :: (v2.3.4.RELEASE) Started DemoApplication in 2.822 seconds (JVM running for 3.481)
+...</p>
+  </div>
+  <footer class="entry-footer"></footer>
+  <a class="entry-link" aria-label="post link to Java microservice framework tests in SB:2.3.4.RELEASE Q:1.8.3.Final M:2.1.1 V:3.9.4 H:2.0.2 openjdk version &#34;11.0.8&#34; 2020-07-14 LTS" href="https://ozkanpakdil.github.io/test-microservice-frameworks/posts/2020/2020-10-16-microservice-framework-test-11/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Java microservice framework tests in SB:2.3.4.RELEASE Q:1.8.3.Final M:2.1.1 V:3.9.4 H:2.0.2 openjdk version &#34;14.0.2&#34; 2020-07-14
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Here is total package generation times for separate modules, [INFO] eclipse-microprofile-kumuluz-test 1.0-SNAPSHOT ..... SUCCESS [ 32.657 s] [INFO] helidon-quickstart-se 1.0-SNAPSHOT ................. SUCCESS [ 32.198 s] [INFO] micronaut-demo 0.1 ................................. SUCCESS [ 35.528 s] [INFO] quarkus-demo 1.0.0-SNAPSHOT ........................ SUCCESS [ 41.095 s] [INFO] springboot-demo 0.0.1-SNAPSHOT ..................... SUCCESS [ 10.867 s] [INFO] vertx-demo 1.0.0-SNAPSHOT .......................... SUCCESS [ 5.617 s] [INFO] gatling 1.0-SNAPSHOT ............................... SUCCESS [ 0.066 s] [INFO] framewrok-benchmark 1.0-SNAPSHOT ................... SUCCESS [ 0.000 s] Size of created packages:
+Size in MB Name 21M eclipse-microprofile-kumuluz-test/target/eclipse-microprofile-kumuluz-test.jar 7.0M helidon-se-netty/target/helidon-quickstart-se.jar 14M micronaut/target/micronaut-demo-0.1.jar 17M quarkus/target/quarkus-demo-1.0.0-SNAPSHOT-runner.jar 18M spring-boot/target/springboot-demo-0.0.1-SNAPSHOT.jar 6.8M vertx/target/vertx-demo-1.0.0-SNAPSHOT-fat.jar :: Spring Boot :: (v2.3.4.RELEASE) Started DemoApplication in 2.324 seconds (JVM running for 2.773)
+...</p>
+  </div>
+  <footer class="entry-footer"></footer>
+  <a class="entry-link" aria-label="post link to Java microservice framework tests in SB:2.3.4.RELEASE Q:1.8.3.Final M:2.1.1 V:3.9.4 H:2.0.2 openjdk version &#34;14.0.2&#34; 2020-07-14" href="https://ozkanpakdil.github.io/test-microservice-frameworks/posts/2020/2020-10-16-microservice-framework-test-14/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Java microservice framework tests in SB:2.3.4.RELEASE Q:1.8.3.Final M:2.1.1 V:3.9.4 H:2.1.0 openjdk version &#34;11.0.8&#34; 2020-07-14 LTS
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Here is total package generation times for separate modules, [INFO] eclipse-microprofile-kumuluz-test 1.0-SNAPSHOT ..... SUCCESS [ 22.512 s] [INFO] helidon-quickstart-se 1.0-SNAPSHOT ................. SUCCESS [ 23.539 s] [INFO] micronaut-demo 0.1 ................................. SUCCESS [ 29.804 s] [INFO] quarkus-demo 1.0.0-SNAPSHOT ........................ SUCCESS [ 29.586 s] [INFO] springboot-demo 0.0.1-SNAPSHOT ..................... SUCCESS [ 9.313 s] [INFO] vertx-demo 1.0.0-SNAPSHOT .......................... SUCCESS [ 6.918 s] [INFO] gatling 1.0-SNAPSHOT ............................... SUCCESS [ 0.053 s] [INFO] framewrok-benchmark 1.0-SNAPSHOT ................... SUCCESS [ 0.002 s] Size of created packages:
+Size in MB Name 21M eclipse-microprofile-kumuluz-test/target/eclipse-microprofile-kumuluz-test.jar 7.0M helidon-se-netty/target/helidon-quickstart-se.jar 14M micronaut/target/micronaut-demo-0.1.jar 17M quarkus/target/quarkus-demo-1.0.0-SNAPSHOT-runner.jar 18M spring-boot/target/springboot-demo-0.0.1-SNAPSHOT.jar 6.8M vertx/target/vertx-demo-1.0.0-SNAPSHOT-fat.jar :: Spring Boot :: (v2.3.4.RELEASE) Started DemoApplication in 2.263 seconds (JVM running for 2.832)
+...</p>
+  </div>
+  <footer class="entry-footer"></footer>
+  <a class="entry-link" aria-label="post link to Java microservice framework tests in SB:2.3.4.RELEASE Q:1.8.3.Final M:2.1.1 V:3.9.4 H:2.1.0 openjdk version &#34;11.0.8&#34; 2020-07-14 LTS" href="https://ozkanpakdil.github.io/test-microservice-frameworks/posts/2020/2020-10-18-microservice-framework-test-11/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Java microservice framework tests in SB:2.3.4.RELEASE Q:1.8.3.Final M:2.1.1 V:3.9.4 H:2.1.0 openjdk version &#34;11.0.8&#34; 2020-07-14 LTS
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Here is total package generation times for separate modules, [INFO] eclipse-microprofile-kumuluz-test 1.0-SNAPSHOT ..... SUCCESS [ 15.638 s] [INFO] helidon-quickstart-se 1.0-SNAPSHOT ................. SUCCESS [ 17.561 s] [INFO] micronaut-demo 0.1 ................................. SUCCESS [ 40.862 s] [INFO] quarkus-demo 1.0.0-SNAPSHOT ........................ SUCCESS [ 39.010 s] [INFO] springboot-demo 0.0.1-SNAPSHOT ..................... SUCCESS [ 8.407 s] [INFO] vertx-demo 1.0.0-SNAPSHOT .......................... SUCCESS [ 6.620 s] [INFO] gatling 1.0-SNAPSHOT ............................... SUCCESS [ 0.032 s] [INFO] framewrok-benchmark 1.0-SNAPSHOT ................... SUCCESS [ 0.001 s] Size of created packages:
+Size in MB Name 21M eclipse-microprofile-kumuluz-test/target/eclipse-microprofile-kumuluz-test.jar 7.0M helidon-se-netty/target/helidon-quickstart-se.jar 14M micronaut/target/micronaut-demo-0.1.jar 17M quarkus/target/quarkus-demo-1.0.0-SNAPSHOT-runner.jar 18M spring-boot/target/springboot-demo-0.0.1-SNAPSHOT.jar 6.8M vertx/target/vertx-demo-1.0.0-SNAPSHOT-fat.jar :: Spring Boot :: (v2.3.4.RELEASE) Started DemoApplication in 2.703 seconds (JVM running for 3.286)
+...</p>
+  </div>
+  <footer class="entry-footer"></footer>
+  <a class="entry-link" aria-label="post link to Java microservice framework tests in SB:2.3.4.RELEASE Q:1.8.3.Final M:2.1.1 V:3.9.4 H:2.1.0 openjdk version &#34;11.0.8&#34; 2020-07-14 LTS" href="https://ozkanpakdil.github.io/test-microservice-frameworks/posts/2020/2020-10-19-microservice-framework-test-11/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Java microservice framework tests in SB:2.3.4.RELEASE Q:1.8.3.Final M:2.1.1 V:3.9.4 H:2.1.0 openjdk version &#34;14.0.2&#34; 2020-07-14
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Here is total package generation times for separate modules, [INFO] eclipse-microprofile-kumuluz-test 1.0-SNAPSHOT ..... SUCCESS [ 15.257 s] [INFO] helidon-quickstart-se 1.0-SNAPSHOT ................. SUCCESS [ 17.133 s] [INFO] micronaut-demo 0.1 ................................. SUCCESS [ 32.269 s] [INFO] quarkus-demo 1.0.0-SNAPSHOT ........................ SUCCESS [ 33.412 s] [INFO] springboot-demo 0.0.1-SNAPSHOT ..................... SUCCESS [ 9.253 s] [INFO] vertx-demo 1.0.0-SNAPSHOT .......................... SUCCESS [ 6.023 s] [INFO] gatling 1.0-SNAPSHOT ............................... SUCCESS [ 0.137 s] [INFO] framewrok-benchmark 1.0-SNAPSHOT ................... SUCCESS [ 0.001 s] Size of created packages:
+Size in MB Name 21M eclipse-microprofile-kumuluz-test/target/eclipse-microprofile-kumuluz-test.jar 7.0M helidon-se-netty/target/helidon-quickstart-se.jar 14M micronaut/target/micronaut-demo-0.1.jar 17M quarkus/target/quarkus-demo-1.0.0-SNAPSHOT-runner.jar 18M spring-boot/target/springboot-demo-0.0.1-SNAPSHOT.jar 6.8M vertx/target/vertx-demo-1.0.0-SNAPSHOT-fat.jar :: Spring Boot :: (v2.3.4.RELEASE) Started DemoApplication in 2.519 seconds (JVM running for 3.101)
+...</p>
+  </div>
+  <footer class="entry-footer"></footer>
+  <a class="entry-link" aria-label="post link to Java microservice framework tests in SB:2.3.4.RELEASE Q:1.8.3.Final M:2.1.1 V:3.9.4 H:2.1.0 openjdk version &#34;14.0.2&#34; 2020-07-14" href="https://ozkanpakdil.github.io/test-microservice-frameworks/posts/2020/2020-10-18-microservice-framework-test-14/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Java microservice framework tests in SB:2.3.4.RELEASE Q:1.8.3.Final M:2.1.1 V:3.9.4 H:2.1.0 openjdk version &#34;15&#34; 2020-09-15
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Here is total package generation times for separate modules, [INFO] eclipse-microprofile-kumuluz-test 1.0-SNAPSHOT ..... SUCCESS [ 23.919 s] [INFO] helidon-quickstart-se 1.0-SNAPSHOT ................. SUCCESS [ 24.967 s] [INFO] micronaut-demo 0.1 ................................. SUCCESS [ 29.182 s] [INFO] quarkus-demo 1.0.0-SNAPSHOT ........................ SUCCESS [ 30.961 s] [INFO] springboot-demo 0.0.1-SNAPSHOT ..................... SUCCESS [ 8.758 s] [INFO] vertx-demo 1.0.0-SNAPSHOT .......................... SUCCESS [ 6.069 s] [INFO] gatling 1.0-SNAPSHOT ............................... SUCCESS [ 0.053 s] [INFO] framewrok-benchmark 1.0-SNAPSHOT ................... SUCCESS [ 0.001 s] Size of created packages:
+Size in MB Name 21M eclipse-microprofile-kumuluz-test/target/eclipse-microprofile-kumuluz-test.jar 7.0M helidon-se-netty/target/helidon-quickstart-se.jar 14M micronaut/target/micronaut-demo-0.1.jar 17M quarkus/target/quarkus-demo-1.0.0-SNAPSHOT-runner.jar 18M spring-boot/target/springboot-demo-0.0.1-SNAPSHOT.jar 6.8M vertx/target/vertx-demo-1.0.0-SNAPSHOT-fat.jar :: Spring Boot :: (v2.3.4.RELEASE) Started DemoApplication in 2.045 seconds (JVM running for 2.606)
+...</p>
+  </div>
+  <footer class="entry-footer"></footer>
+  <a class="entry-link" aria-label="post link to Java microservice framework tests in SB:2.3.4.RELEASE Q:1.8.3.Final M:2.1.1 V:3.9.4 H:2.1.0 openjdk version &#34;15&#34; 2020-09-15" href="https://ozkanpakdil.github.io/test-microservice-frameworks/posts/2020/2020-10-18-microservice-framework-test-15/"></a>
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="https://ozkanpakdil.github.io/test-microservice-frameworks/tags/microservice/page/5/">
+      «&nbsp;Prev&nbsp;
+    </a>
+    <a class="next" href="https://ozkanpakdil.github.io/test-microservice-frameworks/tags/microservice/page/7/">Next&nbsp;&nbsp;»
+    </a>
+  </nav>
+</footer>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2025 <a href="https://ozkanpakdil.github.io/test-microservice-frameworks/">Microservice Framework Tests</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>
