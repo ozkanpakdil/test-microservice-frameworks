@@ -98,5 +98,7 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public
+          # Hugo builds to hugo/public when using `-s hugo -d public`
+          # GitHub Pages cannot select an arbitrary folder like /hugo; when using the gh-pages branch, choose folder /
+          publish_dir: ./hugo/public
 
