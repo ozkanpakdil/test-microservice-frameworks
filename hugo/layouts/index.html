@@ -12,7 +12,7 @@
           <h2 class="entry-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
         </header>
         <footer class="entry-footer">
-          <span class="post-date">{{ .Date.Format "2006-01-02" }}</span>
+          <span class="post-date">{{ with .Params.date }}{{ (time.AsTime .).Format "2006-01-02" }}{{ else }}{{ .Date.Format "2006-01-02" }}{{ end }}</span>
         </footer>
       </article>
     {{ end }}

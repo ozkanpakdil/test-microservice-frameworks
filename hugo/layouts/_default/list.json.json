@@ -7,7 +7,7 @@
     {{- if $index }},{{ end }}
     {
       "title": {{ $p.Title | jsonify }},
-      "date": "{{ $p.Date.Format "2006-01-02" }}",
+      "date": "{{ with $p.Params.date }}{{ (time.AsTime .).Format "2006-01-02" }}{{ else }}{{ $bn := (or $p.File.TranslationBaseName $p.File.BaseFileName) }}{{ $m := findRE `\d{4}-\d{2}-\d{2}` $bn }}{{ if gt (len $m) 0 }}{{ (time.AsTime (index $m 0)).Format "2006-01-02" }}{{ else }}{{ $p.Date.Format "2006-01-02" }}{{ end }}{{ end }}",
       "java": {{ $p.Params.java | default "" | jsonify }},
       "url": {{ $p.RelPermalink | jsonify }}
     }
