@@ -26,25 +26,30 @@ CPU_LOAD=$(top -bn1 | grep load | awk '{printf "CPU Load: %.2f\n", $(NF-2)}')
 CPU_CORE=$(nproc --all)
 CPU_MHZ=$(cat /proc/cpuinfo | grep "MHz")
 
-echo "---
+cat << EOF > test-result.md
+---
 type: post
 title: 'Java microservice framework tests in SB:$SB Q:$QU M:$MICRO V:$VERTX H:$HEL Dotnet:7,8,9 $JAVA_VERSION $RUST_VERSION'
 date: $DATE
 tags: ["microservice","quarkus","graalvm","kotlin","rust","dotnet" ]
 ---
 In $OS_NAME,
-```bash
+\`\`\`bash
 $MEMORY
 $DISK
 $CPU_LOAD
 CPU core count:$CPU_CORE
 CPUs
 $CPU_MHZ
-```
+\`\`\`
 Below is total package generation times for separate modules,
-```bash" > test-result.md
+\`\`\`bash
+EOF
+
 mvn -ntp -T 4C test package|grep SUCCESS|grep -Ev "(framework|gatling|BUILD)" >>test-result.md
-echo '```' >> test-result.md
+
+echo "\`\`\`" >> test-result.md
+
 echo 'Size of created packages:
 
 | Size in MB |  Name |
