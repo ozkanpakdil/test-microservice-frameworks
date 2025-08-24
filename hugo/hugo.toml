@@ -1,6 +1,7 @@
 baseURL = "https://ozkanpakdil.github.io/test-microservice-frameworks/"
 title = "Microservice Framework Tests"
 languageCode = "en-us"
+theme = ["github.com/adityatelange/hugo-PaperMod"]
 
 # Keep taxonomy/term disabled, but enable RSS and allow JSON outputs via [outputs]
 disableKinds = ["taxonomy", "term", "sitemap", "robotsTXT", "404"]
