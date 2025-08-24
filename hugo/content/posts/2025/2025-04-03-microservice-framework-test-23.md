@@ -13,7 +13,7 @@ date: 2025-04-03
 
 In Linux fv-az1784-587 6.8.0-1021-azure #25-Ubuntu SMP Wed Jan 15 20:45:09 UTC 2025 x86_64 x86_64 x86_64 GNU/Linux,
 Below is total package generation times for separate modules,
-{{< highlight bash >}}
+```bash
 [INFO] eclipse-microprofile-kumuluz-test 4.1.0 ............ SUCCESS [  5.557 s]
 [INFO] helidon-quickstart-se 4.1.3 ........................ SUCCESS [  7.107 s]
 [INFO] ktor-demo 3.1.2-kotlin-2.1.20 ...................... SUCCESS [ 10.589 s]
@@ -22,7 +22,7 @@ Below is total package generation times for separate modules,
 [INFO] springboot-webflux-demo 3.4.1 ...................... SUCCESS [  2.553 s]
 [INFO] springboot-demo-web 3.4.1 .......................... SUCCESS [  2.553 s]
 [INFO] vertx-demo 4.5.13 .................................. SUCCESS [  7.881 s]
-{{< /highlight >}}
+```
 Size of created packages:
 
 | Size in MB |  Name |
@@ -41,7 +41,7 @@ Size of created packages:
 
 [:: Spring Boot ::                (v3.4.1)](https://spring.io/projects/spring-boot) 
 Started DemoWebFluxApplication in 1.928 seconds (process running for 2.422)
-{{< highlight bash >}}
+```bash
 ---- Global Information --------------------------------------------------------
 > request count                                      32000 (OK=32000  KO=0     )
 > min response time                                     59 (OK=59     KO=-     )
@@ -53,11 +53,11 @@ Started DemoWebFluxApplication in 1.928 seconds (process running for 2.422)
 > response time 95th percentile                       3859 (OK=3859   KO=-     )
 > response time 99th percentile                       4394 (OK=4394   KO=-     )
 > mean requests/sec                                2666.667 (OK=2666.667 KO=-     )
-{{< /highlight >}}
+```
 
 [:: Spring Boot ::                (v3.4.1)](https://spring.io/projects/spring-boot) 
 Started DemoApplication in 1.883 seconds (process running for 2.331)
-{{< highlight bash >}}
+```bash
 ---- Global Information --------------------------------------------------------
 > request count                                      32000 (OK=32000  KO=0     )
 > min response time                                      3 (OK=3      KO=-     )
@@ -69,11 +69,11 @@ Started DemoApplication in 1.883 seconds (process running for 2.331)
 > response time 95th percentile                       2530 (OK=2530   KO=-     )
 > response time 99th percentile                       3554 (OK=3554   KO=-     )
 > mean requests/sec                                   3200 (OK=3200   KO=-     )
-{{< /highlight >}}
+```
 
 [powered by Quarkus 3.21.0) started in 1.047s. Listening on: http://0.0.0.0:8080](https://quarkus.io/) 
 
-{{< highlight bash >}}
+```bash
 ---- Global Information --------------------------------------------------------
 > request count                                      32000 (OK=32000  KO=0     )
 > min response time                                     48 (OK=48     KO=-     )
@@ -85,11 +85,11 @@ Started DemoApplication in 1.883 seconds (process running for 2.331)
 > response time 95th percentile                       2274 (OK=2274   KO=-     )
 > response time 99th percentile                       2478 (OK=2478   KO=-     )
 > mean requests/sec                                3555.556 (OK=3555.556 KO=-     )
-{{< /highlight >}}
+```
 
 [micronaut version:4.2.0](https://micronaut.io/) 
 Startup completed in 771ms. Server Running: http://localhost:8080
-{{< highlight bash >}}
+```bash
 ---- Global Information --------------------------------------------------------
 > request count                                      32000 (OK=32000  KO=0     )
 > min response time                                     17 (OK=17     KO=-     )
@@ -101,11 +101,11 @@ Startup completed in 771ms. Server Running: http://localhost:8080
 > response time 95th percentile                       1596 (OK=1596   KO=-     )
 > response time 99th percentile                       1683 (OK=1683   KO=-     )
 > mean requests/sec                                   4000 (OK=4000   KO=-     )
-{{< /highlight >}}
+```
 
 [vertx version:4.5.13](https://vertx.io/) 
 
-{{< highlight bash >}}
+```bash
 ---- Global Information --------------------------------------------------------
 > request count                                      32000 (OK=32000  KO=0     )
 > min response time                                     62 (OK=62     KO=-     )
@@ -117,11 +117,11 @@ Startup completed in 771ms. Server Running: http://localhost:8080
 > response time 95th percentile                       1252 (OK=1252   KO=-     )
 > response time 99th percentile                       1334 (OK=1334   KO=-     )
 > mean requests/sec                                   4000 (OK=4000   KO=-     )
-{{< /highlight >}}
+```
 
 [kumuluz version:4.1.0](https://ee.kumuluz.com/) 
 Server -- Started Server@cfbc8e8{STARTING}[10.0.9,sto=0] @2965ms
-{{< highlight bash >}}
+```bash
 ---- Global Information --------------------------------------------------------
 > request count                                      32000 (OK=32000  KO=0     )
 > min response time                                      0 (OK=0      KO=-     )
@@ -133,11 +133,11 @@ Server -- Started Server@cfbc8e8{STARTING}[10.0.9,sto=0] @2965ms
 > response time 95th percentile                       3919 (OK=3919   KO=-     )
 > response time 99th percentile                       5188 (OK=5188   KO=-     )
 > mean requests/sec                                2461.538 (OK=2461.538 KO=-     )
-{{< /highlight >}}
+```
 
 [Helidon SE 4.1.3 features: [Config, Encoding, Health, Media, Metrics, Observe, WebServer]](https://helidon.io/) 
 
-{{< highlight bash >}}
+```bash
 ---- Global Information --------------------------------------------------------
 > request count                                      32000 (OK=32000  KO=0     )
 > min response time                                     32 (OK=32     KO=-     )
@@ -149,11 +149,11 @@ Server -- Started Server@cfbc8e8{STARTING}[10.0.9,sto=0] @2965ms
 > response time 95th percentile                       1430 (OK=1430   KO=-     )
 > response time 99th percentile                       1625 (OK=1626   KO=-     )
 > mean requests/sec                                   4000 (OK=4000   KO=-     )
-{{< /highlight >}}
+```
 
 [ktor.server.Application - Autoreload is disabled because the development mode is off.](https://ktor.io/) 
 
-{{< highlight bash >}}
+```bash
 ---- Global Information --------------------------------------------------------
 > request count                                      32000 (OK=32000  KO=0     )
 > min response time                                      1 (OK=1      KO=-     )
@@ -165,7 +165,7 @@ Server -- Started Server@cfbc8e8{STARTING}[10.0.9,sto=0] @2965ms
 > response time 95th percentile                       4111 (OK=4111   KO=-     )
 > response time 99th percentile                       4207 (OK=4207   KO=-     )
 > mean requests/sec                                2461.538 (OK=2461.538 KO=-     )
-{{< /highlight >}}
+```
 
 ***  
 ## Rust rest services 
@@ -173,7 +173,7 @@ rustc 1.85.1 (4eb161250 2025-03-15)
 
 
 [warp = 0.3.7](http://docs.rs/warp)
-{{< highlight bash >}}
+```bash
 ---- Global Information --------------------------------------------------------
 > request count                                      32000 (OK=32000  KO=0     )
 > min response time                                      0 (OK=0      KO=-     )
@@ -185,10 +185,10 @@ rustc 1.85.1 (4eb161250 2025-03-15)
 > response time 95th percentile                        521 (OK=520    KO=-     )
 > response time 99th percentile                        610 (OK=610    KO=-     )
 > mean requests/sec                                   6400 (OK=6400   KO=-     )
-{{< /highlight >}}
+```
 
 [actix-web = 4.9.0](http://docs.rs/actix-web)
-{{< highlight bash >}}
+```bash
 ---- Global Information --------------------------------------------------------
 > request count                                      32000 (OK=32000  KO=0     )
 > min response time                                      0 (OK=0      KO=-     )
@@ -200,10 +200,10 @@ rustc 1.85.1 (4eb161250 2025-03-15)
 > response time 95th percentile                        565 (OK=565    KO=-     )
 > response time 99th percentile                        618 (OK=618    KO=-     )
 > mean requests/sec                                5333.333 (OK=5333.333 KO=-     )
-{{< /highlight >}}
+```
 
 [rocket = { version = 0.5.1, features = [json] }](http://docs.rs/rocket)
-{{< highlight bash >}}
+```bash
 ---- Global Information --------------------------------------------------------
 > request count                                      32000 (OK=32000  KO=0     )
 > min response time                                      3 (OK=3      KO=-     )
@@ -215,10 +215,10 @@ rustc 1.85.1 (4eb161250 2025-03-15)
 > response time 95th percentile                        654 (OK=654    KO=-     )
 > response time 99th percentile                        714 (OK=714    KO=-     )
 > mean requests/sec                                5333.333 (OK=5333.333 KO=-     )
-{{< /highlight >}}
+```
 
 [axum = 0.8.1](http://docs.rs/axum)
-{{< highlight bash >}}
+```bash
 ---- Global Information --------------------------------------------------------
 > request count                                      32000 (OK=32000  KO=0     )
 > min response time                                      0 (OK=0      KO=-     )
@@ -230,11 +230,11 @@ rustc 1.85.1 (4eb161250 2025-03-15)
 > response time 95th percentile                        523 (OK=523    KO=-     )
 > response time 99th percentile                        587 (OK=587    KO=-     )
 > mean requests/sec                                5333.333 (OK=5333.333 KO=-     )
-{{< /highlight >}}
+```
 
 ***  
 ## Dotnet 7 rest service 
-{{< highlight bash >}}
+```bash
 ---- Global Information --------------------------------------------------------
 > request count                                      32000 (OK=32000  KO=0     )
 > min response time                                      3 (OK=3      KO=-     )
@@ -246,12 +246,12 @@ rustc 1.85.1 (4eb161250 2025-03-15)
 > response time 95th percentile                        761 (OK=761    KO=-     )
 > response time 99th percentile                        878 (OK=878    KO=-     )
 > mean requests/sec                                5333.333 (OK=5333.333 KO=-     )
-{{< /highlight >}}
+```
 
 
 ***  
 ## Dotnet 8 rest service 
-{{< highlight bash >}}
+```bash
 ---- Global Information --------------------------------------------------------
 > request count                                      32000 (OK=32000  KO=0     )
 > min response time                                      5 (OK=5      KO=-     )
@@ -263,12 +263,12 @@ rustc 1.85.1 (4eb161250 2025-03-15)
 > response time 95th percentile                        779 (OK=779    KO=-     )
 > response time 99th percentile                        841 (OK=841    KO=-     )
 > mean requests/sec                                5333.333 (OK=5333.333 KO=-     )
-{{< /highlight >}}
+```
 
 
 ***  
 ## Dotnet 9 rest service 
-{{< highlight bash >}}
+```bash
 ---- Global Information --------------------------------------------------------
 > request count                                      32000 (OK=32000  KO=0     )
 > min response time                                      3 (OK=3      KO=-     )
@@ -280,12 +280,12 @@ rustc 1.85.1 (4eb161250 2025-03-15)
 > response time 95th percentile                        696 (OK=696    KO=-     )
 > response time 99th percentile                        791 (OK=791    KO=-     )
 > mean requests/sec                                5333.333 (OK=5333.333 KO=-     )
-{{< /highlight >}}
+```
 
 
 ***  
 ## graalvm native quarkus 
-{{< highlight bash >}}
+```bash
 ---- Global Information --------------------------------------------------------
 > request count                                      32000 (OK=32000  KO=0     )
 > min response time                                     19 (OK=19     KO=-     )
@@ -297,12 +297,12 @@ rustc 1.85.1 (4eb161250 2025-03-15)
 > response time 95th percentile                        807 (OK=807    KO=-     )
 > response time 99th percentile                        913 (OK=913    KO=-     )
 > mean requests/sec                                4571.429 (OK=4571.429 KO=-     )
-{{< /highlight >}}
+```
 
 
 ***  
 ## graalvm native micronaut 
-{{< highlight bash >}}
+```bash
 ---- Global Information --------------------------------------------------------
 > request count                                      32000 (OK=32000  KO=0     )
 > min response time                                     10 (OK=10     KO=-     )
@@ -314,12 +314,12 @@ rustc 1.85.1 (4eb161250 2025-03-15)
 > response time 95th percentile                        760 (OK=759    KO=-     )
 > response time 99th percentile                        838 (OK=838    KO=-     )
 > mean requests/sec                                5333.333 (OK=5333.333 KO=-     )
-{{< /highlight >}}
+```
 
 
 ***  
 ## graalvm native spring-boot-web 
-{{< highlight bash >}}
+```bash
 ---- Global Information --------------------------------------------------------
 > request count                                      32000 (OK=32000  KO=0     )
 > min response time                                      5 (OK=5      KO=-     )
@@ -331,12 +331,12 @@ rustc 1.85.1 (4eb161250 2025-03-15)
 > response time 95th percentile                       1060 (OK=1059   KO=-     )
 > response time 99th percentile                       1930 (OK=1930   KO=-     )
 > mean requests/sec                                4571.429 (OK=4571.429 KO=-     )
-{{< /highlight >}}
+```
 
 
 ***  
 ## graalvm native spring-boot-webflux 
-{{< highlight bash >}}
+```bash
 ---- Global Information --------------------------------------------------------
 > request count                                      32000 (OK=32000  KO=0     )
 > min response time                                     40 (OK=40     KO=-     )
@@ -348,12 +348,12 @@ rustc 1.85.1 (4eb161250 2025-03-15)
 > response time 95th percentile                       1118 (OK=1120   KO=-     )
 > response time 99th percentile                       1495 (OK=1495   KO=-     )
 > mean requests/sec                                4571.429 (OK=4571.429 KO=-     )
-{{< /highlight >}}
+```
 
 
 ***  
 ## graalvm native vertx 
-{{< highlight bash >}}
+```bash
 ---- Global Information --------------------------------------------------------
 > request count                                      32000 (OK=32000  KO=0     )
 > min response time                                     34 (OK=34     KO=-     )
@@ -365,12 +365,12 @@ rustc 1.85.1 (4eb161250 2025-03-15)
 > response time 95th percentile                        602 (OK=602    KO=-     )
 > response time 99th percentile                        670 (OK=670    KO=-     )
 > mean requests/sec                                5333.333 (OK=5333.333 KO=-     )
-{{< /highlight >}}
+```
 
 
 ***  
 ## graalvm native helidon 
-{{< highlight bash >}}
+```bash
 ---- Global Information --------------------------------------------------------
 > request count                                      32000 (OK=32000  KO=0     )
 > min response time                                      0 (OK=0      KO=-     )
@@ -382,12 +382,12 @@ rustc 1.85.1 (4eb161250 2025-03-15)
 > response time 95th percentile                        717 (OK=717    KO=-     )
 > response time 99th percentile                       1013 (OK=1013   KO=-     )
 > mean requests/sec                                5333.333 (OK=5333.333 KO=-     )
-{{< /highlight >}}
+```
 
 
 ***  
 ## graalvm native ktor rest service 
-{{< highlight bash >}}
+```bash
 ---- Global Information --------------------------------------------------------
 > request count                                      32000 (OK=32000  KO=0     )
 > min response time                                      2 (OK=2      KO=-     )
@@ -399,7 +399,7 @@ rustc 1.85.1 (4eb161250 2025-03-15)
 > response time 95th percentile                       1959 (OK=1959   KO=-     )
 > response time 99th percentile                       2180 (OK=2179   KO=-     )
 > mean requests/sec                                3555.556 (OK=3555.556 KO=-     )
-{{< /highlight >}}
+```
 
 
 ***  

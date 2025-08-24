@@ -12,13 +12,13 @@ date: 2020-09-02
 ---
  
 Here is total package generation times for separate modules,
-{{< highlight bash >}}
+```bash
 [INFO] micronaut-demo 0.1 ................................. SUCCESS [ 37.007 s]
 [INFO] quarkus-demo 1.0.0-SNAPSHOT ........................ SUCCESS [ 46.211 s]
 [INFO] springboot-demo 0.0.1-SNAPSHOT ..................... SUCCESS [ 11.173 s]
 [INFO] gatling 1.0-SNAPSHOT ............................... SUCCESS [  0.053 s]
 [INFO] framewrok-benchmark 1.0-SNAPSHOT ................... SUCCESS [  0.000 s]
-{{< /highlight >}}
+```
 Size of created packages:
 
 | Size in MB |  Name |
@@ -30,7 +30,7 @@ Size of created packages:
 
 :: Spring Boot :: (v2.3.3.RELEASE) Started DemoApplication in 2.171 seconds (JVM running for 2.698)
 
-    {{< highlight bash >}}
+    ```bash
 ---- Global Information --------------------------------------------------------
 > request count                                        200 (OK=200    KO=0     )
 > min response time                                      1 (OK=1      KO=-     )
@@ -42,11 +42,11 @@ Size of created packages:
 > response time 95th percentile                          6 (OK=6      KO=-     )
 > response time 99th percentile                         20 (OK=20     KO=-     )
 > mean requests/sec                                     40 (OK=40     KO=-     )
-{{< /highlight >}}
+```
 
 powered by Quarkus 1.7.1.Final) started in 0.994s. Listening on: http://0.0.0.0:8080
 
-    {{< highlight bash >}}
+    ```bash
 ---- Global Information --------------------------------------------------------
 > request count                                        200 (OK=200    KO=0     )
 > min response time                                      1 (OK=1      KO=-     )
@@ -58,11 +58,11 @@ powered by Quarkus 1.7.1.Final) started in 0.994s. Listening on: http://0.0.0.0:
 > response time 95th percentile                          6 (OK=6      KO=-     )
 > response time 99th percentile                         16 (OK=16     KO=-     )
 > mean requests/sec                                     40 (OK=40     KO=-     )
-{{< /highlight >}}
+```
 
 micronaut version:2.0.1 Startup completed in 944ms. Server Running: http://localhost:8080
 
-    {{< highlight bash >}}
+    ```bash
 ---- Global Information --------------------------------------------------------
 > request count                                        200 (OK=200    KO=0     )
 > min response time                                      1 (OK=1      KO=-     )
@@ -74,4 +74,4 @@ micronaut version:2.0.1 Startup completed in 944ms. Server Running: http://local
 > response time 95th percentile                          5 (OK=5      KO=-     )
 > response time 99th percentile                         26 (OK=26     KO=-     )
 > mean requests/sec                                     40 (OK=40     KO=-     )
-{{< /highlight >}}
+```

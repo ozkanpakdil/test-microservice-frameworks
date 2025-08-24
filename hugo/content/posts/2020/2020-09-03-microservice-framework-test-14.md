@@ -12,14 +12,14 @@ date: 2020-09-03
 ---
  
 Here is total package generation times for separate modules,
-{{< highlight bash >}}
+```bash
 [INFO] micronaut-demo 0.1 ................................. SUCCESS [ 37.130 s]
 [INFO] quarkus-demo 1.0.0-SNAPSHOT ........................ SUCCESS [ 45.223 s]
 [INFO] springboot-demo 0.0.1-SNAPSHOT ..................... SUCCESS [ 11.508 s]
 [INFO] vertx-demo 1.0.0-SNAPSHOT .......................... SUCCESS [  5.447 s]
 [INFO] gatling 1.0-SNAPSHOT ............................... SUCCESS [  0.041 s]
 [INFO] framewrok-benchmark 1.0-SNAPSHOT ................... SUCCESS [  0.001 s]
-{{< /highlight >}}
+```
 Size of created packages:
 
 | Size in MB |  Name |
@@ -32,7 +32,7 @@ Size of created packages:
 
 :: Spring Boot :: (v2.3.3.RELEASE) Started DemoApplication in 2.561 seconds (JVM running for 3.082)
 
-    {{< highlight bash >}}
+    ```bash
 ---- Global Information --------------------------------------------------------
 > request count                                       2000 (OK=2000   KO=0     )
 > min response time                                      0 (OK=0      KO=-     )
@@ -44,11 +44,11 @@ Size of created packages:
 > response time 95th percentile                        178 (OK=178    KO=-     )
 > response time 99th percentile                        249 (OK=249    KO=-     )
 > mean requests/sec                                333.333 (OK=333.333 KO=-     )
-{{< /highlight >}}
+```
 
 powered by Quarkus 1.7.1.Final) started in 0.901s. Listening on: http://0.0.0.0:8080
 
-    {{< highlight bash >}}
+    ```bash
 ---- Global Information --------------------------------------------------------
 > request count                                       2000 (OK=2000   KO=0     )
 > min response time                                      0 (OK=0      KO=-     )
@@ -60,11 +60,11 @@ powered by Quarkus 1.7.1.Final) started in 0.901s. Listening on: http://0.0.0.0:
 > response time 95th percentile                        247 (OK=247    KO=-     )
 > response time 99th percentile                        350 (OK=350    KO=-     )
 > mean requests/sec                                333.333 (OK=333.333 KO=-     )
-{{< /highlight >}}
+```
 
 micronaut version:2.0.1 Startup completed in 1054ms. Server Running: http://localhost:8080
 
-    {{< highlight bash >}}
+    ```bash
 ---- Global Information --------------------------------------------------------
 > request count                                       2000 (OK=2000   KO=0     )
 > min response time                                      0 (OK=0      KO=-     )
@@ -76,11 +76,11 @@ micronaut version:2.0.1 Startup completed in 1054ms. Server Running: http://loca
 > response time 95th percentile                        184 (OK=184    KO=-     )
 > response time 99th percentile                        243 (OK=243    KO=-     )
 > mean requests/sec                                333.333 (OK=333.333 KO=-     )
-{{< /highlight >}}
+```
 
 vertx version:1.0.0-SNAPSHOT
 
-    {{< highlight bash >}}
+    ```bash
 ---- Global Information --------------------------------------------------------
 > request count                                       2000 (OK=2000   KO=0     )
 > min response time                                      0 (OK=0      KO=-     )
@@ -92,4 +92,4 @@ vertx version:1.0.0-SNAPSHOT
 > response time 95th percentile                        132 (OK=132    KO=-     )
 > response time 99th percentile                        188 (OK=188    KO=-     )
 > mean requests/sec                                333.333 (OK=333.333 KO=-     )
-{{< /highlight >}}
+```

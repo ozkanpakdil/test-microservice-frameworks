@@ -12,7 +12,7 @@ date: 2021-04-05
 ---
  
 Here is total package generation times for separate modules,
-{{< highlight bash >}}
+```bash
 [INFO] eclipse-microprofile-kumuluz-test 1.0-SNAPSHOT ..... SUCCESS [  3.923 s]
 [INFO] helidon-quickstart-se 1.0-SNAPSHOT ................. SUCCESS [ 11.517 s]
 [INFO] ktor-demo 1.0.1-SNAPSHOT ........................... SUCCESS [ 12.419 s]
@@ -20,7 +20,7 @@ Here is total package generation times for separate modules,
 [INFO] quarkus-demo 1.0.0-SNAPSHOT ........................ SUCCESS [ 16.166 s]
 [INFO] springboot-demo 0.0.1-SNAPSHOT ..................... SUCCESS [  7.521 s]
 [INFO] vertx-demo 1.0.0-SNAPSHOT .......................... SUCCESS [  4.484 s]
-{{< /highlight >}}
+```
 Size of created packages:
 
 | Size in MB |  Name |
@@ -36,7 +36,7 @@ Size of created packages:
 
 :: Spring Boot :: (v2.4.4) Started DemoApplication in 2.626 seconds (JVM running for 3.134)
 
-    {{< highlight bash >}}
+    ```bash
 ---- Global Information --------------------------------------------------------
 > request count                                       2000 (OK=2000   KO=0     )
 > min response time                                      0 (OK=0      KO=-     )
@@ -48,11 +48,11 @@ Size of created packages:
 > response time 95th percentile                        145 (OK=145    KO=-     )
 > response time 99th percentile                        199 (OK=199    KO=-     )
 > mean requests/sec                                    400 (OK=400    KO=-     )
-{{< /highlight >}}
+```
 
 powered by Quarkus 1.13.0.Final) started in 1.178s. Listening on: http://0.0.0.0:8080
 
-    {{< highlight bash >}}
+    ```bash
 ---- Global Information --------------------------------------------------------
 > request count                                       2000 (OK=2000   KO=0     )
 > min response time                                      0 (OK=0      KO=-     )
@@ -64,11 +64,11 @@ powered by Quarkus 1.13.0.Final) started in 1.178s. Listening on: http://0.0.0.0
 > response time 95th percentile                        168 (OK=167    KO=-     )
 > response time 99th percentile                        201 (OK=201    KO=-     )
 > mean requests/sec                                    400 (OK=400    KO=-     )
-{{< /highlight >}}
+```
 
 micronaut version:2.0.1 Startup completed in 1049ms. Server Running: http://localhost:8080
 
-    {{< highlight bash >}}
+    ```bash
 ---- Global Information --------------------------------------------------------
 > request count                                       2000 (OK=2000   KO=0     )
 > min response time                                      0 (OK=0      KO=-     )
@@ -80,11 +80,11 @@ micronaut version:2.0.1 Startup completed in 1049ms. Server Running: http://loca
 > response time 95th percentile                        126 (OK=126    KO=-     )
 > response time 99th percentile                        164 (OK=164    KO=-     )
 > mean requests/sec                                    400 (OK=400    KO=-     )
-{{< /highlight >}}
+```
 
 vertx version:4.0.3
 
-    {{< highlight bash >}}
+    ```bash
 ---- Global Information --------------------------------------------------------
 > request count                                       2000 (OK=2000   KO=0     )
 > min response time                                      0 (OK=0      KO=-     )
@@ -96,11 +96,11 @@ vertx version:4.0.3
 > response time 95th percentile                         71 (OK=71     KO=-     )
 > response time 99th percentile                        118 (OK=118    KO=-     )
 > mean requests/sec                                    400 (OK=400    KO=-     )
-{{< /highlight >}}
+```
 
 kumuluz version:${kumuluz.version} Server -- Started @4183ms
 
-    {{< highlight bash >}}
+    ```bash
 ---- Global Information --------------------------------------------------------
 > request count                                       2000 (OK=2000   KO=0     )
 > min response time                                      0 (OK=0      KO=-     )
@@ -112,11 +112,11 @@ kumuluz version:${kumuluz.version} Server -- Started @4183ms
 > response time 95th percentile                        160 (OK=160    KO=-     )
 > response time 99th percentile                        239 (OK=239    KO=-     )
 > mean requests/sec                                    400 (OK=400    KO=-     )
-{{< /highlight >}}
+```
 
 Helidon SE 2.2.2 features: [Config, Health, Metrics, WebServer]
 
-    {{< highlight bash >}}
+    ```bash
 ---- Global Information --------------------------------------------------------
 > request count                                       2000 (OK=2000   KO=0     )
 > min response time                                      0 (OK=0      KO=-     )
@@ -128,11 +128,11 @@ Helidon SE 2.2.2 features: [Config, Health, Metrics, WebServer]
 > response time 95th percentile                        296 (OK=296    KO=-     )
 > response time 99th percentile                        352 (OK=352    KO=-     )
 > mean requests/sec                                    400 (OK=400    KO=-     )
-{{< /highlight >}}
+```
 
 ktor-demo/target/ktor-demo-1.0.1-SNAPSHOT-jar-with-dependencies.jar!/application.conf: 6
 
-    {{< highlight bash >}}
+    ```bash
 ---- Global Information --------------------------------------------------------
 > request count                                       2000 (OK=1999   KO=1     )
 > min response time                                      0 (OK=0      KO=160   )
@@ -144,4 +144,4 @@ ktor-demo/target/ktor-demo-1.0.1-SNAPSHOT-jar-with-dependencies.jar!/application
 > response time 95th percentile                        342 (OK=342    KO=160   )
 > response time 99th percentile                        433 (OK=433    KO=160   )
 > mean requests/sec                                    400 (OK=399.8  KO=0.2   )
-{{< /highlight >}}
+```

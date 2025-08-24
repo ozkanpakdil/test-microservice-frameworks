@@ -12,7 +12,7 @@ date: 2020-09-22
 ---
  
 Here is total package generation times for separate modules,
-{{< highlight bash >}}
+```bash
 [INFO] eclipse-microprofile-kumuluz-test 1.0-SNAPSHOT ..... SUCCESS [ 23.292 s]
 [INFO] micronaut-demo 0.1 ................................. SUCCESS [ 35.186 s]
 [INFO] quarkus-demo 1.0.0-SNAPSHOT ........................ SUCCESS [ 34.605 s]
@@ -20,7 +20,7 @@ Here is total package generation times for separate modules,
 [INFO] vertx-demo 1.0.0-SNAPSHOT .......................... SUCCESS [  7.029 s]
 [INFO] gatling 1.0-SNAPSHOT ............................... SUCCESS [  0.046 s]
 [INFO] framewrok-benchmark 1.0-SNAPSHOT ................... SUCCESS [  0.000 s]
-{{< /highlight >}}
+```
 Size of created packages:
 
 | Size in MB |  Name |
@@ -34,25 +34,25 @@ Size of created packages:
 
 :: Spring Boot :: (v2.3.4.RELEASE) Started DemoApplication in 2.395 seconds (JVM running for 3.012)
 
-    {{< highlight bash >}}
-{{< /highlight >}}
+    ```bash
+```
 
 powered by Quarkus 1.8.1.Final) started in 1.147s. Listening on: http://0.0.0.0:8080
 
-    {{< highlight bash >}}
-{{< /highlight >}}
+    ```bash
+```
 
 micronaut version:2.0.1 Startup completed in 1331ms. Server Running: http://localhost:8080
 
-    {{< highlight bash >}}
-{{< /highlight >}}
+    ```bash
+```
 
 vertx version:3.9.3
 
-    {{< highlight bash >}}
-{{< /highlight >}}
+    ```bash
+```
 
 kumuluz version:3.10.0 Server -- Started @4879ms
 
-    {{< highlight bash >}}
-{{< /highlight >}}
+    ```bash
+```

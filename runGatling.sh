@@ -33,18 +33,18 @@ date: $DATE
 tags: ["microservice","quarkus","graalvm","kotlin","rust","dotnet" ]
 ---
 In $OS_NAME,
-{% highlight bash %}
+```bash
 $MEMORY
 $DISK
 $CPU_LOAD
 CPU core count:$CPU_CORE
 CPUs
 $CPU_MHZ
-{% endhighlight %}
+```
 Below is total package generation times for separate modules,
-{% highlight bash %}" > test-result.md
+```bash" > test-result.md
 mvn -ntp -T 4C test package|grep SUCCESS|grep -Ev "(framework|gatling|BUILD)" >>test-result.md
-echo '{% endhighlight %}' >> test-result.md
+echo '```' >> test-result.md
 echo 'Size of created packages:
 
 | Size in MB |  Name |
@@ -90,11 +90,11 @@ test (){
     echo "[${frameworkVersion}](${projectLink}) " >> test-result.md
     echo $startTime >> test-result.md
     printf "\nGatling test starting... for $jarPath"
-    echo '{% highlight bash %}' >> test-result.md
+    echo '```bash' >> test-result.md
     TABLE=`$MVNTESTCMD|grep -A10 "Global Information"`
     echo "$TABLE" >> test-result.md
     writeGraph "$TABLE" "$3"
-    echo '{% endhighlight %}' >> test-result.md
+    echo '```' >> test-result.md
     kill -9 $JPID
     printf '\n' >> test-result.md
     kill -9 "$(lsof -t -i :8080)" || true
@@ -113,11 +113,11 @@ rustTest (){
     link=`echo $frameworkVersion| cut -d' ' -f1`
     echo "[${frameworkVersion}](http://docs.rs/${link})" >&3
     printf "\nGatling test starting... for $exePath"
-    echo '{% highlight bash %}'>&3
+    echo '```bash'>&3
     TABLE=`$MVNTESTCMD|grep -A10 "Global Information"`
     echo "$TABLE" >&3
     writeGraph "$TABLE" "$3"
-    echo '{% endhighlight %}' >&3
+    echo '```' >&3
     kill -9 $JPID
     printf '\n' >&3
     sleep 2
@@ -139,11 +139,11 @@ runNativeBinaryTests(){
 
   printf '***  \n' >> test-result.md
   printf "## $title \n" >> test-result.md
-  echo '{% highlight bash %}' >> test-result.md
+  echo '```bash' >> test-result.md
   TABLE=`$MVNTESTCMD|grep -A10 "Global Information"`
   echo "$TABLE" >> test-result.md
   writeGraph "$TABLE" "$graphVar"
-  echo '{% endhighlight %}' >> test-result.md
+  echo '```' >> test-result.md
   printf '\n\n' >> test-result.md
   kill -9 $EXETEST
   kill -9 "$(lsof -t -i :8080)" || true

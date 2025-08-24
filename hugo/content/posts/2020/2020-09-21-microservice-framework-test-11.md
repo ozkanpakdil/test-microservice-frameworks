@@ -12,7 +12,7 @@ date: 2020-09-21
 ---
  
 Here is total package generation times for separate modules,
-{{< highlight bash >}}
+```bash
 [INFO] eclipse-microprofile-kumuluz-test 1.0-SNAPSHOT ..... SUCCESS [ 32.910 s]
 [INFO] micronaut-demo 0.1 ................................. SUCCESS [ 36.240 s]
 [INFO] quarkus-demo 1.0.0-SNAPSHOT ........................ SUCCESS [ 34.225 s]
@@ -20,7 +20,7 @@ Here is total package generation times for separate modules,
 [INFO] vertx-demo 1.0.0-SNAPSHOT .......................... SUCCESS [  8.412 s]
 [INFO] gatling 1.0-SNAPSHOT ............................... SUCCESS [  0.075 s]
 [INFO] framewrok-benchmark 1.0-SNAPSHOT ................... SUCCESS [  0.000 s]
-{{< /highlight >}}
+```
 Size of created packages:
 
 | Size in MB |  Name |
@@ -34,7 +34,7 @@ Size of created packages:
 
 :: Spring Boot :: (v2.3.4.RELEASE) Started DemoApplication in 2.769 seconds (JVM running for 3.423)
 
-    {{< highlight bash >}}
+    ```bash
 ---- Global Information --------------------------------------------------------
 > request count                                       2000 (OK=2000   KO=0     )
 > min response time                                      0 (OK=0      KO=-     )
@@ -46,11 +46,11 @@ Size of created packages:
 > response time 95th percentile                        311 (OK=311    KO=-     )
 > response time 99th percentile                        383 (OK=383    KO=-     )
 > mean requests/sec                                333.333 (OK=333.333 KO=-     )
-{{< /highlight >}}
+```
 
 powered by Quarkus 1.8.1.Final) started in 1.236s. Listening on: http://0.0.0.0:8080
 
-    {{< highlight bash >}}
+    ```bash
 ---- Global Information --------------------------------------------------------
 > request count                                       2000 (OK=2000   KO=0     )
 > min response time                                      0 (OK=0      KO=-     )
@@ -62,11 +62,11 @@ powered by Quarkus 1.8.1.Final) started in 1.236s. Listening on: http://0.0.0.0:
 > response time 95th percentile                        393 (OK=393    KO=-     )
 > response time 99th percentile                        503 (OK=503    KO=-     )
 > mean requests/sec                                333.333 (OK=333.333 KO=-     )
-{{< /highlight >}}
+```
 
 micronaut version:2.0.1 Startup completed in 1251ms. Server Running: http://localhost:8080
 
-    {{< highlight bash >}}
+    ```bash
 ---- Global Information --------------------------------------------------------
 > request count                                       2000 (OK=2000   KO=0     )
 > min response time                                      0 (OK=0      KO=-     )
@@ -78,11 +78,11 @@ micronaut version:2.0.1 Startup completed in 1251ms. Server Running: http://loca
 > response time 95th percentile                        310 (OK=310    KO=-     )
 > response time 99th percentile                        392 (OK=392    KO=-     )
 > mean requests/sec                                333.333 (OK=333.333 KO=-     )
-{{< /highlight >}}
+```
 
 vertx version:3.9.3
 
-    {{< highlight bash >}}
+    ```bash
 ---- Global Information --------------------------------------------------------
 > request count                                       2000 (OK=2000   KO=0     )
 > min response time                                      0 (OK=0      KO=-     )
@@ -94,11 +94,11 @@ vertx version:3.9.3
 > response time 95th percentile                        211 (OK=211    KO=-     )
 > response time 99th percentile                        265 (OK=265    KO=-     )
 > mean requests/sec                                333.333 (OK=333.333 KO=-     )
-{{< /highlight >}}
+```
 
 kumuluz version:3.10.0 Server -- Started @4934ms
 
-    {{< highlight bash >}}
+    ```bash
 ---- Global Information --------------------------------------------------------
 > request count                                       2000 (OK=2000   KO=0     )
 > min response time                                      0 (OK=0      KO=-     )
@@ -110,4 +110,4 @@ kumuluz version:3.10.0 Server -- Started @4934ms
 > response time 95th percentile                        409 (OK=409    KO=-     )
 > response time 99th percentile                        550 (OK=550    KO=-     )
 > mean requests/sec                                333.333 (OK=333.333 KO=-     )
-{{< /highlight >}}
+```

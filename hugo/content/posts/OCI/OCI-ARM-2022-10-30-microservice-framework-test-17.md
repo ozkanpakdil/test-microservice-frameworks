@@ -6,7 +6,7 @@ categories: ["microservices","java","rust","benchmarks","performance"]
 ---
 
 In Linux githubrunner-0 5.4.17-2136.305.5.3.el8uek.aarch64 #2 SMP Thu Mar 17 11:08:12 PDT 2022 aarch64 aarch64 aarch64 GNU/Linux, Here is total package generation times for separate modules,
-{{< highlight bash >}}
+```bash
 [INFO] eclipse-microprofile-kumuluz-test 1.0-SNAPSHOT ..... SUCCESS [ 18.653 s]
 [INFO] helidon-quickstart-se 1.0-SNAPSHOT ................. SUCCESS [ 25.838 s]
 [INFO] ktor-demo 1.0.1-SNAPSHOT ........................... SUCCESS [ 36.250 s]
@@ -15,7 +15,7 @@ In Linux githubrunner-0 5.4.17-2136.305.5.3.el8uek.aarch64 #2 SMP Thu Mar 17 11:
 [INFO] springboot-demo 0.0.1-SNAPSHOT ..................... SUCCESS [01:05 min]
 [INFO] springboot-demo-web 0.0.1-SNAPSHOT ................. SUCCESS [01:03 min]
 [INFO] vertx-demo 1.0.0-SNAPSHOT .......................... SUCCESS [ 16.350 s]
-{{< /highlight >}}
+```
 Size of created packages:
 
 | Size in MB |  Name |
@@ -32,7 +32,7 @@ Size of created packages:
 
 [:: Spring Boot ::                (v2.7.5)](https://spring.io/projects/spring-boot) 
 Started DemoWebFluxApplication in 3.861 seconds (JVM running for 4.902)
-{{< highlight bash >}}
+```bash
 ---- Global Information --------------------------------------------------------
 > request count                                       4000 (OK=4000   KO=0     )
 > min response time                                    412 (OK=412    KO=-     )
@@ -44,11 +44,11 @@ Started DemoWebFluxApplication in 3.861 seconds (JVM running for 4.902)
 > response time 95th percentile                       3742 (OK=3742   KO=-     )
 > response time 99th percentile                       4331 (OK=4331   KO=-     )
 > mean requests/sec                                444.444 (OK=444.444 KO=-     )
-{{< /highlight >}}
+```
 
 [:: Spring Boot ::                (v2.7.5)](https://spring.io/projects/spring-boot) 
 Started DemoApplication in 4.306 seconds (JVM running for 5.247)
-{{< highlight bash >}}
+```bash
 ---- Global Information --------------------------------------------------------
 > request count                                       4000 (OK=4000   KO=0     )
 > min response time                                    271 (OK=271    KO=-     )
@@ -60,11 +60,11 @@ Started DemoApplication in 4.306 seconds (JVM running for 5.247)
 > response time 95th percentile                       3131 (OK=3131   KO=-     )
 > response time 99th percentile                       4222 (OK=4222   KO=-     )
 > mean requests/sec                                444.444 (OK=444.444 KO=-     )
-{{< /highlight >}}
+```
 
 [powered by Quarkus 2.13.3.Final) started in 1.654s. Listening on: http://0.0.0.0:8080](https://quarkus.io/) 
 
-{{< highlight bash >}}
+```bash
 ---- Global Information --------------------------------------------------------
 > request count                                       4000 (OK=4000   KO=0     )
 > min response time                                    272 (OK=272    KO=-     )
@@ -76,11 +76,11 @@ Started DemoApplication in 4.306 seconds (JVM running for 5.247)
 > response time 95th percentile                       3590 (OK=3590   KO=-     )
 > response time 99th percentile                       3800 (OK=3800   KO=-     )
 > mean requests/sec                                444.444 (OK=444.444 KO=-     )
-{{< /highlight >}}
+```
 
 [micronaut version:3.4.3](https://micronaut.io/) 
 Startup completed in 1609ms. Server Running: http://localhost:8080
-{{< highlight bash >}}
+```bash
 ---- Global Information --------------------------------------------------------
 > request count                                       4000 (OK=4000   KO=0     )
 > min response time                                    286 (OK=286    KO=-     )
@@ -92,11 +92,11 @@ Startup completed in 1609ms. Server Running: http://localhost:8080
 > response time 95th percentile                       3319 (OK=3319   KO=-     )
 > response time 99th percentile                       3403 (OK=3403   KO=-     )
 > mean requests/sec                                444.444 (OK=444.444 KO=-     )
-{{< /highlight >}}
+```
 
 [vertx version:4.3.4](https://vertx.io/) 
 
-{{< highlight bash >}}
+```bash
 ---- Global Information --------------------------------------------------------
 > request count                                       4000 (OK=4000   KO=0     )
 > min response time                                     76 (OK=76     KO=-     )
@@ -108,11 +108,11 @@ Startup completed in 1609ms. Server Running: http://localhost:8080
 > response time 95th percentile                       2238 (OK=2238   KO=-     )
 > response time 99th percentile                       2668 (OK=2668   KO=-     )
 > mean requests/sec                                571.429 (OK=571.429 KO=-     )
-{{< /highlight >}}
+```
 
 [kumuluz version:4.1.0](https://ee.kumuluz.com/) 
 Server -- Started Server@37b57b54{STARTING}[10.0.9,sto=0] @7043ms
-{{< highlight bash >}}
+```bash
 ---- Global Information --------------------------------------------------------
 > request count                                       4000 (OK=4000   KO=0     )
 > min response time                                     35 (OK=35     KO=-     )
@@ -124,11 +124,11 @@ Server -- Started Server@37b57b54{STARTING}[10.0.9,sto=0] @7043ms
 > response time 95th percentile                       4571 (OK=4571   KO=-     )
 > response time 99th percentile                       5070 (OK=5070   KO=-     )
 > mean requests/sec                                363.636 (OK=363.636 KO=-     )
-{{< /highlight >}}
+```
 
 [](https://helidon.io/) 
 
-{{< highlight bash >}}
+```bash
 ---- Global Information --------------------------------------------------------
 > request count                                       4000 (OK=0      KO=4000  )
 > min response time                                      0 (OK=-      KO=0     )
@@ -140,11 +140,11 @@ Server -- Started Server@37b57b54{STARTING}[10.0.9,sto=0] @7043ms
 > response time 95th percentile                        320 (OK=-      KO=320   )
 > response time 99th percentile                        446 (OK=-      KO=446   )
 > mean requests/sec                                    800 (OK=-      KO=800   )
-{{< /highlight >}}
+```
 
 []() 
 
-{{< highlight bash >}}
+```bash
 ---- Global Information --------------------------------------------------------
 > request count                                       4000 (OK=4000   KO=0     )
 > min response time                                     10 (OK=10     KO=-     )
@@ -156,14 +156,14 @@ Server -- Started Server@37b57b54{STARTING}[10.0.9,sto=0] @7043ms
 > response time 95th percentile                       4377 (OK=4377   KO=-     )
 > response time 99th percentile                       4740 (OK=4740   KO=-     )
 > mean requests/sec                                    400 (OK=400    KO=-     )
-{{< /highlight >}}
+```
 
 ***  
 ## Rust rest services 
 
 
 [warp = 0.3.2](http://docs.rs/warp)
-{{< highlight bash >}}
+```bash
 ---- Global Information --------------------------------------------------------
 > request count                                       4000 (OK=4000   KO=0     )
 > min response time                                     17 (OK=17     KO=-     )
@@ -175,10 +175,10 @@ Server -- Started Server@37b57b54{STARTING}[10.0.9,sto=0] @7043ms
 > response time 95th percentile                       1143 (OK=1143   KO=-     )
 > response time 99th percentile                       1155 (OK=1155   KO=-     )
 > mean requests/sec                                666.667 (OK=666.667 KO=-     )
-{{< /highlight >}}
+```
 
 [actix-web = 4.0.1](http://docs.rs/actix-web)
-{{< highlight bash >}}
+```bash
 ---- Global Information --------------------------------------------------------
 > request count                                       4000 (OK=4000   KO=0     )
 > min response time                                     50 (OK=50     KO=-     )
@@ -190,11 +190,11 @@ Server -- Started Server@37b57b54{STARTING}[10.0.9,sto=0] @7043ms
 > response time 95th percentile                       1658 (OK=1658   KO=-     )
 > response time 99th percentile                       1692 (OK=1692   KO=-     )
 > mean requests/sec                                666.667 (OK=666.667 KO=-     )
-{{< /highlight >}}
+```
 
 ***  
 ## Dotnet 6 rest service 
-{{< highlight bash >}}
+```bash
 ---- Global Information --------------------------------------------------------
 > request count                                       4000 (OK=4000   KO=0     )
 > min response time                                     78 (OK=78     KO=-     )
@@ -206,12 +206,12 @@ Server -- Started Server@37b57b54{STARTING}[10.0.9,sto=0] @7043ms
 > response time 95th percentile                       1750 (OK=1750   KO=-     )
 > response time 99th percentile                       1793 (OK=1793   KO=-     )
 > mean requests/sec                                571.429 (OK=571.429 KO=-     )
-{{< /highlight >}}
+```
 
 
 ***  
 ## graalvm native quarkus rest service 
-{{< highlight bash >}}
+```bash
 ---- Global Information --------------------------------------------------------
 > request count                                       4000 (OK=4000   KO=0     )
 > min response time                                     47 (OK=47     KO=-     )
@@ -223,11 +223,11 @@ Server -- Started Server@37b57b54{STARTING}[10.0.9,sto=0] @7043ms
 > response time 95th percentile                       1218 (OK=1218   KO=-     )
 > response time 99th percentile                       1652 (OK=1652   KO=-     )
 > mean requests/sec                                666.667 (OK=666.667 KO=-     )
-{{< /highlight >}}
+```
 
 
 ## graalvm native micronaut rest service 
-{{< highlight bash >}}
+```bash
 ---- Global Information --------------------------------------------------------
 > request count                                       4000 (OK=4000   KO=0     )
 > min response time                                      4 (OK=4      KO=-     )
@@ -239,11 +239,11 @@ Server -- Started Server@37b57b54{STARTING}[10.0.9,sto=0] @7043ms
 > response time 95th percentile                       1306 (OK=1306   KO=-     )
 > response time 99th percentile                       1354 (OK=1354   KO=-     )
 > mean requests/sec                                666.667 (OK=666.667 KO=-     )
-{{< /highlight >}}
+```
 
 
 ## graalvm native spring-boot-web rest service 
-{{< highlight bash >}}
+```bash
 ---- Global Information --------------------------------------------------------
 > request count                                       4000 (OK=4000   KO=0     )
 > min response time                                    138 (OK=138    KO=-     )
@@ -255,11 +255,11 @@ Server -- Started Server@37b57b54{STARTING}[10.0.9,sto=0] @7043ms
 > response time 95th percentile                       3643 (OK=3643   KO=-     )
 > response time 99th percentile                       4089 (OK=4089   KO=-     )
 > mean requests/sec                                363.636 (OK=363.636 KO=-     )
-{{< /highlight >}}
+```
 
 
 ## graalvm native spring-boot-webflux rest service 
-{{< highlight bash >}}
+```bash
 ---- Global Information --------------------------------------------------------
 > request count                                       4000 (OK=4000   KO=0     )
 > min response time                                     33 (OK=33     KO=-     )
@@ -271,11 +271,11 @@ Server -- Started Server@37b57b54{STARTING}[10.0.9,sto=0] @7043ms
 > response time 95th percentile                       1245 (OK=1245   KO=-     )
 > response time 99th percentile                       1300 (OK=1300   KO=-     )
 > mean requests/sec                                666.667 (OK=666.667 KO=-     )
-{{< /highlight >}}
+```
 
 
 ## graalvm native vertx rest service 
-{{< highlight bash >}}
+```bash
 ---- Global Information --------------------------------------------------------
 > request count                                       4000 (OK=0      KO=4000  )
 > min response time                                      0 (OK=-      KO=0     )
@@ -287,11 +287,11 @@ Server -- Started Server@37b57b54{STARTING}[10.0.9,sto=0] @7043ms
 > response time 95th percentile                        351 (OK=-      KO=351   )
 > response time 99th percentile                        382 (OK=-      KO=382   )
 > mean requests/sec                                    800 (OK=-      KO=800   )
-{{< /highlight >}}
+```
 
 
 ## graalvm native helidon rest service 
-{{< highlight bash >}}
+```bash
 ---- Global Information --------------------------------------------------------
 > request count                                       4000 (OK=4000   KO=0     )
 > min response time                                     58 (OK=58     KO=-     )
@@ -303,7 +303,7 @@ Server -- Started Server@37b57b54{STARTING}[10.0.9,sto=0] @7043ms
 > response time 95th percentile                       1116 (OK=1116   KO=-     )
 > response time 99th percentile                       1138 (OK=1138   KO=-     )
 > mean requests/sec                                666.667 (OK=666.667 KO=-     )
-{{< /highlight >}}
+```
 
 
 [source code for the java and dotnet tests](https://github.com/ozkanpakdil/test-microservice-frameworks)  👈 [source code for the rust tests](https://github.com/ozkanpakdil/rust-examples)  👈 [github action](https://github.com/ozkanpakdil/test-microservice-frameworks/actions/runs/3356766334)  👈 
