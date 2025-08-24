@@ -8,6 +8,7 @@ aliases:
 - "/microservicetests/2023/12/08/microservice-framework-test-21/"
 - "/microservicetests/2023/12/08/microservice-framework-test-21"
 
+date: 2023-12-08
 ---
 
 In Linux fv-az711-428 6.2.0-1018-azure #18~22.04.1-Ubuntu SMP Tue Nov 21 19:25:02 UTC 2023 x86_64 x86_64 x86_64 GNU/Linux,

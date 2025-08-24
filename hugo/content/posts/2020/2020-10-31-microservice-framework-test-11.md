@@ -6,6 +6,7 @@ tags: ["microservice","quarkus","graalvm"]
 aliases:
 - "/microservicetests/2020-10-31-microservice-framework-test-11.html"
 
+date: 2020-10-31
 ---
  
 Here is total package generation times for separate modules,

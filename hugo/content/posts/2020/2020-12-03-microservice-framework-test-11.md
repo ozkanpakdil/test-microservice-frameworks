@@ -8,6 +8,7 @@ aliases:
 - "/microservicetests/2020/12/03/microservice-framework-test-11/"
 - "/microservicetests/2020/12/03/microservice-framework-test-11"
 
+date: 2020-12-03
 ---
  
 Here is total package generation times for separate modules,

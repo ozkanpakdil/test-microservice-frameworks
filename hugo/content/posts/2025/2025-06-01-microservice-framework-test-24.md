@@ -5,6 +5,7 @@ tags: [ "microservice","quarkus","graalvm","kotlin","rust","dotnet" ]
 aliases:
 - "/microservicetests/2025/2025-08-03-microservice-framework-test-24.html"
 
+date: 2025-06-01
 ---
 
 In Linux fv-az1689-277 6.11.0-1015-azure #15~24.04.1-Ubuntu SMP Thu May  1 02:52:08 UTC 2025 x86_64 x86_64 x86_64 GNU/Linux,

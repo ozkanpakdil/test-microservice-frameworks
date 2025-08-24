@@ -8,6 +8,7 @@ aliases:
 - "/microservicetests/2022/09/20/microservice-framework-test-17/"
 - "/microservicetests/2022/09/20/microservice-framework-test-17"
 
+date: 2022-09-20
 ---
 
 In Linux fv-az180-488 5.15.0-1019-azure #24~20.04.1-Ubuntu SMP Tue Aug 23 15:52:52 UTC 2022 x86_64 x86_64 x86_64 GNU/Linux, Here is total package generation times for separate modules,

@@ -8,6 +8,7 @@ aliases:
 - "/microservicetests/2024/03/10/microservice-framework-test-21/"
 - "/microservicetests/2024/03/10/microservice-framework-test-21"
 
+date: 2024-03-10
 ---
 
 In Linux fv-az1240-597 6.5.0-1015-azure #15~22.04.1-Ubuntu SMP Tue Feb 13 01:15:12 UTC 2024 x86_64 x86_64 x86_64 GNU/Linux,
