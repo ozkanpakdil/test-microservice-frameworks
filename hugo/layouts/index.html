@@ -1,0 +1,33 @@
+{{ define "main" }}
+<main class="main">
+  {{/* Filter to main sections and sort by date descending */}}
+  {{ $pages := where .Site.RegularPages "Type" "in" .Site.Params.mainSections }}
+  {{ $pages = $pages.ByDate.Reverse }}
+  {{ $paginator := .Paginate $pages }}
+
+  <section class="post-list">
+    {{ range $paginator.Pages }}
+      <article class="post-entry">
+        <header class="entry-header">
+          <h2 class="entry-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+        </header>
+        <footer class="entry-footer">
+          <span class="post-date">{{ .Date.Format "2006-01-02" }}</span>
+        </footer>
+      </article>
+    {{ end }}
+  </section>
+
+  {{/* Simple pagination links (avoid theme partial dependency) */}}
+  {{ if gt $paginator.TotalPages 1 }}
+  <nav class="pagination" aria-label="Pagination">
+    {{ if $paginator.HasPrev }}
+      <a class="prev" href="{{ $paginator.Prev.URL }}">« Newer</a>
+    {{ end }}
+    {{ if $paginator.HasNext }}
+      <a class="next" href="{{ $paginator.Next.URL }}">Older »</a>
+    {{ end }}
+  </nav>
+  {{ end }}
+</main>
+{{ end }}

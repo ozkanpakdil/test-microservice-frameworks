@@ -1,0 +1,17 @@
+{
+  "title": {{ .Site.Title | jsonify }},
+  "baseURL": {{ .Site.BaseURL | jsonify }},
+  "items": [
+    {{- $pages := where .Site.RegularPages "Type" "in" .Site.Params.mainSections -}}
+    {{- $pages = $pages.ByDate.Reverse -}}
+    {{- range $i, $p := first 10 $pages -}}
+    {{- if $i }},{{ end -}}
+    {
+      "title": {{ $p.Title | jsonify }},
+      "date": "{{ $p.Date.Format "2006-01-02" }}",
+      "java": {{ $p.Params.java | default "" | jsonify }},
+      "url": {{ $p.RelPermalink | jsonify }}
+    }
+    {{- end -}}
+  ]
+}
