@@ -6,14 +6,22 @@ languageCode = "en-us"
 # rather than the repository path.
 theme = "PaperMod"
 
-# Keep taxonomy/term disabled, but enable RSS and allow JSON outputs via [outputs]
-disableKinds = ["taxonomy", "term", "sitemap", "robotsTXT", "404"]
+# Use PaperMod via Hugo Modules (fetch theme automatically)
+[module]
+  [[module.imports]]
+    path = "github.com/adityatelange/hugo-PaperMod"
 
 [params]
-  subtitle = "Automated Gatling results"
-  repo = "ozkanpakdil/test-microservice-frameworks"
+  # Ensure homepage lists posts whose Type is either "post" or "posts"
+  mainSections = ["post", "posts"]
 
 [outputs]
   home = ["HTML", "RSS", "JSON"]
   section = ["HTML", "RSS", "JSON"]
   page = ["HTML"]
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+

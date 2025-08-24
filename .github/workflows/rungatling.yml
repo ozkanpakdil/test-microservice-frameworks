@@ -92,6 +92,7 @@ jobs:
 
       - name: Build Hugo site
         run: |
+          # Build the Hugo site from the repository root, pointing to the 'hugo' source directory
           hugo -s hugo -d public
 
       - name: Deploy to GitHub Pages (gh-pages)
