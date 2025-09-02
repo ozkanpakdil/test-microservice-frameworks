@@ -20,7 +20,7 @@
     <junit-jupiter.version>5.12.2</junit-jupiter.version>
 
     <main.verticle>com.mascix.vertx_test.MainVertical</main.verticle>
-    <launcher.class>io.vertx.core.Launcher</launcher.class>
+    <launcher.class>io.vertx.launcher.application.VertxApplication</launcher.class>
   </properties>
 
   <dependencyManagement>
@@ -38,11 +38,11 @@
   <dependencies>
     <dependency>
       <groupId>io.vertx</groupId>
-      <artifactId>vertx-web</artifactId>
+      <artifactId>vertx-core</artifactId>
     </dependency>
     <dependency>
       <groupId>io.vertx</groupId>
-      <artifactId>vertx-health-check</artifactId>
+      <artifactId>vertx-launcher-application</artifactId>
     </dependency>
 
     <dependency>
