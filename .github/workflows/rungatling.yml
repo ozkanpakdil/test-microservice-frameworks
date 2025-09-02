@@ -59,7 +59,7 @@ jobs:
             HUGO_POST_DIR="hugo/content/posts/$YEAR"
             HUGO_POST_PATH="$HUGO_POST_DIR/${DATE}-microservice-framework-test-${{ matrix.java }}.md"
             mkdir -p "$HUGO_POST_DIR"
-
+            cp test-result.md "$HUGO_POST_PATH"
             git add "$HUGO_POST_PATH"
             git commit -m "chore(hugo): add post $HUGO_POST_PATH [skip ci]" || echo "No changes to commit for Hugo post"
             # actions/checkout sets up an authenticated origin using GITHUB_TOKEN
