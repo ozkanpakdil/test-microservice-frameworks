@@ -2,9 +2,11 @@ package io.avaje.example;
 
 import java.time.LocalDate;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
+
 import io.avaje.http.api.Controller;
 import io.avaje.http.api.Get;
-import io.avaje.jsonb.Json;
 
 @Controller
 public class RestController {
@@ -13,7 +15,7 @@ public class RestController {
     return new ApplicationInfo("avaje-jex-jdk", LocalDate.now().getYear());
   }
 
-  @Json
+  @JsonAutoDetect(fieldVisibility = Visibility.ANY)
   public static class ApplicationInfo {
     ApplicationInfo(String name, int releaseYear) {
       this.name = name;
