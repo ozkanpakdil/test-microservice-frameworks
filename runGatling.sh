@@ -7,7 +7,7 @@ mvn -ntp clean package
 JAVA_VERSION=$(java -version 2>&1 |grep version)
 RUST_VERSION=$(rustc --version)
 DATE=$(date +"%Y-%m-%d %T")
-AVAJE=$(grep avaje-jex-parent avaje-jex-jdk/pom.xml -A1|grep -oPm1 "(?<=<version>)[^<]+")
+AVAJE=$(sed -n '/avaje-jex-parent</artifactId>/,/</parent>/p' avaje-jex-jdk/pom.xml | grep -oPm1 '(?<=)[^<]+')
 SB=$(grep spring-boot-starter-parent spring-boot-web/pom.xml -A1|grep -oPm1 "(?<=<version>)[^<]+")
 HEL=$(grep helidon-se helidon-se-netty/pom.xml -A1|grep ver|grep -oPm1 "(?<=<version>)[^<]+")
 QU=$(grep quarkus.platform.version quarkus/pom.xml |grep -v "\\$"|grep -oPm1 "(?<=<quarkus.platform.version>)[^<]+")
