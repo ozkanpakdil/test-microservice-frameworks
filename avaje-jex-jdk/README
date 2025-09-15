@@ -4,8 +4,11 @@ This example demonstrates an ultralight microservice framework built using [Avaj
 
 ## Features
 
+- Compile-Time Dependency Injection
+- Jax Style Controllers via source code generation
+- Free of reflection
 - Fast startup and low memory footprint
-- Built-in routing and middleware support
+- Lightweight (Shaded jar is less than 3MB, when using the avaje json it's less than 1MB)
 
 ## Documentation
 
