@@ -7,6 +7,7 @@ mvn -ntp clean package
 JAVA_VERSION=$(java -version 2>&1 |grep version)
 RUST_VERSION=$(rustc --version)
 DATE=$(date +"%Y-%m-%d %T")
+AVAJE=$(grep avaje-jex-parent avaje-jex-jdk/pom.xml -A1|grep -oPm1 "(?<=<version>)[^<]+")
 SB=$(grep spring-boot-starter-parent spring-boot-web/pom.xml -A1|grep -oPm1 "(?<=<version>)[^<]+")
 HEL=$(grep helidon-se helidon-se-netty/pom.xml -A1|grep ver|grep -oPm1 "(?<=<version>)[^<]+")
 QU=$(grep quarkus.platform.version quarkus/pom.xml |grep -v "\\$"|grep -oPm1 "(?<=<quarkus.platform.version>)[^<]+")
@@ -29,7 +30,7 @@ CPU_MHZ=$(cat /proc/cpuinfo | grep "MHz")
 cat << EOF > test-result.md
 ---
 type: post
-title: 'Java microservice framework tests in SB:$SB Q:$QU M:$MICRO V:$VERTX H:$HEL Dotnet:7,8,9 $JAVA_VERSION $RUST_VERSION'
+title: 'Java microservice framework tests in A:$AVAJE SB:$SB Q:$QU M:$MICRO V:$VERTX H:$HEL Dotnet:7,8,9 $JAVA_VERSION $RUST_VERSION'
 date: $DATE
 tags: ["microservice","quarkus","graalvm","kotlin","rust","dotnet" ]
 ---
@@ -154,6 +155,7 @@ runNativeBinaryTests(){
   kill -9 "$(lsof -t -i :8080)" || true
 }
 
+test "avaje-jex-jdk/target/avaje-jex-jdk-$AVAJE.jar" "Avaje Jex started class sun.net.httpserver.HttpServerImpl"
 test "spring-boot-webflux/target/springboot-webflux-demo-$SB.jar" ":: Spring Boot ::" "Started DemoWebFluxApplication" "https://spring.io/projects/spring-boot"
 test "spring-boot-web/target/springboot-demo-web-$SB.jar" ":: Spring Boot ::" "Started DemoApplication" "https://spring.io/projects/spring-boot"
 test "quarkus/target/quarkus-demo-runner.jar" "powered by Quarkus" "QUARKUS" "https://quarkus.io/"
