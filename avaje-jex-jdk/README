@@ -1,0 +1,12 @@
+# Avaje Jex JDK Microservice Example
+
+This example demonstrates an ultralight microservice framework built using [Avaje Jex](https://avaje.io/jex/) and Java's built-in HttpServer. It provides a lightweight, fast, and modern approach to building RESTful APIs and microservices.
+
+## Features
+
+- Fast startup and low memory footprint
+- Built-in routing and middleware support
+
+## Documentation
+
+- [Avaje Documentation](https://avaje.io/)
