@@ -15,6 +15,7 @@ public class RestController {
     return new ApplicationInfo("avaje-jex-jdk", LocalDate.now().getYear());
   }
 
+  // @Json
   @JsonAutoDetect(fieldVisibility = Visibility.ANY)
   public static class ApplicationInfo {
     ApplicationInfo(String name, int releaseYear) {

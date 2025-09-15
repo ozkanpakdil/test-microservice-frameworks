@@ -18,6 +18,7 @@ public final class Main {
     var routes = BeanScope.builder().build().list(HttpService.class);
     Jex.create()
         .routing(routes)
+        //  .jsonService(new JsonbJsonService())
         .jsonService(new JacksonJsonService())
         .get("/simple-greet", ctx -> ctx.text("Hello World!"))
         .start();
