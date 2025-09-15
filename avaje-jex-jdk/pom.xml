@@ -43,6 +43,7 @@
 		<dependency>
 			<groupId>io.avaje</groupId>
 			<artifactId>avaje-inject-generator</artifactId>
+			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>io.avaje</groupId>
@@ -57,6 +58,10 @@
 				<artifactId>maven-shade-plugin</artifactId>
 				<executions>
 					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>shade</goal>
+						</goals>
 						<configuration>
 							<transformers>
 								<transformer
