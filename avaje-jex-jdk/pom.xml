@@ -110,12 +110,6 @@
 								</configuration>
 							</execution>
 						</executions>
-						<configuration>
-							<buildArgs>
-								<buildArg>--gc=G1</buildArg>
-								<buildArg>--no-fallback</buildArg>
-							</buildArgs>
-						</configuration>
 					</plugin>
 				</plugins>
 			</build>
