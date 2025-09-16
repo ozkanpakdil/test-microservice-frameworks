@@ -35,7 +35,21 @@ jobs:
         java: [24]
     steps:
       - uses: actions/checkout@v2
+      - name: Check for relevant file changes
+        id: changes
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_call" ]; then
+            echo "skip=false" >> $GITHUB_OUTPUT
+          else
+            # Check if any pom.xml or Java files have changed
+            if git diff --name-only ${{ github.event.before }} ${{ github.sha }} | grep -E '\.(java|kt)$|pom\.xml$'; then
+              echo "skip=false" >> $GITHUB_OUTPUT
+            else
+              echo "skip=true" >> $GITHUB_OUTPUT
+            fi
+          fi
       - uses: graalvm/setup-graalvm@v1
+        if: steps.changes.outputs.skip == 'false'
         with:
           version: 'latest'
           java-version: ${{ matrix.java }}
@@ -43,8 +57,16 @@ jobs:
           native-image-job-reports: 'true'
           distribution: 'graalvm'
       - name: graalvm builds
+        if: steps.changes.outputs.skip == 'false'
         run: |
           mvn -ntp package -Pnative -DskipTests -f avaje-jex-jdk/pom.xml
+          mvn -ntp package -Pnative native:compile -DskipTests -f spring-boot-web/pom.xml
+          mvn -ntp package -Pnative native:compile -DskipTests -f spring-boot-webflux/pom.xml
+          mvn -ntp package -Pnative,native-image -Dpackaging=native-image -DskipTests -f quarkus/pom.xml
+          mvn -ntp package -Pnative,native-image -Dpackaging=native-image -DskipTests -f micronaut/pom.xml
+          mvn -ntp package -Pnative,native-image -Dpackaging=native-image -DskipTests -f ktor/pom.xml
+          mvn -ntp package -Pnative,native-image -Dpackaging=native-image -DskipTests -f helidon-se-netty/pom.xml
+          mvn -ntp package -Pnative,native-image -Dpackaging=native-image -DskipTests -f vertx/pom.xml
 
       - uses: marvinpinto/action-automatic-releases@latest
         if: steps.changes.outputs.skip == 'false'
