@@ -21,7 +21,7 @@ jobs:
           version: 'latest'
           java-version: ${{ matrix.java }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          distribution: 'graalvm'
+          distribution: 'graalvm-community'
           native-image-job-reports: 'true'
       - name: Set up JDK
         uses: actions/setup-java@v3

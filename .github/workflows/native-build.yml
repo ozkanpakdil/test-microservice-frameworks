@@ -57,7 +57,7 @@ jobs:
           java-version: ${{ matrix.java }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
           native-image-job-reports: 'true'
-          distribution: 'graalvm'
+          distribution: 'graalvm-community'
       - name: graalvm builds
         if: steps.changes.outputs.skip == 'false'
         run: |
