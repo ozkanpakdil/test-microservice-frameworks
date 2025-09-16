@@ -1,7 +1,6 @@
 name: Native CI
 
 on:
-  workflow_dispatch:
   workflow_call:
     inputs:
       files-changed:
