@@ -32,9 +32,9 @@ jobs:
     timeout-minutes: 120
     strategy:
       matrix:
-        java: [24]
+        java: [25]
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: Check for relevant file changes
         id: changes
         run: |
