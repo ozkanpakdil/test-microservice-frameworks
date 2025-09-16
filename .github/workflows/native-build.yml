@@ -35,6 +35,8 @@ jobs:
         java: [25]
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - name: Check for relevant file changes
         id: changes
         run: |
