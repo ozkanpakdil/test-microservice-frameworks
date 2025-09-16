@@ -1,6 +1,7 @@
 name: Native CI
 
 on:
+  workflow_dispatch:
   workflow_call:
     inputs:
       files-changed:
@@ -76,6 +77,7 @@ jobs:
           prerelease: true
           title: Development Build
           files: |
+            ./avaje-jex-jdk/target/avaje-jex-jdk
             ./quarkus/target/quarkus-demo-runner
             ./micronaut/target/micronaut-demo
             ./spring-boot-web/target/springboot-demo-web
