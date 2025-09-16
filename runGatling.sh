@@ -207,7 +207,7 @@ wget -qc https://github.com/ozkanpakdil/test-microservice-frameworks/releases/do
 wget -qc https://github.com/ozkanpakdil/test-microservice-frameworks/releases/download/latest/ktor-demo
 chmod a+x avaje-jex-jdk quarkus-demo-runner micronaut-demo springboot-demo-web springboot-webflux-demo vertx-demo helidon-quickstart-se ktor-demo
 
-runNativeBinaryTests "./avaje-jex-jdk" "graalvm native avaje" "GRAALAVAJE"
+runNativeBinaryTests "./avaje-jex-jdk" "graalvm native avaje" "GRAALA1VAJE"
 runNativeBinaryTests "./quarkus-demo-runner" "graalvm native quarkus" "GRAALQ1UARKUS"
 runNativeBinaryTests "./micronaut-demo" "graalvm native micronaut" "GRAALM1ICRONAUT"
 runNativeBinaryTests "./springboot-demo-web" "graalvm native spring-boot-web" "GRAALSPRING"
