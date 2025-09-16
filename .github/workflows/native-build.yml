@@ -59,6 +59,7 @@ jobs:
       - name: graalvm builds
         if: steps.changes.outputs.skip == 'false'
         run: |
+          mvn -ntp package -Pnative -DskipTests -f avaje-jex-jdk/pom.xml
           mvn -ntp package -Pnative native:compile -DskipTests -f spring-boot-web/pom.xml
           mvn -ntp package -Pnative native:compile -DskipTests -f spring-boot-webflux/pom.xml
           mvn -ntp package -Pnative,native-image -Dpackaging=native-image -DskipTests -f quarkus/pom.xml
@@ -75,6 +76,7 @@ jobs:
           prerelease: true
           title: Development Build
           files: |
+            ./avaje-jex-jdk/target/avaje-jex-jdk
             ./quarkus/target/quarkus-demo-runner
             ./micronaut/target/micronaut-demo
             ./spring-boot-web/target/springboot-demo-web

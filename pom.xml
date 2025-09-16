@@ -16,5 +16,6 @@
         <module>spring-boot-web</module>
         <module>vertx</module>
         <module>gatling</module>
+        <module>avaje-jex-jdk</module>
     </modules>
 </project>
