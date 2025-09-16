@@ -44,7 +44,7 @@ jobs:
           distribution: 'graalvm'
       - name: graalvm builds
         run: |
-          mvn -ntp package -Pnative native:compile -DskipTests -f avaje-jex-jdk/pom.xml
+          mvn -ntp package -Pnative -DskipTests -f avaje-jex-jdk/pom.xml
 
       - uses: marvinpinto/action-automatic-releases@latest
         if: steps.changes.outputs.skip == 'false'
