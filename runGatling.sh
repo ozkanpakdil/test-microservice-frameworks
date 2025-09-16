@@ -155,7 +155,7 @@ runNativeBinaryTests(){
   kill -9 "$(lsof -t -i :8080)" || true
 }
 
-test "avaje-jex-jdk/target/avaje-jex-jdk-$AVAJE.jar" "Avaje Jex started class sun.net.httpserver.HttpServerImpl"
+test "avaje-jex-jdk/target/avaje-jex-jdk-$AVAJE.jar" "Avaje Jex started class sun.net.httpserver.HttpServerImpl" "AVAJE" "https://avaje.io/"
 test "spring-boot-webflux/target/springboot-webflux-demo-$SB.jar" ":: Spring Boot ::" "Started DemoWebFluxApplication" "https://spring.io/projects/spring-boot"
 test "spring-boot-web/target/springboot-demo-web-$SB.jar" ":: Spring Boot ::" "Started DemoApplication" "https://spring.io/projects/spring-boot"
 test "quarkus/target/quarkus-demo-runner.jar" "powered by Quarkus" "QUARKUS" "https://quarkus.io/"
