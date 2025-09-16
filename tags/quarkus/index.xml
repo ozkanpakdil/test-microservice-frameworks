@@ -4,10 +4,37 @@
     <title>Quarkus on Microservice Framework Tests</title>
     <link>https://ozkanpakdil.github.io/test-microservice-frameworks/tags/quarkus/</link>
     <description>Recent content in Quarkus on Microservice Framework Tests</description>
-    <generator>Hugo -- 0.149.0</generator>
+    <generator>Hugo -- 0.150.0</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 02 Sep 2025 23:12:27 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 16 Sep 2025 21:43:35 +0000</lastBuildDate>
     <atom:link href="https://ozkanpakdil.github.io/test-microservice-frameworks/tags/quarkus/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Java microservice framework tests in A:3.2 SB:3.5.5 Q:3.26.1 M:4.9.3 V:5.0.3 H:4.2.2 Dotnet:7,8,9 openjdk version &#34;24.0.2&#34; 2025-07-15 rustc 1.89.0 (29483883e 2025-08-04)</title>
+      <link>https://ozkanpakdil.github.io/test-microservice-frameworks/posts/2025/2025-09-16-microservice-framework-test-24/</link>
+      <pubDate>Tue, 16 Sep 2025 21:43:35 +0000</pubDate>
+      <guid>https://ozkanpakdil.github.io/test-microservice-frameworks/posts/2025/2025-09-16-microservice-framework-test-24/</guid>
+      <description>&lt;p&gt;In Linux runnervmf4ws1 6.11.0-1018-azure #18~24.04.1-Ubuntu SMP Sat Jun 28 04:46:03 UTC 2025 x86_64 x86_64 x86_64 GNU/Linux,&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Memory Usage: 879/15995MB &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;5.50%&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Disk Usage: 49/72GB &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;69%&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;CPU Load: 1.42
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;CPU core count:4
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;CPUs
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;cpu MHz		: 3241.942
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;cpu MHz		: 3242.994
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;cpu MHz		: 3236.557
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;cpu MHz		: 3238.305
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Below is total package generation times for separate modules,&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;INFO&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt; eclipse-microprofile-kumuluz-test 4.1.0 ............ SUCCESS &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;  5.536 s&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;INFO&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt; helidon-quickstart-se 4.2.2 ........................ SUCCESS &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;  7.082 s&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;INFO&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt; ktor-demo 3.2.3-kotlin-2.2.10 ...................... SUCCESS &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt; 12.424 s&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;INFO&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt; micronaut-demo 4.9.3 ............................... SUCCESS &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt; 26.643 s&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;INFO&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt; quarkus-demo 3.26.1 ................................ SUCCESS &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt; 15.388 s&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;INFO&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt; springboot-webflux-demo 3.5.5 ...................... SUCCESS &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;  2.395 s&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;INFO&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt; springboot-demo-web 3.5.5 .......................... SUCCESS &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;  2.390 s&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;INFO&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt; vertx-demo 5.0.3 ................................... SUCCESS &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;  6.725 s&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;INFO&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt; Avaje Jex Example 3.2 .............................. SUCCESS &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;  3.336 s&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Size of created packages:&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Java microservice framework tests in SB:3.5.5 Q:3.26.1 M:4.9.3 V:5.0.3 H:4.2.2 Dotnet:7,8,9 openjdk version &#34;24.0.2&#34; 2025-07-15 rustc 1.89.0 (29483883e 2025-08-04)</title>
       <link>https://ozkanpakdil.github.io/test-microservice-frameworks/posts/2025/2025-09-02-microservice-framework-test-24/</link>
