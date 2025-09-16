@@ -59,6 +59,7 @@ jobs:
       - name: graalvm builds
         if: steps.changes.outputs.skip == 'false'
         run: |
+          mvn -ntp package -Pnative native:compile -DskipTests -f avaje-jex-jdk/pom.xml
           mvn -ntp package -Pnative native:compile -DskipTests -f spring-boot-web/pom.xml
           mvn -ntp package -Pnative native:compile -DskipTests -f spring-boot-webflux/pom.xml
           mvn -ntp package -Pnative,native-image -Dpackaging=native-image -DskipTests -f quarkus/pom.xml
