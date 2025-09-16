@@ -196,6 +196,7 @@ runNativeBinaryTests "./Dotnet9Microservice" "Dotnet 9 rest service" "DOTNET9AOT
 ##### DOTNET
 
 ##### graalvm
+rm -rf avaje-jex-jdk
 wget -qc https://github.com/ozkanpakdil/test-microservice-frameworks/releases/download/latest/avaje-jex-jdk
 wget -qc https://github.com/ozkanpakdil/test-microservice-frameworks/releases/download/latest/quarkus-demo-runner
 wget -qc https://github.com/ozkanpakdil/test-microservice-frameworks/releases/download/latest/micronaut-demo
