@@ -10,7 +10,7 @@
 
 	<version>${parent.version}</version>
 	<artifactId>avaje-jex-robaho</artifactId>
-	<name>Avaje Jex Example</name>
+	<name>Avaje Jex Robaho Example</name>
 	<description>example avaje project</description>
 	<properties>
 		<maven.compiler.release>21</maven.compiler.release>
