@@ -1,0 +1,126 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>io.avaje</groupId>
+		<artifactId>avaje-jex-parent</artifactId>
+		<version>3.2</version>
+	</parent>
+
+	<version>${parent.version}</version>
+	<artifactId>avaje-jex-robaho</artifactId>
+	<name>Avaje Jex Example</name>
+	<description>example avaje project</description>
+	<properties>
+		<maven.compiler.release>21</maven.compiler.release>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<mainClass>io.avaje.example.Main</mainClass>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>io.avaje</groupId>
+			<artifactId>avaje-http-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>io.avaje</groupId>
+			<artifactId>avaje-inject</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>io.avaje</groupId>
+			<artifactId>avaje-jex</artifactId>
+		</dependency>
+
+		<!-- enhanced JDK server impl-->
+		<dependency>
+			<groupId>io.github.robaho</groupId>
+			<artifactId>httpserver</artifactId>
+			<version>1.0.27</version>
+		</dependency>
+
+		<!-- processors-->
+		<dependency>
+			<groupId>io.avaje</groupId>
+			<artifactId>avaje-http-jex-generator</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>io.avaje</groupId>
+			<artifactId>avaje-inject-generator</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- jackson itself weighs more than all the avaje libraries combined -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.20.0</version>
+		</dependency>
+
+		<!-- avaje jsonb - uncomment if you want to use the lighter avaje jsonb
+		instead of jackson 
+		<dependency>
+			<groupId>io.avaje</groupId>
+			<artifactId>avaje-jsonb</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>io.avaje</groupId>
+			<artifactId>avaje-jsonb-generator</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		-->
+	</dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-shade-plugin</artifactId>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>shade</goal>
+						</goals>
+						<configuration>
+							<transformers>
+								<transformer
+									implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+									<mainClass>${mainClass}</mainClass>
+								</transformer>
+							</transformers>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+	<profiles>
+		<profile>
+			<id>native</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.graalvm.buildtools</groupId>
+						<artifactId>native-maven-plugin</artifactId>
+						<version>0.11.0</version>
+						<executions>
+							<execution>
+								<id>build-native</id>
+								<goals>
+									<goal>compile-no-fork</goal>
+								</goals>
+								<phase>package</phase>
+								<configuration>
+									<mainClass>${mainClass}</mainClass>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+
+</project>

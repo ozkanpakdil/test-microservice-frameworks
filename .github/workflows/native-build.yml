@@ -62,6 +62,7 @@ jobs:
         if: steps.changes.outputs.skip == 'false'
         run: |
           mvn -ntp package -Pnative -DskipTests -f avaje-jex-jdk/pom.xml
+          mvn -ntp package -Pnative -DskipTests -f avaje-jex-robaho/pom.xml
           mvn -ntp package -Pnative native:compile -DskipTests -f spring-boot-web/pom.xml
           mvn -ntp package -Pnative native:compile -DskipTests -f spring-boot-webflux/pom.xml
           mvn -ntp package -Pnative,native-image -Dpackaging=native-image -DskipTests -f quarkus/pom.xml
@@ -79,6 +80,7 @@ jobs:
           title: Development Build
           files: |
             ./avaje-jex-jdk/target/avaje-jex-jdk
+            ./avaje-jex-robaho/target/avaje-jex-robaho
             ./quarkus/target/quarkus-demo-runner
             ./micronaut/target/micronaut-demo
             ./spring-boot-web/target/springboot-demo-web
