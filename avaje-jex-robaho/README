@@ -1,0 +1,15 @@
+# Avaje Jex Robaho Microservice Example
+
+This example demonstrates an ultralight microservice framework built using [Avaje Jex](https://avaje.io/jex/) and a [faster implementation of Java's built-in HttpServer](https://github.com/robaho/httpserver). It provides a lightweight, fast, and modern approach to building RESTful APIs and microservices.
+
+## Features
+
+- Compile-Time Dependency Injection
+- Jax Style Controllers via source code generation
+- Free of reflection
+- Fast startup and low memory footprint
+- Lightweight (Shaded jar is less than 3MB, when using the avaje json it's less than 1MB)
+
+## Documentation
+
+- [Avaje Documentation](https://avaje.io/)

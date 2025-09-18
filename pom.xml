@@ -7,6 +7,8 @@
     <packaging>pom</packaging>
 
     <modules>
+        <module>avaje-jex-jdk</module>
+        <module>avaje-jex-robaho</module>
         <module>eclipse-microprofile-kumuluz-test</module>
         <module>helidon-se-netty</module>
         <module>ktor</module>
@@ -16,6 +18,5 @@
         <module>spring-boot-web</module>
         <module>vertx</module>
         <module>gatling</module>
-        <module>avaje-jex-jdk</module>
     </modules>
 </project>

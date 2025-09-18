@@ -156,6 +156,7 @@ runNativeBinaryTests(){
 }
 
 test "avaje-jex-jdk/target/avaje-jex-jdk-$AVAJE.jar" "Avaje Jex started class sun.net.httpserver.HttpServerImpl" "AVAJE" "https://avaje.io/"
+test "avaje-jex-robaho/target/avaje-jex-robaho-$AVAJE.jar" "started" "ROBAHO" "https://github.com/robaho/httpserver"
 test "spring-boot-webflux/target/springboot-webflux-demo-$SB.jar" ":: Spring Boot ::" "Started DemoWebFluxApplication" "https://spring.io/projects/spring-boot"
 test "spring-boot-web/target/springboot-demo-web-$SB.jar" ":: Spring Boot ::" "Started DemoApplication" "https://spring.io/projects/spring-boot"
 test "quarkus/target/quarkus-demo-runner.jar" "powered by Quarkus" "QUARKUS" "https://quarkus.io/"
@@ -197,7 +198,9 @@ runNativeBinaryTests "./Dotnet9Microservice" "Dotnet 9 rest service" "DOTNET9AOT
 
 ##### graalvm
 rm -rf avaje-jex-jdk
+rm -rf avaje-jex-robaho
 wget -qc https://github.com/ozkanpakdil/test-microservice-frameworks/releases/download/latest/avaje-jex-jdk
+wget -qc https://github.com/ozkanpakdil/test-microservice-frameworks/releases/download/latest/avaje-jex-robaho
 wget -qc https://github.com/ozkanpakdil/test-microservice-frameworks/releases/download/latest/quarkus-demo-runner
 wget -qc https://github.com/ozkanpakdil/test-microservice-frameworks/releases/download/latest/micronaut-demo
 wget -qc https://github.com/ozkanpakdil/test-microservice-frameworks/releases/download/latest/springboot-demo-web
@@ -205,9 +208,10 @@ wget -qc https://github.com/ozkanpakdil/test-microservice-frameworks/releases/do
 wget -qc https://github.com/ozkanpakdil/test-microservice-frameworks/releases/download/latest/vertx-demo
 wget -qc https://github.com/ozkanpakdil/test-microservice-frameworks/releases/download/latest/helidon-quickstart-se
 wget -qc https://github.com/ozkanpakdil/test-microservice-frameworks/releases/download/latest/ktor-demo
-chmod a+x avaje-jex-jdk quarkus-demo-runner micronaut-demo springboot-demo-web springboot-webflux-demo vertx-demo helidon-quickstart-se ktor-demo
+chmod a+x avaje-jex-jdk avaje-jex-robaho quarkus-demo-runner micronaut-demo springboot-demo-web springboot-webflux-demo vertx-demo helidon-quickstart-se ktor-demo
 
 runNativeBinaryTests "./avaje-jex-jdk" "graalvm native avaje" "GRAALA1VAJE"
+runNativeBinaryTests "./avaje-jex-robaho" "graalvm native avaje" "GRAALRO1BAHO"
 runNativeBinaryTests "./quarkus-demo-runner" "graalvm native quarkus" "GRAALQ1UARKUS"
 runNativeBinaryTests "./micronaut-demo" "graalvm native micronaut" "GRAALM1ICRONAUT"
 runNativeBinaryTests "./springboot-demo-web" "graalvm native spring-boot-web" "GRAALSPRING"
