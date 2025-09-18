@@ -23,12 +23,12 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           distribution: 'graalvm-community'
           native-image-job-reports: 'true'
-      - name: Set up JDK
-        uses: actions/setup-java@v3
-        with:
-          java-version: ${{ matrix.java }}
-          cache: 'maven'
-          distribution: 'temurin'
+      # - name: Set up JDK
+      #   uses: actions/setup-java@v3
+      #   with:
+      #     java-version: ${{ matrix.java }}
+      #     cache: 'maven'
+      #     distribution: 'temurin'
       - name: Collect Workflow Telemetry
         uses: catchpoint/workflow-telemetry-action@v2
         with:
