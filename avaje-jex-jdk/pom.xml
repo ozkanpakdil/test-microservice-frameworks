@@ -31,6 +31,10 @@
 			<groupId>io.avaje</groupId>
 			<artifactId>avaje-jex</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>io.avaje</groupId>
+			<artifactId>avaje-jsonb</artifactId>
+		</dependency>
 
 		<!-- processors-->
 		<dependency>
@@ -42,11 +46,6 @@
 			<groupId>io.avaje</groupId>
 			<artifactId>avaje-inject-generator</artifactId>
 			<scope>provided</scope>
-		</dependency>
-	
-		<dependency>
-			<groupId>io.avaje</groupId>
-			<artifactId>avaje-jsonb</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>io.avaje</groupId>
