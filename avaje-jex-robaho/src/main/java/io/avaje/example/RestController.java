@@ -12,7 +12,7 @@ import io.avaje.http.api.Get;
 public class RestController {
   @Get("/hello")
   public ApplicationInfo hello() {
-    return new ApplicationInfo("avaje-jex-jdk", LocalDate.now().getYear());
+    return new ApplicationInfo("avaje-jex-robaho", LocalDate.now().getYear());
   }
 
   // @Json
