@@ -43,16 +43,7 @@
 			<artifactId>avaje-inject-generator</artifactId>
 			<scope>provided</scope>
 		</dependency>
-
-		<!-- jackson itself weighs more than all the avaje libraries combined -->
-		<dependency>
-			<groupId>com.fasterxml.jackson.core</groupId>
-			<artifactId>jackson-databind</artifactId>
-			<version>2.20.0</version>
-		</dependency>
-
-		<!-- avaje jsonb - uncomment if you want to use the lighter avaje jsonb
-		instead of jackson 
+	
 		<dependency>
 			<groupId>io.avaje</groupId>
 			<artifactId>avaje-jsonb</artifactId>
@@ -62,7 +53,6 @@
 			<artifactId>avaje-jsonb-generator</artifactId>
 			<scope>provided</scope>
 		</dependency>
-		-->
 	</dependencies>
 	<build>
 		<plugins>
