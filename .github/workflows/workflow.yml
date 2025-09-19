@@ -24,3 +24,4 @@ jobs:
   post-mastodon:
     needs: rungatling
     uses: ./.github/workflows/post-mastodon.yml
+    secrets: inherit
