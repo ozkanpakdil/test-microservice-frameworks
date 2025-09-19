@@ -2,6 +2,11 @@ name: Send Mastodon Post
 
 on:
   workflow_call:
+    secrets:
+      MASTODON_ACCESS_TOKEN:
+        required: true
+      MASTODON_URL:
+        required: true
 
 jobs:
   send_mastodon:
