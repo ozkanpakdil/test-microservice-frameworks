@@ -4,10 +4,38 @@
     <title>Microservice Framework Tests</title>
     <link>https://ozkanpakdil.github.io/test-microservice-frameworks/</link>
     <description>Recent content on Microservice Framework Tests</description>
-    <generator>Hugo -- 0.150.0</generator>
+    <generator>Hugo -- 0.150.1</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 19 Sep 2025 00:28:04 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 01 Oct 2025 07:41:04 +0000</lastBuildDate>
     <atom:link href="https://ozkanpakdil.github.io/test-microservice-frameworks/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Java microservice framework tests in A:3.2 SB:3.5.5 Q:3.28.1 M:4.9.3 V:5.0.4 H:4.2.2 Dotnet:7,8,9 openjdk version &#34;25&#34; 2025-09-16 rustc 1.89.0 (29483883e 2025-08-04)</title>
+      <link>https://ozkanpakdil.github.io/test-microservice-frameworks/posts/2025/2025-10-01-microservice-framework-test-25/</link>
+      <pubDate>Wed, 01 Oct 2025 07:41:04 +0000</pubDate>
+      <guid>https://ozkanpakdil.github.io/test-microservice-frameworks/posts/2025/2025-10-01-microservice-framework-test-25/</guid>
+      <description>&lt;p&gt;In Linux runnervm3ublj 6.11.0-1018-azure #18~24.04.1-Ubuntu SMP Sat Jun 28 04:46:03 UTC 2025 x86_64 x86_64 x86_64 GNU/Linux,&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Memory Usage: 1242/15995MB &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;7.76%&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Disk Usage: 52/72GB &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;72%&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;CPU Load: 1.26
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;CPU core count:4
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;CPUs
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;cpu MHz		: 3244.909
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;cpu MHz		: 3242.699
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;cpu MHz		: 3240.566
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;cpu MHz		: 3238.883
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Below is total package generation times for separate modules,&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;INFO&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt; Avaje Jex Example 3.2 .............................. SUCCESS &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;  3.183 s&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;INFO&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt; Avaje Jex Robaho Example 3.2 ....................... SUCCESS &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;  3.178 s&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;INFO&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt; eclipse-microprofile-kumuluz-test 4.1.0 ............ SUCCESS &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;  5.322 s&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;INFO&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt; helidon-quickstart-se 4.2.2 ........................ SUCCESS &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;  6.337 s&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;INFO&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt; ktor-demo 3.3.0-kotlin-2.2.20 ...................... SUCCESS &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt; 11.382 s&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;INFO&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt; micronaut-demo 4.9.3 ............................... SUCCESS &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt; 23.627 s&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;INFO&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt; quarkus-demo 3.28.1 ................................ SUCCESS &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt; 13.857 s&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;INFO&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt; springboot-webflux-demo 3.5.5 ...................... SUCCESS &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;  2.189 s&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;INFO&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt; springboot-demo-web 3.5.5 .......................... SUCCESS &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;  2.189 s&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;INFO&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt; vertx-demo 5.0.4 ................................... SUCCESS &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;  4.989 s&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Size of created packages:&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Java microservice framework tests in A:3.2 SB:3.5.5 Q:3.26.1 M:4.9.3 V:5.0.3 H:4.2.2 Dotnet:7,8,9 openjdk version &#34;25&#34; 2025-09-16 rustc 1.89.0 (29483883e 2025-08-04)</title>
       <link>https://ozkanpakdil.github.io/test-microservice-frameworks/posts/2025/2025-09-19-microservice-framework-test-25/</link>
