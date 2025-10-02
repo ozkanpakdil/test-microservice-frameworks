@@ -23,7 +23,7 @@ jobs:
           DATE=$(date +"%Y-%m-%d")
           YEAR=$(date +"%Y")
           JAVA_VERSION=$(grep -oP '(?<=java: \[)\d+(?=\])' .github/workflows/rungatling.yml)
-          URL="https://ozkanpakdil.github.io/microservicetests/$YEAR/$DATE-microservice-framework-test-$JAVA_VERSION.html"
+          URL="https://ozkanpakdil.github.io/test-microservice-frameworks/posts/$YEAR/$DATE-microservice-framework-test-$JAVA_VERSION/"
           echo "URL=$URL" >> $GITHUB_ENV
           # Get the last 3 commit messages
           CHANGELOG=$(git log -3 --pretty=format:"- %s")
