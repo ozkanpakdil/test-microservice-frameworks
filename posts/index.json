@@ -5,6 +5,12 @@
   "items": [
     {
       "title": "Java microservice framework tests in A:3.2 SB:3.5.5 Q:3.28.1 M:4.9.3 V:5.0.4 H:4.2.2 Dotnet:7,8,9 openjdk version \"25\" 2025-09-16 rustc 1.89.0 (29483883e 2025-08-04)",
+      "date": "2025-10-02",
+      "java": "",
+      "url": "/test-microservice-frameworks/posts/2025/2025-10-02-microservice-framework-test-25/"
+    },
+    {
+      "title": "Java microservice framework tests in A:3.2 SB:3.5.5 Q:3.28.1 M:4.9.3 V:5.0.4 H:4.2.2 Dotnet:7,8,9 openjdk version \"25\" 2025-09-16 rustc 1.89.0 (29483883e 2025-08-04)",
       "date": "2025-10-01",
       "java": "",
       "url": "/test-microservice-frameworks/posts/2025/2025-10-01-microservice-framework-test-25/"
