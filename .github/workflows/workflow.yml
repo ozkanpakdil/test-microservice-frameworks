@@ -24,4 +24,6 @@ jobs:
   post-mastodon:
     needs: rungatling
     uses: ./.github/workflows/post-mastodon.yml
-    secrets: inherit
+    secrets:
+      MASTODON_ACCESS_TOKEN: ${{ secrets.MASTODON_ACCESS_TOKEN }}
+      MASTODON_URL: ${{ secrets.MASTODON_URL }}
