@@ -5,7 +5,7 @@ import java.lang.System.Logger;
 import io.avaje.inject.BeanScope;
 import io.avaje.jex.Jex;
 import io.avaje.jex.Routing.HttpService;
-import io.avaje.jex.core.json.JacksonJsonService;
+import io.avaje.jex.core.json.JsonbJsonService;
 
 /** The application main class. */
 public final class Main {
@@ -20,8 +20,7 @@ public final class Main {
     var routes = BeanScope.builder().build().list(HttpService.class);
     Jex.create()
         .routing(routes)
-        //  .jsonService(new JsonbJsonService())
-        .jsonService(new JacksonJsonService())
+        .jsonService(new JsonbJsonService())
         .get("/simple-greet", ctx -> ctx.text("Hello World!"))
         .start();
     long end = System.currentTimeMillis();
