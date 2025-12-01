@@ -68,8 +68,8 @@ jobs:
           mvn -ntp package -Pnative,native-image -Dpackaging=native-image -DskipTests -f quarkus/pom.xml
           mvn -ntp package -Pnative,native-image -Dpackaging=native-image -DskipTests -f micronaut/pom.xml
           mvn -ntp package -Pnative,native-image -Dpackaging=native-image -DskipTests -f ktor/pom.xml
-          # mvn -ntp package -Pnative,native-image -Dpackaging=native-image -DskipTests -f helidon-se-netty/pom.xml
           mvn -ntp package -Pnative,native-image -Dpackaging=native-image -DskipTests -f vertx/pom.xml
+          # mvn -ntp package -Pnative,native-image -Dpackaging=native-image -DskipTests -f helidon-se-netty/pom.xml
 
       - uses: marvinpinto/action-automatic-releases@latest
         if: steps.changes.outputs.skip == 'false'
@@ -86,5 +86,5 @@ jobs:
             ./spring-boot-web/target/springboot-demo-web
             ./spring-boot-webflux/target/springboot-webflux-demo
             ./vertx/target/vertx-demo
-            ./helidon-se-netty/target/helidon-quickstart-se
             ./ktor/target/ktor-demo
+            # ./helidon-se-netty/target/helidon-quickstart-se
