@@ -68,7 +68,7 @@ jobs:
           mvn -ntp package -Pnative,native-image -Dpackaging=native-image -DskipTests -f quarkus/pom.xml
           mvn -ntp package -Pnative,native-image -Dpackaging=native-image -DskipTests -f micronaut/pom.xml
           mvn -ntp package -Pnative,native-image -Dpackaging=native-image -DskipTests -f ktor/pom.xml
-          mvn -ntp package -Pnative,native-image -Dpackaging=native-image -DskipTests -f helidon-se-netty/pom.xml
+#          mvn -ntp package -Pnative,native-image -Dpackaging=native-image -DskipTests -f helidon-se-netty/pom.xml
           mvn -ntp package -Pnative,native-image -Dpackaging=native-image -DskipTests -f vertx/pom.xml
 
       - uses: marvinpinto/action-automatic-releases@latest
