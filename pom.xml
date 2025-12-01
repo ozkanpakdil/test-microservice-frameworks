@@ -10,7 +10,7 @@
         <module>avaje-jex-jdk</module>
         <module>avaje-jex-robaho</module>
         <module>eclipse-microprofile-kumuluz-test</module>
-        <module>helidon-se-netty</module>
+<!--        <module>helidon-se-netty</module>-->
         <module>ktor</module>
         <module>micronaut</module>
         <module>quarkus</module>
