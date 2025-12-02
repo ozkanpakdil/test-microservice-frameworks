@@ -7,25 +7,36 @@ mvn -ntp clean package
 JAVA_VERSION=$(java -version 2>&1 |grep version)
 RUST_VERSION=$(rustc --version)
 DATE=$(date +"%Y-%m-%d %T")
-AVAJE=$(grep avaje-jex-parent avaje-jex-jdk/pom.xml -A1|grep -oPm1 "(?<=<version>)[^<]+")
-SB=$(grep spring-boot-starter-parent spring-boot-web/pom.xml -A1|grep -oPm1 "(?<=<version>)[^<]+")
-HEL=$(grep helidon-se helidon-se-netty/pom.xml -A1|grep ver|grep -oPm1 "(?<=<version>)[^<]+")
-QU=$(grep quarkus.platform.version quarkus/pom.xml |grep -v "\\$"|grep -oPm1 "(?<=<quarkus.platform.version>)[^<]+")
-KUMULUZ=$(grep kumuluzee.version eclipse-microprofile-kumuluz-test/pom.xml |grep -v "\\$"|grep -oPm1 "(?<=<kumuluzee.version>)[^<]+")
-MICRO=$(grep micronaut-parent micronaut/pom.xml -A1|grep -oPm1 "(?<=<version>)[^<]+")
-VERTX=$(grep vertx vertx/pom.xml|grep -oPm1 "(?<=<vertx.version>)[^<]+")
-KTOR=$(grep ktor ktor/pom.xml|grep -oPm1 "(?<=<ktor_version>)[^<]+")
-KOTLIN=$(grep kotlin ktor/pom.xml|grep -oPm1 "(?<=<kotlin.version>)[^<]+")
+AVAJE=$(grep -A1 avaje-jex-parent avaje-jex-jdk/pom.xml | sed -n 's/.*<version>\([^<]*\).*/\1/p')
+SB=$(grep -A1 spring-boot-starter-parent spring-boot-web/pom.xml | sed -n 's/.*<version>\([^<]*\).*/\1/p')
+HEL=$(grep -A1 helidon-se helidon-se-netty/pom.xml | grep ver | sed -n 's/.*<version>\([^<]*\).*/\1/p')
+QU=$(grep quarkus.platform.version quarkus/pom.xml | grep -v "\\$" | sed -n 's/.*<quarkus.platform.version>\([^<]*\).*/\1/p')
+KUMULUZ=$(grep kumuluzee.version eclipse-microprofile-kumuluz-test/pom.xml | grep -v "\\$" | sed -n 's/.*<kumuluzee.version>\([^<]*\).*/\1/p')
+MICRO=$(grep -A1 micronaut-parent micronaut/pom.xml | sed -n 's/.*<version>\([^<]*\).*/\1/p')
+VERTX=$(grep vertx vertx/pom.xml | sed -n 's/.*<vertx.version>\([^<]*\).*/\1/p')
+KTOR=$(grep ktor ktor/pom.xml | sed -n 's/.*<ktor_version>\([^<]*\).*/\1/p')
+KOTLIN=$(grep kotlin ktor/pom.xml | sed -n 's/.*<kotlin.version>\([^<]*\).*/\1/p')
 
 OS_NAME=$(uname -a)
 FOLDERHOME=`pwd`
 MVNTESTCMD="mvn -ntp -f ${FOLDERHOME}/gatling/pom.xml gatling:test -Dusers=8000 -Drepeat=4"
 
-MEMORY=$(free -m | awk 'NR==2{printf "Memory Usage: %s/%sMB (%.2f%%)\n", $3,$2,$3*100/$2 }')
-DISK=$(df -h | awk '$NF=="/"{printf "Disk Usage: %d/%dGB (%s)\n", $3,$2,$5}')
-CPU_LOAD=$(top -bn1 | grep load | awk '{printf "CPU Load: %.2f\n", $(NF-2)}') 
-CPU_CORE=$(nproc --all)
-CPU_MHZ=$(cat /proc/cpuinfo | grep "MHz")
+# Detect OS
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    # macOS
+    MEMORY=$(vm_stat | awk '/Pages active/ {active=$3} /Pages wired/ {wired=$4} /Pages free/ {free=$3} END {gsub(/\./, "", active); gsub(/\./, "", wired); gsub(/\./, "", free); total=(active+wired+free)*4096/1048576; used=(active+wired)*4096/1048576; printf "Memory Usage: %.0f/%.0fMB (%.2f%%)\n", used, total, used*100/total}')
+    DISK=$(df -h / | awk 'NR==2{printf "Disk Usage: %s/%s (%s)\n", $3,$2,$5}')
+    CPU_LOAD=$(sysctl -n vm.loadavg | awk '{printf "CPU Load: %.2f\n", $2}')
+    CPU_CORE=$(sysctl -n hw.ncpu)
+    CPU_MHZ=$(sysctl -n hw.cpufrequency | awk '{printf "CPU: %.0f MHz\n", $1/1000000}')
+else
+    # Linux
+    MEMORY=$(free -m | awk 'NR==2{printf "Memory Usage: %s/%sMB (%.2f%%)\n", $3,$2,$3*100/$2 }')
+    DISK=$(df -h | awk '$NF=="/"{printf "Disk Usage: %d/%dGB (%s)\n", $3,$2,$5}')
+    CPU_LOAD=$(top -bn1 | grep load | awk '{printf "CPU Load: %.2f\n", $(NF-2)}')
+    CPU_CORE=$(nproc --all)
+    CPU_MHZ=$(cat /proc/cpuinfo | grep "MHz")
+fi
 
 cat << EOF > test-result.md
 ---
@@ -63,7 +74,7 @@ writeGraph(){
   TABLE=$1
   MR=`echo $TABLE| tr '>' '\n'|grep 'mean response time'|awk '{print $4}'`
   R1=`echo $2|sed 's/ //g'|sed 's/-//g'` # clearing empty string and dashes
-  sed -i "s/$R1/$MR/g" $FOLDERHOME/graph.html
+  sed -i '' "s/$R1/$MR/g" $FOLDERHOME/graph.html
 }
 
 checkIs8080Up(){
@@ -138,7 +149,7 @@ runNativeBinaryTests(){
   graphVar=$3
   chmod +x "$exePath"
 
-  $exePath 2>&1 log.log &
+  $exePath &> log.log &
   EXETEST=$!
 
   checkIs8080Up
@@ -163,7 +174,7 @@ test "quarkus/target/quarkus-demo-runner.jar" "powered by Quarkus" "QUARKUS" "ht
 test "micronaut/target/micronaut-demo-$MICRO.jar" "micronaut version" "Startup completed in" "https://micronaut.io/"
 test "vertx/target/vertx-demo-$VERTX-fat.jar" "vertx version" "VERTX" "https://vertx.io/"
 test "eclipse-microprofile-kumuluz-test/target/eclipse-microprofile-kumuluz-test-$KUMULUZ.jar" "kumuluz version:" "Server -- Started" "https://ee.kumuluz.com/"
-test "helidon-se-netty/target/helidon-quickstart-se.jar" "Helidon SE" "HELIDON" "https://helidon.io/"
+#test "helidon-se-netty/target/helidon-quickstart-se.jar" "Helidon SE" "HELIDON" "https://helidon.io/"
 test "ktor/target/ktor-demo-${KTOR}-kotlin-${KOTLIN}-jar-with-dependencies.jar" "ktor" "KTOR" "https://ktor.io/"
 
 printf '***  \n' >> test-result.md
@@ -206,7 +217,7 @@ wget -qc https://github.com/ozkanpakdil/test-microservice-frameworks/releases/do
 wget -qc https://github.com/ozkanpakdil/test-microservice-frameworks/releases/download/latest/springboot-demo-web
 wget -qc https://github.com/ozkanpakdil/test-microservice-frameworks/releases/download/latest/springboot-webflux-demo
 wget -qc https://github.com/ozkanpakdil/test-microservice-frameworks/releases/download/latest/vertx-demo
-wget -qc https://github.com/ozkanpakdil/test-microservice-frameworks/releases/download/latest/helidon-quickstart-se
+#wget -qc https://github.com/ozkanpakdil/test-microservice-frameworks/releases/download/latest/helidon-quickstart-se
 wget -qc https://github.com/ozkanpakdil/test-microservice-frameworks/releases/download/latest/ktor-demo
 chmod a+x avaje-jex-jdk avaje-jex-robaho quarkus-demo-runner micronaut-demo springboot-demo-web springboot-webflux-demo vertx-demo helidon-quickstart-se ktor-demo
 
@@ -217,7 +228,7 @@ runNativeBinaryTests "./micronaut-demo" "graalvm native micronaut" "GRAALM1ICRON
 runNativeBinaryTests "./springboot-demo-web" "graalvm native spring-boot-web" "GRAALSPRING"
 runNativeBinaryTests "./springboot-webflux-demo" "graalvm native spring-boot-webflux" "GRAALWEBFLUX"
 runNativeBinaryTests "./vertx-demo" "graalvm native vertx" "GRAALV1ERTX"
-runNativeBinaryTests "./helidon-quickstart-se" "graalvm native helidon" "GRAALH1ELIDON"
+#runNativeBinaryTests "./helidon-quickstart-se" "graalvm native helidon" "GRAALH1ELIDON"
 runNativeBinaryTests "./ktor-demo" "graalvm native ktor rest service" "GRAALK1TOR"
 
 printf '***  \n' >> test-result.md
@@ -230,8 +241,8 @@ for binary in "./quarkus-demo-runner" \
               "./springboot-demo-web" \
               "./springboot-webflux-demo" \
               "./vertx-demo" \
-              "./helidon-quickstart-se" \
               "./ktor-demo"; do
+#              "./helidon-quickstart-se" \
     size=$(du -m "$binary" | cut -f1) # Get size in MB
     printf "| %s | %s |\n" "$size" "$(basename "$binary")" >> test-result.md
 done
