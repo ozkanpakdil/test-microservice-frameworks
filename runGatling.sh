@@ -74,7 +74,11 @@ writeGraph(){
   TABLE=$1
   MR=`echo $TABLE| tr '>' '\n'|grep 'mean response time'|awk '{print $4}'`
   R1=`echo $2|sed 's/ //g'|sed 's/-//g'` # clearing empty string and dashes
-  sed -i '' "s/$R1/$MR/g" $FOLDERHOME/graph.html
+  if [[ "$OSTYPE" == "darwin"* ]]; then
+    sed -i '' "s/$R1/$MR/g" $FOLDERHOME/graph.html
+  else
+    sed -i "s/$R1/$MR/g" $FOLDERHOME/graph.html
+  fi
 }
 
 checkIs8080Up(){
