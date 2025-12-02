@@ -223,7 +223,7 @@ wget -qc https://github.com/ozkanpakdil/test-microservice-frameworks/releases/do
 wget -qc https://github.com/ozkanpakdil/test-microservice-frameworks/releases/download/latest/vertx-demo
 #wget -qc https://github.com/ozkanpakdil/test-microservice-frameworks/releases/download/latest/helidon-quickstart-se
 wget -qc https://github.com/ozkanpakdil/test-microservice-frameworks/releases/download/latest/ktor-demo
-chmod a+x avaje-jex-jdk avaje-jex-robaho quarkus-demo-runner micronaut-demo springboot-demo-web springboot-webflux-demo vertx-demo helidon-quickstart-se ktor-demo
+chmod a+x avaje-jex-jdk avaje-jex-robaho quarkus-demo-runner micronaut-demo springboot-demo-web springboot-webflux-demo vertx-demo ktor-demo #helidon-quickstart-se
 
 runNativeBinaryTests "./avaje-jex-jdk" "graalvm native avaje" "GRAALA1VAJE"
 runNativeBinaryTests "./avaje-jex-robaho" "graalvm native avaje" "GRAALRO1BAHO"
