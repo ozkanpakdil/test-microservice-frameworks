@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Java microservice framework tests in A:3.3 SB:4.0.0 Q:3.30.1 M:4.10.2 V:5.0.5 H:4.3.2 Dotnet:7,8,9 openjdk version &#34;25.0.1&#34; 2025-10-21 rustc 1.91.1 (ed61e7d7e 2025-11-07) | Microservice Framework Tests</title>
+<meta name="keywords" content="microservice, quarkus, graalvm, kotlin, rust, dotnet">
+<meta name="description" content="In Linux runnervmg1sw1 6.11.0-1018-azure #18~24.04.1-Ubuntu SMP Sat Jun 28 04:46:03 UTC 2025 x86_64 x86_64 x86_64 GNU/Linux,
+Memory Usage: 1258/15995MB (7.86%)
+Disk Usage: 57/72GB (79%)
+CPU Load: 1.08
+CPU core count:4
+CPUs
+cpu MHz		: 3240.193
+cpu MHz		: 3244.008
+cpu MHz		: 3239.746
+cpu MHz		: 3242.390
+Below is total package generation times for separate modules,
+[INFO] Avaje Jex Example 3.3 .............................. SUCCESS [  3.017 s]
+[INFO] Avaje Jex Robaho Example 3.3 ....................... SUCCESS [  2.999 s]
+[INFO] eclipse-microprofile-kumuluz-test 4.1.0 ............ SUCCESS [  4.643 s]
+[INFO] ktor-demo 3.3.3-kotlin-2.2.21 ...................... SUCCESS [ 10.635 s]
+[INFO] micronaut-demo 4.10.2 .............................. SUCCESS [ 22.932 s]
+[INFO] quarkus-demo 3.30.1 ................................ SUCCESS [ 13.386 s]
+[INFO] springboot-webflux-demo 4.0.0 ...................... SUCCESS [  2.051 s]
+[INFO] springboot-demo-web 4.0.0 .......................... SUCCESS [  2.050 s]
+[INFO] vertx-demo 5.0.5 ................................... SUCCESS [  4.618 s]
+Size of created packages:">
+<meta name="author" content="">
+<link rel="canonical" href="https://ozkanpakdil.github.io/test-microservice-frameworks/posts/2025/2025-12-02-microservice-framework-test-25/">
+<link crossorigin="anonymous" href="/test-microservice-frameworks/assets/css/stylesheet.2211ca3164be7830024f6aad2b3a2e520843a64f8f048445c3401c1249aa051d.css" integrity="sha256-IhHKMWS&#43;eDACT2qtKzouUghDpk&#43;PBIRFw0AcEkmqBR0=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://ozkanpakdil.github.io/test-microservice-frameworks/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://ozkanpakdil.github.io/test-microservice-frameworks/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://ozkanpakdil.github.io/test-microservice-frameworks/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://ozkanpakdil.github.io/test-microservice-frameworks/apple-touch-icon.png">
+<link rel="mask-icon" href="https://ozkanpakdil.github.io/test-microservice-frameworks/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://ozkanpakdil.github.io/test-microservice-frameworks/posts/2025/2025-12-02-microservice-framework-test-25/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:url" content="https://ozkanpakdil.github.io/test-microservice-frameworks/posts/2025/2025-12-02-microservice-framework-test-25/">
+  <meta property="og:site_name" content="Microservice Framework Tests">
+  <meta property="og:title" content="Java microservice framework tests in A:3.3 SB:4.0.0 Q:3.30.1 M:4.10.2 V:5.0.5 H:4.3.2 Dotnet:7,8,9 openjdk version &#34;25.0.1&#34; 2025-10-21 rustc 1.91.1 (ed61e7d7e 2025-11-07)">
+  <meta property="og:description" content="In Linux runnervmg1sw1 6.11.0-1018-azure #18~24.04.1-Ubuntu SMP Sat Jun 28 04:46:03 UTC 2025 x86_64 x86_64 x86_64 GNU/Linux,
+Memory Usage: 1258/15995MB (7.86%) Disk Usage: 57/72GB (79%) CPU Load: 1.08 CPU core count:4 CPUs cpu MHz	: 3240.193 cpu MHz	: 3244.008 cpu MHz	: 3239.746 cpu MHz	: 3242.390 Below is total package generation times for separate modules,
+[INFO] Avaje Jex Example 3.3 .............................. SUCCESS [ 3.017 s] [INFO] Avaje Jex Robaho Example 3.3 ....................... SUCCESS [ 2.999 s] [INFO] eclipse-microprofile-kumuluz-test 4.1.0 ............ SUCCESS [ 4.643 s] [INFO] ktor-demo 3.3.3-kotlin-2.2.21 ...................... SUCCESS [ 10.635 s] [INFO] micronaut-demo 4.10.2 .............................. SUCCESS [ 22.932 s] [INFO] quarkus-demo 3.30.1 ................................ SUCCESS [ 13.386 s] [INFO] springboot-webflux-demo 4.0.0 ...................... SUCCESS [ 2.051 s] [INFO] springboot-demo-web 4.0.0 .......................... SUCCESS [ 2.050 s] [INFO] vertx-demo 5.0.5 ................................... SUCCESS [ 4.618 s] Size of created packages:">
+  <meta property="og:locale" content="en-us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-12-02T22:18:21+00:00">
+    <meta property="article:modified_time" content="2025-12-02T22:18:21+00:00">
+    <meta property="article:tag" content="Microservice">
+    <meta property="article:tag" content="Quarkus">
+    <meta property="article:tag" content="Graalvm">
+    <meta property="article:tag" content="Kotlin">
+    <meta property="article:tag" content="Rust">
+    <meta property="article:tag" content="Dotnet">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java microservice framework tests in A:3.3 SB:4.0.0 Q:3.30.1 M:4.10.2 V:5.0.5 H:4.3.2 Dotnet:7,8,9 openjdk version &#34;25.0.1&#34; 2025-10-21 rustc 1.91.1 (ed61e7d7e 2025-11-07)">
+<meta name="twitter:description" content="In Linux runnervmg1sw1 6.11.0-1018-azure #18~24.04.1-Ubuntu SMP Sat Jun 28 04:46:03 UTC 2025 x86_64 x86_64 x86_64 GNU/Linux,
+Memory Usage: 1258/15995MB (7.86%)
+Disk Usage: 57/72GB (79%)
+CPU Load: 1.08
+CPU core count:4
+CPUs
+cpu MHz		: 3240.193
+cpu MHz		: 3244.008
+cpu MHz		: 3239.746
+cpu MHz		: 3242.390
+Below is total package generation times for separate modules,
+[INFO] Avaje Jex Example 3.3 .............................. SUCCESS [  3.017 s]
+[INFO] Avaje Jex Robaho Example 3.3 ....................... SUCCESS [  2.999 s]
+[INFO] eclipse-microprofile-kumuluz-test 4.1.0 ............ SUCCESS [  4.643 s]
+[INFO] ktor-demo 3.3.3-kotlin-2.2.21 ...................... SUCCESS [ 10.635 s]
+[INFO] micronaut-demo 4.10.2 .............................. SUCCESS [ 22.932 s]
+[INFO] quarkus-demo 3.30.1 ................................ SUCCESS [ 13.386 s]
+[INFO] springboot-webflux-demo 4.0.0 ...................... SUCCESS [  2.051 s]
+[INFO] springboot-demo-web 4.0.0 .......................... SUCCESS [  2.050 s]
+[INFO] vertx-demo 5.0.5 ................................... SUCCESS [  4.618 s]
+Size of created packages:">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://ozkanpakdil.github.io/test-microservice-frameworks/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Java microservice framework tests in A:3.3 SB:4.0.0 Q:3.30.1 M:4.10.2 V:5.0.5 H:4.3.2 Dotnet:7,8,9 openjdk version \"25.0.1\" 2025-10-21 rustc 1.91.1 (ed61e7d7e 2025-11-07)",
+      "item": "https://ozkanpakdil.github.io/test-microservice-frameworks/posts/2025/2025-12-02-microservice-framework-test-25/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Java microservice framework tests in A:3.3 SB:4.0.0 Q:3.30.1 M:4.10.2 V:5.0.5 H:4.3.2 Dotnet:7,8,9 openjdk version \"25.0.1\" 2025-10-21 rustc 1.91.1 (ed61e7d7e 2025-11-07)",
+  "name": "Java microservice framework tests in A:3.3 SB:4.0.0 Q:3.30.1 M:4.10.2 V:5.0.5 H:4.3.2 Dotnet:7,8,9 openjdk version \u002225.0.1\u0022 2025-10-21 rustc 1.91.1 (ed61e7d7e 2025-11-07)",
+  "description": "In Linux runnervmg1sw1 6.11.0-1018-azure #18~24.04.1-Ubuntu SMP Sat Jun 28 04:46:03 UTC 2025 x86_64 x86_64 x86_64 GNU/Linux,\nMemory Usage: 1258/15995MB (7.86%) Disk Usage: 57/72GB (79%) CPU Load: 1.08 CPU core count:4 CPUs cpu MHz\t: 3240.193 cpu MHz\t: 3244.008 cpu MHz\t: 3239.746 cpu MHz\t: 3242.390 Below is total package generation times for separate modules,\n[INFO] Avaje Jex Example 3.3 .............................. SUCCESS [ 3.017 s] [INFO] Avaje Jex Robaho Example 3.3 ....................... SUCCESS [ 2.999 s] [INFO] eclipse-microprofile-kumuluz-test 4.1.0 ............ SUCCESS [ 4.643 s] [INFO] ktor-demo 3.3.3-kotlin-2.2.21 ...................... SUCCESS [ 10.635 s] [INFO] micronaut-demo 4.10.2 .............................. SUCCESS [ 22.932 s] [INFO] quarkus-demo 3.30.1 ................................ SUCCESS [ 13.386 s] [INFO] springboot-webflux-demo 4.0.0 ...................... SUCCESS [ 2.051 s] [INFO] springboot-demo-web 4.0.0 .......................... SUCCESS [ 2.050 s] [INFO] vertx-demo 5.0.5 ................................... SUCCESS [ 4.618 s] Size of created packages:\n",
+  "keywords": [
+    "microservice", "quarkus", "graalvm", "kotlin", "rust", "dotnet"
+  ],
+  "articleBody": "In Linux runnervmg1sw1 6.11.0-1018-azure #18~24.04.1-Ubuntu SMP Sat Jun 28 04:46:03 UTC 2025 x86_64 x86_64 x86_64 GNU/Linux,\nMemory Usage: 1258/15995MB (7.86%) Disk Usage: 57/72GB (79%) CPU Load: 1.08 CPU core count:4 CPUs cpu MHz\t: 3240.193 cpu MHz\t: 3244.008 cpu MHz\t: 3239.746 cpu MHz\t: 3242.390 Below is total package generation times for separate modules,\n[INFO] Avaje Jex Example 3.3 .............................. SUCCESS [ 3.017 s] [INFO] Avaje Jex Robaho Example 3.3 ....................... SUCCESS [ 2.999 s] [INFO] eclipse-microprofile-kumuluz-test 4.1.0 ............ SUCCESS [ 4.643 s] [INFO] ktor-demo 3.3.3-kotlin-2.2.21 ...................... SUCCESS [ 10.635 s] [INFO] micronaut-demo 4.10.2 .............................. SUCCESS [ 22.932 s] [INFO] quarkus-demo 3.30.1 ................................ SUCCESS [ 13.386 s] [INFO] springboot-webflux-demo 4.0.0 ...................... SUCCESS [ 2.051 s] [INFO] springboot-demo-web 4.0.0 .......................... SUCCESS [ 2.050 s] [INFO] vertx-demo 5.0.5 ................................... SUCCESS [ 4.618 s] Size of created packages:\nSize in MB Name 2.6M ./avaje-jex-jdk/target/avaje-jex-jdk-3.3.jar 2.6M ./avaje-jex-jdk/target/original-avaje-jex-jdk-3.3.jar 2.8M ./avaje-jex-robaho/target/avaje-jex-robaho-3.3.jar 2.8M ./avaje-jex-robaho/target/original-avaje-jex-robaho-3.3.jar 22M ./eclipse-microprofile-kumuluz-test/target/eclipse-microprofile-kumuluz-test-4.1.0.jar 20M ./ktor/target/ktor-demo-3.3.3-kotlin-2.2.21-jar-with-dependencies.jar 14M ./micronaut/target/micronaut-demo-4.10.2.jar 19M ./quarkus/target/quarkus-demo-runner.jar 19M ./spring-boot-web/target/springboot-demo-web-4.0.0.jar 43M ./spring-boot-webflux/target/springboot-webflux-demo-4.0.0.jar 8.4M ./vertx/target/vertx-demo-5.0.5-fat.jar Avaje Jex started class sun.net.httpserver.HttpServerImpl in 27ms on http://0:0:0:0:0:0:0:0:8080\n---- Global Information -------------------------------------------------------- \u003e request count 32000 (OK=32000 KO=0 ) \u003e min response time 0 (OK=0 KO=- ) \u003e max response time 25035 (OK=25035 KO=- ) \u003e mean response time 924 (OK=924 KO=- ) \u003e std deviation 1585 (OK=1585 KO=- ) \u003e response time 50th percentile 391 (OK=391 KO=- ) \u003e response time 75th percentile 1212 (OK=1212 KO=- ) \u003e response time 95th percentile 3406 (OK=3406 KO=- ) \u003e response time 99th percentile 5221 (OK=5221 KO=- ) \u003e mean requests/sec 1103.448 (OK=1103.448 KO=- ) started class robaho.net.httpserver.HttpServerImpl in 56ms on http://0.0.0.0:8080\n---- Global Information -------------------------------------------------------- \u003e request count 32000 (OK=32000 KO=0 ) \u003e min response time 6 (OK=6 KO=- ) \u003e max response time 2276 (OK=2276 KO=- ) \u003e mean response time 559 (OK=559 KO=- ) \u003e std deviation 347 (OK=347 KO=- ) \u003e response time 50th percentile 468 (OK=468 KO=- ) \u003e response time 75th percentile 598 (OK=598 KO=- ) \u003e response time 95th percentile 1114 (OK=1114 KO=- ) \u003e response time 99th percentile 1957 (OK=1957 KO=- ) \u003e mean requests/sec 4571.429 (OK=4571.429 KO=- ) :: Spring Boot :: (v4.0.0) Started DemoWebFluxApplication in 1.677 seconds (process running for 2.216)\n---- Global Information -------------------------------------------------------- \u003e request count 32000 (OK=32000 KO=0 ) \u003e min response time 0 (OK=0 KO=- ) \u003e max response time 9217 (OK=9217 KO=- ) \u003e mean response time 1267 (OK=1267 KO=- ) \u003e std deviation 2344 (OK=2344 KO=- ) \u003e response time 50th percentile 14 (OK=14 KO=- ) \u003e response time 75th percentile 287 (OK=282 KO=- ) \u003e response time 95th percentile 6490 (OK=6490 KO=- ) \u003e response time 99th percentile 8150 (OK=8150 KO=- ) \u003e mean requests/sec 2461.538 (OK=2461.538 KO=- ) :: Spring Boot :: (v4.0.0) Started DemoApplication in 1.577 seconds (process running for 2.028)\n---- Global Information -------------------------------------------------------- \u003e request count 32000 (OK=32000 KO=0 ) \u003e min response time 0 (OK=0 KO=- ) \u003e max response time 4683 (OK=4683 KO=- ) \u003e mean response time 1434 (OK=1434 KO=- ) \u003e std deviation 657 (OK=657 KO=- ) \u003e response time 50th percentile 1349 (OK=1349 KO=- ) \u003e response time 75th percentile 1617 (OK=1617 KO=- ) \u003e response time 95th percentile 2808 (OK=2809 KO=- ) \u003e response time 99th percentile 3364 (OK=3364 KO=- ) \u003e mean requests/sec 2909.091 (OK=2909.091 KO=- ) powered by Quarkus 3.30.1) started in 0.964s. Listening on: http://0.0.0.0:8080\n---- Global Information -------------------------------------------------------- \u003e request count 32000 (OK=32000 KO=0 ) \u003e min response time 43 (OK=43 KO=- ) \u003e max response time 2734 (OK=2734 KO=- ) \u003e mean response time 1197 (OK=1197 KO=- ) \u003e std deviation 560 (OK=560 KO=- ) \u003e response time 50th percentile 1068 (OK=1067 KO=- ) \u003e response time 75th percentile 1317 (OK=1317 KO=- ) \u003e response time 95th percentile 2337 (OK=2338 KO=- ) \u003e response time 99th percentile 2536 (OK=2536 KO=- ) \u003e mean requests/sec 3200 (OK=3200 KO=- ) micronaut version: 4.9.0 Startup completed in 658ms. Server Running: http://localhost:8080\n---- Global Information -------------------------------------------------------- \u003e request count 32000 (OK=32000 KO=0 ) \u003e min response time 17 (OK=17 KO=- ) \u003e max response time 2427 (OK=2427 KO=- ) \u003e mean response time 825 (OK=825 KO=- ) \u003e std deviation 387 (OK=387 KO=- ) \u003e response time 50th percentile 705 (OK=705 KO=- ) \u003e response time 75th percentile 1101 (OK=1101 KO=- ) \u003e response time 95th percentile 1562 (OK=1562 KO=- ) \u003e response time 99th percentile 1806 (OK=1806 KO=- ) \u003e mean requests/sec 4000 (OK=4000 KO=- ) vertx version:5.0.5\n---- Global Information -------------------------------------------------------- \u003e request count 32000 (OK=32000 KO=0 ) \u003e min response time 56 (OK=56 KO=- ) \u003e max response time 1915 (OK=1915 KO=- ) \u003e mean response time 987 (OK=987 KO=- ) \u003e std deviation 369 (OK=369 KO=- ) \u003e response time 50th percentile 993 (OK=993 KO=- ) \u003e response time 75th percentile 1297 (OK=1297 KO=- ) \u003e response time 95th percentile 1586 (OK=1586 KO=- ) \u003e response time 99th percentile 1732 (OK=1732 KO=- ) \u003e mean requests/sec 4000 (OK=4000 KO=- ) kumuluz version:4.1.0 Server – Started Server@6b3f6585{STARTING}[10.0.9,sto=0] @2749ms\n---- Global Information -------------------------------------------------------- \u003e request count 32000 (OK=32000 KO=0 ) \u003e min response time 22 (OK=22 KO=- ) \u003e max response time 8086 (OK=8086 KO=- ) \u003e mean response time 1611 (OK=1611 KO=- ) \u003e std deviation 1232 (OK=1232 KO=- ) \u003e response time 50th percentile 1222 (OK=1222 KO=- ) \u003e response time 75th percentile 1656 (OK=1656 KO=- ) \u003e response time 95th percentile 4406 (OK=4405 KO=- ) \u003e response time 99th percentile 6359 (OK=6359 KO=- ) \u003e mean requests/sec 2666.667 (OK=2666.667 KO=- ) ktor:3.3.3\n---- Global Information -------------------------------------------------------- \u003e request count 32000 (OK=32000 KO=0 ) \u003e min response time 0 (OK=0 KO=- ) \u003e max response time 6539 (OK=6539 KO=- ) \u003e mean response time 869 (OK=869 KO=- ) \u003e std deviation 1054 (OK=1054 KO=- ) \u003e response time 50th percentile 530 (OK=529 KO=- ) \u003e response time 75th percentile 1112 (OK=1112 KO=- ) \u003e response time 95th percentile 3372 (OK=3372 KO=- ) \u003e response time 99th percentile 4643 (OK=4643 KO=- ) \u003e mean requests/sec 3200 (OK=3200 KO=- ) Rust rest services rustc 1.91.1 (ed61e7d7e 2025-11-07)\nwarp = { version = 0.4, features = [server] }\n---- Global Information -------------------------------------------------------- \u003e request count 32000 (OK=32000 KO=0 ) \u003e min response time 0 (OK=0 KO=- ) \u003e max response time 646 (OK=646 KO=- ) \u003e mean response time 146 (OK=146 KO=- ) \u003e std deviation 147 (OK=147 KO=- ) \u003e response time 50th percentile 117 (OK=117 KO=- ) \u003e response time 75th percentile 223 (OK=223 KO=- ) \u003e response time 95th percentile 482 (OK=483 KO=- ) \u003e response time 99th percentile 580 (OK=580 KO=- ) \u003e mean requests/sec 6400 (OK=6400 KO=- ) actix-web = 4.9.0\n---- Global Information -------------------------------------------------------- \u003e request count 32000 (OK=32000 KO=0 ) \u003e min response time 0 (OK=0 KO=- ) \u003e max response time 668 (OK=668 KO=- ) \u003e mean response time 173 (OK=173 KO=- ) \u003e std deviation 154 (OK=154 KO=- ) \u003e response time 50th percentile 152 (OK=152 KO=- ) \u003e response time 75th percentile 247 (OK=246 KO=- ) \u003e response time 95th percentile 516 (OK=516 KO=- ) \u003e response time 99th percentile 612 (OK=612 KO=- ) \u003e mean requests/sec 6400 (OK=6400 KO=- ) rocket = { version = 0.5.1, features = [json] }\n---- Global Information -------------------------------------------------------- \u003e request count 32000 (OK=32000 KO=0 ) \u003e min response time 0 (OK=0 KO=- ) \u003e max response time 700 (OK=700 KO=- ) \u003e mean response time 223 (OK=223 KO=- ) \u003e std deviation 143 (OK=143 KO=- ) \u003e response time 50th percentile 199 (OK=199 KO=- ) \u003e response time 75th percentile 274 (OK=274 KO=- ) \u003e response time 95th percentile 537 (OK=537 KO=- ) \u003e response time 99th percentile 616 (OK=616 KO=- ) \u003e mean requests/sec 5333.333 (OK=5333.333 KO=- ) axum = 0.8.1\n---- Global Information -------------------------------------------------------- \u003e request count 32000 (OK=32000 KO=0 ) \u003e min response time 0 (OK=0 KO=- ) \u003e max response time 640 (OK=640 KO=- ) \u003e mean response time 165 (OK=165 KO=- ) \u003e std deviation 140 (OK=140 KO=- ) \u003e response time 50th percentile 143 (OK=143 KO=- ) \u003e response time 75th percentile 234 (OK=234 KO=- ) \u003e response time 95th percentile 483 (OK=483 KO=- ) \u003e response time 99th percentile 558 (OK=559 KO=- ) \u003e mean requests/sec 6400 (OK=6400 KO=- ) Dotnet 7 rest service ---- Global Information -------------------------------------------------------- \u003e request count 32000 (OK=32000 KO=0 ) \u003e min response time 1 (OK=1 KO=- ) \u003e max response time 784 (OK=784 KO=- ) \u003e mean response time 297 (OK=297 KO=- ) \u003e std deviation 156 (OK=156 KO=- ) \u003e response time 50th percentile 267 (OK=267 KO=- ) \u003e response time 75th percentile 360 (OK=360 KO=- ) \u003e response time 95th percentile 634 (OK=634 KO=- ) \u003e response time 99th percentile 736 (OK=736 KO=- ) \u003e mean requests/sec 5333.333 (OK=5333.333 KO=- ) Dotnet 8 rest service ---- Global Information -------------------------------------------------------- \u003e request count 32000 (OK=32000 KO=0 ) \u003e min response time 1 (OK=1 KO=- ) \u003e max response time 712 (OK=712 KO=- ) \u003e mean response time 231 (OK=231 KO=- ) \u003e std deviation 149 (OK=149 KO=- ) \u003e response time 50th percentile 201 (OK=201 KO=- ) \u003e response time 75th percentile 287 (OK=287 KO=- ) \u003e response time 95th percentile 572 (OK=572 KO=- ) \u003e response time 99th percentile 651 (OK=651 KO=- ) \u003e mean requests/sec 5333.333 (OK=5333.333 KO=- ) Dotnet 9 rest service ---- Global Information -------------------------------------------------------- \u003e request count 32000 (OK=32000 KO=0 ) \u003e min response time 1 (OK=1 KO=- ) \u003e max response time 737 (OK=737 KO=- ) \u003e mean response time 254 (OK=254 KO=- ) \u003e std deviation 146 (OK=146 KO=- ) \u003e response time 50th percentile 240 (OK=240 KO=- ) \u003e response time 75th percentile 314 (OK=314 KO=- ) \u003e response time 95th percentile 579 (OK=578 KO=- ) \u003e response time 99th percentile 663 (OK=663 KO=- ) \u003e mean requests/sec 5333.333 (OK=5333.333 KO=- ) graalvm native avaje ---- Global Information -------------------------------------------------------- \u003e request count 32000 (OK=32000 KO=0 ) \u003e min response time 0 (OK=0 KO=- ) \u003e max response time 4749 (OK=4749 KO=- ) \u003e mean response time 580 (OK=580 KO=- ) \u003e std deviation 816 (OK=816 KO=- ) \u003e response time 50th percentile 225 (OK=225 KO=- ) \u003e response time 75th percentile 689 (OK=689 KO=- ) \u003e response time 95th percentile 2346 (OK=2346 KO=- ) \u003e response time 99th percentile 3482 (OK=3482 KO=- ) \u003e mean requests/sec 4000 (OK=4000 KO=- ) graalvm native avaje ---- Global Information -------------------------------------------------------- \u003e request count 32000 (OK=32000 KO=0 ) \u003e min response time 0 (OK=0 KO=- ) \u003e max response time 2306 (OK=2306 KO=- ) \u003e mean response time 253 (OK=253 KO=- ) \u003e std deviation 300 (OK=300 KO=- ) \u003e response time 50th percentile 169 (OK=169 KO=- ) \u003e response time 75th percentile 275 (OK=275 KO=- ) \u003e response time 95th percentile 1075 (OK=1075 KO=- ) \u003e response time 99th percentile 1426 (OK=1426 KO=- ) \u003e mean requests/sec 5333.333 (OK=5333.333 KO=- ) graalvm native quarkus ---- Global Information -------------------------------------------------------- \u003e request count 32000 (OK=32000 KO=0 ) \u003e min response time 5 (OK=5 KO=- ) \u003e max response time 1088 (OK=1088 KO=- ) \u003e mean response time 434 (OK=434 KO=- ) \u003e std deviation 189 (OK=189 KO=- ) \u003e response time 50th percentile 408 (OK=408 KO=- ) \u003e response time 75th percentile 548 (OK=548 KO=- ) \u003e response time 95th percentile 787 (OK=787 KO=- ) \u003e response time 99th percentile 896 (OK=896 KO=- ) \u003e mean requests/sec 4571.429 (OK=4571.429 KO=- ) graalvm native micronaut ---- Global Information -------------------------------------------------------- \u003e request count 32000 (OK=32000 KO=0 ) \u003e min response time 5 (OK=5 KO=- ) \u003e max response time 1062 (OK=1062 KO=- ) \u003e mean response time 364 (OK=364 KO=- ) \u003e std deviation 169 (OK=169 KO=- ) \u003e response time 50th percentile 338 (OK=338 KO=- ) \u003e response time 75th percentile 442 (OK=442 KO=- ) \u003e response time 95th percentile 710 (OK=710 KO=- ) \u003e response time 99th percentile 802 (OK=802 KO=- ) \u003e mean requests/sec 5333.333 (OK=5333.333 KO=- ) graalvm native spring-boot-web ---- Global Information -------------------------------------------------------- \u003e request count 32000 (OK=32000 KO=0 ) \u003e min response time 0 (OK=0 KO=- ) \u003e max response time 4753 (OK=4753 KO=- ) \u003e mean response time 545 (OK=545 KO=- ) \u003e std deviation 509 (OK=509 KO=- ) \u003e response time 50th percentile 411 (OK=411 KO=- ) \u003e response time 75th percentile 557 (OK=557 KO=- ) \u003e response time 95th percentile 1510 (OK=1511 KO=- ) \u003e response time 99th percentile 2664 (OK=2664 KO=- ) \u003e mean requests/sec 4000 (OK=4000 KO=- ) graalvm native spring-boot-webflux ---- Global Information -------------------------------------------------------- \u003e request count 32000 (OK=32000 KO=0 ) \u003e min response time 0 (OK=0 KO=- ) \u003e max response time 2042 (OK=2042 KO=- ) \u003e mean response time 461 (OK=461 KO=- ) \u003e std deviation 586 (OK=586 KO=- ) \u003e response time 50th percentile 254 (OK=254 KO=- ) \u003e response time 75th percentile 484 (OK=485 KO=- ) \u003e response time 95th percentile 1919 (OK=1919 KO=- ) \u003e response time 99th percentile 1980 (OK=1980 KO=- ) \u003e mean requests/sec 4571.429 (OK=4571.429 KO=- ) graalvm native vertx ---- Global Information -------------------------------------------------------- \u003e request count 32000 (OK=32000 KO=0 ) \u003e min response time 34 (OK=34 KO=- ) \u003e max response time 771 (OK=771 KO=- ) \u003e mean response time 451 (OK=451 KO=- ) \u003e std deviation 152 (OK=152 KO=- ) \u003e response time 50th percentile 478 (OK=478 KO=- ) \u003e response time 75th percentile 570 (OK=570 KO=- ) \u003e response time 95th percentile 664 (OK=664 KO=- ) \u003e response time 99th percentile 708 (OK=708 KO=- ) \u003e mean requests/sec 4571.429 (OK=4571.429 KO=- ) graalvm native ktor rest service ---- Global Information -------------------------------------------------------- \u003e request count 32000 (OK=32000 KO=0 ) \u003e min response time 0 (OK=0 KO=- ) \u003e max response time 5411 (OK=5411 KO=- ) \u003e mean response time 515 (OK=515 KO=- ) \u003e std deviation 830 (OK=830 KO=- ) \u003e response time 50th percentile 143 (OK=142 KO=- ) \u003e response time 75th percentile 560 (OK=559 KO=- ) \u003e response time 95th percentile 2250 (OK=2250 KO=- ) \u003e response time 99th percentile 4206 (OK=4206 KO=- ) \u003e mean requests/sec 4000 (OK=4000 KO=- ) GraalVM Native Binaries Sizes: Size in MB Name 53 quarkus-demo-runner 74 micronaut-demo 79 springboot-demo-web 113 springboot-webflux-demo 54 vertx-demo 61 ktor-demo source code for the java and dotnet tests 👈 source code for the rust tests 👈 github action 👈\n",
+  "wordCount" : "2387",
+  "inLanguage": "en",
+  "datePublished": "2025-12-02T22:18:21Z",
+  "dateModified": "2025-12-02T22:18:21Z",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://ozkanpakdil.github.io/test-microservice-frameworks/posts/2025/2025-12-02-microservice-framework-test-25/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Microservice Framework Tests",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://ozkanpakdil.github.io/test-microservice-frameworks/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://ozkanpakdil.github.io/test-microservice-frameworks/" accesskey="h" title="Microservice Framework Tests (Alt + H)">Microservice Framework Tests</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://ozkanpakdil.github.io/" title="Main Blog">
+                    <span>Main Blog</span>&nbsp;
+                    <svg fill="none" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round" stroke-width="2.5" viewBox="0 0 24 24" height="12" width="12">
+                        <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
+                        <path d="M15 3h6v6"></path>
+                        <path d="M10 14L21 3"></path>
+                    </svg>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      Java microservice framework tests in A:3.3 SB:4.0.0 Q:3.30.1 M:4.10.2 V:5.0.5 H:4.3.2 Dotnet:7,8,9 openjdk version &#34;25.0.1&#34; 2025-10-21 rustc 1.91.1 (ed61e7d7e 2025-11-07)
+    </h1>
+    <div class="post-meta"><span title='2025-12-02 22:18:21 +0000 UTC'>December 2, 2025</span>
+
+</div>
+  </header> 
+  <div class="post-content"><p>In Linux runnervmg1sw1 6.11.0-1018-azure #18~24.04.1-Ubuntu SMP Sat Jun 28 04:46:03 UTC 2025 x86_64 x86_64 x86_64 GNU/Linux,</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>Memory Usage: 1258/15995MB <span style="color:#f92672">(</span>7.86%<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>Disk Usage: 57/72GB <span style="color:#f92672">(</span>79%<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>CPU Load: 1.08
+</span></span><span style="display:flex;"><span>CPU core count:4
+</span></span><span style="display:flex;"><span>CPUs
+</span></span><span style="display:flex;"><span>cpu MHz		: 3240.193
+</span></span><span style="display:flex;"><span>cpu MHz		: 3244.008
+</span></span><span style="display:flex;"><span>cpu MHz		: 3239.746
+</span></span><span style="display:flex;"><span>cpu MHz		: 3242.390
+</span></span></code></pre></div><p>Below is total package generation times for separate modules,</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#f92672">[</span>INFO<span style="color:#f92672">]</span> Avaje Jex Example 3.3 .............................. SUCCESS <span style="color:#f92672">[</span>  3.017 s<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>INFO<span style="color:#f92672">]</span> Avaje Jex Robaho Example 3.3 ....................... SUCCESS <span style="color:#f92672">[</span>  2.999 s<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>INFO<span style="color:#f92672">]</span> eclipse-microprofile-kumuluz-test 4.1.0 ............ SUCCESS <span style="color:#f92672">[</span>  4.643 s<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>INFO<span style="color:#f92672">]</span> ktor-demo 3.3.3-kotlin-2.2.21 ...................... SUCCESS <span style="color:#f92672">[</span> 10.635 s<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>INFO<span style="color:#f92672">]</span> micronaut-demo 4.10.2 .............................. SUCCESS <span style="color:#f92672">[</span> 22.932 s<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>INFO<span style="color:#f92672">]</span> quarkus-demo 3.30.1 ................................ SUCCESS <span style="color:#f92672">[</span> 13.386 s<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>INFO<span style="color:#f92672">]</span> springboot-webflux-demo 4.0.0 ...................... SUCCESS <span style="color:#f92672">[</span>  2.051 s<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>INFO<span style="color:#f92672">]</span> springboot-demo-web 4.0.0 .......................... SUCCESS <span style="color:#f92672">[</span>  2.050 s<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>INFO<span style="color:#f92672">]</span> vertx-demo 5.0.5 ................................... SUCCESS <span style="color:#f92672">[</span>  4.618 s<span style="color:#f92672">]</span>
+</span></span></code></pre></div><p>Size of created packages:</p>
+<table>
+  <thead>
+      <tr>
+          <th>Size in MB</th>
+          <th>Name</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>2.6M</td>
+          <td>./avaje-jex-jdk/target/avaje-jex-jdk-3.3.jar</td>
+      </tr>
+      <tr>
+          <td>2.6M</td>
+          <td>./avaje-jex-jdk/target/original-avaje-jex-jdk-3.3.jar</td>
+      </tr>
+      <tr>
+          <td>2.8M</td>
+          <td>./avaje-jex-robaho/target/avaje-jex-robaho-3.3.jar</td>
+      </tr>
+      <tr>
+          <td>2.8M</td>
+          <td>./avaje-jex-robaho/target/original-avaje-jex-robaho-3.3.jar</td>
+      </tr>
+      <tr>
+          <td>22M</td>
+          <td>./eclipse-microprofile-kumuluz-test/target/eclipse-microprofile-kumuluz-test-4.1.0.jar</td>
+      </tr>
+      <tr>
+          <td>20M</td>
+          <td>./ktor/target/ktor-demo-3.3.3-kotlin-2.2.21-jar-with-dependencies.jar</td>
+      </tr>
+      <tr>
+          <td>14M</td>
+          <td>./micronaut/target/micronaut-demo-4.10.2.jar</td>
+      </tr>
+      <tr>
+          <td>19M</td>
+          <td>./quarkus/target/quarkus-demo-runner.jar</td>
+      </tr>
+      <tr>
+          <td>19M</td>
+          <td>./spring-boot-web/target/springboot-demo-web-4.0.0.jar</td>
+      </tr>
+      <tr>
+          <td>43M</td>
+          <td>./spring-boot-webflux/target/springboot-webflux-demo-4.0.0.jar</td>
+      </tr>
+      <tr>
+          <td>8.4M</td>
+          <td>./vertx/target/vertx-demo-5.0.5-fat.jar</td>
+      </tr>
+  </tbody>
+</table>
+<p><a href="https://avaje.io/">Avaje Jex started class sun.net.httpserver.HttpServerImpl in 27ms on http://0:0:0:0:0:0:0:0:8080</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>---- Global Information --------------------------------------------------------
+</span></span><span style="display:flex;"><span>&gt; request count                                      <span style="color:#ae81ff">32000</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">32000</span>  KO<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; min response time                                      <span style="color:#ae81ff">0</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>      KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; max response time                                  <span style="color:#ae81ff">25035</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">25035</span>  KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; mean response time                                   <span style="color:#ae81ff">924</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">924</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; std deviation                                       <span style="color:#ae81ff">1585</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">1585</span>   KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 50th percentile                        <span style="color:#ae81ff">391</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">391</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 75th percentile                       <span style="color:#ae81ff">1212</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">1212</span>   KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 95th percentile                       <span style="color:#ae81ff">3406</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">3406</span>   KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 99th percentile                       <span style="color:#ae81ff">5221</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">5221</span>   KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; mean requests/sec                                1103.448 <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span>1103.448 KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span></code></pre></div><p><a href="https://github.com/robaho/httpserver">started class robaho.net.httpserver.HttpServerImpl in 56ms on http://0.0.0.0:8080</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>---- Global Information --------------------------------------------------------
+</span></span><span style="display:flex;"><span>&gt; request count                                      <span style="color:#ae81ff">32000</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">32000</span>  KO<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; min response time                                      <span style="color:#ae81ff">6</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">6</span>      KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; max response time                                   <span style="color:#ae81ff">2276</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">2276</span>   KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; mean response time                                   <span style="color:#ae81ff">559</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">559</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; std deviation                                        <span style="color:#ae81ff">347</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">347</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 50th percentile                        <span style="color:#ae81ff">468</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">468</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 75th percentile                        <span style="color:#ae81ff">598</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">598</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 95th percentile                       <span style="color:#ae81ff">1114</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">1114</span>   KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 99th percentile                       <span style="color:#ae81ff">1957</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">1957</span>   KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; mean requests/sec                                4571.429 <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span>4571.429 KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span></code></pre></div><p><a href="https://spring.io/projects/spring-boot">:: Spring Boot ::                (v4.0.0)</a>
+Started DemoWebFluxApplication in 1.677 seconds (process running for 2.216)</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>---- Global Information --------------------------------------------------------
+</span></span><span style="display:flex;"><span>&gt; request count                                      <span style="color:#ae81ff">32000</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">32000</span>  KO<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; min response time                                      <span style="color:#ae81ff">0</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>      KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; max response time                                   <span style="color:#ae81ff">9217</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">9217</span>   KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; mean response time                                  <span style="color:#ae81ff">1267</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">1267</span>   KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; std deviation                                       <span style="color:#ae81ff">2344</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">2344</span>   KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 50th percentile                         <span style="color:#ae81ff">14</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">14</span>     KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 75th percentile                        <span style="color:#ae81ff">287</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">282</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 95th percentile                       <span style="color:#ae81ff">6490</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">6490</span>   KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 99th percentile                       <span style="color:#ae81ff">8150</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">8150</span>   KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; mean requests/sec                                2461.538 <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span>2461.538 KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span></code></pre></div><p><a href="https://spring.io/projects/spring-boot">:: Spring Boot ::                (v4.0.0)</a>
+Started DemoApplication in 1.577 seconds (process running for 2.028)</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>---- Global Information --------------------------------------------------------
+</span></span><span style="display:flex;"><span>&gt; request count                                      <span style="color:#ae81ff">32000</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">32000</span>  KO<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; min response time                                      <span style="color:#ae81ff">0</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>      KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; max response time                                   <span style="color:#ae81ff">4683</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">4683</span>   KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; mean response time                                  <span style="color:#ae81ff">1434</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">1434</span>   KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; std deviation                                        <span style="color:#ae81ff">657</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">657</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 50th percentile                       <span style="color:#ae81ff">1349</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">1349</span>   KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 75th percentile                       <span style="color:#ae81ff">1617</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">1617</span>   KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 95th percentile                       <span style="color:#ae81ff">2808</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">2809</span>   KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 99th percentile                       <span style="color:#ae81ff">3364</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">3364</span>   KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; mean requests/sec                                2909.091 <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span>2909.091 KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span></code></pre></div><p><a href="https://quarkus.io/">powered by Quarkus 3.30.1) started in 0.964s. Listening on: http://0.0.0.0:8080</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>---- Global Information --------------------------------------------------------
+</span></span><span style="display:flex;"><span>&gt; request count                                      <span style="color:#ae81ff">32000</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">32000</span>  KO<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; min response time                                     <span style="color:#ae81ff">43</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">43</span>     KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; max response time                                   <span style="color:#ae81ff">2734</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">2734</span>   KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; mean response time                                  <span style="color:#ae81ff">1197</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">1197</span>   KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; std deviation                                        <span style="color:#ae81ff">560</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">560</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 50th percentile                       <span style="color:#ae81ff">1068</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">1067</span>   KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 75th percentile                       <span style="color:#ae81ff">1317</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">1317</span>   KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 95th percentile                       <span style="color:#ae81ff">2337</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">2338</span>   KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 99th percentile                       <span style="color:#ae81ff">2536</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">2536</span>   KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; mean requests/sec                                   <span style="color:#ae81ff">3200</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">3200</span>   KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span></code></pre></div><p><a href="https://micronaut.io/">micronaut version: 4.9.0</a>
+Startup completed in 658ms. Server Running: http://localhost:8080</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>---- Global Information --------------------------------------------------------
+</span></span><span style="display:flex;"><span>&gt; request count                                      <span style="color:#ae81ff">32000</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">32000</span>  KO<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; min response time                                     <span style="color:#ae81ff">17</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">17</span>     KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; max response time                                   <span style="color:#ae81ff">2427</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">2427</span>   KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; mean response time                                   <span style="color:#ae81ff">825</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">825</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; std deviation                                        <span style="color:#ae81ff">387</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">387</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 50th percentile                        <span style="color:#ae81ff">705</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">705</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 75th percentile                       <span style="color:#ae81ff">1101</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">1101</span>   KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 95th percentile                       <span style="color:#ae81ff">1562</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">1562</span>   KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 99th percentile                       <span style="color:#ae81ff">1806</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">1806</span>   KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; mean requests/sec                                   <span style="color:#ae81ff">4000</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">4000</span>   KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span></code></pre></div><p><a href="https://vertx.io/">vertx version:5.0.5</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>---- Global Information --------------------------------------------------------
+</span></span><span style="display:flex;"><span>&gt; request count                                      <span style="color:#ae81ff">32000</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">32000</span>  KO<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; min response time                                     <span style="color:#ae81ff">56</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">56</span>     KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; max response time                                   <span style="color:#ae81ff">1915</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">1915</span>   KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; mean response time                                   <span style="color:#ae81ff">987</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">987</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; std deviation                                        <span style="color:#ae81ff">369</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">369</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 50th percentile                        <span style="color:#ae81ff">993</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">993</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 75th percentile                       <span style="color:#ae81ff">1297</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">1297</span>   KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 95th percentile                       <span style="color:#ae81ff">1586</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">1586</span>   KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 99th percentile                       <span style="color:#ae81ff">1732</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">1732</span>   KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; mean requests/sec                                   <span style="color:#ae81ff">4000</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">4000</span>   KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span></code></pre></div><p><a href="https://ee.kumuluz.com/">kumuluz version:4.1.0</a>
+Server &ndash; Started Server@6b3f6585{STARTING}[10.0.9,sto=0] @2749ms</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>---- Global Information --------------------------------------------------------
+</span></span><span style="display:flex;"><span>&gt; request count                                      <span style="color:#ae81ff">32000</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">32000</span>  KO<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; min response time                                     <span style="color:#ae81ff">22</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">22</span>     KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; max response time                                   <span style="color:#ae81ff">8086</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">8086</span>   KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; mean response time                                  <span style="color:#ae81ff">1611</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">1611</span>   KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; std deviation                                       <span style="color:#ae81ff">1232</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">1232</span>   KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 50th percentile                       <span style="color:#ae81ff">1222</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">1222</span>   KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 75th percentile                       <span style="color:#ae81ff">1656</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">1656</span>   KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 95th percentile                       <span style="color:#ae81ff">4406</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">4405</span>   KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 99th percentile                       <span style="color:#ae81ff">6359</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">6359</span>   KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; mean requests/sec                                2666.667 <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span>2666.667 KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span></code></pre></div><p><a href="https://ktor.io/">ktor:3.3.3</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>---- Global Information --------------------------------------------------------
+</span></span><span style="display:flex;"><span>&gt; request count                                      <span style="color:#ae81ff">32000</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">32000</span>  KO<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; min response time                                      <span style="color:#ae81ff">0</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>      KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; max response time                                   <span style="color:#ae81ff">6539</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">6539</span>   KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; mean response time                                   <span style="color:#ae81ff">869</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">869</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; std deviation                                       <span style="color:#ae81ff">1054</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">1054</span>   KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 50th percentile                        <span style="color:#ae81ff">530</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">529</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 75th percentile                       <span style="color:#ae81ff">1112</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">1112</span>   KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 95th percentile                       <span style="color:#ae81ff">3372</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">3372</span>   KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 99th percentile                       <span style="color:#ae81ff">4643</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">4643</span>   KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; mean requests/sec                                   <span style="color:#ae81ff">3200</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">3200</span>   KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span></code></pre></div><hr>
+<h2 id="rust-rest-services">Rust rest services<a hidden class="anchor" aria-hidden="true" href="#rust-rest-services">#</a></h2>
+<p>rustc 1.91.1 (ed61e7d7e 2025-11-07)</p>
+<p><a href="http://docs.rs/warp">warp = { version = 0.4, features = [server] }</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>---- Global Information --------------------------------------------------------
+</span></span><span style="display:flex;"><span>&gt; request count                                      <span style="color:#ae81ff">32000</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">32000</span>  KO<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; min response time                                      <span style="color:#ae81ff">0</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>      KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; max response time                                    <span style="color:#ae81ff">646</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">646</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; mean response time                                   <span style="color:#ae81ff">146</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">146</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; std deviation                                        <span style="color:#ae81ff">147</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">147</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 50th percentile                        <span style="color:#ae81ff">117</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">117</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 75th percentile                        <span style="color:#ae81ff">223</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">223</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 95th percentile                        <span style="color:#ae81ff">482</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">483</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 99th percentile                        <span style="color:#ae81ff">580</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">580</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; mean requests/sec                                   <span style="color:#ae81ff">6400</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">6400</span>   KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span></code></pre></div><p><a href="http://docs.rs/actix-web">actix-web = 4.9.0</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>---- Global Information --------------------------------------------------------
+</span></span><span style="display:flex;"><span>&gt; request count                                      <span style="color:#ae81ff">32000</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">32000</span>  KO<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; min response time                                      <span style="color:#ae81ff">0</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>      KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; max response time                                    <span style="color:#ae81ff">668</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">668</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; mean response time                                   <span style="color:#ae81ff">173</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">173</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; std deviation                                        <span style="color:#ae81ff">154</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">154</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 50th percentile                        <span style="color:#ae81ff">152</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">152</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 75th percentile                        <span style="color:#ae81ff">247</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">246</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 95th percentile                        <span style="color:#ae81ff">516</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">516</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 99th percentile                        <span style="color:#ae81ff">612</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">612</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; mean requests/sec                                   <span style="color:#ae81ff">6400</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">6400</span>   KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span></code></pre></div><p><a href="http://docs.rs/rocket">rocket = { version = 0.5.1, features = [json] }</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>---- Global Information --------------------------------------------------------
+</span></span><span style="display:flex;"><span>&gt; request count                                      <span style="color:#ae81ff">32000</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">32000</span>  KO<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; min response time                                      <span style="color:#ae81ff">0</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>      KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; max response time                                    <span style="color:#ae81ff">700</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">700</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; mean response time                                   <span style="color:#ae81ff">223</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">223</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; std deviation                                        <span style="color:#ae81ff">143</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">143</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 50th percentile                        <span style="color:#ae81ff">199</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">199</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 75th percentile                        <span style="color:#ae81ff">274</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">274</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 95th percentile                        <span style="color:#ae81ff">537</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">537</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 99th percentile                        <span style="color:#ae81ff">616</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">616</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; mean requests/sec                                5333.333 <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span>5333.333 KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span></code></pre></div><p><a href="http://docs.rs/axum">axum = 0.8.1</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>---- Global Information --------------------------------------------------------
+</span></span><span style="display:flex;"><span>&gt; request count                                      <span style="color:#ae81ff">32000</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">32000</span>  KO<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; min response time                                      <span style="color:#ae81ff">0</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>      KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; max response time                                    <span style="color:#ae81ff">640</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">640</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; mean response time                                   <span style="color:#ae81ff">165</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">165</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; std deviation                                        <span style="color:#ae81ff">140</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">140</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 50th percentile                        <span style="color:#ae81ff">143</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">143</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 75th percentile                        <span style="color:#ae81ff">234</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">234</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 95th percentile                        <span style="color:#ae81ff">483</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">483</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 99th percentile                        <span style="color:#ae81ff">558</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">559</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; mean requests/sec                                   <span style="color:#ae81ff">6400</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">6400</span>   KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span></code></pre></div><hr>
+<h2 id="dotnet-7-rest-service">Dotnet 7 rest service<a hidden class="anchor" aria-hidden="true" href="#dotnet-7-rest-service">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>---- Global Information --------------------------------------------------------
+</span></span><span style="display:flex;"><span>&gt; request count                                      <span style="color:#ae81ff">32000</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">32000</span>  KO<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; min response time                                      <span style="color:#ae81ff">1</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>      KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; max response time                                    <span style="color:#ae81ff">784</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">784</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; mean response time                                   <span style="color:#ae81ff">297</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">297</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; std deviation                                        <span style="color:#ae81ff">156</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">156</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 50th percentile                        <span style="color:#ae81ff">267</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">267</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 75th percentile                        <span style="color:#ae81ff">360</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">360</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 95th percentile                        <span style="color:#ae81ff">634</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">634</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 99th percentile                        <span style="color:#ae81ff">736</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">736</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; mean requests/sec                                5333.333 <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span>5333.333 KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span></code></pre></div><hr>
+<h2 id="dotnet-8-rest-service">Dotnet 8 rest service<a hidden class="anchor" aria-hidden="true" href="#dotnet-8-rest-service">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>---- Global Information --------------------------------------------------------
+</span></span><span style="display:flex;"><span>&gt; request count                                      <span style="color:#ae81ff">32000</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">32000</span>  KO<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; min response time                                      <span style="color:#ae81ff">1</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>      KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; max response time                                    <span style="color:#ae81ff">712</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">712</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; mean response time                                   <span style="color:#ae81ff">231</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">231</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; std deviation                                        <span style="color:#ae81ff">149</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">149</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 50th percentile                        <span style="color:#ae81ff">201</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">201</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 75th percentile                        <span style="color:#ae81ff">287</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">287</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 95th percentile                        <span style="color:#ae81ff">572</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">572</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 99th percentile                        <span style="color:#ae81ff">651</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">651</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; mean requests/sec                                5333.333 <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span>5333.333 KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span></code></pre></div><hr>
+<h2 id="dotnet-9-rest-service">Dotnet 9 rest service<a hidden class="anchor" aria-hidden="true" href="#dotnet-9-rest-service">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>---- Global Information --------------------------------------------------------
+</span></span><span style="display:flex;"><span>&gt; request count                                      <span style="color:#ae81ff">32000</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">32000</span>  KO<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; min response time                                      <span style="color:#ae81ff">1</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>      KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; max response time                                    <span style="color:#ae81ff">737</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">737</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; mean response time                                   <span style="color:#ae81ff">254</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">254</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; std deviation                                        <span style="color:#ae81ff">146</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">146</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 50th percentile                        <span style="color:#ae81ff">240</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">240</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 75th percentile                        <span style="color:#ae81ff">314</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">314</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 95th percentile                        <span style="color:#ae81ff">579</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">578</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 99th percentile                        <span style="color:#ae81ff">663</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">663</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; mean requests/sec                                5333.333 <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span>5333.333 KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span></code></pre></div><hr>
+<h2 id="graalvm-native-avaje">graalvm native avaje<a hidden class="anchor" aria-hidden="true" href="#graalvm-native-avaje">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>---- Global Information --------------------------------------------------------
+</span></span><span style="display:flex;"><span>&gt; request count                                      <span style="color:#ae81ff">32000</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">32000</span>  KO<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; min response time                                      <span style="color:#ae81ff">0</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>      KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; max response time                                   <span style="color:#ae81ff">4749</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">4749</span>   KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; mean response time                                   <span style="color:#ae81ff">580</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">580</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; std deviation                                        <span style="color:#ae81ff">816</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">816</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 50th percentile                        <span style="color:#ae81ff">225</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">225</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 75th percentile                        <span style="color:#ae81ff">689</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">689</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 95th percentile                       <span style="color:#ae81ff">2346</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">2346</span>   KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 99th percentile                       <span style="color:#ae81ff">3482</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">3482</span>   KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; mean requests/sec                                   <span style="color:#ae81ff">4000</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">4000</span>   KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span></code></pre></div><hr>
+<h2 id="graalvm-native-avaje-1">graalvm native avaje<a hidden class="anchor" aria-hidden="true" href="#graalvm-native-avaje-1">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>---- Global Information --------------------------------------------------------
+</span></span><span style="display:flex;"><span>&gt; request count                                      <span style="color:#ae81ff">32000</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">32000</span>  KO<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; min response time                                      <span style="color:#ae81ff">0</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>      KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; max response time                                   <span style="color:#ae81ff">2306</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">2306</span>   KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; mean response time                                   <span style="color:#ae81ff">253</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">253</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; std deviation                                        <span style="color:#ae81ff">300</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">300</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 50th percentile                        <span style="color:#ae81ff">169</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">169</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 75th percentile                        <span style="color:#ae81ff">275</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">275</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 95th percentile                       <span style="color:#ae81ff">1075</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">1075</span>   KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 99th percentile                       <span style="color:#ae81ff">1426</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">1426</span>   KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; mean requests/sec                                5333.333 <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span>5333.333 KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span></code></pre></div><hr>
+<h2 id="graalvm-native-quarkus">graalvm native quarkus<a hidden class="anchor" aria-hidden="true" href="#graalvm-native-quarkus">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>---- Global Information --------------------------------------------------------
+</span></span><span style="display:flex;"><span>&gt; request count                                      <span style="color:#ae81ff">32000</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">32000</span>  KO<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; min response time                                      <span style="color:#ae81ff">5</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">5</span>      KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; max response time                                   <span style="color:#ae81ff">1088</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">1088</span>   KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; mean response time                                   <span style="color:#ae81ff">434</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">434</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; std deviation                                        <span style="color:#ae81ff">189</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">189</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 50th percentile                        <span style="color:#ae81ff">408</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">408</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 75th percentile                        <span style="color:#ae81ff">548</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">548</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 95th percentile                        <span style="color:#ae81ff">787</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">787</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 99th percentile                        <span style="color:#ae81ff">896</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">896</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; mean requests/sec                                4571.429 <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span>4571.429 KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span></code></pre></div><hr>
+<h2 id="graalvm-native-micronaut">graalvm native micronaut<a hidden class="anchor" aria-hidden="true" href="#graalvm-native-micronaut">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>---- Global Information --------------------------------------------------------
+</span></span><span style="display:flex;"><span>&gt; request count                                      <span style="color:#ae81ff">32000</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">32000</span>  KO<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; min response time                                      <span style="color:#ae81ff">5</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">5</span>      KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; max response time                                   <span style="color:#ae81ff">1062</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">1062</span>   KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; mean response time                                   <span style="color:#ae81ff">364</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">364</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; std deviation                                        <span style="color:#ae81ff">169</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">169</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 50th percentile                        <span style="color:#ae81ff">338</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">338</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 75th percentile                        <span style="color:#ae81ff">442</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">442</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 95th percentile                        <span style="color:#ae81ff">710</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">710</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 99th percentile                        <span style="color:#ae81ff">802</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">802</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; mean requests/sec                                5333.333 <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span>5333.333 KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span></code></pre></div><hr>
+<h2 id="graalvm-native-spring-boot-web">graalvm native spring-boot-web<a hidden class="anchor" aria-hidden="true" href="#graalvm-native-spring-boot-web">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>---- Global Information --------------------------------------------------------
+</span></span><span style="display:flex;"><span>&gt; request count                                      <span style="color:#ae81ff">32000</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">32000</span>  KO<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; min response time                                      <span style="color:#ae81ff">0</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>      KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; max response time                                   <span style="color:#ae81ff">4753</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">4753</span>   KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; mean response time                                   <span style="color:#ae81ff">545</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">545</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; std deviation                                        <span style="color:#ae81ff">509</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">509</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 50th percentile                        <span style="color:#ae81ff">411</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">411</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 75th percentile                        <span style="color:#ae81ff">557</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">557</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 95th percentile                       <span style="color:#ae81ff">1510</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">1511</span>   KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 99th percentile                       <span style="color:#ae81ff">2664</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">2664</span>   KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; mean requests/sec                                   <span style="color:#ae81ff">4000</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">4000</span>   KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span></code></pre></div><hr>
+<h2 id="graalvm-native-spring-boot-webflux">graalvm native spring-boot-webflux<a hidden class="anchor" aria-hidden="true" href="#graalvm-native-spring-boot-webflux">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>---- Global Information --------------------------------------------------------
+</span></span><span style="display:flex;"><span>&gt; request count                                      <span style="color:#ae81ff">32000</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">32000</span>  KO<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; min response time                                      <span style="color:#ae81ff">0</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>      KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; max response time                                   <span style="color:#ae81ff">2042</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">2042</span>   KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; mean response time                                   <span style="color:#ae81ff">461</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">461</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; std deviation                                        <span style="color:#ae81ff">586</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">586</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 50th percentile                        <span style="color:#ae81ff">254</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">254</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 75th percentile                        <span style="color:#ae81ff">484</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">485</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 95th percentile                       <span style="color:#ae81ff">1919</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">1919</span>   KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 99th percentile                       <span style="color:#ae81ff">1980</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">1980</span>   KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; mean requests/sec                                4571.429 <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span>4571.429 KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span></code></pre></div><hr>
+<h2 id="graalvm-native-vertx">graalvm native vertx<a hidden class="anchor" aria-hidden="true" href="#graalvm-native-vertx">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>---- Global Information --------------------------------------------------------
+</span></span><span style="display:flex;"><span>&gt; request count                                      <span style="color:#ae81ff">32000</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">32000</span>  KO<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; min response time                                     <span style="color:#ae81ff">34</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">34</span>     KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; max response time                                    <span style="color:#ae81ff">771</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">771</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; mean response time                                   <span style="color:#ae81ff">451</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">451</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; std deviation                                        <span style="color:#ae81ff">152</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">152</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 50th percentile                        <span style="color:#ae81ff">478</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">478</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 75th percentile                        <span style="color:#ae81ff">570</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">570</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 95th percentile                        <span style="color:#ae81ff">664</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">664</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 99th percentile                        <span style="color:#ae81ff">708</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">708</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; mean requests/sec                                4571.429 <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span>4571.429 KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span></code></pre></div><hr>
+<h2 id="graalvm-native-ktor-rest-service">graalvm native ktor rest service<a hidden class="anchor" aria-hidden="true" href="#graalvm-native-ktor-rest-service">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>---- Global Information --------------------------------------------------------
+</span></span><span style="display:flex;"><span>&gt; request count                                      <span style="color:#ae81ff">32000</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">32000</span>  KO<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; min response time                                      <span style="color:#ae81ff">0</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>      KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; max response time                                   <span style="color:#ae81ff">5411</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">5411</span>   KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; mean response time                                   <span style="color:#ae81ff">515</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">515</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; std deviation                                        <span style="color:#ae81ff">830</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">830</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 50th percentile                        <span style="color:#ae81ff">143</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">142</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 75th percentile                        <span style="color:#ae81ff">560</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">559</span>    KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 95th percentile                       <span style="color:#ae81ff">2250</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">2250</span>   KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; response time 99th percentile                       <span style="color:#ae81ff">4206</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">4206</span>   KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; mean requests/sec                                   <span style="color:#ae81ff">4000</span> <span style="color:#f92672">(</span>OK<span style="color:#f92672">=</span><span style="color:#ae81ff">4000</span>   KO<span style="color:#f92672">=</span>-     <span style="color:#f92672">)</span>
+</span></span></code></pre></div><hr>
+<h2 id="graalvm-native-binaries-sizes">GraalVM Native Binaries Sizes:<a hidden class="anchor" aria-hidden="true" href="#graalvm-native-binaries-sizes">#</a></h2>
+<table>
+  <thead>
+      <tr>
+          <th>Size in MB</th>
+          <th>Name</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>53</td>
+          <td>quarkus-demo-runner</td>
+      </tr>
+      <tr>
+          <td>74</td>
+          <td>micronaut-demo</td>
+      </tr>
+      <tr>
+          <td>79</td>
+          <td>springboot-demo-web</td>
+      </tr>
+      <tr>
+          <td>113</td>
+          <td>springboot-webflux-demo</td>
+      </tr>
+      <tr>
+          <td>54</td>
+          <td>vertx-demo</td>
+      </tr>
+      <tr>
+          <td>61</td>
+          <td>ktor-demo</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<p><a href="https://github.com/ozkanpakdil/test-microservice-frameworks">source code for the java and dotnet tests</a>  👈 <a href="https://github.com/ozkanpakdil/rust-examples">source code for the rust tests</a>  👈 <a href="https://github.com/ozkanpakdil/test-microservice-frameworks/actions/runs/19875296596">github action</a>  👈</p>
+<script src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+    google.charts.load('current', {
+        packages: ['corechart'],
+        callback: drawChart
+    });
+
+    function drawChart() {
+        var dataSource = new google.visualization.arrayToDataTable([
+            ['Framework', 'Response', 'Graal'],
+            ["Avaje", 924, 580],
+            ["Robaho", 559, 253],
+            ["Spring", 1434, 545],
+            ["Webflux", 1267, 461],
+            ["Quarkus", 1197, 434],
+            ["Micronaut", 825, 364],
+            ['Vertx', 987, 451],
+            ['Ktor', 869, 515],
+            ['Helidon', HELIDON, GRAALH1ELIDON],
+            ['Kumuluz', 1611, 0],
+            ['R-Rocket', 223, 0],
+            ['RustAxum', 165, 0],
+            ['R-Actix', 173, 0],
+            ['R-Warp', 146, 0],
+            ['.net 7 AOT', 297, 0],
+            ['.net 8 AOT', 231, 0],
+            ['.net 9 AOT', 254, 0],
+        ]);
+        const postContentDiv = document.getElementsByClassName('post-content').item(0);
+        const chartDiv = document.createElement("div");
+        postContentDiv.prepend(chartDiv);
+
+        var chart = new google.visualization.BarChart(chartDiv);
+        var view = new google.visualization.DataView(dataSource);
+        view.setColumns([0, 1,
+            {calc: "stringify", sourceColumn: 1, type: "string", role: "annotation"},
+            2, {calc: "stringify", sourceColumn: 2, type: "string", role: "annotation"},]);
+
+        function drawDynamicChart() {
+            const containerWidth = postContentDiv.offsetWidth;
+            const chartOptions = {
+                width: containerWidth,
+                height: 800,
+                hAxis: {title: 'Mean response in milli seconds'},
+                vAxis: {title: 'Framework', slantedText: true, slantedTextAngle: 45},
+                bar: {groupWidth: "95%"},
+                title: "Frameworks vs JVM vs Rust vs Graal(lower is the better/faster)",
+                chartArea: {width: '80%', height: '80%'},
+                legend: {position: 'bottom'}
+            };
+            chart.draw(view, chartOptions);
+        }
+
+        drawDynamicChart();
+        window.addEventListener('resize', drawDynamicChart, false);
+    }
+</script>
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://ozkanpakdil.github.io/test-microservice-frameworks/tags/microservice/">Microservice</a></li>
+      <li><a href="https://ozkanpakdil.github.io/test-microservice-frameworks/tags/quarkus/">Quarkus</a></li>
+      <li><a href="https://ozkanpakdil.github.io/test-microservice-frameworks/tags/graalvm/">Graalvm</a></li>
+      <li><a href="https://ozkanpakdil.github.io/test-microservice-frameworks/tags/kotlin/">Kotlin</a></li>
+      <li><a href="https://ozkanpakdil.github.io/test-microservice-frameworks/tags/rust/">Rust</a></li>
+      <li><a href="https://ozkanpakdil.github.io/test-microservice-frameworks/tags/dotnet/">Dotnet</a></li>
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2025 <a href="https://ozkanpakdil.github.io/test-microservice-frameworks/">Microservice Framework Tests</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>
