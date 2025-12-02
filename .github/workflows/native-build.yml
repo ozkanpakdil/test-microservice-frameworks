@@ -12,11 +12,13 @@ on:
       - '**/pom.xml'
       - '**/*.java'
       - '**/*.kt'
+      - 'golang/**'
   pull_request:
     paths:
       - '**/pom.xml'
       - '**/*.java'
       - '**/*.kt'
+      - 'golang/**'
 
 permissions:
   contents: 'write'
@@ -43,8 +45,8 @@ jobs:
           if [ "${{ github.event_name }}" = "workflow_call" ]; then
             echo "skip=false" >> $GITHUB_OUTPUT
           else
-            # Check if any pom.xml or Java files have changed
-            if git diff --name-only ${{ github.event.before }} ${{ github.sha }} | grep -E '\.(java|kt)$|pom\.xml$'; then
+            # Check if any pom.xml, Java, Kotlin or Go files have changed
+            if git diff --name-only ${{ github.event.before }} ${{ github.sha }} | grep -E '\.(java|kt|go)$|pom\.xml$|go\.mod$'; then
               echo "skip=false" >> $GITHUB_OUTPUT
             else
               echo "skip=true" >> $GITHUB_OUTPUT
@@ -58,6 +60,11 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           native-image-job-reports: 'true'
           distribution: 'graalvm-community'
+      - name: Set up Go
+        if: steps.changes.outputs.skip == 'false'
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.25'
       - name: graalvm builds
         if: steps.changes.outputs.skip == 'false'
         run: |
@@ -70,6 +77,11 @@ jobs:
           mvn -ntp package -Pnative,native-image -Dpackaging=native-image -DskipTests -f ktor/pom.xml
           mvn -ntp package -Pnative,native-image -Dpackaging=native-image -DskipTests -f vertx/pom.xml
           # mvn -ntp package -Pnative,native-image -Dpackaging=native-image -DskipTests -f helidon-se-netty/pom.xml
+      - name: Build Golang service
+        if: steps.changes.outputs.skip == 'false'
+        run: |
+          cd golang
+          CGO_ENABLED=0 go build -o golang-demo .
 
       - uses: marvinpinto/action-automatic-releases@latest
         if: steps.changes.outputs.skip == 'false'
@@ -87,4 +99,5 @@ jobs:
             ./spring-boot-webflux/target/springboot-webflux-demo
             ./vertx/target/vertx-demo
             ./ktor/target/ktor-demo
+            ./golang/golang-demo
             # ./helidon-se-netty/target/helidon-quickstart-se

@@ -6,6 +6,7 @@ mvn -ntp clean package
 
 JAVA_VERSION=$(java -version 2>&1 |grep version)
 RUST_VERSION=$(rustc --version)
+GO_VERSION=$(go version)
 DATE=$(date +"%Y-%m-%d %T")
 AVAJE=$(grep -A1 avaje-jex-parent avaje-jex-jdk/pom.xml | sed -n 's/.*<version>\([^<]*\).*/\1/p')
 SB=$(grep -A1 spring-boot-starter-parent spring-boot-web/pom.xml | sed -n 's/.*<version>\([^<]*\).*/\1/p')
@@ -41,9 +42,9 @@ fi
 cat << EOF > test-result.md
 ---
 type: post
-title: 'Java microservice framework tests in A:$AVAJE SB:$SB Q:$QU M:$MICRO V:$VERTX H:$HEL Dotnet:7,8,9 $JAVA_VERSION $RUST_VERSION'
+title: 'Java microservice framework tests in A:$AVAJE SB:$SB Q:$QU M:$MICRO V:$VERTX H:$HEL Dotnet:7,8,9 $JAVA_VERSION $RUST_VERSION $GO_VERSION'
 date: $DATE
-tags: ["microservice","quarkus","graalvm","kotlin","rust","dotnet" ]
+tags: ["microservice","quarkus","graalvm","kotlin","rust","dotnet","golang" ]
 ---
 In $OS_NAME,
 \`\`\`bash
@@ -210,6 +211,15 @@ runNativeBinaryTests "./Dotnet8Microservice" "Dotnet 8 rest service" "DOTNET8AOT
 wget -qc https://github.com/ozkanpakdil/dotnet-examples/releases/download/latest/Dotnet9Microservice
 runNativeBinaryTests "./Dotnet9Microservice" "Dotnet 9 rest service" "DOTNET9AOT"
 ##### DOTNET
+
+##### GOLANG
+printf '***  \n' >> test-result.md
+printf '## Golang rest service \n' >> test-result.md
+echo $GO_VERSION >> test-result.md
+printf '\n\n' >> test-result.md
+wget -qc https://github.com/ozkanpakdil/test-microservice-frameworks/releases/download/latest/golang-demo
+runNativeBinaryTests "./golang-demo" "Golang rest service" "GOLANG"
+##### GOLANG
 
 ##### graalvm
 rm -rf avaje-jex-jdk
