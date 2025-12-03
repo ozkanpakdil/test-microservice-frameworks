@@ -1,0 +1,18 @@
+{
+  "name": "expressjs-demo",
+  "version": "1.0.0",
+  "description": "Express.js microservice demo",
+  "main": "main.js",
+  "scripts": {
+    "start": "node main.js",
+    "bundle": "esbuild main.js --bundle --platform=node --outfile=bundle.js",
+    "build": "npm run bundle && node --experimental-sea-config sea-config.json && cp $(which node) expressjs-demo && chmod 755 expressjs-demo && codesign --remove-signature expressjs-demo 2>/dev/null || true && npx postject expressjs-demo NODE_SEA_BLOB sea-prep.blob --sentinel-fuse NODE_SEA_FUSE_fce680ab2cc467b6e072b8b5df1996b2 --macho-segment-name NODE_SEA && codesign --sign - expressjs-demo"
+  },
+  "dependencies": {
+    "express": "^4.21.0"
+  },
+  "devDependencies": {
+    "esbuild": "^0.24.0",
+    "postject": "^1.0.0-alpha.6"
+  }
+}

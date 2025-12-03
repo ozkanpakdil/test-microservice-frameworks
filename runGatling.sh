@@ -44,7 +44,7 @@ cat << EOF > test-result.md
 type: post
 title: 'Java microservice framework tests in A:$AVAJE SB:$SB Q:$QU M:$MICRO V:$VERTX H:$HEL Dotnet:7,8,9 $JAVA_VERSION $RUST_VERSION $GO_VERSION'
 date: $DATE
-tags: ["microservice","quarkus","graalvm","kotlin","rust","dotnet","golang" ]
+tags: ["microservice","quarkus","graalvm","kotlin","rust","dotnet","golang","expressjs" ]
 ---
 In $OS_NAME,
 \`\`\`bash
@@ -220,6 +220,15 @@ printf '\n\n' >> test-result.md
 wget -qc https://github.com/ozkanpakdil/test-microservice-frameworks/releases/download/latest/golang-demo
 runNativeBinaryTests "./golang-demo" "Golang rest service" "GOLANG"
 ##### GOLANG
+
+##### EXPRESSJS
+printf '***  \n' >> test-result.md
+printf '## Express.js rest service \n' >> test-result.md
+echo "Node.js $(node --version)" >> test-result.md
+printf '\n\n' >> test-result.md
+wget -qc https://github.com/ozkanpakdil/test-microservice-frameworks/releases/download/latest/expressjs-demo
+runNativeBinaryTests "./expressjs-demo" "Express.js rest service" "EXPRESSJS"
+##### EXPRESSJS
 
 ##### graalvm
 rm -rf avaje-jex-jdk

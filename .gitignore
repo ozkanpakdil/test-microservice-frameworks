@@ -48,3 +48,7 @@ build/
 .vscode/
 /hugo/public/
 /golang/golang-demo
+/expressjs/expressjs-demo
+/expressjs/node_modules
+/expressjs/bundle.js
+/expressjs/sea-prep.blob
