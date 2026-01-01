@@ -4,6 +4,12 @@
   "baseURL": "https://ozkanpakdil.github.io/test-microservice-frameworks/",
   "items": [
     {
+      "title": "Java microservice framework tests in A:3.3 SB:4.0.1 Q:3.30.1 M:4.10.6 V:5.0.6 H:4.3.2 Dotnet:7,8,9 openjdk version \"25.0.1\" 2025-10-21 rustc 1.92.0 (ded5c06cf 2025-12-08) go version go1.24.11 linux/amd64",
+      "date": "2026-01-01",
+      "java": "",
+      "url": "/test-microservice-frameworks/posts/2026/2026-01-01-microservice-framework-test-25/"
+    },
+    {
       "title": "Java microservice framework tests in A:3.3 SB:4.0.0 Q:3.30.1 M:4.10.2 V:5.0.5 H:4.3.2 Dotnet:7,8,9 openjdk version \"25.0.1\" 2025-10-21 rustc 1.91.1 (ed61e7d7e 2025-11-07) go version go1.24.10 linux/amd64",
       "date": "2025-12-03",
       "java": "",
