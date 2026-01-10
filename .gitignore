@@ -52,3 +52,4 @@ build/
 /expressjs/node_modules
 /expressjs/bundle.js
 /expressjs/sea-prep.blob
+/bun/myapp

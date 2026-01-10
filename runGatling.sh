@@ -230,6 +230,15 @@ wget -qc https://github.com/ozkanpakdil/test-microservice-frameworks/releases/do
 runNativeBinaryTests "./expressjs-demo" "Express.js rest service" "EXPRESSJS"
 ##### EXPRESSJS
 
+##### BUN
+printf '***  \n' >> test-result.md
+printf '## Bun rest service \n' >> test-result.md
+echo "Bun $(bun --version)" >> test-result.md
+printf '\n\n' >> test-result.md
+wget -qc https://github.com/ozkanpakdil/test-microservice-frameworks/releases/download/latest/bun-demo
+runNativeBinaryTests "./bun-demo" "Bun rest service" "BUN"
+##### BUN
+
 ##### graalvm
 rm -rf avaje-jex-jdk
 rm -rf avaje-jex-robaho

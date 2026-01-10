@@ -1,0 +1,11 @@
+{
+  "name": "bun-demo",
+  "version": "1.0.0",
+  "description": "Bun microservice demo",
+  "main": "main.ts",
+  "scripts": {
+    "start": "bun run main.ts",
+    "bundle": "bun build ./main.ts --outfile bundle.js",
+    "build": "bun build --compile ./main.ts --outfile bun-demo"
+  }
+}
