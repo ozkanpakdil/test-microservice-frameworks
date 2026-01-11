@@ -8,4 +8,4 @@ Find the results at https://ozkanpakdil.github.io/test-microservice-frameworks/
 
 <a rel="me" href="https://mas.to/@microservicetestall">Mastodon</a>
 
-test
+Rust code can be found at https://github.com/ozkanpakdil/rust-examples folder named *-rust-api
