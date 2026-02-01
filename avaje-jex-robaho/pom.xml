@@ -55,7 +55,7 @@
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-databind</artifactId>
-			<version>2.20.1</version>
+			<version>2.21.0</version>
 		</dependency>
 
 		<!-- avaje jsonb - uncomment if you want to use the lighter avaje jsonb
