@@ -22,7 +22,7 @@ jobs:
     needs: native-build
     uses: ./.github/workflows/rungatling.yml
   runk6:
-    needs: native-build
+    needs: rungatling
     uses: ./.github/workflows/runk6.yml
   post-mastodon:
     needs: rungatling
