@@ -44,6 +44,9 @@ fi
 
 cp graph.html graph-gatling.html
 
+# Initialize CSV file for sortable table data
+echo "Framework,Requests,Min,Max,Mean,StdDev,P50,P75,P95,P99,Req/Sec" > test-results-gatling.csv
+
 cat << EOF > test-result.md
 ---
 type: post
@@ -87,6 +90,23 @@ writeGraph(){
   fi
 }
 
+# Function to add test results to CSV for sortable table
+addToTable(){
+  TABLE=$1
+  FNAME=$2
+  REQ_COUNT=`echo "$TABLE"| tr '>' '\n'|grep 'request count'|awk '{print $3}'`
+  MIN_RT=`echo "$TABLE"| tr '>' '\n'|grep 'min response time'|awk '{print $4}'`
+  MAX_RT=`echo "$TABLE"| tr '>' '\n'|grep 'max response time'|awk '{print $4}'`
+  MEAN_RT=`echo "$TABLE"| tr '>' '\n'|grep 'mean response time'|awk '{print $4}'`
+  STD_DEV=`echo "$TABLE"| tr '>' '\n'|grep 'std deviation'|awk '{print $3}'`
+  P50_RT=`echo "$TABLE"| tr '>' '\n'|grep '50th percentile'|awk '{print $5}'`
+  P75_RT=`echo "$TABLE"| tr '>' '\n'|grep '75th percentile'|awk '{print $5}'`
+  P95_RT=`echo "$TABLE"| tr '>' '\n'|grep '95th percentile'|awk '{print $5}'`
+  P99_RT=`echo "$TABLE"| tr '>' '\n'|grep '99th percentile'|awk '{print $5}'`
+  REQ_SEC=`echo "$TABLE"| tr '>' '\n'|grep 'mean requests/sec'|awk '{print $3}'`
+  echo "$FNAME,$REQ_COUNT,$MIN_RT,$MAX_RT,$MEAN_RT,$STD_DEV,$P50_RT,$P75_RT,$P95_RT,$P99_RT,$REQ_SEC" >> test-results-gatling.csv
+}
+
 checkIs8080Up(){
     COUNTER=30
     until curl -vsf http://localhost:8080/hello; do
@@ -118,9 +138,10 @@ test (){
     echo $startTime >> test-result.md
     printf "\nGatling test starting... for $jarPath"
     echo '```bash' >> test-result.md
-    TABLE=`$MVNTESTCMD|grep -A10 "Global Information"`
+    TABLE=`$MVNTESTCMD|grep -A15 "Global Information"`
     echo "$TABLE" >> test-result.md
     writeGraph "$TABLE" "$3"
+    addToTable "$TABLE" "$3"
     echo '```' >> test-result.md
     kill -9 $JPID
     printf '\n' >> test-result.md
@@ -141,9 +162,10 @@ rustTest (){
     echo "[${frameworkVersion}](http://docs.rs/${link})" >&3
     printf "\nGatling test starting... for $exePath"
     echo '```bash'>&3
-    TABLE=`$MVNTESTCMD|grep -A10 "Global Information"`
+    TABLE=`$MVNTESTCMD|grep -A15 "Global Information"`
     echo "$TABLE" >&3
     writeGraph "$TABLE" "$3"
+    addToTable "$TABLE" "$3"
     echo '```' >&3
     kill -9 $JPID
     printf '\n' >&3
@@ -167,9 +189,10 @@ runNativeBinaryTests(){
   printf '***  \n' >> test-result.md
   printf "## $title \n" >> test-result.md
   echo '```bash' >> test-result.md
-  TABLE=`$MVNTESTCMD|grep -A10 "Global Information"`
+  TABLE=`$MVNTESTCMD|grep -A15 "Global Information"`
   echo "$TABLE" >> test-result.md
   writeGraph "$TABLE" "$graphVar"
+  addToTable "$TABLE" "$title"
   echo '```' >> test-result.md
   printf '\n\n' >> test-result.md
   kill -9 $EXETEST
@@ -291,6 +314,67 @@ printf '[source code for the java and dotnet tests](https://github.com/ozkanpakd
 printf '[source code for the rust tests](https://github.com/ozkanpakdil/rust-examples)  👈 ' >> test-result.md
 printf "[github action]($BUILD_URL)  👈 \n" >> test-result.md
 cat graph-gatling.html >> test-result.md
+
+# Generate sortable HTML table from CSV
+cat << 'TABLEHTML' >> test-result.md
+
+<style>
+.sortable-table { border-collapse: collapse; width: 100%; margin: 20px 0; }
+.sortable-table th, .sortable-table td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+.sortable-table th { background-color: #4CAF50; color: white; cursor: pointer; }
+.sortable-table th:hover { background-color: #45a049; }
+.sortable-table tr:nth-child(even) { background-color: #f2f2f2; }
+.sortable-table tr:hover { background-color: #ddd; }
+</style>
+
+<table class="sortable-table" id="resultsTable">
+<thead>
+<tr>
+<th onclick="sortTable(0)">Framework ⇅</th>
+<th onclick="sortTable(1, true)">Requests ⇅</th>
+<th onclick="sortTable(2, true)">Min (ms) ⇅</th>
+<th onclick="sortTable(3, true)">Max (ms) ⇅</th>
+<th onclick="sortTable(4, true)">Mean (ms) ⇅</th>
+<th onclick="sortTable(5, true)">StdDev ⇅</th>
+<th onclick="sortTable(6, true)">P50 (ms) ⇅</th>
+<th onclick="sortTable(7, true)">P75 (ms) ⇅</th>
+<th onclick="sortTable(8, true)">P95 (ms) ⇅</th>
+<th onclick="sortTable(9, true)">P99 (ms) ⇅</th>
+<th onclick="sortTable(10, true)">Req/Sec ⇅</th>
+</tr>
+</thead>
+<tbody>
+TABLEHTML
+
+# Read CSV and generate table rows (skip header)
+tail -n +2 test-results-gatling.csv | while IFS=',' read -r fw req min max mean std p50 p75 p95 p99 rps; do
+  echo "<tr><td>$fw</td><td>$req</td><td>$min</td><td>$max</td><td>$mean</td><td>$std</td><td>$p50</td><td>$p75</td><td>$p95</td><td>$p99</td><td>$rps</td></tr>" >> test-result.md
+done
+
+cat << 'TABLEJS' >> test-result.md
+</tbody>
+</table>
+
+<script>
+function sortTable(n, isNumeric = false) {
+  var table = document.getElementById("resultsTable");
+  var rows = Array.from(table.rows).slice(1);
+  var asc = table.getAttribute("data-sort-asc") !== "true";
+  table.setAttribute("data-sort-asc", asc);
+  rows.sort(function(a, b) {
+    var x = a.cells[n].innerText;
+    var y = b.cells[n].innerText;
+    if (isNumeric) {
+      x = parseFloat(x) || 0;
+      y = parseFloat(y) || 0;
+      return asc ? x - y : y - x;
+    }
+    return asc ? x.localeCompare(y) : y.localeCompare(x);
+  });
+  rows.forEach(function(row) { table.tBodies[0].appendChild(row); });
+}
+</script>
+TABLEJS
 
 cat graph-gatling.html
 # git checkout graph.html

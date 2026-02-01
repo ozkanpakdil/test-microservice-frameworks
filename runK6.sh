@@ -57,6 +57,9 @@ fi
 
 cp graph.html graph-k6.html
 
+# Initialize CSV file for sortable table data
+echo "Framework,Requests,Min,Max,Mean,P90,P95,Req/Sec" > test-results-k6.csv
+
 cat << EOF > test-result-k6.md
 ---
 type: post
@@ -100,6 +103,20 @@ writeGraph(){
   fi
 }
 
+# Function to add test results to CSV for sortable table
+addToTable(){
+  TABLE=$1
+  FNAME=$2
+  REQ_COUNT=`echo "$TABLE"| tr '>' '\n'|grep 'request count'|awk '{print $3}'`
+  MIN_RT=`echo "$TABLE"| tr '>' '\n'|grep 'min response time'|awk '{print $4}'`
+  MAX_RT=`echo "$TABLE"| tr '>' '\n'|grep 'max response time'|awk '{print $4}'`
+  MEAN_RT=`echo "$TABLE"| tr '>' '\n'|grep 'mean response time'|awk '{print $4}'`
+  P90_RT=`echo "$TABLE"| tr '>' '\n'|grep 'p(90) response time'|awk '{print $4}'`
+  P95_RT=`echo "$TABLE"| tr '>' '\n'|grep 'p(95) response time'|awk '{print $4}'`
+  REQ_SEC=`echo "$TABLE"| tr '>' '\n'|grep 'mean requests/sec'|awk '{print $3}'`
+  echo "$FNAME,$REQ_COUNT,$MIN_RT,$MAX_RT,$MEAN_RT,$P90_RT,$P95_RT,$REQ_SEC" >> test-results-k6.csv
+}
+
 checkIs8080Up(){
     COUNTER=10
     until curl -vsf http://localhost:8080/hello; do
@@ -134,6 +151,7 @@ test (){
     TABLE=`$K6TESTCMD`
     echo "$TABLE" >> test-result-k6.md
     writeGraph "$TABLE" "$3"
+    addToTable "$TABLE" "$3"
     echo '```' >> test-result-k6.md
     kill -9 $JPID
     printf '\n' >> test-result-k6.md
@@ -157,6 +175,7 @@ rustTest (){
     TABLE=`$K6TESTCMD`
     echo "$TABLE" >&3
     writeGraph "$TABLE" "$3"
+    addToTable "$TABLE" "$3"
     echo '```' >&3
     kill -9 $JPID
     printf '\n' >&3
@@ -192,6 +211,7 @@ runNativeBinaryTests(){
   TABLE=`$K6TESTCMD`
   echo "$TABLE" >> test-result-k6.md
   writeGraph "$TABLE" "$graphVar"
+  addToTable "$TABLE" "$title"
   echo '```' >> test-result-k6.md
   printf '\n\n' >> test-result-k6.md
   kill -9 $EXETEST
@@ -313,5 +333,63 @@ printf '[source code for the java and dotnet tests](https://github.com/ozkanpakd
 printf '[source code for the rust tests](https://github.com/ozkanpakdil/rust-examples)  👈 ' >> test-result-k6.md
 printf "[github action]($BUILD_URL)  👈 \n" >> test-result-k6.md
 cat graph-k6.html >> test-result-k6.md
+
+# Generate sortable HTML table from CSV
+cat << 'TABLEHTML' >> test-result-k6.md
+
+<style>
+.sortable-table { border-collapse: collapse; width: 100%; margin: 20px 0; }
+.sortable-table th, .sortable-table td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+.sortable-table th { background-color: #4CAF50; color: white; cursor: pointer; }
+.sortable-table th:hover { background-color: #45a049; }
+.sortable-table tr:nth-child(even) { background-color: #f2f2f2; }
+.sortable-table tr:hover { background-color: #ddd; }
+</style>
+
+<table class="sortable-table" id="resultsTable">
+<thead>
+<tr>
+<th onclick="sortTable(0)">Framework ⇅</th>
+<th onclick="sortTable(1, true)">Requests ⇅</th>
+<th onclick="sortTable(2)">Min ⇅</th>
+<th onclick="sortTable(3)">Max ⇅</th>
+<th onclick="sortTable(4)">Mean ⇅</th>
+<th onclick="sortTable(5)">P90 ⇅</th>
+<th onclick="sortTable(6)">P95 ⇅</th>
+<th onclick="sortTable(7, true)">Req/Sec ⇅</th>
+</tr>
+</thead>
+<tbody>
+TABLEHTML
+
+# Read CSV and generate table rows (skip header)
+tail -n +2 test-results-k6.csv | while IFS=',' read -r fw req min max mean p90 p95 rps; do
+  echo "<tr><td>$fw</td><td>$req</td><td>$min</td><td>$max</td><td>$mean</td><td>$p90</td><td>$p95</td><td>$rps</td></tr>" >> test-result-k6.md
+done
+
+cat << 'TABLEJS' >> test-result-k6.md
+</tbody>
+</table>
+
+<script>
+function sortTable(n, isNumeric = false) {
+  var table = document.getElementById("resultsTable");
+  var rows = Array.from(table.rows).slice(1);
+  var asc = table.getAttribute("data-sort-asc") !== "true";
+  table.setAttribute("data-sort-asc", asc);
+  rows.sort(function(a, b) {
+    var x = a.cells[n].innerText;
+    var y = b.cells[n].innerText;
+    if (isNumeric) {
+      x = parseFloat(x) || 0;
+      y = parseFloat(y) || 0;
+      return asc ? x - y : y - x;
+    }
+    return asc ? x.localeCompare(y) : y.localeCompare(x);
+  });
+  rows.forEach(function(row) { table.tBodies[0].appendChild(row); });
+}
+</script>
+TABLEJS
 
 cat graph-k6.html
