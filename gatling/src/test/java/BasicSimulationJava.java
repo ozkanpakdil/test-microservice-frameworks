@@ -12,7 +12,8 @@ import static io.gatling.javaapi.http.HttpDsl.*;
 
 public class BasicSimulationJava extends Simulation { // 3
     Integer nbUsers = Integer.getInteger("users", 1000);
-    Integer myRepeat = Integer.getInteger("repeat", 4);
+    Integer myRepeat = Integer.getInteger("repeat", 2);
+    Integer duration = Integer.getInteger("duration", 20);
     String baseUrl = "http://localhost:8080";
     HttpProtocolBuilder httpProtocol = http // 4
             .baseUrl(baseUrl) // 5
@@ -22,23 +23,43 @@ public class BasicSimulationJava extends Simulation { // 3
             .acceptEncodingHeader("gzip, deflate")
             .userAgentHeader("Mozilla/5.0 (Windows NT 5.1; rv:31.0) Gecko/20100101 Firefox/31.0");
 
-    // users=8000 repeat=4 -> 32000 total requests (matching k6)
-    ChainBuilder search = repeat(myRepeat).on(
+    Integer warmupDuration = 5; // 5 seconds warmup
+
+    // Warmup scenario - heat up JVM before real test
+    ChainBuilder warmupRequests = repeat(10).on(
             exec(
-                    http("GetApplicationInfo")
+                    http("Warmup")
                             .get("/hello")
                             .check(status().is(200))
-                            .check(jsonPath("$.name"))
+            )
+    );
+    ScenarioBuilder warmupScn = scenario("warmup").exec(warmupRequests);
+
+    // Time-based test: continuously inject users for duration seconds
+    // Each user makes myRepeat requests in a loop (forever) until duration ends
+    ChainBuilder search = forever().on(
+            repeat(myRepeat).on(
+                    exec(
+                            http("GetApplicationInfo")
+                                    .get("/hello")
+                                    .check(status().is(200))
+                                    .check(jsonPath("$.name"))
+                    )
             )
     );
     ScenarioBuilder scn = scenario("hello").exec(search);
 
     {
         setUp(
-                // Inject all users at once (no ramp-up) to match k6 behavior
+                // Warmup phase first
+                warmupScn.injectOpen(
+                        rampUsers(10).during(Duration.ofSeconds(warmupDuration))
+                ).protocols(httpProtocol),
+                // Main test starts after warmup
                 scn.injectOpen(
-                        atOnceUsers(nbUsers)
+                        nothingFor(Duration.ofSeconds(warmupDuration)), // Wait for warmup
+                        rampUsers(nbUsers).during(Duration.ofSeconds(duration))
                 ).protocols(httpProtocol)
-        ).maxDuration(Duration.ofSeconds(60));
+        ).maxDuration(Duration.ofSeconds(warmupDuration + duration));
     }
 }

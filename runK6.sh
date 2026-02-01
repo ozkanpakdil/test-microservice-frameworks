@@ -20,7 +20,7 @@ KOTLIN=$(grep kotlin ktor/pom.xml | sed -n 's/.*<kotlin.version>\([^<]*\).*/\1/p
 
 OS_NAME=$(uname -a)
 FOLDERHOME=`pwd`
-K6TESTCMD="k6 run ${FOLDERHOME}/k6/load-test.js --quiet -e users=2000 -e iterations=100000"
+K6TESTCMD="k6 run ${FOLDERHOME}/k6/load-test.js --quiet -e users=1000 -e repeat=2"
 
 # Detect OS
 if [[ "$OSTYPE" == "darwin"* ]]; then

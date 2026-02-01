@@ -3,16 +3,24 @@ import {check} from 'k6';
 
 // Get configuration from environment variables or use defaults
 const nbUsers = parseInt(__ENV.users || '1000');
-const iterations = parseInt(__ENV.iterations || '32000');
+const myRepeat = parseInt(__ENV.repeat || '2');
 const baseUrl = 'http://localhost:8080';
 
 export const options = {
   scenarios: {
-    fixed_iterations: {
-      executor: 'shared-iterations',
-      vus: nbUsers,
-      iterations: iterations,
-      maxDuration: '60s',
+    warmup: {
+      executor: 'constant-vus',
+      vus: 10,
+      duration: '5s',
+      exec: 'warmup',
+    },
+    variable_load: {
+      executor: 'ramping-vus',
+      stages: [
+        { duration: '20s', target: nbUsers },
+      ],
+      gracefulRampDown: '0s',
+      startTime: '5s', // Start after warmup
     },
   },
 };
@@ -54,6 +62,15 @@ export function handleSummary(data) {
   };
 }
 
+// Warmup function - requests not counted in main metrics
+export function warmup() {
+  const headers = {
+    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+    'User-Agent': 'Mozilla/5.0 (Windows NT 5.1; rv:31.0) Gecko/20100101 Firefox/31.0',
+  };
+  http.get(`${baseUrl}/hello`, { headers, tags: { scenario: 'warmup' } });
+}
+
 export default function () {
   const headers = {
     'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
@@ -63,17 +80,20 @@ export default function () {
     'User-Agent': 'Mozilla/5.0 (Windows NT 5.1; rv:31.0) Gecko/20100101 Firefox/31.0',
   };
 
-  const response = http.get(`${baseUrl}/hello`, { headers });
+  // Repeat the request myRepeat times
+  for (let i = 0; i < myRepeat; i++) {
+    const response = http.get(`${baseUrl}/hello`, { headers });
 
-  check(response, {
-    'status is 200': (r) => r.status === 200,
-    'has name field': (r) => {
-      try {
-        const body = JSON.parse(r.body);
-        return body.name !== undefined;
-      } catch (e) {
-        return false;
-      }
-    },
-  });
+    check(response, {
+      'status is 200': (r) => r.status === 200,
+      'has name field': (r) => {
+        try {
+          const body = JSON.parse(r.body);
+          return body.name !== undefined;
+        } catch (e) {
+          return false;
+        }
+      },
+    });
+  }
 }
