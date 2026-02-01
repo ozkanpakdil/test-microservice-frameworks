@@ -23,7 +23,7 @@ KOTLIN=$(grep kotlin ktor/pom.xml | sed -n 's/.*<kotlin.version>\([^<]*\).*/\1/p
 
 OS_NAME=$(uname -a)
 FOLDERHOME=`pwd`
-MVNTESTCMD="mvn -ntp -f ${FOLDERHOME}/gatling/pom.xml gatling:test -Dusers=8000 -Drepeat=4"
+MVNTESTCMD="mvn -ntp -f ${FOLDERHOME}/gatling/pom.xml gatling:test -Dusers=2000 -Drepeat=50"
 
 # Detect OS
 if [[ "$OSTYPE" == "darwin"* ]]; then
