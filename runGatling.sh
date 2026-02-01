@@ -315,16 +315,16 @@ printf '[source code for the rust tests](https://github.com/ozkanpakdil/rust-exa
 printf "[github action]($BUILD_URL)  👈 \n" >> test-result.md
 cat graph-gatling.html >> test-result.md
 
-# Generate sortable HTML table from CSV
+# Generate sortable HTML table from CSV (placed right after graph)
 cat << 'TABLEHTML' >> test-result.md
 
 <style>
-.sortable-table { border-collapse: collapse; width: 100%; margin: 20px 0; }
-.sortable-table th, .sortable-table td { border: 1px solid #ddd; padding: 8px; text-align: left; }
-.sortable-table th { background-color: #4CAF50; color: white; cursor: pointer; }
-.sortable-table th:hover { background-color: #45a049; }
-.sortable-table tr:nth-child(even) { background-color: #f2f2f2; }
-.sortable-table tr:hover { background-color: #ddd; }
+.sortable-table { border-collapse: collapse; width: 100%; margin: 10px 0; font-size: 12px; }
+.sortable-table th, .sortable-table td { border: 1px solid #ccc; padding: 4px 6px; text-align: left; }
+.sortable-table th { background-color: #6a9f6a; color: white; cursor: pointer; }
+.sortable-table th:hover { background-color: #5a8f5a; }
+.sortable-table tr:nth-child(even) { background-color: #f7f7f7; }
+.sortable-table tr:hover { background-color: #eee; }
 </style>
 
 <table class="sortable-table" id="resultsTable">
