@@ -54,3 +54,4 @@ node_modules
 /expressjs/bundle.js
 /expressjs/sea-prep.blob
 /bun/bun-demo
+**/dependency-reduced-pom.xml

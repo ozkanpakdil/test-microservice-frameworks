@@ -1,6 +1,9 @@
 #!/bin/bash
 set -ex
-kill -9 "$(lsof -t -i :8080)" || true
+PIDS=$(lsof -t -i :8080) || true
+if [ -n "$PIDS" ]; then
+  kill -9 $PIDS || true
+fi
 mvn -version
 mvn -ntp clean package
 
