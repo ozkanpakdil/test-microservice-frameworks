@@ -15,7 +15,7 @@ jobs:
       matrix:
         java: [25]
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - uses: graalvm/setup-graalvm@v1
         with:
           version: 'latest'
@@ -85,7 +85,7 @@ jobs:
           hugo -s hugo -d public
 
       - name: Deploy to GitHub Pages (gh-pages)
-        uses: peaceiris/actions-gh-pages@v3
+        uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           # Hugo builds to hugo/public when using `-s hugo -d public`
