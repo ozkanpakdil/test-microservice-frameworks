@@ -91,7 +91,7 @@ echo 'Running jars and collecting test results...'
 
 writeGraph(){
   TABLE=$1
-  MR=`echo $TABLE| tr '>' '\n'|grep 'mean response time'|awk '{print $4}'`
+  MR=`echo $TABLE| tr '>' '\n'|grep 'mean response time'|awk '{print $4}'|sed 's/ms$//'`
   R1=`echo $2|sed 's/ //g'|sed 's/-//g'` # clearing empty string and dashes
   if [[ "$OSTYPE" == "darwin"* ]]; then
     sed -i '' "s/$R1/$MR/g" $FOLDERHOME/graph-k6.html

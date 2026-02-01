@@ -73,22 +73,22 @@ jobs:
             echo "test-result.md file not found, skipping commit"
           fi
 
-      - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v2
-        with:
-          hugo-version: 'latest'
-          extended: true
-
-      - name: Build Hugo site
-        run: |
-          # Build the Hugo site from the repository root, pointing to the 'hugo' source directory
-          hugo -s hugo -d public
-
-      - name: Deploy to GitHub Pages (gh-pages)
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          # Hugo builds to hugo/public when using `-s hugo -d public`
-          # GitHub Pages cannot select an arbitrary folder like /hugo; when using the gh-pages branch, choose folder /
-          publish_dir: ./hugo/public
+#      - name: Setup Hugo
+#        uses: peaceiris/actions-hugo@v2
+#        with:
+#          hugo-version: 'latest'
+#          extended: true
+#
+#      - name: Build Hugo site
+#        run: |
+#          # Build the Hugo site from the repository root, pointing to the 'hugo' source directory
+#          hugo -s hugo -d public
+#
+#      - name: Deploy to GitHub Pages (gh-pages)
+#        uses: peaceiris/actions-gh-pages@v4
+#        with:
+#          github_token: ${{ secrets.GITHUB_TOKEN }}
+#          # Hugo builds to hugo/public when using `-s hugo -d public`
+#          # GitHub Pages cannot select an arbitrary folder like /hugo; when using the gh-pages branch, choose folder /
+#          publish_dir: ./hugo/public
 
