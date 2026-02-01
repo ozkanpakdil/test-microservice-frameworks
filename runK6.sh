@@ -101,7 +101,7 @@ writeGraph(){
 }
 
 checkIs8080Up(){
-    COUNTER=30
+    COUNTER=10
     until curl -vsf http://localhost:8080/hello; do
         sleep 1
         lsof -i :8080 || true
@@ -166,12 +166,21 @@ rustTest (){
     rm somefile-k6.log
 }
 
+waitForPortFree(){
+  local counter=10
+  while lsof -i :8080 > /dev/null 2>&1 && [[ $counter -gt 0 ]]; do
+    sleep 1
+    let counter-=1
+  done
+}
+
 runNativeBinaryTests(){
   exePath=$1
   title=$2
   graphVar=$3
   chmod +x "$exePath"
 
+  waitForPortFree
   $exePath &> log-k6.log &
   EXETEST=$!
 
