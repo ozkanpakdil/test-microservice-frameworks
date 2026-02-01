@@ -17,7 +17,7 @@ export const options = {
     variable_load: {
       executor: 'ramping-vus',
       stages: [
-        { duration: '20s', target: nbUsers },
+        { duration: '10s', target: nbUsers },
       ],
       gracefulRampDown: '0s',
       startTime: '5s', // Start after warmup

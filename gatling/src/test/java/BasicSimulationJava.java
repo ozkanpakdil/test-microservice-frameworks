@@ -13,7 +13,7 @@ import static io.gatling.javaapi.http.HttpDsl.*;
 public class BasicSimulationJava extends Simulation { // 3
     Integer nbUsers = Integer.getInteger("users", 1000);
     Integer myRepeat = Integer.getInteger("repeat", 2);
-    Integer duration = Integer.getInteger("duration", 20);
+    Integer duration = Integer.getInteger("duration", 10);
     String baseUrl = "http://localhost:8080";
     HttpProtocolBuilder httpProtocol = http // 4
             .baseUrl(baseUrl) // 5
@@ -55,10 +55,10 @@ public class BasicSimulationJava extends Simulation { // 3
                 warmupScn.injectOpen(
                         rampUsers(10).during(Duration.ofSeconds(warmupDuration))
                 ).protocols(httpProtocol),
-                // Main test starts after warmup
+                // Main test starts after warmup - use constantUsersPerSec for gradual injection like k6
                 scn.injectOpen(
                         nothingFor(Duration.ofSeconds(warmupDuration)), // Wait for warmup
-                        rampUsers(nbUsers).during(Duration.ofSeconds(duration))
+                        constantUsersPerSec(nbUsers / duration).during(Duration.ofSeconds(duration))
                 ).protocols(httpProtocol)
         ).maxDuration(Duration.ofSeconds(warmupDuration + duration));
     }
