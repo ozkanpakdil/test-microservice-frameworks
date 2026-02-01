@@ -3,29 +3,17 @@ import {check} from 'k6';
 
 // Get configuration from environment variables or use defaults
 const nbUsers = parseInt(__ENV.users || '1000');
-const myRepeat = parseInt(__ENV.repeat || '2');
+const iterations = parseInt(__ENV.iterations || '32000');
 const baseUrl = 'http://localhost:8080';
 
 export const options = {
   scenarios: {
-    /**
-     * Good for testing performance under differing loads
-     */
-    variable_load: {
-      executor: 'ramping-vus',
-      stages: [
-        { duration: '5s', target: nbUsers }, // Ramp up to nbUsers over 5 seconds
-      ],
-      gracefulRampDown: '0s',
+    fixed_iterations: {
+      executor: 'shared-iterations',
+      vus: nbUsers,
+      iterations: iterations,
+      maxDuration: '60s',
     },
-    /**
-     * swap to this if you want a constant load to get a better representation of average request duration
-     */
-    // constant: {
-    //   executor: 'constant-vus',
-    //   vus: nbUsers,
-    //   duration: '5s',
-    // },
   },
 };
 function toFixedNoTrailingZeros(val, prec) {
@@ -75,20 +63,17 @@ export default function () {
     'User-Agent': 'Mozilla/5.0 (Windows NT 5.1; rv:31.0) Gecko/20100101 Firefox/31.0',
   };
 
-  // Repeat the request myRepeat times
-  for (let i = 0; i < myRepeat; i++) {
-    const response = http.get(`${baseUrl}/hello`, { headers });
+  const response = http.get(`${baseUrl}/hello`, { headers });
 
-    check(response, {
-      'status is 200': (r) => r.status === 200,
-      'has name field': (r) => {
-        try {
-          const body = JSON.parse(r.body);
-          return body.name !== undefined;
-        } catch (e) {
-          return false;
-        }
-      },
-    });
-  }
+  check(response, {
+    'status is 200': (r) => r.status === 200,
+    'has name field': (r) => {
+      try {
+        const body = JSON.parse(r.body);
+        return body.name !== undefined;
+      } catch (e) {
+        return false;
+      }
+    },
+  });
 }
