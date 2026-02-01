@@ -16,6 +16,7 @@ logs
 .idea
 *.iml
 test-result.md
+test-result-k6.md
 log.log
 .vscode
 
@@ -49,7 +50,7 @@ build/
 /hugo/public/
 /golang/golang-demo
 /expressjs/expressjs-demo
-/expressjs/node_modules
+node_modules
 /expressjs/bundle.js
 /expressjs/sea-prep.blob
-/bun/myapp
+/bun/bun-demo

@@ -1,0 +1,17 @@
+{
+  "name": "k6",
+  "description": "k6 load testing scripts",
+  "scripts": {
+    "run": "k6 run load-test.js"
+  },
+  "keywords": [
+    "k6",
+    "load-testing",
+    "performance"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "k6": "^0.0.0"
+  }
+}

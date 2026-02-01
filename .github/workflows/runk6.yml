@@ -1,0 +1,93 @@
+name: Run k6
+
+on:
+  workflow_call:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    strategy:
+      matrix:
+        java: [25]
+    steps:
+      - uses: actions/checkout@v2
+      - uses: graalvm/setup-graalvm@v1
+        with:
+          version: 'latest'
+          java-version: ${{ matrix.java }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          distribution: 'graalvm-community'
+          native-image-job-reports: 'true'
+      # - name: Set up JDK
+      #   uses: actions/setup-java@v3
+      #   with:
+      #     java-version: ${{ matrix.java }}
+      #     cache: 'maven'
+      #     distribution: 'temurin'
+      - name: Collect Workflow Telemetry
+        uses: catchpoint/workflow-telemetry-action@v2
+        with:
+          proc_trace_sys_enable: true
+          comment_on_pr: false
+          theme: dark
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+      - name: Run jars and get test results (with k6)
+        run: ./runK6.sh
+      - name: Upload test result as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-result-k6
+          path: test-result-k6.md
+      - name: Commit test result to Hugo content (year/month path)
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euxo pipefail
+          DATE=$(date +"%Y-%m-%d")
+          YEAR=$(date +"%Y")
+          MONTH=$(date +"%m")
+
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.name "github-actions[bot]"
+
+          if [ -f "test-result-k6.md" ]; then
+            # Create Hugo post under hugo/content/posts/YYYY/MM/ and commit it
+            HUGO_POST_DIR="hugo/content/posts/$YEAR"
+            HUGO_POST_PATH="$HUGO_POST_DIR/${DATE}-microservice-framework-test-${{ matrix.java }}.md"
+            mkdir -p "$HUGO_POST_DIR"
+            cp test-result-k6.md "$HUGO_POST_PATH"
+            git add "$HUGO_POST_PATH"
+            git commit -m "chore(hugo): add post $HUGO_POST_PATH [skip ci]" || echo "No changes to commit for Hugo post"
+            # actions/checkout sets up an authenticated origin using GITHUB_TOKEN
+            git push origin HEAD:main
+          else
+            echo "test-result-k6.md file not found, skipping commit"
+          fi
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: 'latest'
+          extended: true
+
+      - name: Build Hugo site
+        run: |
+          # Build the Hugo site from the repository root, pointing to the 'hugo' source directory
+          hugo -s hugo -d public
+
+      - name: Deploy to GitHub Pages (gh-pages)
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          # Hugo builds to hugo/public when using `-s hugo -d public`
+          # GitHub Pages cannot select an arbitrary folder like /hugo; when using the gh-pages branch, choose folder /
+          publish_dir: ./hugo/public
+
