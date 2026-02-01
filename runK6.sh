@@ -269,8 +269,8 @@ wget -qc https://github.com/ozkanpakdil/test-microservice-frameworks/releases/do
 wget -qc https://github.com/ozkanpakdil/test-microservice-frameworks/releases/download/latest/ktor-demo -O ktor-demo-bin
 chmod a+x avaje-jex-jdk-bin avaje-jex-robaho-bin quarkus-demo-runner-bin micronaut-demo-bin springboot-demo-web-bin springboot-webflux-demo-bin vertx-demo-bin ktor-demo-bin #helidon-quickstart-se
 
-runNativeBinaryTests "./avaje-jex-jdk-bin" "graalvm native avaje" "GRAALA1VAJE"
-runNativeBinaryTests "./avaje-jex-robaho-bin" "graalvm native avaje" "GRAALRO1BAHO"
+runNativeBinaryTests "./avaje-jex-jdk-bin" "graalvm native avaje-jex-jdk" "GRAALA1VAJE"
+runNativeBinaryTests "./avaje-jex-robaho-bin" "graalvm native avaje-jex-robaho" "GRAALRO1BAHO"
 runNativeBinaryTests "./quarkus-demo-runner-bin" "graalvm native quarkus" "GRAALQ1UARKUS"
 runNativeBinaryTests "./micronaut-demo-bin" "graalvm native micronaut" "GRAALM1ICRONAUT"
 runNativeBinaryTests "./springboot-demo-web-bin" "graalvm native spring-boot-web" "GRAALSPRING"
