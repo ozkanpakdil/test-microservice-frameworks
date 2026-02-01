@@ -67,7 +67,7 @@ jobs:
             git add "$HUGO_POST_PATH"
             git commit -m "chore(hugo): add post $HUGO_POST_PATH [skip ci]" || echo "No changes to commit for Hugo post"
             # actions/checkout sets up an authenticated origin using GITHUB_TOKEN
-            git pull --rebase origin main
+            git pull --rebase origin main --autostash
             git push origin HEAD:main
           else
             echo "test-result.md file not found, skipping commit"

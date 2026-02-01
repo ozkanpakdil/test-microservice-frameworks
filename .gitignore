@@ -18,6 +18,23 @@ logs
 test-result.md
 test-result-k6.md
 log.log
+log-k6.log
+somefile.log
+somefile-k6.log
+graph-k6.html
+*-demo
+*Microservice
+/avaje-jex-jdk-bin
+/avaje-jex-robaho-bin
+/quarkus-demo-runner-bin
+/micronaut-demo-bin
+/springboot-demo-web-bin
+/springboot-webflux-demo-bin
+/vertx-demo-bin
+/ktor-demo-bin
+/golang-demo
+/expressjs-demo
+/bun-demo
 .vscode
 
 HELP.md

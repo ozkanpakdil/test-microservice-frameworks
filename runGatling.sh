@@ -243,40 +243,38 @@ runNativeBinaryTests "./bun-demo" "Bun rest service" "BUN"
 ##### BUN
 
 ##### graalvm
-rm -rf avaje-jex-jdk
-rm -rf avaje-jex-robaho
-wget -qc https://github.com/ozkanpakdil/test-microservice-frameworks/releases/download/latest/avaje-jex-jdk
-wget -qc https://github.com/ozkanpakdil/test-microservice-frameworks/releases/download/latest/avaje-jex-robaho
-wget -qc https://github.com/ozkanpakdil/test-microservice-frameworks/releases/download/latest/quarkus-demo-runner
-wget -qc https://github.com/ozkanpakdil/test-microservice-frameworks/releases/download/latest/micronaut-demo
-wget -qc https://github.com/ozkanpakdil/test-microservice-frameworks/releases/download/latest/springboot-demo-web
-wget -qc https://github.com/ozkanpakdil/test-microservice-frameworks/releases/download/latest/springboot-webflux-demo
-wget -qc https://github.com/ozkanpakdil/test-microservice-frameworks/releases/download/latest/vertx-demo
+wget -qc https://github.com/ozkanpakdil/test-microservice-frameworks/releases/download/latest/avaje-jex-jdk -O avaje-jex-jdk-bin
+wget -qc https://github.com/ozkanpakdil/test-microservice-frameworks/releases/download/latest/avaje-jex-robaho -O avaje-jex-robaho-bin
+wget -qc https://github.com/ozkanpakdil/test-microservice-frameworks/releases/download/latest/quarkus-demo-runner -O quarkus-demo-runner-bin
+wget -qc https://github.com/ozkanpakdil/test-microservice-frameworks/releases/download/latest/micronaut-demo -O micronaut-demo-bin
+wget -qc https://github.com/ozkanpakdil/test-microservice-frameworks/releases/download/latest/springboot-demo-web -O springboot-demo-web-bin
+wget -qc https://github.com/ozkanpakdil/test-microservice-frameworks/releases/download/latest/springboot-webflux-demo -O springboot-webflux-demo-bin
+wget -qc https://github.com/ozkanpakdil/test-microservice-frameworks/releases/download/latest/vertx-demo -O vertx-demo-bin
 #wget -qc https://github.com/ozkanpakdil/test-microservice-frameworks/releases/download/latest/helidon-quickstart-se
-wget -qc https://github.com/ozkanpakdil/test-microservice-frameworks/releases/download/latest/ktor-demo
-chmod a+x avaje-jex-jdk avaje-jex-robaho quarkus-demo-runner micronaut-demo springboot-demo-web springboot-webflux-demo vertx-demo ktor-demo #helidon-quickstart-se
+wget -qc https://github.com/ozkanpakdil/test-microservice-frameworks/releases/download/latest/ktor-demo -O ktor-demo-bin
+chmod a+x avaje-jex-jdk-bin avaje-jex-robaho-bin quarkus-demo-runner-bin micronaut-demo-bin springboot-demo-web-bin springboot-webflux-demo-bin vertx-demo-bin ktor-demo-bin #helidon-quickstart-se
 
-runNativeBinaryTests "./avaje-jex-jdk" "graalvm native avaje" "GRAALA1VAJE"
-runNativeBinaryTests "./avaje-jex-robaho" "graalvm native avaje" "GRAALRO1BAHO"
-runNativeBinaryTests "./quarkus-demo-runner" "graalvm native quarkus" "GRAALQ1UARKUS"
-runNativeBinaryTests "./micronaut-demo" "graalvm native micronaut" "GRAALM1ICRONAUT"
-runNativeBinaryTests "./springboot-demo-web" "graalvm native spring-boot-web" "GRAALSPRING"
-runNativeBinaryTests "./springboot-webflux-demo" "graalvm native spring-boot-webflux" "GRAALWEBFLUX"
-runNativeBinaryTests "./vertx-demo" "graalvm native vertx" "GRAALV1ERTX"
+runNativeBinaryTests "./avaje-jex-jdk-bin" "graalvm native avaje" "GRAALA1VAJE"
+runNativeBinaryTests "./avaje-jex-robaho-bin" "graalvm native avaje" "GRAALRO1BAHO"
+runNativeBinaryTests "./quarkus-demo-runner-bin" "graalvm native quarkus" "GRAALQ1UARKUS"
+runNativeBinaryTests "./micronaut-demo-bin" "graalvm native micronaut" "GRAALM1ICRONAUT"
+runNativeBinaryTests "./springboot-demo-web-bin" "graalvm native spring-boot-web" "GRAALSPRING"
+runNativeBinaryTests "./springboot-webflux-demo-bin" "graalvm native spring-boot-webflux" "GRAALWEBFLUX"
+runNativeBinaryTests "./vertx-demo-bin" "graalvm native vertx" "GRAALV1ERTX"
 #runNativeBinaryTests "./helidon-quickstart-se" "graalvm native helidon" "GRAALH1ELIDON"
-runNativeBinaryTests "./ktor-demo" "graalvm native ktor rest service" "GRAALK1TOR"
+runNativeBinaryTests "./ktor-demo-bin" "graalvm native ktor rest service" "GRAALK1TOR"
 
 printf '***  \n' >> test-result.md
 printf '## GraalVM Native Binaries Sizes:
 
 | Size in MB |  Name |
 |------------|-------|\n' >> test-result.md
-for binary in "./quarkus-demo-runner" \
-              "./micronaut-demo" \
-              "./springboot-demo-web" \
-              "./springboot-webflux-demo" \
-              "./vertx-demo" \
-              "./ktor-demo"; do
+for binary in "./quarkus-demo-runner-bin" \
+              "./micronaut-demo-bin" \
+              "./springboot-demo-web-bin" \
+              "./springboot-webflux-demo-bin" \
+              "./vertx-demo-bin" \
+              "./ktor-demo-bin"; do
 #              "./helidon-quickstart-se" \
     size=$(du -m "$binary" | cut -f1) # Get size in MB
     printf "| %s | %s |\n" "$size" "$(basename "$binary")" >> test-result.md
@@ -292,4 +290,5 @@ printf '[source code for the rust tests](https://github.com/ozkanpakdil/rust-exa
 printf "[github action]($BUILD_URL)  👈 \n" >> test-result.md
 cat graph.html >> test-result.md
 
-cat graph.html 
+cat graph.html
+git checkout graph.html
