@@ -42,6 +42,8 @@ else
     CPU_MHZ=$(cat /proc/cpuinfo | grep "MHz")
 fi
 
+cp graph.html graph-gatling.html
+
 cat << EOF > test-result.md
 ---
 type: post
@@ -79,9 +81,9 @@ writeGraph(){
   MR=`echo $TABLE| tr '>' '\n'|grep 'mean response time'|awk '{print $4}'`
   R1=`echo $2|sed 's/ //g'|sed 's/-//g'` # clearing empty string and dashes
   if [[ "$OSTYPE" == "darwin"* ]]; then
-    sed -i '' "s/$R1/$MR/g" $FOLDERHOME/graph.html
+    sed -i '' "s/$R1/$MR/g" $FOLDERHOME/graph-gatling.html
   else
-    sed -i "s/$R1/$MR/g" $FOLDERHOME/graph.html
+    sed -i "s/$R1/$MR/g" $FOLDERHOME/graph-gatling.html
   fi
 }
 
@@ -288,7 +290,7 @@ BUILD_URL="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_I
 printf '[source code for the java and dotnet tests](https://github.com/ozkanpakdil/test-microservice-frameworks)  👈 ' >> test-result.md
 printf '[source code for the rust tests](https://github.com/ozkanpakdil/rust-examples)  👈 ' >> test-result.md
 printf "[github action]($BUILD_URL)  👈 \n" >> test-result.md
-cat graph.html >> test-result.md
+cat graph-gatling.html >> test-result.md
 
-cat graph.html
-git checkout graph.html
+cat graph-gatling.html
+# git checkout graph.html

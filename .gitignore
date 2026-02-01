@@ -22,6 +22,7 @@ log-k6.log
 somefile.log
 somefile-k6.log
 graph-k6.html
+graph-gatling.html
 *-demo
 *Microservice
 /avaje-jex-jdk-bin
