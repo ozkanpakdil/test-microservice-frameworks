@@ -55,6 +55,8 @@ else
     fi
 fi
 
+cp graph.html graph-k6.html
+
 cat << EOF > test-result-k6.md
 ---
 type: post
@@ -92,9 +94,9 @@ writeGraph(){
   MR=`echo $TABLE| tr '>' '\n'|grep 'mean response time'|awk '{print $4}'`
   R1=`echo $2|sed 's/ //g'|sed 's/-//g'` # clearing empty string and dashes
   if [[ "$OSTYPE" == "darwin"* ]]; then
-    sed -i '' "s/$R1/$MR/g" $FOLDERHOME/graph.html
+    sed -i '' "s/$R1/$MR/g" $FOLDERHOME/graph-k6.html
   else
-    sed -i "s/$R1/$MR/g" $FOLDERHOME/graph.html
+    sed -i "s/$R1/$MR/g" $FOLDERHOME/graph-k6.html
   fi
 }
 
@@ -103,7 +105,7 @@ checkIs8080Up(){
     until curl -vsf http://localhost:8080/hello; do
         sleep 1
         lsof -i :8080 || true
-        tail log.log
+        tail log-k6.log
         let COUNTER-=1
         if [[ "$COUNTER" == '0' ]]; then
           exit 1
@@ -116,14 +118,14 @@ test (){
     verInfo=$2
     startTime=$3
     projectLink=$4
-    java --add-opens java.base/java.lang=ALL-UNNAMED -jar $jarPath &> log.log &
+    java --add-opens java.base/java.lang=ALL-UNNAMED -jar $jarPath &> log-k6.log &
 
     JPID=$!
 
     checkIs8080Up
 
-    frameworkVersion=`grep -m1 -o "$verInfo.*" log.log`
-    startTime=`grep -m1 -o "$startTime.*" log.log || true; `
+    frameworkVersion=`grep -m1 -o "$verInfo.*" log-k6.log`
+    startTime=`grep -m1 -o "$startTime.*" log-k6.log || true; `
 
     echo "[${frameworkVersion}](${projectLink}) " >> test-result-k6.md
     echo $startTime >> test-result-k6.md
@@ -139,10 +141,10 @@ test (){
 }
 
 rustTest (){
-    exec 3>> somefile.log
+    exec 3>> somefile-k6.log
     exePath=$1
     verInfo=$2
-    $exePath > log.log &
+    $exePath > log-k6.log &
 
     JPID=$!
     checkIs8080Up
@@ -160,8 +162,8 @@ rustTest (){
     printf '\n' >&3
     sleep 2
     cd $FOLDERHOME
-    cat somefile.log >> test-result-k6.md
-    rm somefile.log
+    cat somefile-k6.log >> test-result-k6.md
+    rm somefile-k6.log
 }
 
 runNativeBinaryTests(){
@@ -170,7 +172,7 @@ runNativeBinaryTests(){
   graphVar=$3
   chmod +x "$exePath"
 
-  $exePath &> log.log &
+  $exePath &> log-k6.log &
   EXETEST=$!
 
   checkIs8080Up
@@ -303,6 +305,6 @@ BUILD_URL="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_I
 printf '[source code for the java and dotnet tests](https://github.com/ozkanpakdil/test-microservice-frameworks)  👈 ' >> test-result-k6.md
 printf '[source code for the rust tests](https://github.com/ozkanpakdil/rust-examples)  👈 ' >> test-result-k6.md
 printf "[github action]($BUILD_URL)  👈 \n" >> test-result-k6.md
-cat graph.html >> test-result-k6.md
+cat graph-k6.html >> test-result-k6.md
 
-cat graph.html
+cat graph-k6.html

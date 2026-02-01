@@ -61,7 +61,7 @@ jobs:
           if [ -f "test-result-k6.md" ]; then
             # Create Hugo post under hugo/content/posts/YYYY/MM/ and commit it
             HUGO_POST_DIR="hugo/content/posts/$YEAR"
-            HUGO_POST_PATH="$HUGO_POST_DIR/${DATE}-microservice-framework-test-${{ matrix.java }}.md"
+            HUGO_POST_PATH="$HUGO_POST_DIR/${DATE}-microservice-framework-test-${{ matrix.java }}-k6.md"
             mkdir -p "$HUGO_POST_DIR"
             cp test-result-k6.md "$HUGO_POST_PATH"
             git add "$HUGO_POST_PATH"
