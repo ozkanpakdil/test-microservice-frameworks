@@ -18,6 +18,7 @@ url = "https://ozkanpakdil.github.io/"
 [params]
   # Ensure homepage lists posts whose Type is either "post" or "posts"
   mainSections = ["post", "posts"]
+  author = "Ozkan Pakdil"
 
 [outputs]
   home = ["HTML", "RSS", "JSON", "SMALLJSON"]
