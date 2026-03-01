@@ -1,32 +1,32 @@
 ---
 type: post
 title: 'Java microservice framework tests in A:3.4 SB:4.0.3 Q:3.31.1 M:4.10.7 V:5.0.8 H:4.3.2 Dotnet:7,8,9 openjdk version "25.0.2" 2026-01-20 rustc 1.93.1 (01f6ddf75 2026-02-11) go version go1.24.13 linux/amd64'
-date: 2026-03-01 13:19:48
+date: 2026-03-01 15:52:27
 tags: ["microservice","quarkus","graalvm","kotlin","rust","dotnet","golang","expressjs" ]
 ---
 In Linux runnervmnay03 6.14.0-1017-azure #17~24.04.1-Ubuntu SMP Mon Dec  1 20:10:50 UTC 2025 x86_64 x86_64 x86_64 GNU/Linux,
 ```bash
-Memory Usage: 1389/15990MB (8.69%)
+Memory Usage: 1314/15990MB (8.22%)
 Disk Usage: 56/145GB (39%)
-CPU Load: 1.40
+CPU Load: 1.67
 CPU core count:4
 CPUs
-cpu MHz		: 3243.662
-cpu MHz		: 3243.426
-cpu MHz		: 3243.866
-cpu MHz		: 3244.170
+cpu MHz		: 3244.046
+cpu MHz		: 3244.039
+cpu MHz		: 3244.357
+cpu MHz		: 3245.681
 ```
 Below is total package generation times for separate modules,
 ```bash
-[INFO] Avaje Jex Example 3.4 .............................. SUCCESS [  2.645 s]
-[INFO] Avaje Jex Robaho Example 3.4 ....................... SUCCESS [  2.933 s]
-[INFO] eclipse-microprofile-kumuluz-test 4.1.0 ............ SUCCESS [  4.811 s]
-[INFO] ktor-demo 3.4.0-kotlin-2.3.10 ...................... SUCCESS [ 11.913 s]
-[INFO] micronaut-demo 4.10.7 .............................. SUCCESS [ 23.849 s]
-[INFO] quarkus-demo 3.31.1 ................................ SUCCESS [ 11.381 s]
-[INFO] springboot-webflux-demo 4.0.3 ...................... SUCCESS [  1.976 s]
-[INFO] springboot-demo-web 4.0.3 .......................... SUCCESS [  1.976 s]
-[INFO] vertx-demo 5.0.8 ................................... SUCCESS [  3.811 s]
+[INFO] Avaje Jex Example 3.4 .............................. SUCCESS [  2.737 s]
+[INFO] Avaje Jex Robaho Example 3.4 ....................... SUCCESS [  2.741 s]
+[INFO] eclipse-microprofile-kumuluz-test 4.1.0 ............ SUCCESS [  4.635 s]
+[INFO] ktor-demo 3.4.0-kotlin-2.3.10 ...................... SUCCESS [ 12.558 s]
+[INFO] micronaut-demo 4.10.7 .............................. SUCCESS [ 23.915 s]
+[INFO] quarkus-demo 3.31.1 ................................ SUCCESS [ 11.242 s]
+[INFO] springboot-webflux-demo 4.0.3 ...................... SUCCESS [  1.884 s]
+[INFO] springboot-demo-web 4.0.3 .......................... SUCCESS [  1.884 s]
+[INFO] vertx-demo 5.0.8 ................................... SUCCESS [  3.877 s]
 ```
 Size of created packages:
 
@@ -49,117 +49,117 @@ Size of created packages:
 
 ```bash
 ---- Global Information --------------------------------------------------------
-> request count       170022
-> min response time   92.7µs
-> max response time   415.17ms
-> mean response time  19.25ms
-> p(90) response time 47.54ms
-> p(95) response time 61.13ms
-> mean requests/sec   10348.114945
+> request count       168817
+> min response time   80.06µs
+> max response time   1.17s
+> mean response time  18.98ms
+> p(90) response time 42.97ms
+> p(95) response time 55.19ms
+> mean requests/sec   10547.087664
 ```
 
-[started class robaho.net.httpserver.HttpServerImpl in 54ms on TCP http://0.0.0.0:8080](https://github.com/robaho/httpserver) 
+[started class robaho.net.httpserver.HttpServerImpl in 64ms on TCP http://0.0.0.0:8080](https://github.com/robaho/httpserver) 
 
 ```bash
 ---- Global Information --------------------------------------------------------
-> request count       248086
-> min response time   67.01µs
-> max response time   182.45ms
-> mean response time  16.7ms
-> p(90) response time 40.82ms
-> p(95) response time 50.78ms
-> mean requests/sec   16487.229155
-```
-
-[:: Spring Boot ::                (v4.0.3)](https://spring.io/projects/spring-boot) 
-Started DemoWebFluxApplication in 1.641 seconds (process running for 2.144)
-```bash
----- Global Information --------------------------------------------------------
-> request count       85371
-> min response time   307.55µs
-> max response time   4.25s
-> mean response time  60ms
-> p(90) response time 83.14ms
-> p(95) response time 106.45ms
-> mean requests/sec   5613.368505
+> request count       238511
+> min response time   67.5µs
+> max response time   222.73ms
+> mean response time  18.24ms
+> p(90) response time 43.6ms
+> p(95) response time 55.71ms
+> mean requests/sec   15843.032175
 ```
 
 [:: Spring Boot ::                (v4.0.3)](https://spring.io/projects/spring-boot) 
-Started DemoApplication in 1.529 seconds (process running for 1.99)
+Started DemoWebFluxApplication in 1.681 seconds (process running for 2.18)
 ```bash
 ---- Global Information --------------------------------------------------------
-> request count       117580
-> min response time   250.41µs
-> max response time   270.64ms
-> mean response time  36.22ms
-> p(90) response time 76.23ms
-> p(95) response time 94.37ms
-> mean requests/sec   7798.471028
+> request count       88527
+> min response time   285.34µs
+> max response time   2.87s
+> mean response time  55.84ms
+> p(90) response time 105.15ms
+> p(95) response time 135.54ms
+> mean requests/sec   5836.953625
 ```
 
-[powered by Quarkus 3.31.1) started in 1.178s. Listening on: http://0.0.0.0:8080](https://quarkus.io/) 
+[:: Spring Boot ::                (v4.0.3)](https://spring.io/projects/spring-boot) 
+Started DemoApplication in 1.546 seconds (process running for 2.005)
+```bash
+---- Global Information --------------------------------------------------------
+> request count       110142
+> min response time   254.28µs
+> max response time   274.98ms
+> mean response time  35.79ms
+> p(90) response time 77.07ms
+> p(95) response time 95.5ms
+> mean requests/sec   7283.828778
+```
+
+[powered by Quarkus 3.31.1) started in 1.179s. Listening on: http://0.0.0.0:8080](https://quarkus.io/) 
 
 ```bash
 ---- Global Information --------------------------------------------------------
-> request count       110105
-> min response time   283.53µs
-> max response time   299.58ms
-> mean response time  35.04ms
-> p(90) response time 76.12ms
-> p(95) response time 95.6ms
-> mean requests/sec   7304.252941
+> request count       101448
+> min response time   300.36µs
+> max response time   288.68ms
+> mean response time  39.75ms
+> p(90) response time 86.87ms
+> p(95) response time 103.51ms
+> mean requests/sec   6695.511197
 ```
 
 [micronaut version: 4.9.0](https://micronaut.io/) 
-Startup completed in 595ms. Server Running: http://localhost:8080
+Startup completed in 609ms. Server Running: http://localhost:8080
 ```bash
 ---- Global Information --------------------------------------------------------
-> request count       202971
-> min response time   87.21µs
-> max response time   216.54ms
-> mean response time  20.92ms
-> p(90) response time 46.81ms
-> p(95) response time 57.26ms
-> mean requests/sec   13489.352916
+> request count       206923
+> min response time   80.01µs
+> max response time   171.89ms
+> mean response time  20.68ms
+> p(90) response time 46.19ms
+> p(95) response time 56.55ms
+> mean requests/sec   13752.325254
 ```
 
 [vertx version:5.0.8](https://vertx.io/) 
 
 ```bash
 ---- Global Information --------------------------------------------------------
-> request count       286469
-> min response time   45.22µs
-> max response time   159.05ms
-> mean response time  15.94ms
-> p(90) response time 38.08ms
-> p(95) response time 49.79ms
-> mean requests/sec   18964.04364
+> request count       284927
+> min response time   49.67µs
+> max response time   166.67ms
+> mean response time  15.89ms
+> p(90) response time 37.36ms
+> p(95) response time 51.3ms
+> mean requests/sec   18860.965288
 ```
 
 [kumuluz version:4.1.0](https://ee.kumuluz.com/) 
-Server -- Started Server@36061cf3{STARTING}[10.0.9,sto=0] @2805ms
+Server -- Started Server@3e104d4b{STARTING}[10.0.9,sto=0] @2794ms
 ```bash
 ---- Global Information --------------------------------------------------------
-> request count       81155
-> min response time   382.45µs
-> max response time   426.45ms
-> mean response time  51.65ms
-> p(90) response time 121.94ms
-> p(95) response time 152.41ms
-> mean requests/sec   5367.30787
+> request count       81342
+> min response time   336.04µs
+> max response time   347.58ms
+> mean response time  50.99ms
+> p(90) response time 120.84ms
+> p(95) response time 148.39ms
+> mean requests/sec   5380.721073
 ```
 
 [ktor:3.4.0](https://ktor.io/) 
 
 ```bash
 ---- Global Information --------------------------------------------------------
-> request count       198180
-> min response time   94.86µs
-> max response time   2.5s
-> mean response time  16.23ms
-> p(90) response time 35.09ms
-> p(95) response time 44.52ms
-> mean requests/sec   11791.807466
+> request count       191487
+> min response time   98.18µs
+> max response time   1.11s
+> mean response time  15.69ms
+> p(90) response time 37.75ms
+> p(95) response time 48.34ms
+> mean requests/sec   11949.708799
 ```
 
 ***  
@@ -170,62 +170,62 @@ rustc 1.93.1 (01f6ddf75 2026-02-11)
 [warp = { version = 0.4, features = [server] }](http://docs.rs/warp)
 ```bash
 ---- Global Information --------------------------------------------------------
-> request count       336615
-> min response time   44.97µs
-> max response time   201.24ms
-> mean response time  12.75ms
-> p(90) response time 33.3ms
-> p(95) response time 41.68ms
-> mean requests/sec   22384.610815
+> request count       331839
+> min response time   50.45µs
+> max response time   178ms
+> mean response time  13.05ms
+> p(90) response time 34.81ms
+> p(95) response time 43.94ms
+> mean requests/sec   22060.284806
 ```
 
 [actix-web = 4.9.0](http://docs.rs/actix-web)
 ```bash
 ---- Global Information --------------------------------------------------------
-> request count       313887
-> min response time   49.32µs
-> max response time   152.61ms
-> mean response time  13.79ms
-> p(90) response time 38.27ms
-> p(95) response time 47.7ms
-> mean requests/sec   20831.958561
+> request count       308588
+> min response time   49.43µs
+> max response time   170.11ms
+> mean response time  13.83ms
+> p(90) response time 38.99ms
+> p(95) response time 48.04ms
+> mean requests/sec   20522.367655
 ```
 
 [rocket = { version = 0.5.1, features = [json] }](http://docs.rs/rocket)
 ```bash
 ---- Global Information --------------------------------------------------------
-> request count       290790
-> min response time   67.46µs
-> max response time   181.74ms
-> mean response time  14.75ms
-> p(90) response time 39.33ms
-> p(95) response time 48.87ms
-> mean requests/sec   19330.11827
+> request count       292242
+> min response time   70.43µs
+> max response time   163.18ms
+> mean response time  14.51ms
+> p(90) response time 39.01ms
+> p(95) response time 48.39ms
+> mean requests/sec   19394.961624
 ```
 
 [axum = 0.8.1](http://docs.rs/axum)
 ```bash
 ---- Global Information --------------------------------------------------------
-> request count       327738
-> min response time   50.99µs
-> max response time   148.39ms
-> mean response time  12.86ms
-> p(90) response time 33.78ms
-> p(95) response time 41.29ms
-> mean requests/sec   21790.840222
+> request count       326120
+> min response time   51.07µs
+> max response time   209.04ms
+> mean response time  13ms
+> p(90) response time 34.12ms
+> p(95) response time 42.41ms
+> mean requests/sec   21589.621347
 ```
 
 ***  
 ## Dotnet 7 rest service 
 ```bash
 ---- Global Information --------------------------------------------------------
-> request count       232573
-> min response time   97.37µs
-> max response time   251.01ms
-> mean response time  18.54ms
-> p(90) response time 47.37ms
-> p(95) response time 58.53ms
-> mean requests/sec   15392.749561
+> request count       230506
+> min response time   95.26µs
+> max response time   195.43ms
+> mean response time  19ms
+> p(90) response time 49.08ms
+> p(95) response time 61.65ms
+> mean requests/sec   15270.353153
 ```
 
 
@@ -233,13 +233,13 @@ rustc 1.93.1 (01f6ddf75 2026-02-11)
 ## Dotnet 8 rest service 
 ```bash
 ---- Global Information --------------------------------------------------------
-> request count       246658
-> min response time   85.39µs
-> max response time   192.32ms
-> mean response time  17.01ms
-> p(90) response time 45.36ms
-> p(95) response time 54.77ms
-> mean requests/sec   16294.876258
+> request count       245510
+> min response time   79.07µs
+> max response time   196.55ms
+> mean response time  17.88ms
+> p(90) response time 46.12ms
+> p(95) response time 56.78ms
+> mean requests/sec   16234.761707
 ```
 
 
@@ -247,13 +247,13 @@ rustc 1.93.1 (01f6ddf75 2026-02-11)
 ## Dotnet 9 rest service 
 ```bash
 ---- Global Information --------------------------------------------------------
-> request count       253077
-> min response time   82.26µs
-> max response time   240.05ms
-> mean response time  16.74ms
-> p(90) response time 43.17ms
-> p(95) response time 51.7ms
-> mean requests/sec   16792.158916
+> request count       251275
+> min response time   81.05µs
+> max response time   235.5ms
+> mean response time  17.1ms
+> p(90) response time 44.29ms
+> p(95) response time 54.67ms
+> mean requests/sec   16691.220677
 ```
 
 
@@ -266,13 +266,13 @@ go version go1.24.13 linux/amd64
 ## Golang rest service 
 ```bash
 ---- Global Information --------------------------------------------------------
-> request count       273079
-> min response time   60.91µs
-> max response time   199.37ms
-> mean response time  15.34ms
-> p(90) response time 41.38ms
-> p(95) response time 51.68ms
-> mean requests/sec   18072.072978
+> request count       268313
+> min response time   59.22µs
+> max response time   175.52ms
+> mean response time  16.09ms
+> p(90) response time 42.8ms
+> p(95) response time 52.52ms
+> mean requests/sec   17828.883297
 ```
 
 
@@ -285,13 +285,13 @@ Node.js v20.20.0
 ## Express.js rest service 
 ```bash
 ---- Global Information --------------------------------------------------------
-> request count       71489
-> min response time   222.89µs
-> max response time   7.06s
-> mean response time  69.84ms
-> p(90) response time 58.19ms
-> p(95) response time 61.43ms
-> mean requests/sec   4444.98128
+> request count       70757
+> min response time   224.41µs
+> max response time   7.05s
+> mean response time  70.43ms
+> p(90) response time 60.96ms
+> p(95) response time 64.29ms
+> mean requests/sec   4406.043183
 ```
 
 
@@ -304,13 +304,13 @@ Bun 1.3.10
 ## Bun rest service 
 ```bash
 ---- Global Information --------------------------------------------------------
-> request count       346063
-> min response time   49.87µs
-> max response time   156.04ms
-> mean response time  12.85ms
-> p(90) response time 32.92ms
-> p(95) response time 41.49ms
-> mean requests/sec   23006.313959
+> request count       338139
+> min response time   49.68µs
+> max response time   151.83ms
+> mean response time  13.34ms
+> p(90) response time 34ms
+> p(95) response time 45.51ms
+> mean requests/sec   22431.119695
 ```
 
 
@@ -318,13 +318,13 @@ Bun 1.3.10
 ## graalvm native avaje-jex-jdk 
 ```bash
 ---- Global Information --------------------------------------------------------
-> request count       199129
-> min response time   117.78µs
-> max response time   2.46s
-> mean response time  15.12ms
-> p(90) response time 34.29ms
-> p(95) response time 43.12ms
-> mean requests/sec   11785.130204
+> request count       198293
+> min response time   111.39µs
+> max response time   2.07s
+> mean response time  15.25ms
+> p(90) response time 32.36ms
+> p(95) response time 41.02ms
+> mean requests/sec   11904.900027
 ```
 
 
@@ -332,13 +332,13 @@ Bun 1.3.10
 ## graalvm native avaje-jex-robaho 
 ```bash
 ---- Global Information --------------------------------------------------------
-> request count       251818
-> min response time   83.92µs
-> max response time   177.56ms
-> mean response time  17.78ms
-> p(90) response time 46.85ms
-> p(95) response time 60.27ms
-> mean requests/sec   16640.754154
+> request count       249522
+> min response time   70.49µs
+> max response time   178.97ms
+> mean response time  17.55ms
+> p(90) response time 47.96ms
+> p(95) response time 60.22ms
+> mean requests/sec   16506.272776
 ```
 
 
@@ -346,13 +346,13 @@ Bun 1.3.10
 ## graalvm native quarkus 
 ```bash
 ---- Global Information --------------------------------------------------------
-> request count       165927
-> min response time   189.91µs
-> max response time   260.55ms
-> mean response time  26.82ms
-> p(90) response time 69.19ms
-> p(95) response time 85.82ms
-> mean requests/sec   11016.090008
+> request count       164218
+> min response time   190.83µs
+> max response time   226.29ms
+> mean response time  26.42ms
+> p(90) response time 66.38ms
+> p(95) response time 82.46ms
+> mean requests/sec   10881.661747
 ```
 
 
@@ -360,13 +360,13 @@ Bun 1.3.10
 ## graalvm native micronaut 
 ```bash
 ---- Global Information --------------------------------------------------------
-> request count       202418
-> min response time   108.74µs
-> max response time   314.34ms
-> mean response time  21.88ms
-> p(90) response time 57.13ms
-> p(95) response time 74.84ms
-> mean requests/sec   13427.73831
+> request count       201936
+> min response time   114.05µs
+> max response time   204.72ms
+> mean response time  22.09ms
+> p(90) response time 58.99ms
+> p(95) response time 75.92ms
+> mean requests/sec   13412.340477
 ```
 
 
@@ -374,13 +374,13 @@ Bun 1.3.10
 ## graalvm native spring-boot-web 
 ```bash
 ---- Global Information --------------------------------------------------------
-> request count       139371
-> min response time   182.09µs
-> max response time   1.05s
-> mean response time  35.21ms
-> p(90) response time 77.73ms
-> p(95) response time 106.01ms
-> mean requests/sec   9197.146468
+> request count       143189
+> min response time   168.83µs
+> max response time   713.01ms
+> mean response time  31.91ms
+> p(90) response time 81.22ms
+> p(95) response time 108.29ms
+> mean requests/sec   9461.398254
 ```
 
 
@@ -388,13 +388,13 @@ Bun 1.3.10
 ## graalvm native spring-boot-webflux 
 ```bash
 ---- Global Information --------------------------------------------------------
-> request count       147985
-> min response time   177.92µs
-> max response time   1.2s
-> mean response time  33.94ms
-> p(90) response time 84.42ms
-> p(95) response time 108.96ms
-> mean requests/sec   9673.633761
+> request count       148654
+> min response time   176.75µs
+> max response time   753.27ms
+> mean response time  32.8ms
+> p(90) response time 90.35ms
+> p(95) response time 123ms
+> mean requests/sec   9831.863771
 ```
 
 
@@ -402,13 +402,13 @@ Bun 1.3.10
 ## graalvm native vertx 
 ```bash
 ---- Global Information --------------------------------------------------------
-> request count       211798
-> min response time   68.4µs
-> max response time   198.05ms
-> mean response time  23.18ms
-> p(90) response time 61.17ms
-> p(95) response time 73.21ms
-> mean requests/sec   14014.54579
+> request count       212383
+> min response time   71.42µs
+> max response time   189.45ms
+> mean response time  23.03ms
+> p(90) response time 60.11ms
+> p(95) response time 73.76ms
+> mean requests/sec   14100.649893
 ```
 
 
@@ -416,13 +416,13 @@ Bun 1.3.10
 ## graalvm native ktor rest service 
 ```bash
 ---- Global Information --------------------------------------------------------
-> request count       193022
-> min response time   118.8µs
-> max response time   2.47s
-> mean response time  17.83ms
-> p(90) response time 34.51ms
-> p(95) response time 43.53ms
-> mean requests/sec   11632.165861
+> request count       193190
+> min response time   116.34µs
+> max response time   2.28s
+> mean response time  17.8ms
+> p(90) response time 34.38ms
+> p(95) response time 43.71ms
+> mean requests/sec   11189.88456
 ```
 
 
@@ -441,7 +441,7 @@ Bun 1.3.10
 
 ***  
 
-[source code for the java and dotnet tests](https://github.com/ozkanpakdil/test-microservice-frameworks)  👈 [source code for the rust tests](https://github.com/ozkanpakdil/rust-examples)  👈 [github action](https://github.com/ozkanpakdil/test-microservice-frameworks/actions/runs/22541633486)  👈 
+[source code for the java and dotnet tests](https://github.com/ozkanpakdil/test-microservice-frameworks)  👈 [source code for the rust tests](https://github.com/ozkanpakdil/rust-examples)  👈 [github action](https://github.com/ozkanpakdil/test-microservice-frameworks/actions/runs/22546519346)  👈 
 <script src="https://www.gstatic.com/charts/loader.js"></script>
 <script type="text/javascript">
     google.charts.load('current', {
@@ -452,26 +452,26 @@ Bun 1.3.10
     function drawChart() {
         var dataSource = new google.visualization.arrayToDataTable([
             ['Framework', 'Response', 'Graal'],
-            ["Avaje", 10348, 11785],
-            ["Robaho", 16487, 16640],
-            ["Spring", 7798, 9197],
-            ["Webflux", 5613, 9673],
-            ["Quarkus", 7304, 11016],
-            ["Micronaut", 13489, 13427],
-            ['Vertx', 18964, 14014],
-            ['Ktor', 11791, 11632],
+            ["Avaje", 10547, 11904],
+            ["Robaho", 15843, 16506],
+            ["Spring", 7283, 9461],
+            ["Webflux", 5836, 9831],
+            ["Quarkus", 6695, 10881],
+            ["Micronaut", 13752, 13412],
+            ['Vertx', 18860, 14100],
+            ['Ktor', 11949, 11189],
             //['Helidon', HELIDON, GRAALH1ELIDON],
-            ['Kumuluz', 5367, 0],
-            ['R-Rocket', 19330, 0],
-            ['RustAxum', 21790, 0],
-            ['R-Actix', 20831, 0],
-            ['R-Warp', 22384, 0],
-            ['.net 7 AOT', 15392, 0],
-            ['.net 8 AOT', 16294, 0],
-            ['.net 9 AOT', 16792, 0],
-            ['Golang', 18072, 0],
-            ['ExpressJS', 4444, 0],
-            ['Bun', 23006, 0],
+            ['Kumuluz', 5380, 0],
+            ['R-Rocket', 19394, 0],
+            ['RustAxum', 21589, 0],
+            ['R-Actix', 20522, 0],
+            ['R-Warp', 22060, 0],
+            ['.net 7 AOT', 15270, 0],
+            ['.net 8 AOT', 16234, 0],
+            ['.net 9 AOT', 16691, 0],
+            ['Golang', 17828, 0],
+            ['ExpressJS', 4406, 0],
+            ['Bun', 22431, 0],
         ]);
         const postContentDiv = document.getElementsByClassName('post-content').item(0);
         const chartDiv = document.createElement("div");
@@ -540,33 +540,33 @@ Bun 1.3.10
 </tr>
 </thead>
 <tbody>
-<tr><td>AVAJE</td><td>170022</td><td>92.7µs</td><td>415.17ms</td><td>19.25ms</td><td>47.54ms</td><td>61.13ms</td><td>10348.114945</td></tr>
-<tr><td>ROBAHO</td><td>248086</td><td>67.01µs</td><td>182.45ms</td><td>16.7ms</td><td>40.82ms</td><td>50.78ms</td><td>16487.229155</td></tr>
-<tr><td>Started DemoWebFluxApplication</td><td>85371</td><td>307.55µs</td><td>4.25s</td><td>60ms</td><td>83.14ms</td><td>106.45ms</td><td>5613.368505</td></tr>
-<tr><td>Started DemoApplication</td><td>117580</td><td>250.41µs</td><td>270.64ms</td><td>36.22ms</td><td>76.23ms</td><td>94.37ms</td><td>7798.471028</td></tr>
-<tr><td>QUARKUS</td><td>110105</td><td>283.53µs</td><td>299.58ms</td><td>35.04ms</td><td>76.12ms</td><td>95.6ms</td><td>7304.252941</td></tr>
-<tr><td>Startup completed in</td><td>202971</td><td>87.21µs</td><td>216.54ms</td><td>20.92ms</td><td>46.81ms</td><td>57.26ms</td><td>13489.352916</td></tr>
-<tr><td>VERTX</td><td>286469</td><td>45.22µs</td><td>159.05ms</td><td>15.94ms</td><td>38.08ms</td><td>49.79ms</td><td>18964.04364</td></tr>
-<tr><td>Server -- Started</td><td>81155</td><td>382.45µs</td><td>426.45ms</td><td>51.65ms</td><td>121.94ms</td><td>152.41ms</td><td>5367.30787</td></tr>
-<tr><td>KTOR</td><td>198180</td><td>94.86µs</td><td>2.5s</td><td>16.23ms</td><td>35.09ms</td><td>44.52ms</td><td>11791.807466</td></tr>
-<tr><td>WARP</td><td>336615</td><td>44.97µs</td><td>201.24ms</td><td>12.75ms</td><td>33.3ms</td><td>41.68ms</td><td>22384.610815</td></tr>
-<tr><td>ACTIX</td><td>313887</td><td>49.32µs</td><td>152.61ms</td><td>13.79ms</td><td>38.27ms</td><td>47.7ms</td><td>20831.958561</td></tr>
-<tr><td>ROCKET</td><td>290790</td><td>67.46µs</td><td>181.74ms</td><td>14.75ms</td><td>39.33ms</td><td>48.87ms</td><td>19330.11827</td></tr>
-<tr><td>AXUM</td><td>327738</td><td>50.99µs</td><td>148.39ms</td><td>12.86ms</td><td>33.78ms</td><td>41.29ms</td><td>21790.840222</td></tr>
-<tr><td>Dotnet 7 rest service</td><td>232573</td><td>97.37µs</td><td>251.01ms</td><td>18.54ms</td><td>47.37ms</td><td>58.53ms</td><td>15392.749561</td></tr>
-<tr><td>Dotnet 8 rest service</td><td>246658</td><td>85.39µs</td><td>192.32ms</td><td>17.01ms</td><td>45.36ms</td><td>54.77ms</td><td>16294.876258</td></tr>
-<tr><td>Dotnet 9 rest service</td><td>253077</td><td>82.26µs</td><td>240.05ms</td><td>16.74ms</td><td>43.17ms</td><td>51.7ms</td><td>16792.158916</td></tr>
-<tr><td>Golang rest service</td><td>273079</td><td>60.91µs</td><td>199.37ms</td><td>15.34ms</td><td>41.38ms</td><td>51.68ms</td><td>18072.072978</td></tr>
-<tr><td>Express.js rest service</td><td>71489</td><td>222.89µs</td><td>7.06s</td><td>69.84ms</td><td>58.19ms</td><td>61.43ms</td><td>4444.98128</td></tr>
-<tr><td>Bun rest service</td><td>346063</td><td>49.87µs</td><td>156.04ms</td><td>12.85ms</td><td>32.92ms</td><td>41.49ms</td><td>23006.313959</td></tr>
-<tr><td>graalvm native avaje-jex-jdk</td><td>199129</td><td>117.78µs</td><td>2.46s</td><td>15.12ms</td><td>34.29ms</td><td>43.12ms</td><td>11785.130204</td></tr>
-<tr><td>graalvm native avaje-jex-robaho</td><td>251818</td><td>83.92µs</td><td>177.56ms</td><td>17.78ms</td><td>46.85ms</td><td>60.27ms</td><td>16640.754154</td></tr>
-<tr><td>graalvm native quarkus</td><td>165927</td><td>189.91µs</td><td>260.55ms</td><td>26.82ms</td><td>69.19ms</td><td>85.82ms</td><td>11016.090008</td></tr>
-<tr><td>graalvm native micronaut</td><td>202418</td><td>108.74µs</td><td>314.34ms</td><td>21.88ms</td><td>57.13ms</td><td>74.84ms</td><td>13427.73831</td></tr>
-<tr><td>graalvm native spring-boot-web</td><td>139371</td><td>182.09µs</td><td>1.05s</td><td>35.21ms</td><td>77.73ms</td><td>106.01ms</td><td>9197.146468</td></tr>
-<tr><td>graalvm native spring-boot-webflux</td><td>147985</td><td>177.92µs</td><td>1.2s</td><td>33.94ms</td><td>84.42ms</td><td>108.96ms</td><td>9673.633761</td></tr>
-<tr><td>graalvm native vertx</td><td>211798</td><td>68.4µs</td><td>198.05ms</td><td>23.18ms</td><td>61.17ms</td><td>73.21ms</td><td>14014.54579</td></tr>
-<tr><td>graalvm native ktor rest service</td><td>193022</td><td>118.8µs</td><td>2.47s</td><td>17.83ms</td><td>34.51ms</td><td>43.53ms</td><td>11632.165861</td></tr>
+<tr><td>AVAJE</td><td>168817</td><td>80.06µs</td><td>1.17s</td><td>18.98ms</td><td>42.97ms</td><td>55.19ms</td><td>10547.087664</td></tr>
+<tr><td>ROBAHO</td><td>238511</td><td>67.5µs</td><td>222.73ms</td><td>18.24ms</td><td>43.6ms</td><td>55.71ms</td><td>15843.032175</td></tr>
+<tr><td>Started DemoWebFluxApplication</td><td>88527</td><td>285.34µs</td><td>2.87s</td><td>55.84ms</td><td>105.15ms</td><td>135.54ms</td><td>5836.953625</td></tr>
+<tr><td>Started DemoApplication</td><td>110142</td><td>254.28µs</td><td>274.98ms</td><td>35.79ms</td><td>77.07ms</td><td>95.5ms</td><td>7283.828778</td></tr>
+<tr><td>QUARKUS</td><td>101448</td><td>300.36µs</td><td>288.68ms</td><td>39.75ms</td><td>86.87ms</td><td>103.51ms</td><td>6695.511197</td></tr>
+<tr><td>Startup completed in</td><td>206923</td><td>80.01µs</td><td>171.89ms</td><td>20.68ms</td><td>46.19ms</td><td>56.55ms</td><td>13752.325254</td></tr>
+<tr><td>VERTX</td><td>284927</td><td>49.67µs</td><td>166.67ms</td><td>15.89ms</td><td>37.36ms</td><td>51.3ms</td><td>18860.965288</td></tr>
+<tr><td>Server -- Started</td><td>81342</td><td>336.04µs</td><td>347.58ms</td><td>50.99ms</td><td>120.84ms</td><td>148.39ms</td><td>5380.721073</td></tr>
+<tr><td>KTOR</td><td>191487</td><td>98.18µs</td><td>1.11s</td><td>15.69ms</td><td>37.75ms</td><td>48.34ms</td><td>11949.708799</td></tr>
+<tr><td>WARP</td><td>331839</td><td>50.45µs</td><td>178ms</td><td>13.05ms</td><td>34.81ms</td><td>43.94ms</td><td>22060.284806</td></tr>
+<tr><td>ACTIX</td><td>308588</td><td>49.43µs</td><td>170.11ms</td><td>13.83ms</td><td>38.99ms</td><td>48.04ms</td><td>20522.367655</td></tr>
+<tr><td>ROCKET</td><td>292242</td><td>70.43µs</td><td>163.18ms</td><td>14.51ms</td><td>39.01ms</td><td>48.39ms</td><td>19394.961624</td></tr>
+<tr><td>AXUM</td><td>326120</td><td>51.07µs</td><td>209.04ms</td><td>13ms</td><td>34.12ms</td><td>42.41ms</td><td>21589.621347</td></tr>
+<tr><td>Dotnet 7 rest service</td><td>230506</td><td>95.26µs</td><td>195.43ms</td><td>19ms</td><td>49.08ms</td><td>61.65ms</td><td>15270.353153</td></tr>
+<tr><td>Dotnet 8 rest service</td><td>245510</td><td>79.07µs</td><td>196.55ms</td><td>17.88ms</td><td>46.12ms</td><td>56.78ms</td><td>16234.761707</td></tr>
+<tr><td>Dotnet 9 rest service</td><td>251275</td><td>81.05µs</td><td>235.5ms</td><td>17.1ms</td><td>44.29ms</td><td>54.67ms</td><td>16691.220677</td></tr>
+<tr><td>Golang rest service</td><td>268313</td><td>59.22µs</td><td>175.52ms</td><td>16.09ms</td><td>42.8ms</td><td>52.52ms</td><td>17828.883297</td></tr>
+<tr><td>Express.js rest service</td><td>70757</td><td>224.41µs</td><td>7.05s</td><td>70.43ms</td><td>60.96ms</td><td>64.29ms</td><td>4406.043183</td></tr>
+<tr><td>Bun rest service</td><td>338139</td><td>49.68µs</td><td>151.83ms</td><td>13.34ms</td><td>34ms</td><td>45.51ms</td><td>22431.119695</td></tr>
+<tr><td>graalvm native avaje-jex-jdk</td><td>198293</td><td>111.39µs</td><td>2.07s</td><td>15.25ms</td><td>32.36ms</td><td>41.02ms</td><td>11904.900027</td></tr>
+<tr><td>graalvm native avaje-jex-robaho</td><td>249522</td><td>70.49µs</td><td>178.97ms</td><td>17.55ms</td><td>47.96ms</td><td>60.22ms</td><td>16506.272776</td></tr>
+<tr><td>graalvm native quarkus</td><td>164218</td><td>190.83µs</td><td>226.29ms</td><td>26.42ms</td><td>66.38ms</td><td>82.46ms</td><td>10881.661747</td></tr>
+<tr><td>graalvm native micronaut</td><td>201936</td><td>114.05µs</td><td>204.72ms</td><td>22.09ms</td><td>58.99ms</td><td>75.92ms</td><td>13412.340477</td></tr>
+<tr><td>graalvm native spring-boot-web</td><td>143189</td><td>168.83µs</td><td>713.01ms</td><td>31.91ms</td><td>81.22ms</td><td>108.29ms</td><td>9461.398254</td></tr>
+<tr><td>graalvm native spring-boot-webflux</td><td>148654</td><td>176.75µs</td><td>753.27ms</td><td>32.8ms</td><td>90.35ms</td><td>123ms</td><td>9831.863771</td></tr>
+<tr><td>graalvm native vertx</td><td>212383</td><td>71.42µs</td><td>189.45ms</td><td>23.03ms</td><td>60.11ms</td><td>73.76ms</td><td>14100.649893</td></tr>
+<tr><td>graalvm native ktor rest service</td><td>193190</td><td>116.34µs</td><td>2.28s</td><td>17.8ms</td><td>34.38ms</td><td>43.71ms</td><td>11189.88456</td></tr>
 </tbody>
 </table>
 
