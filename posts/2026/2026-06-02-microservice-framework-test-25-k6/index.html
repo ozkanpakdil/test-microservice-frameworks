@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Java microservice framework tests in A:3.5 SB:4.0.6 Q:3.34.1 M:5.0.1 V:5.0.10 H:4.3.2 Dotnet:7,8,9 openjdk version &#34;25.0.2&#34; 2026-01-20 rustc 1.95.0 (59807616e 2026-04-14) go version go1.24.13 linux/amd64 | Microservice Framework Tests</title>
+<meta name="keywords" content="microservice, quarkus, graalvm, kotlin, rust, dotnet, golang, expressjs">
+<meta name="description" content="In Linux runnervm3jyl0 6.17.0-1015-azure #15~24.04.1-Ubuntu SMP Wed May  6 22:37:49 UTC 2026 x86_64 x86_64 x86_64 GNU/Linux,
+Memory Usage: 1363/15989MB (8.52%)
+Disk Usage: 58/145GB (41%)
+CPU Load: 1.26
+CPU core count:4
+CPUs
+cpu MHz		: 3235.969
+cpu MHz		: 3240.930
+cpu MHz		: 3244.068
+cpu MHz		: 3241.704
+Below is total package generation times for separate modules,
+[INFO] [INFO] Avaje Jex Example 3.5 .............................. SUCCESS [  0.219 s]
+[INFO] [INFO] Avaje Jex Robaho Example 3.5 ....................... SUCCESS [  0.014 s]
+[INFO] [INFO] eclipse-microprofile-kumuluz-test 4.1.0 ............ SUCCESS [  0.273 s]
+[INFO] [INFO] ktor-demo 3.4.3-kotlin-2.3.21 ...................... SUCCESS [  1.281 s]
+[INFO] [INFO] micronaut-demo 5.0.1 ............................... SUCCESS [  1.423 s]
+[INFO] [INFO] quarkus-demo 3.34.1 ................................ SUCCESS [  0.833 s]
+[INFO] [INFO] springboot-webflux-demo 4.0.6 ...................... SUCCESS [  0.169 s]
+[INFO] [INFO] springboot-demo-web 4.0.6 .......................... SUCCESS [  0.041 s]
+[INFO] [INFO] vertx-demo 5.0.10 .................................. SUCCESS [  0.069 s]
+[INFO] Avaje Jex Example 3.5 .............................. SUCCESS [  2.668 s]
+[INFO] Avaje Jex Robaho Example 3.5 ....................... SUCCESS [  2.710 s]
+[INFO] eclipse-microprofile-kumuluz-test 4.1.0 ............ SUCCESS [  4.596 s]
+[INFO] ktor-demo 3.4.3-kotlin-2.3.21 ...................... SUCCESS [ 11.828 s]
+[INFO] micronaut-demo 5.0.1 ............................... SUCCESS [ 24.328 s]
+[INFO] quarkus-demo 3.34.1 ................................ SUCCESS [ 13.265 s]
+[INFO] springboot-webflux-demo 4.0.6 ...................... SUCCESS [  1.955 s]
+[INFO] springboot-demo-web 4.0.6 .......................... SUCCESS [  1.950 s]
+[INFO] vertx-demo 5.0.10 .................................. SUCCESS [  4.318 s]
+Size of created packages:">
+<meta name="author" content="Ozkan Pakdil">
+<link rel="canonical" href="https://ozkanpakdil.github.io/test-microservice-frameworks/posts/2026/2026-06-02-microservice-framework-test-25-k6/">
+<link crossorigin="anonymous" href="/test-microservice-frameworks/assets/css/stylesheet.aeb04085357f24835232aa89766467110fb6da019fa0a790d4d097b3949d7276.css" integrity="sha256-rrBAhTV/JINSMqqJdmRnEQ&#43;22gGfoKeQ1NCXs5SdcnY=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://ozkanpakdil.github.io/test-microservice-frameworks/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://ozkanpakdil.github.io/test-microservice-frameworks/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://ozkanpakdil.github.io/test-microservice-frameworks/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://ozkanpakdil.github.io/test-microservice-frameworks/apple-touch-icon.png">
+<link rel="mask-icon" href="https://ozkanpakdil.github.io/test-microservice-frameworks/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://ozkanpakdil.github.io/test-microservice-frameworks/posts/2026/2026-06-02-microservice-framework-test-25-k6/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:url" content="https://ozkanpakdil.github.io/test-microservice-frameworks/posts/2026/2026-06-02-microservice-framework-test-25-k6/">
+  <meta property="og:site_name" content="Microservice Framework Tests">
+  <meta property="og:title" content="Java microservice framework tests in A:3.5 SB:4.0.6 Q:3.34.1 M:5.0.1 V:5.0.10 H:4.3.2 Dotnet:7,8,9 openjdk version &#34;25.0.2&#34; 2026-01-20 rustc 1.95.0 (59807616e 2026-04-14) go version go1.24.13 linux/amd64">
+  <meta property="og:description" content="In Linux runnervm3jyl0 6.17.0-1015-azure #15~24.04.1-Ubuntu SMP Wed May 6 22:37:49 UTC 2026 x86_64 x86_64 x86_64 GNU/Linux,
+Memory Usage: 1363/15989MB (8.52%) Disk Usage: 58/145GB (41%) CPU Load: 1.26 CPU core count:4 CPUs cpu MHz	: 3235.969 cpu MHz	: 3240.930 cpu MHz	: 3244.068 cpu MHz	: 3241.704 Below is total package generation times for separate modules,
+[INFO] [INFO] Avaje Jex Example 3.5 .............................. SUCCESS [ 0.219 s] [INFO] [INFO] Avaje Jex Robaho Example 3.5 ....................... SUCCESS [ 0.014 s] [INFO] [INFO] eclipse-microprofile-kumuluz-test 4.1.0 ............ SUCCESS [ 0.273 s] [INFO] [INFO] ktor-demo 3.4.3-kotlin-2.3.21 ...................... SUCCESS [ 1.281 s] [INFO] [INFO] micronaut-demo 5.0.1 ............................... SUCCESS [ 1.423 s] [INFO] [INFO] quarkus-demo 3.34.1 ................................ SUCCESS [ 0.833 s] [INFO] [INFO] springboot-webflux-demo 4.0.6 ...................... SUCCESS [ 0.169 s] [INFO] [INFO] springboot-demo-web 4.0.6 .......................... SUCCESS [ 0.041 s] [INFO] [INFO] vertx-demo 5.0.10 .................................. SUCCESS [ 0.069 s] [INFO] Avaje Jex Example 3.5 .............................. SUCCESS [ 2.668 s] [INFO] Avaje Jex Robaho Example 3.5 ....................... SUCCESS [ 2.710 s] [INFO] eclipse-microprofile-kumuluz-test 4.1.0 ............ SUCCESS [ 4.596 s] [INFO] ktor-demo 3.4.3-kotlin-2.3.21 ...................... SUCCESS [ 11.828 s] [INFO] micronaut-demo 5.0.1 ............................... SUCCESS [ 24.328 s] [INFO] quarkus-demo 3.34.1 ................................ SUCCESS [ 13.265 s] [INFO] springboot-webflux-demo 4.0.6 ...................... SUCCESS [ 1.955 s] [INFO] springboot-demo-web 4.0.6 .......................... SUCCESS [ 1.950 s] [INFO] vertx-demo 5.0.10 .................................. SUCCESS [ 4.318 s] Size of created packages:">
+  <meta property="og:locale" content="en-us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2026-06-02T20:18:54+00:00">
+    <meta property="article:modified_time" content="2026-06-02T20:18:54+00:00">
+    <meta property="article:tag" content="Microservice">
+    <meta property="article:tag" content="Quarkus">
+    <meta property="article:tag" content="Graalvm">
+    <meta property="article:tag" content="Kotlin">
+    <meta property="article:tag" content="Rust">
+    <meta property="article:tag" content="Dotnet">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java microservice framework tests in A:3.5 SB:4.0.6 Q:3.34.1 M:5.0.1 V:5.0.10 H:4.3.2 Dotnet:7,8,9 openjdk version &#34;25.0.2&#34; 2026-01-20 rustc 1.95.0 (59807616e 2026-04-14) go version go1.24.13 linux/amd64">
+<meta name="twitter:description" content="In Linux runnervm3jyl0 6.17.0-1015-azure #15~24.04.1-Ubuntu SMP Wed May  6 22:37:49 UTC 2026 x86_64 x86_64 x86_64 GNU/Linux,
+Memory Usage: 1363/15989MB (8.52%)
+Disk Usage: 58/145GB (41%)
+CPU Load: 1.26
+CPU core count:4
+CPUs
+cpu MHz		: 3235.969
+cpu MHz		: 3240.930
+cpu MHz		: 3244.068
+cpu MHz		: 3241.704
+Below is total package generation times for separate modules,
+[INFO] [INFO] Avaje Jex Example 3.5 .............................. SUCCESS [  0.219 s]
+[INFO] [INFO] Avaje Jex Robaho Example 3.5 ....................... SUCCESS [  0.014 s]
+[INFO] [INFO] eclipse-microprofile-kumuluz-test 4.1.0 ............ SUCCESS [  0.273 s]
+[INFO] [INFO] ktor-demo 3.4.3-kotlin-2.3.21 ...................... SUCCESS [  1.281 s]
+[INFO] [INFO] micronaut-demo 5.0.1 ............................... SUCCESS [  1.423 s]
+[INFO] [INFO] quarkus-demo 3.34.1 ................................ SUCCESS [  0.833 s]
+[INFO] [INFO] springboot-webflux-demo 4.0.6 ...................... SUCCESS [  0.169 s]
+[INFO] [INFO] springboot-demo-web 4.0.6 .......................... SUCCESS [  0.041 s]
+[INFO] [INFO] vertx-demo 5.0.10 .................................. SUCCESS [  0.069 s]
+[INFO] Avaje Jex Example 3.5 .............................. SUCCESS [  2.668 s]
+[INFO] Avaje Jex Robaho Example 3.5 ....................... SUCCESS [  2.710 s]
+[INFO] eclipse-microprofile-kumuluz-test 4.1.0 ............ SUCCESS [  4.596 s]
+[INFO] ktor-demo 3.4.3-kotlin-2.3.21 ...................... SUCCESS [ 11.828 s]
+[INFO] micronaut-demo 5.0.1 ............................... SUCCESS [ 24.328 s]
+[INFO] quarkus-demo 3.34.1 ................................ SUCCESS [ 13.265 s]
+[INFO] springboot-webflux-demo 4.0.6 ...................... SUCCESS [  1.955 s]
+[INFO] springboot-demo-web 4.0.6 .......................... SUCCESS [  1.950 s]
+[INFO] vertx-demo 5.0.10 .................................. SUCCESS [  4.318 s]
+Size of created packages:">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://ozkanpakdil.github.io/test-microservice-frameworks/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Java microservice framework tests in A:3.5 SB:4.0.6 Q:3.34.1 M:5.0.1 V:5.0.10 H:4.3.2 Dotnet:7,8,9 openjdk version \"25.0.2\" 2026-01-20 rustc 1.95.0 (59807616e 2026-04-14) go version go1.24.13 linux/amd64",
+      "item": "https://ozkanpakdil.github.io/test-microservice-frameworks/posts/2026/2026-06-02-microservice-framework-test-25-k6/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Java microservice framework tests in A:3.5 SB:4.0.6 Q:3.34.1 M:5.0.1 V:5.0.10 H:4.3.2 Dotnet:7,8,9 openjdk version \"25.0.2\" 2026-01-20 rustc 1.95.0 (59807616e 2026-04-14) go version go1.24.13 linux/amd64",
+  "name": "Java microservice framework tests in A:3.5 SB:4.0.6 Q:3.34.1 M:5.0.1 V:5.0.10 H:4.3.2 Dotnet:7,8,9 openjdk version \u002225.0.2\u0022 2026-01-20 rustc 1.95.0 (59807616e 2026-04-14) go version go1.24.13 linux\/amd64",
+  "description": "In Linux runnervm3jyl0 6.17.0-1015-azure #15~24.04.1-Ubuntu SMP Wed May 6 22:37:49 UTC 2026 x86_64 x86_64 x86_64 GNU/Linux,\nMemory Usage: 1363/15989MB (8.52%) Disk Usage: 58/145GB (41%) CPU Load: 1.26 CPU core count:4 CPUs cpu MHz\t: 3235.969 cpu MHz\t: 3240.930 cpu MHz\t: 3244.068 cpu MHz\t: 3241.704 Below is total package generation times for separate modules,\n[INFO] [INFO] Avaje Jex Example 3.5 .............................. SUCCESS [ 0.219 s] [INFO] [INFO] Avaje Jex Robaho Example 3.5 ....................... SUCCESS [ 0.014 s] [INFO] [INFO] eclipse-microprofile-kumuluz-test 4.1.0 ............ SUCCESS [ 0.273 s] [INFO] [INFO] ktor-demo 3.4.3-kotlin-2.3.21 ...................... SUCCESS [ 1.281 s] [INFO] [INFO] micronaut-demo 5.0.1 ............................... SUCCESS [ 1.423 s] [INFO] [INFO] quarkus-demo 3.34.1 ................................ SUCCESS [ 0.833 s] [INFO] [INFO] springboot-webflux-demo 4.0.6 ...................... SUCCESS [ 0.169 s] [INFO] [INFO] springboot-demo-web 4.0.6 .......................... SUCCESS [ 0.041 s] [INFO] [INFO] vertx-demo 5.0.10 .................................. SUCCESS [ 0.069 s] [INFO] Avaje Jex Example 3.5 .............................. SUCCESS [ 2.668 s] [INFO] Avaje Jex Robaho Example 3.5 ....................... SUCCESS [ 2.710 s] [INFO] eclipse-microprofile-kumuluz-test 4.1.0 ............ SUCCESS [ 4.596 s] [INFO] ktor-demo 3.4.3-kotlin-2.3.21 ...................... SUCCESS [ 11.828 s] [INFO] micronaut-demo 5.0.1 ............................... SUCCESS [ 24.328 s] [INFO] quarkus-demo 3.34.1 ................................ SUCCESS [ 13.265 s] [INFO] springboot-webflux-demo 4.0.6 ...................... SUCCESS [ 1.955 s] [INFO] springboot-demo-web 4.0.6 .......................... SUCCESS [ 1.950 s] [INFO] vertx-demo 5.0.10 .................................. SUCCESS [ 4.318 s] Size of created packages:\n",
+  "keywords": [
+    "microservice", "quarkus", "graalvm", "kotlin", "rust", "dotnet", "golang", "expressjs"
+  ],
+  "articleBody": "In Linux runnervm3jyl0 6.17.0-1015-azure #15~24.04.1-Ubuntu SMP Wed May 6 22:37:49 UTC 2026 x86_64 x86_64 x86_64 GNU/Linux,\nMemory Usage: 1363/15989MB (8.52%) Disk Usage: 58/145GB (41%) CPU Load: 1.26 CPU core count:4 CPUs cpu MHz\t: 3235.969 cpu MHz\t: 3240.930 cpu MHz\t: 3244.068 cpu MHz\t: 3241.704 Below is total package generation times for separate modules,\n[INFO] [INFO] Avaje Jex Example 3.5 .............................. SUCCESS [ 0.219 s] [INFO] [INFO] Avaje Jex Robaho Example 3.5 ....................... SUCCESS [ 0.014 s] [INFO] [INFO] eclipse-microprofile-kumuluz-test 4.1.0 ............ SUCCESS [ 0.273 s] [INFO] [INFO] ktor-demo 3.4.3-kotlin-2.3.21 ...................... SUCCESS [ 1.281 s] [INFO] [INFO] micronaut-demo 5.0.1 ............................... SUCCESS [ 1.423 s] [INFO] [INFO] quarkus-demo 3.34.1 ................................ SUCCESS [ 0.833 s] [INFO] [INFO] springboot-webflux-demo 4.0.6 ...................... SUCCESS [ 0.169 s] [INFO] [INFO] springboot-demo-web 4.0.6 .......................... SUCCESS [ 0.041 s] [INFO] [INFO] vertx-demo 5.0.10 .................................. SUCCESS [ 0.069 s] [INFO] Avaje Jex Example 3.5 .............................. SUCCESS [ 2.668 s] [INFO] Avaje Jex Robaho Example 3.5 ....................... SUCCESS [ 2.710 s] [INFO] eclipse-microprofile-kumuluz-test 4.1.0 ............ SUCCESS [ 4.596 s] [INFO] ktor-demo 3.4.3-kotlin-2.3.21 ...................... SUCCESS [ 11.828 s] [INFO] micronaut-demo 5.0.1 ............................... SUCCESS [ 24.328 s] [INFO] quarkus-demo 3.34.1 ................................ SUCCESS [ 13.265 s] [INFO] springboot-webflux-demo 4.0.6 ...................... SUCCESS [ 1.955 s] [INFO] springboot-demo-web 4.0.6 .......................... SUCCESS [ 1.950 s] [INFO] vertx-demo 5.0.10 .................................. SUCCESS [ 4.318 s] Size of created packages:\nSize in MB Name 2.6M ./avaje-jex-jdk/target/avaje-jex-jdk-3.5.jar 2.6M ./avaje-jex-jdk/target/original-avaje-jex-jdk-3.5.jar 2.8M ./avaje-jex-robaho/target/avaje-jex-robaho-3.5.jar 2.8M ./avaje-jex-robaho/target/original-avaje-jex-robaho-3.5.jar 22M ./eclipse-microprofile-kumuluz-test/target/eclipse-microprofile-kumuluz-test-4.1.0.jar 20M ./ktor/target/ktor-demo-3.4.3-kotlin-2.3.21-jar-with-dependencies.jar 15M ./micronaut/target/micronaut-demo-5.0.1.jar 20M ./quarkus/target/quarkus-demo-runner.jar 19M ./spring-boot-web/target/springboot-demo-web-4.0.6.jar 34M ./spring-boot-webflux/target/springboot-webflux-demo-4.0.6.jar 8.3M ./vertx/target/vertx-demo-5.0.10-fat.jar Avaje Jex started class sun.net.httpserver.HttpServerImpl in 26ms on TCP http://0:0:0:0:0:0:0:0:8080\n---- Global Information -------------------------------------------------------- \u003e request count 172074 \u003e min response time 101.75µs \u003e max response time 2.3s \u003e mean response time 20.29ms \u003e p(90) response time 47.41ms \u003e p(95) response time 59.67ms \u003e mean requests/sec 10641.273475 started class robaho.net.httpserver.HttpServerImpl in 58ms on TCP http://0.0.0.0:8080\n---- Global Information -------------------------------------------------------- \u003e request count 250343 \u003e min response time 55.92µs \u003e max response time 144.78ms \u003e mean response time 17.08ms \u003e p(90) response time 42.77ms \u003e p(95) response time 52.12ms \u003e mean requests/sec 16593.012649 :: Spring Boot :: (v4.0.6) Started DemoWebFluxApplication in 1.724 seconds (process running for 2.251)\n---- Global Information -------------------------------------------------------- \u003e request count 89397 \u003e min response time 251.17µs \u003e max response time 2.06s \u003e mean response time 54.73ms \u003e p(90) response time 108.68ms \u003e p(95) response time 141.57ms \u003e mean requests/sec 5897.251008 :: Spring Boot :: (v4.0.6) Started DemoApplication in 1.561 seconds (process running for 2.032)\n---- Global Information -------------------------------------------------------- \u003e request count 122644 \u003e min response time 252.65µs \u003e max response time 331.14ms \u003e mean response time 34.07ms \u003e p(90) response time 71.43ms \u003e p(95) response time 90.33ms \u003e mean requests/sec 8142.385706 powered by Quarkus 3.34.1) started in 1.214s. Listening on: http://0.0.0.0:8080\n---- Global Information -------------------------------------------------------- \u003e request count 105951 \u003e min response time 298.43µs \u003e max response time 367.88ms \u003e mean response time 37.5ms \u003e p(90) response time 82.06ms \u003e p(95) response time 98ms \u003e mean requests/sec 7026.52357 micronaut version: 4.9.0 Startup completed in 764ms. Server Running: http://localhost:8080\n---- Global Information -------------------------------------------------------- \u003e request count 186344 \u003e min response time 133.85µs \u003e max response time 184.26ms \u003e mean response time 23.43ms \u003e p(90) response time 48.35ms \u003e p(95) response time 59.76ms \u003e mean requests/sec 12379.400924 vertx version:5.0.10\n---- Global Information -------------------------------------------------------- \u003e request count 282983 \u003e min response time 44.1µs \u003e max response time 167.7ms \u003e mean response time 15.9ms \u003e p(90) response time 38.05ms \u003e p(95) response time 51.27ms \u003e mean requests/sec 18808.765273 kumuluz version:4.1.0 Server – Started Server@772861aa{STARTING}[10.0.9,sto=0] @2805ms\n---- Global Information -------------------------------------------------------- \u003e request count 76876 \u003e min response time 351.13µs \u003e max response time 430.66ms \u003e mean response time 54ms \u003e p(90) response time 128.35ms \u003e p(95) response time 158.85ms \u003e mean requests/sec 5091.608068 ktor:3.4.3\n---- Global Information -------------------------------------------------------- \u003e request count 191481 \u003e min response time 88.99µs \u003e max response time 1.85s \u003e mean response time 18.36ms \u003e p(90) response time 40.96ms \u003e p(95) response time 52.17ms \u003e mean requests/sec 11342.08077 Rust rest services rustc 1.95.0 (59807616e 2026-04-14)\nwarp = { version = 0.4, features = [server] }\n---- Global Information -------------------------------------------------------- \u003e request count 332722 \u003e min response time 46.45µs \u003e max response time 137.97ms \u003e mean response time 12.89ms \u003e p(90) response time 33.78ms \u003e p(95) response time 41.69ms \u003e mean requests/sec 22121.690857 actix-web = 4.9.0\n---- Global Information -------------------------------------------------------- \u003e request count 312801 \u003e min response time 45.39µs \u003e max response time 166.05ms \u003e mean response time 13.83ms \u003e p(90) response time 37.88ms \u003e p(95) response time 46.59ms \u003e mean requests/sec 20740.587384 rocket = { version = 0.5.1, features = [json] }\n---- Global Information -------------------------------------------------------- \u003e request count 286798 \u003e min response time 65.96µs \u003e max response time 207.31ms \u003e mean response time 14.98ms \u003e p(90) response time 39.82ms \u003e p(95) response time 48.15ms \u003e mean requests/sec 18936.746115 axum = 0.8.1\n---- Global Information -------------------------------------------------------- \u003e request count 327940 \u003e min response time 46.42µs \u003e max response time 147.51ms \u003e mean response time 13.08ms \u003e p(90) response time 34.76ms \u003e p(95) response time 42.92ms \u003e mean requests/sec 21802.984595 Dotnet 7 rest service ---- Global Information -------------------------------------------------------- \u003e request count 242414 \u003e min response time 85.33µs \u003e max response time 174.8ms \u003e mean response time 17.67ms \u003e p(90) response time 44.52ms \u003e p(95) response time 53.11ms \u003e mean requests/sec 16106.168267 Dotnet 8 rest service ---- Global Information -------------------------------------------------------- \u003e request count 266675 \u003e min response time 77.07µs \u003e max response time 175.83ms \u003e mean response time 16.2ms \u003e p(90) response time 40.94ms \u003e p(95) response time 49.9ms \u003e mean requests/sec 17723.295751 Dotnet 9 rest service ---- Global Information -------------------------------------------------------- \u003e request count 274205 \u003e min response time 74.17µs \u003e max response time 167.74ms \u003e mean response time 15.74ms \u003e p(90) response time 41.2ms \u003e p(95) response time 50.55ms \u003e mean requests/sec 18208.933916 Golang rest service go version go1.24.13 linux/amd64\nGolang rest service ---- Global Information -------------------------------------------------------- \u003e request count 276149 \u003e min response time 59.07µs \u003e max response time 155.31ms \u003e mean response time 15.52ms \u003e p(90) response time 41.65ms \u003e p(95) response time 51.25ms \u003e mean requests/sec 18321.596591 Express.js rest service Node.js v22.22.3\nExpress.js rest service ---- Global Information -------------------------------------------------------- \u003e request count 71871 \u003e min response time 177.1µs \u003e max response time 7.04s \u003e mean response time 69.63ms \u003e p(90) response time 58.74ms \u003e p(95) response time 63ms \u003e mean requests/sec 4489.541786 Bun rest service Bun 1.3.14\nBun rest service ---- Global Information -------------------------------------------------------- \u003e request count 349279 \u003e min response time 46.32µs \u003e max response time 154.72ms \u003e mean response time 13.13ms \u003e p(90) response time 34.07ms \u003e p(95) response time 44.64ms \u003e mean requests/sec 23222.716529 graalvm native avaje-jex-jdk ---- Global Information -------------------------------------------------------- \u003e request count 198191 \u003e min response time 101.29µs \u003e max response time 1.25s \u003e mean response time 15.78ms \u003e p(90) response time 34.29ms \u003e p(95) response time 43.2ms \u003e mean requests/sec 12078.945331 graalvm native avaje-jex-robaho ---- Global Information -------------------------------------------------------- \u003e request count 253427 \u003e min response time 74.83µs \u003e max response time 184.62ms \u003e mean response time 16.83ms \u003e p(90) response time 44.32ms \u003e p(95) response time 57.21ms \u003e mean requests/sec 16830.537667 graalvm native quarkus ---- Global Information -------------------------------------------------------- \u003e request count 165721 \u003e min response time 161.76µs \u003e max response time 249.02ms \u003e mean response time 27.37ms \u003e p(90) response time 69.58ms \u003e p(95) response time 86.46ms \u003e mean requests/sec 10997.028584 graalvm native micronaut ---- Global Information -------------------------------------------------------- \u003e request count 198863 \u003e min response time 109.17µs \u003e max response time 278.92ms \u003e mean response time 22.64ms \u003e p(90) response time 61.66ms \u003e p(95) response time 81.44ms \u003e mean requests/sec 13206.851605 graalvm native spring-boot-web ---- Global Information -------------------------------------------------------- \u003e request count 147707 \u003e min response time 169.58µs \u003e max response time 481.06ms \u003e mean response time 31.7ms \u003e p(90) response time 80.73ms \u003e p(95) response time 115.03ms \u003e mean requests/sec 9763.558286 graalvm native spring-boot-webflux ---- Global Information -------------------------------------------------------- \u003e request count 144241 \u003e min response time 173.13µs \u003e max response time 1.07s \u003e mean response time 34.17ms \u003e p(90) response time 91.21ms \u003e p(95) response time 120.4ms \u003e mean requests/sec 9502.351788 graalvm native vertx ---- Global Information -------------------------------------------------------- \u003e request count 216287 \u003e min response time 67.38µs \u003e max response time 204.84ms \u003e mean response time 22.65ms \u003e p(90) response time 59.22ms \u003e p(95) response time 72.72ms \u003e mean requests/sec 14363.923434 graalvm native ktor rest service ---- Global Information -------------------------------------------------------- \u003e request count 187092 \u003e min response time 109.96µs \u003e max response time 2.31s \u003e mean response time 18.16ms \u003e p(90) response time 35.4ms \u003e p(95) response time 44.78ms \u003e mean requests/sec 11603.032935 GraalVM Native Binaries Sizes: Size in MB Name 55 quarkus-demo-runner-bin 78 micronaut-demo-bin 80 springboot-demo-web-bin 111 springboot-webflux-demo-bin 54 vertx-demo-bin 63 ktor-demo-bin source code for the java and dotnet tests 👈 source code for the rust tests 👈 github action 👈\nFramework ⇅ Requests ⇅ Min ⇅ Max ⇅ Mean ⇅ P90 ⇅ P95 ⇅ Req/Sec ⇅ AVAJE172074101.75µs2.3s20.29ms47.41ms59.67ms10641.273475 ROBAHO25034355.92µs144.78ms17.08ms42.77ms52.12ms16593.012649 Started DemoWebFluxApplication89397251.17µs2.06s54.73ms108.68ms141.57ms5897.251008 Started DemoApplication122644252.65µs331.14ms34.07ms71.43ms90.33ms8142.385706 QUARKUS105951298.43µs367.88ms37.5ms82.06ms98ms7026.52357 Startup completed in186344133.85µs184.26ms23.43ms48.35ms59.76ms12379.400924 VERTX28298344.1µs167.7ms15.9ms38.05ms51.27ms18808.765273 Server -- Started76876351.13µs430.66ms54ms128.35ms158.85ms5091.608068 KTOR19148188.99µs1.85s18.36ms40.96ms52.17ms11342.08077 WARP33272246.45µs137.97ms12.89ms33.78ms41.69ms22121.690857 ACTIX31280145.39µs166.05ms13.83ms37.88ms46.59ms20740.587384 ROCKET28679865.96µs207.31ms14.98ms39.82ms48.15ms18936.746115 AXUM32794046.42µs147.51ms13.08ms34.76ms42.92ms21802.984595 Dotnet 7 rest service24241485.33µs174.8ms17.67ms44.52ms53.11ms16106.168267 Dotnet 8 rest service26667577.07µs175.83ms16.2ms40.94ms49.9ms17723.295751 Dotnet 9 rest service27420574.17µs167.74ms15.74ms41.2ms50.55ms18208.933916 Golang rest service27614959.07µs155.31ms15.52ms41.65ms51.25ms18321.596591 Express.js rest service71871177.1µs7.04s69.63ms58.74ms63ms4489.541786 Bun rest service34927946.32µs154.72ms13.13ms34.07ms44.64ms23222.716529 graalvm native avaje-jex-jdk198191101.29µs1.25s15.78ms34.29ms43.2ms12078.945331 graalvm native avaje-jex-robaho25342774.83µs184.62ms16.83ms44.32ms57.21ms16830.537667 graalvm native quarkus165721161.76µs249.02ms27.37ms69.58ms86.46ms10997.028584 graalvm native micronaut198863109.17µs278.92ms22.64ms61.66ms81.44ms13206.851605 graalvm native spring-boot-web147707169.58µs481.06ms31.7ms80.73ms115.03ms9763.558286 graalvm native spring-boot-webflux144241173.13µs1.07s34.17ms91.21ms120.4ms9502.351788 graalvm native vertx21628767.38µs204.84ms22.65ms59.22ms72.72ms14363.923434 graalvm native ktor rest service187092109.96µs2.31s18.16ms35.4ms44.78ms11603.032935 ",
+  "wordCount" : "1542",
+  "inLanguage": "en",
+  "datePublished": "2026-06-02T20:18:54Z",
+  "dateModified": "2026-06-02T20:18:54Z",
+  "author":{
+    "@type": "Person",
+    "name": "Ozkan Pakdil"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://ozkanpakdil.github.io/test-microservice-frameworks/posts/2026/2026-06-02-microservice-framework-test-25-k6/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Microservice Framework Tests",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://ozkanpakdil.github.io/test-microservice-frameworks/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://ozkanpakdil.github.io/test-microservice-frameworks/" accesskey="h" title="Microservice Framework Tests (Alt + H)">Microservice Framework Tests</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://ozkanpakdil.github.io/" title="Main Blog">
+                    <span>Main Blog</span>&nbsp;
+                    <svg fill="none" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round" stroke-width="2.5" viewBox="0 0 24 24" height="12" width="12">
+                        <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
+                        <path d="M15 3h6v6"></path>
+                        <path d="M10 14L21 3"></path>
+                    </svg>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      Java microservice framework tests in A:3.5 SB:4.0.6 Q:3.34.1 M:5.0.1 V:5.0.10 H:4.3.2 Dotnet:7,8,9 openjdk version &#34;25.0.2&#34; 2026-01-20 rustc 1.95.0 (59807616e 2026-04-14) go version go1.24.13 linux/amd64
+    </h1>
+    <div class="post-meta"><span title='2026-06-02 20:18:54 +0000 UTC'>June 2, 2026</span>&nbsp;·&nbsp;Ozkan Pakdil
+
+</div>
+  </header> 
+  <div class="post-content"><p>In Linux runnervm3jyl0 6.17.0-1015-azure #15~24.04.1-Ubuntu SMP Wed May  6 22:37:49 UTC 2026 x86_64 x86_64 x86_64 GNU/Linux,</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>Memory Usage: 1363/15989MB <span style="color:#f92672">(</span>8.52%<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>Disk Usage: 58/145GB <span style="color:#f92672">(</span>41%<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>CPU Load: 1.26
+</span></span><span style="display:flex;"><span>CPU core count:4
+</span></span><span style="display:flex;"><span>CPUs
+</span></span><span style="display:flex;"><span>cpu MHz		: 3235.969
+</span></span><span style="display:flex;"><span>cpu MHz		: 3240.930
+</span></span><span style="display:flex;"><span>cpu MHz		: 3244.068
+</span></span><span style="display:flex;"><span>cpu MHz		: 3241.704
+</span></span></code></pre></div><p>Below is total package generation times for separate modules,</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#f92672">[</span>INFO<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>INFO<span style="color:#f92672">]</span> Avaje Jex Example 3.5 .............................. SUCCESS <span style="color:#f92672">[</span>  0.219 s<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>INFO<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>INFO<span style="color:#f92672">]</span> Avaje Jex Robaho Example 3.5 ....................... SUCCESS <span style="color:#f92672">[</span>  0.014 s<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>INFO<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>INFO<span style="color:#f92672">]</span> eclipse-microprofile-kumuluz-test 4.1.0 ............ SUCCESS <span style="color:#f92672">[</span>  0.273 s<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>INFO<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>INFO<span style="color:#f92672">]</span> ktor-demo 3.4.3-kotlin-2.3.21 ...................... SUCCESS <span style="color:#f92672">[</span>  1.281 s<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>INFO<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>INFO<span style="color:#f92672">]</span> micronaut-demo 5.0.1 ............................... SUCCESS <span style="color:#f92672">[</span>  1.423 s<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>INFO<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>INFO<span style="color:#f92672">]</span> quarkus-demo 3.34.1 ................................ SUCCESS <span style="color:#f92672">[</span>  0.833 s<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>INFO<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>INFO<span style="color:#f92672">]</span> springboot-webflux-demo 4.0.6 ...................... SUCCESS <span style="color:#f92672">[</span>  0.169 s<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>INFO<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>INFO<span style="color:#f92672">]</span> springboot-demo-web 4.0.6 .......................... SUCCESS <span style="color:#f92672">[</span>  0.041 s<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>INFO<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>INFO<span style="color:#f92672">]</span> vertx-demo 5.0.10 .................................. SUCCESS <span style="color:#f92672">[</span>  0.069 s<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>INFO<span style="color:#f92672">]</span> Avaje Jex Example 3.5 .............................. SUCCESS <span style="color:#f92672">[</span>  2.668 s<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>INFO<span style="color:#f92672">]</span> Avaje Jex Robaho Example 3.5 ....................... SUCCESS <span style="color:#f92672">[</span>  2.710 s<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>INFO<span style="color:#f92672">]</span> eclipse-microprofile-kumuluz-test 4.1.0 ............ SUCCESS <span style="color:#f92672">[</span>  4.596 s<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>INFO<span style="color:#f92672">]</span> ktor-demo 3.4.3-kotlin-2.3.21 ...................... SUCCESS <span style="color:#f92672">[</span> 11.828 s<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>INFO<span style="color:#f92672">]</span> micronaut-demo 5.0.1 ............................... SUCCESS <span style="color:#f92672">[</span> 24.328 s<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>INFO<span style="color:#f92672">]</span> quarkus-demo 3.34.1 ................................ SUCCESS <span style="color:#f92672">[</span> 13.265 s<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>INFO<span style="color:#f92672">]</span> springboot-webflux-demo 4.0.6 ...................... SUCCESS <span style="color:#f92672">[</span>  1.955 s<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>INFO<span style="color:#f92672">]</span> springboot-demo-web 4.0.6 .......................... SUCCESS <span style="color:#f92672">[</span>  1.950 s<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>INFO<span style="color:#f92672">]</span> vertx-demo 5.0.10 .................................. SUCCESS <span style="color:#f92672">[</span>  4.318 s<span style="color:#f92672">]</span>
+</span></span></code></pre></div><p>Size of created packages:</p>
+<table>
+	<thead>
+			<tr>
+					<th>Size in MB</th>
+					<th>Name</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>2.6M</td>
+					<td>./avaje-jex-jdk/target/avaje-jex-jdk-3.5.jar</td>
+			</tr>
+			<tr>
+					<td>2.6M</td>
+					<td>./avaje-jex-jdk/target/original-avaje-jex-jdk-3.5.jar</td>
+			</tr>
+			<tr>
+					<td>2.8M</td>
+					<td>./avaje-jex-robaho/target/avaje-jex-robaho-3.5.jar</td>
+			</tr>
+			<tr>
+					<td>2.8M</td>
+					<td>./avaje-jex-robaho/target/original-avaje-jex-robaho-3.5.jar</td>
+			</tr>
+			<tr>
+					<td>22M</td>
+					<td>./eclipse-microprofile-kumuluz-test/target/eclipse-microprofile-kumuluz-test-4.1.0.jar</td>
+			</tr>
+			<tr>
+					<td>20M</td>
+					<td>./ktor/target/ktor-demo-3.4.3-kotlin-2.3.21-jar-with-dependencies.jar</td>
+			</tr>
+			<tr>
+					<td>15M</td>
+					<td>./micronaut/target/micronaut-demo-5.0.1.jar</td>
+			</tr>
+			<tr>
+					<td>20M</td>
+					<td>./quarkus/target/quarkus-demo-runner.jar</td>
+			</tr>
+			<tr>
+					<td>19M</td>
+					<td>./spring-boot-web/target/springboot-demo-web-4.0.6.jar</td>
+			</tr>
+			<tr>
+					<td>34M</td>
+					<td>./spring-boot-webflux/target/springboot-webflux-demo-4.0.6.jar</td>
+			</tr>
+			<tr>
+					<td>8.3M</td>
+					<td>./vertx/target/vertx-demo-5.0.10-fat.jar</td>
+			</tr>
+	</tbody>
+</table>
+<p><a href="https://avaje.io/">Avaje Jex started class sun.net.httpserver.HttpServerImpl in 26ms on TCP http://0:0:0:0:0:0:0:0:8080</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>---- Global Information --------------------------------------------------------
+</span></span><span style="display:flex;"><span>&gt; request count       <span style="color:#ae81ff">172074</span>
+</span></span><span style="display:flex;"><span>&gt; min response time   101.75µs
+</span></span><span style="display:flex;"><span>&gt; max response time   2.3s
+</span></span><span style="display:flex;"><span>&gt; mean response time  20.29ms
+</span></span><span style="display:flex;"><span>&gt; p<span style="color:#f92672">(</span>90<span style="color:#f92672">)</span> response time 47.41ms
+</span></span><span style="display:flex;"><span>&gt; p<span style="color:#f92672">(</span>95<span style="color:#f92672">)</span> response time 59.67ms
+</span></span><span style="display:flex;"><span>&gt; mean requests/sec   10641.273475
+</span></span></code></pre></div><p><a href="https://github.com/robaho/httpserver">started class robaho.net.httpserver.HttpServerImpl in 58ms on TCP http://0.0.0.0:8080</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>---- Global Information --------------------------------------------------------
+</span></span><span style="display:flex;"><span>&gt; request count       <span style="color:#ae81ff">250343</span>
+</span></span><span style="display:flex;"><span>&gt; min response time   55.92µs
+</span></span><span style="display:flex;"><span>&gt; max response time   144.78ms
+</span></span><span style="display:flex;"><span>&gt; mean response time  17.08ms
+</span></span><span style="display:flex;"><span>&gt; p<span style="color:#f92672">(</span>90<span style="color:#f92672">)</span> response time 42.77ms
+</span></span><span style="display:flex;"><span>&gt; p<span style="color:#f92672">(</span>95<span style="color:#f92672">)</span> response time 52.12ms
+</span></span><span style="display:flex;"><span>&gt; mean requests/sec   16593.012649
+</span></span></code></pre></div><p><a href="https://spring.io/projects/spring-boot">:: Spring Boot ::                (v4.0.6)</a>
+Started DemoWebFluxApplication in 1.724 seconds (process running for 2.251)</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>---- Global Information --------------------------------------------------------
+</span></span><span style="display:flex;"><span>&gt; request count       <span style="color:#ae81ff">89397</span>
+</span></span><span style="display:flex;"><span>&gt; min response time   251.17µs
+</span></span><span style="display:flex;"><span>&gt; max response time   2.06s
+</span></span><span style="display:flex;"><span>&gt; mean response time  54.73ms
+</span></span><span style="display:flex;"><span>&gt; p<span style="color:#f92672">(</span>90<span style="color:#f92672">)</span> response time 108.68ms
+</span></span><span style="display:flex;"><span>&gt; p<span style="color:#f92672">(</span>95<span style="color:#f92672">)</span> response time 141.57ms
+</span></span><span style="display:flex;"><span>&gt; mean requests/sec   5897.251008
+</span></span></code></pre></div><p><a href="https://spring.io/projects/spring-boot">:: Spring Boot ::                (v4.0.6)</a>
+Started DemoApplication in 1.561 seconds (process running for 2.032)</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>---- Global Information --------------------------------------------------------
+</span></span><span style="display:flex;"><span>&gt; request count       <span style="color:#ae81ff">122644</span>
+</span></span><span style="display:flex;"><span>&gt; min response time   252.65µs
+</span></span><span style="display:flex;"><span>&gt; max response time   331.14ms
+</span></span><span style="display:flex;"><span>&gt; mean response time  34.07ms
+</span></span><span style="display:flex;"><span>&gt; p<span style="color:#f92672">(</span>90<span style="color:#f92672">)</span> response time 71.43ms
+</span></span><span style="display:flex;"><span>&gt; p<span style="color:#f92672">(</span>95<span style="color:#f92672">)</span> response time 90.33ms
+</span></span><span style="display:flex;"><span>&gt; mean requests/sec   8142.385706
+</span></span></code></pre></div><p><a href="https://quarkus.io/">powered by Quarkus 3.34.1) started in 1.214s. Listening on: http://0.0.0.0:8080</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>---- Global Information --------------------------------------------------------
+</span></span><span style="display:flex;"><span>&gt; request count       <span style="color:#ae81ff">105951</span>
+</span></span><span style="display:flex;"><span>&gt; min response time   298.43µs
+</span></span><span style="display:flex;"><span>&gt; max response time   367.88ms
+</span></span><span style="display:flex;"><span>&gt; mean response time  37.5ms
+</span></span><span style="display:flex;"><span>&gt; p<span style="color:#f92672">(</span>90<span style="color:#f92672">)</span> response time 82.06ms
+</span></span><span style="display:flex;"><span>&gt; p<span style="color:#f92672">(</span>95<span style="color:#f92672">)</span> response time 98ms
+</span></span><span style="display:flex;"><span>&gt; mean requests/sec   7026.52357
+</span></span></code></pre></div><p><a href="https://micronaut.io/">micronaut version: 4.9.0</a>
+Startup completed in 764ms. Server Running: http://localhost:8080</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>---- Global Information --------------------------------------------------------
+</span></span><span style="display:flex;"><span>&gt; request count       <span style="color:#ae81ff">186344</span>
+</span></span><span style="display:flex;"><span>&gt; min response time   133.85µs
+</span></span><span style="display:flex;"><span>&gt; max response time   184.26ms
+</span></span><span style="display:flex;"><span>&gt; mean response time  23.43ms
+</span></span><span style="display:flex;"><span>&gt; p<span style="color:#f92672">(</span>90<span style="color:#f92672">)</span> response time 48.35ms
+</span></span><span style="display:flex;"><span>&gt; p<span style="color:#f92672">(</span>95<span style="color:#f92672">)</span> response time 59.76ms
+</span></span><span style="display:flex;"><span>&gt; mean requests/sec   12379.400924
+</span></span></code></pre></div><p><a href="https://vertx.io/">vertx version:5.0.10</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>---- Global Information --------------------------------------------------------
+</span></span><span style="display:flex;"><span>&gt; request count       <span style="color:#ae81ff">282983</span>
+</span></span><span style="display:flex;"><span>&gt; min response time   44.1µs
+</span></span><span style="display:flex;"><span>&gt; max response time   167.7ms
+</span></span><span style="display:flex;"><span>&gt; mean response time  15.9ms
+</span></span><span style="display:flex;"><span>&gt; p<span style="color:#f92672">(</span>90<span style="color:#f92672">)</span> response time 38.05ms
+</span></span><span style="display:flex;"><span>&gt; p<span style="color:#f92672">(</span>95<span style="color:#f92672">)</span> response time 51.27ms
+</span></span><span style="display:flex;"><span>&gt; mean requests/sec   18808.765273
+</span></span></code></pre></div><p><a href="https://ee.kumuluz.com/">kumuluz version:4.1.0</a>
+Server &ndash; Started Server@772861aa{STARTING}[10.0.9,sto=0] @2805ms</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>---- Global Information --------------------------------------------------------
+</span></span><span style="display:flex;"><span>&gt; request count       <span style="color:#ae81ff">76876</span>
+</span></span><span style="display:flex;"><span>&gt; min response time   351.13µs
+</span></span><span style="display:flex;"><span>&gt; max response time   430.66ms
+</span></span><span style="display:flex;"><span>&gt; mean response time  54ms
+</span></span><span style="display:flex;"><span>&gt; p<span style="color:#f92672">(</span>90<span style="color:#f92672">)</span> response time 128.35ms
+</span></span><span style="display:flex;"><span>&gt; p<span style="color:#f92672">(</span>95<span style="color:#f92672">)</span> response time 158.85ms
+</span></span><span style="display:flex;"><span>&gt; mean requests/sec   5091.608068
+</span></span></code></pre></div><p><a href="https://ktor.io/">ktor:3.4.3</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>---- Global Information --------------------------------------------------------
+</span></span><span style="display:flex;"><span>&gt; request count       <span style="color:#ae81ff">191481</span>
+</span></span><span style="display:flex;"><span>&gt; min response time   88.99µs
+</span></span><span style="display:flex;"><span>&gt; max response time   1.85s
+</span></span><span style="display:flex;"><span>&gt; mean response time  18.36ms
+</span></span><span style="display:flex;"><span>&gt; p<span style="color:#f92672">(</span>90<span style="color:#f92672">)</span> response time 40.96ms
+</span></span><span style="display:flex;"><span>&gt; p<span style="color:#f92672">(</span>95<span style="color:#f92672">)</span> response time 52.17ms
+</span></span><span style="display:flex;"><span>&gt; mean requests/sec   11342.08077
+</span></span></code></pre></div><hr>
+<h2 id="rust-rest-services">Rust rest services<a hidden class="anchor" aria-hidden="true" href="#rust-rest-services">#</a></h2>
+<p>rustc 1.95.0 (59807616e 2026-04-14)</p>
+<p><a href="http://docs.rs/warp">warp = { version = 0.4, features = [server] }</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>---- Global Information --------------------------------------------------------
+</span></span><span style="display:flex;"><span>&gt; request count       <span style="color:#ae81ff">332722</span>
+</span></span><span style="display:flex;"><span>&gt; min response time   46.45µs
+</span></span><span style="display:flex;"><span>&gt; max response time   137.97ms
+</span></span><span style="display:flex;"><span>&gt; mean response time  12.89ms
+</span></span><span style="display:flex;"><span>&gt; p<span style="color:#f92672">(</span>90<span style="color:#f92672">)</span> response time 33.78ms
+</span></span><span style="display:flex;"><span>&gt; p<span style="color:#f92672">(</span>95<span style="color:#f92672">)</span> response time 41.69ms
+</span></span><span style="display:flex;"><span>&gt; mean requests/sec   22121.690857
+</span></span></code></pre></div><p><a href="http://docs.rs/actix-web">actix-web = 4.9.0</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>---- Global Information --------------------------------------------------------
+</span></span><span style="display:flex;"><span>&gt; request count       <span style="color:#ae81ff">312801</span>
+</span></span><span style="display:flex;"><span>&gt; min response time   45.39µs
+</span></span><span style="display:flex;"><span>&gt; max response time   166.05ms
+</span></span><span style="display:flex;"><span>&gt; mean response time  13.83ms
+</span></span><span style="display:flex;"><span>&gt; p<span style="color:#f92672">(</span>90<span style="color:#f92672">)</span> response time 37.88ms
+</span></span><span style="display:flex;"><span>&gt; p<span style="color:#f92672">(</span>95<span style="color:#f92672">)</span> response time 46.59ms
+</span></span><span style="display:flex;"><span>&gt; mean requests/sec   20740.587384
+</span></span></code></pre></div><p><a href="http://docs.rs/rocket">rocket = { version = 0.5.1, features = [json] }</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>---- Global Information --------------------------------------------------------
+</span></span><span style="display:flex;"><span>&gt; request count       <span style="color:#ae81ff">286798</span>
+</span></span><span style="display:flex;"><span>&gt; min response time   65.96µs
+</span></span><span style="display:flex;"><span>&gt; max response time   207.31ms
+</span></span><span style="display:flex;"><span>&gt; mean response time  14.98ms
+</span></span><span style="display:flex;"><span>&gt; p<span style="color:#f92672">(</span>90<span style="color:#f92672">)</span> response time 39.82ms
+</span></span><span style="display:flex;"><span>&gt; p<span style="color:#f92672">(</span>95<span style="color:#f92672">)</span> response time 48.15ms
+</span></span><span style="display:flex;"><span>&gt; mean requests/sec   18936.746115
+</span></span></code></pre></div><p><a href="http://docs.rs/axum">axum = 0.8.1</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>---- Global Information --------------------------------------------------------
+</span></span><span style="display:flex;"><span>&gt; request count       <span style="color:#ae81ff">327940</span>
+</span></span><span style="display:flex;"><span>&gt; min response time   46.42µs
+</span></span><span style="display:flex;"><span>&gt; max response time   147.51ms
+</span></span><span style="display:flex;"><span>&gt; mean response time  13.08ms
+</span></span><span style="display:flex;"><span>&gt; p<span style="color:#f92672">(</span>90<span style="color:#f92672">)</span> response time 34.76ms
+</span></span><span style="display:flex;"><span>&gt; p<span style="color:#f92672">(</span>95<span style="color:#f92672">)</span> response time 42.92ms
+</span></span><span style="display:flex;"><span>&gt; mean requests/sec   21802.984595
+</span></span></code></pre></div><hr>
+<h2 id="dotnet-7-rest-service">Dotnet 7 rest service<a hidden class="anchor" aria-hidden="true" href="#dotnet-7-rest-service">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>---- Global Information --------------------------------------------------------
+</span></span><span style="display:flex;"><span>&gt; request count       <span style="color:#ae81ff">242414</span>
+</span></span><span style="display:flex;"><span>&gt; min response time   85.33µs
+</span></span><span style="display:flex;"><span>&gt; max response time   174.8ms
+</span></span><span style="display:flex;"><span>&gt; mean response time  17.67ms
+</span></span><span style="display:flex;"><span>&gt; p<span style="color:#f92672">(</span>90<span style="color:#f92672">)</span> response time 44.52ms
+</span></span><span style="display:flex;"><span>&gt; p<span style="color:#f92672">(</span>95<span style="color:#f92672">)</span> response time 53.11ms
+</span></span><span style="display:flex;"><span>&gt; mean requests/sec   16106.168267
+</span></span></code></pre></div><hr>
+<h2 id="dotnet-8-rest-service">Dotnet 8 rest service<a hidden class="anchor" aria-hidden="true" href="#dotnet-8-rest-service">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>---- Global Information --------------------------------------------------------
+</span></span><span style="display:flex;"><span>&gt; request count       <span style="color:#ae81ff">266675</span>
+</span></span><span style="display:flex;"><span>&gt; min response time   77.07µs
+</span></span><span style="display:flex;"><span>&gt; max response time   175.83ms
+</span></span><span style="display:flex;"><span>&gt; mean response time  16.2ms
+</span></span><span style="display:flex;"><span>&gt; p<span style="color:#f92672">(</span>90<span style="color:#f92672">)</span> response time 40.94ms
+</span></span><span style="display:flex;"><span>&gt; p<span style="color:#f92672">(</span>95<span style="color:#f92672">)</span> response time 49.9ms
+</span></span><span style="display:flex;"><span>&gt; mean requests/sec   17723.295751
+</span></span></code></pre></div><hr>
+<h2 id="dotnet-9-rest-service">Dotnet 9 rest service<a hidden class="anchor" aria-hidden="true" href="#dotnet-9-rest-service">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>---- Global Information --------------------------------------------------------
+</span></span><span style="display:flex;"><span>&gt; request count       <span style="color:#ae81ff">274205</span>
+</span></span><span style="display:flex;"><span>&gt; min response time   74.17µs
+</span></span><span style="display:flex;"><span>&gt; max response time   167.74ms
+</span></span><span style="display:flex;"><span>&gt; mean response time  15.74ms
+</span></span><span style="display:flex;"><span>&gt; p<span style="color:#f92672">(</span>90<span style="color:#f92672">)</span> response time 41.2ms
+</span></span><span style="display:flex;"><span>&gt; p<span style="color:#f92672">(</span>95<span style="color:#f92672">)</span> response time 50.55ms
+</span></span><span style="display:flex;"><span>&gt; mean requests/sec   18208.933916
+</span></span></code></pre></div><hr>
+<h2 id="golang-rest-service">Golang rest service<a hidden class="anchor" aria-hidden="true" href="#golang-rest-service">#</a></h2>
+<p>go version go1.24.13 linux/amd64</p>
+<hr>
+<h2 id="golang-rest-service-1">Golang rest service<a hidden class="anchor" aria-hidden="true" href="#golang-rest-service-1">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>---- Global Information --------------------------------------------------------
+</span></span><span style="display:flex;"><span>&gt; request count       <span style="color:#ae81ff">276149</span>
+</span></span><span style="display:flex;"><span>&gt; min response time   59.07µs
+</span></span><span style="display:flex;"><span>&gt; max response time   155.31ms
+</span></span><span style="display:flex;"><span>&gt; mean response time  15.52ms
+</span></span><span style="display:flex;"><span>&gt; p<span style="color:#f92672">(</span>90<span style="color:#f92672">)</span> response time 41.65ms
+</span></span><span style="display:flex;"><span>&gt; p<span style="color:#f92672">(</span>95<span style="color:#f92672">)</span> response time 51.25ms
+</span></span><span style="display:flex;"><span>&gt; mean requests/sec   18321.596591
+</span></span></code></pre></div><hr>
+<h2 id="expressjs-rest-service">Express.js rest service<a hidden class="anchor" aria-hidden="true" href="#expressjs-rest-service">#</a></h2>
+<p>Node.js v22.22.3</p>
+<hr>
+<h2 id="expressjs-rest-service-1">Express.js rest service<a hidden class="anchor" aria-hidden="true" href="#expressjs-rest-service-1">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>---- Global Information --------------------------------------------------------
+</span></span><span style="display:flex;"><span>&gt; request count       <span style="color:#ae81ff">71871</span>
+</span></span><span style="display:flex;"><span>&gt; min response time   177.1µs
+</span></span><span style="display:flex;"><span>&gt; max response time   7.04s
+</span></span><span style="display:flex;"><span>&gt; mean response time  69.63ms
+</span></span><span style="display:flex;"><span>&gt; p<span style="color:#f92672">(</span>90<span style="color:#f92672">)</span> response time 58.74ms
+</span></span><span style="display:flex;"><span>&gt; p<span style="color:#f92672">(</span>95<span style="color:#f92672">)</span> response time 63ms
+</span></span><span style="display:flex;"><span>&gt; mean requests/sec   4489.541786
+</span></span></code></pre></div><hr>
+<h2 id="bun-rest-service">Bun rest service<a hidden class="anchor" aria-hidden="true" href="#bun-rest-service">#</a></h2>
+<p>Bun 1.3.14</p>
+<hr>
+<h2 id="bun-rest-service-1">Bun rest service<a hidden class="anchor" aria-hidden="true" href="#bun-rest-service-1">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>---- Global Information --------------------------------------------------------
+</span></span><span style="display:flex;"><span>&gt; request count       <span style="color:#ae81ff">349279</span>
+</span></span><span style="display:flex;"><span>&gt; min response time   46.32µs
+</span></span><span style="display:flex;"><span>&gt; max response time   154.72ms
+</span></span><span style="display:flex;"><span>&gt; mean response time  13.13ms
+</span></span><span style="display:flex;"><span>&gt; p<span style="color:#f92672">(</span>90<span style="color:#f92672">)</span> response time 34.07ms
+</span></span><span style="display:flex;"><span>&gt; p<span style="color:#f92672">(</span>95<span style="color:#f92672">)</span> response time 44.64ms
+</span></span><span style="display:flex;"><span>&gt; mean requests/sec   23222.716529
+</span></span></code></pre></div><hr>
+<h2 id="graalvm-native-avaje-jex-jdk">graalvm native avaje-jex-jdk<a hidden class="anchor" aria-hidden="true" href="#graalvm-native-avaje-jex-jdk">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>---- Global Information --------------------------------------------------------
+</span></span><span style="display:flex;"><span>&gt; request count       <span style="color:#ae81ff">198191</span>
+</span></span><span style="display:flex;"><span>&gt; min response time   101.29µs
+</span></span><span style="display:flex;"><span>&gt; max response time   1.25s
+</span></span><span style="display:flex;"><span>&gt; mean response time  15.78ms
+</span></span><span style="display:flex;"><span>&gt; p<span style="color:#f92672">(</span>90<span style="color:#f92672">)</span> response time 34.29ms
+</span></span><span style="display:flex;"><span>&gt; p<span style="color:#f92672">(</span>95<span style="color:#f92672">)</span> response time 43.2ms
+</span></span><span style="display:flex;"><span>&gt; mean requests/sec   12078.945331
+</span></span></code></pre></div><hr>
+<h2 id="graalvm-native-avaje-jex-robaho">graalvm native avaje-jex-robaho<a hidden class="anchor" aria-hidden="true" href="#graalvm-native-avaje-jex-robaho">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>---- Global Information --------------------------------------------------------
+</span></span><span style="display:flex;"><span>&gt; request count       <span style="color:#ae81ff">253427</span>
+</span></span><span style="display:flex;"><span>&gt; min response time   74.83µs
+</span></span><span style="display:flex;"><span>&gt; max response time   184.62ms
+</span></span><span style="display:flex;"><span>&gt; mean response time  16.83ms
+</span></span><span style="display:flex;"><span>&gt; p<span style="color:#f92672">(</span>90<span style="color:#f92672">)</span> response time 44.32ms
+</span></span><span style="display:flex;"><span>&gt; p<span style="color:#f92672">(</span>95<span style="color:#f92672">)</span> response time 57.21ms
+</span></span><span style="display:flex;"><span>&gt; mean requests/sec   16830.537667
+</span></span></code></pre></div><hr>
+<h2 id="graalvm-native-quarkus">graalvm native quarkus<a hidden class="anchor" aria-hidden="true" href="#graalvm-native-quarkus">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>---- Global Information --------------------------------------------------------
+</span></span><span style="display:flex;"><span>&gt; request count       <span style="color:#ae81ff">165721</span>
+</span></span><span style="display:flex;"><span>&gt; min response time   161.76µs
+</span></span><span style="display:flex;"><span>&gt; max response time   249.02ms
+</span></span><span style="display:flex;"><span>&gt; mean response time  27.37ms
+</span></span><span style="display:flex;"><span>&gt; p<span style="color:#f92672">(</span>90<span style="color:#f92672">)</span> response time 69.58ms
+</span></span><span style="display:flex;"><span>&gt; p<span style="color:#f92672">(</span>95<span style="color:#f92672">)</span> response time 86.46ms
+</span></span><span style="display:flex;"><span>&gt; mean requests/sec   10997.028584
+</span></span></code></pre></div><hr>
+<h2 id="graalvm-native-micronaut">graalvm native micronaut<a hidden class="anchor" aria-hidden="true" href="#graalvm-native-micronaut">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>---- Global Information --------------------------------------------------------
+</span></span><span style="display:flex;"><span>&gt; request count       <span style="color:#ae81ff">198863</span>
+</span></span><span style="display:flex;"><span>&gt; min response time   109.17µs
+</span></span><span style="display:flex;"><span>&gt; max response time   278.92ms
+</span></span><span style="display:flex;"><span>&gt; mean response time  22.64ms
+</span></span><span style="display:flex;"><span>&gt; p<span style="color:#f92672">(</span>90<span style="color:#f92672">)</span> response time 61.66ms
+</span></span><span style="display:flex;"><span>&gt; p<span style="color:#f92672">(</span>95<span style="color:#f92672">)</span> response time 81.44ms
+</span></span><span style="display:flex;"><span>&gt; mean requests/sec   13206.851605
+</span></span></code></pre></div><hr>
+<h2 id="graalvm-native-spring-boot-web">graalvm native spring-boot-web<a hidden class="anchor" aria-hidden="true" href="#graalvm-native-spring-boot-web">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>---- Global Information --------------------------------------------------------
+</span></span><span style="display:flex;"><span>&gt; request count       <span style="color:#ae81ff">147707</span>
+</span></span><span style="display:flex;"><span>&gt; min response time   169.58µs
+</span></span><span style="display:flex;"><span>&gt; max response time   481.06ms
+</span></span><span style="display:flex;"><span>&gt; mean response time  31.7ms
+</span></span><span style="display:flex;"><span>&gt; p<span style="color:#f92672">(</span>90<span style="color:#f92672">)</span> response time 80.73ms
+</span></span><span style="display:flex;"><span>&gt; p<span style="color:#f92672">(</span>95<span style="color:#f92672">)</span> response time 115.03ms
+</span></span><span style="display:flex;"><span>&gt; mean requests/sec   9763.558286
+</span></span></code></pre></div><hr>
+<h2 id="graalvm-native-spring-boot-webflux">graalvm native spring-boot-webflux<a hidden class="anchor" aria-hidden="true" href="#graalvm-native-spring-boot-webflux">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>---- Global Information --------------------------------------------------------
+</span></span><span style="display:flex;"><span>&gt; request count       <span style="color:#ae81ff">144241</span>
+</span></span><span style="display:flex;"><span>&gt; min response time   173.13µs
+</span></span><span style="display:flex;"><span>&gt; max response time   1.07s
+</span></span><span style="display:flex;"><span>&gt; mean response time  34.17ms
+</span></span><span style="display:flex;"><span>&gt; p<span style="color:#f92672">(</span>90<span style="color:#f92672">)</span> response time 91.21ms
+</span></span><span style="display:flex;"><span>&gt; p<span style="color:#f92672">(</span>95<span style="color:#f92672">)</span> response time 120.4ms
+</span></span><span style="display:flex;"><span>&gt; mean requests/sec   9502.351788
+</span></span></code></pre></div><hr>
+<h2 id="graalvm-native-vertx">graalvm native vertx<a hidden class="anchor" aria-hidden="true" href="#graalvm-native-vertx">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>---- Global Information --------------------------------------------------------
+</span></span><span style="display:flex;"><span>&gt; request count       <span style="color:#ae81ff">216287</span>
+</span></span><span style="display:flex;"><span>&gt; min response time   67.38µs
+</span></span><span style="display:flex;"><span>&gt; max response time   204.84ms
+</span></span><span style="display:flex;"><span>&gt; mean response time  22.65ms
+</span></span><span style="display:flex;"><span>&gt; p<span style="color:#f92672">(</span>90<span style="color:#f92672">)</span> response time 59.22ms
+</span></span><span style="display:flex;"><span>&gt; p<span style="color:#f92672">(</span>95<span style="color:#f92672">)</span> response time 72.72ms
+</span></span><span style="display:flex;"><span>&gt; mean requests/sec   14363.923434
+</span></span></code></pre></div><hr>
+<h2 id="graalvm-native-ktor-rest-service">graalvm native ktor rest service<a hidden class="anchor" aria-hidden="true" href="#graalvm-native-ktor-rest-service">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>---- Global Information --------------------------------------------------------
+</span></span><span style="display:flex;"><span>&gt; request count       <span style="color:#ae81ff">187092</span>
+</span></span><span style="display:flex;"><span>&gt; min response time   109.96µs
+</span></span><span style="display:flex;"><span>&gt; max response time   2.31s
+</span></span><span style="display:flex;"><span>&gt; mean response time  18.16ms
+</span></span><span style="display:flex;"><span>&gt; p<span style="color:#f92672">(</span>90<span style="color:#f92672">)</span> response time 35.4ms
+</span></span><span style="display:flex;"><span>&gt; p<span style="color:#f92672">(</span>95<span style="color:#f92672">)</span> response time 44.78ms
+</span></span><span style="display:flex;"><span>&gt; mean requests/sec   11603.032935
+</span></span></code></pre></div><hr>
+<h2 id="graalvm-native-binaries-sizes">GraalVM Native Binaries Sizes:<a hidden class="anchor" aria-hidden="true" href="#graalvm-native-binaries-sizes">#</a></h2>
+<table>
+	<thead>
+			<tr>
+					<th>Size in MB</th>
+					<th>Name</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>55</td>
+					<td>quarkus-demo-runner-bin</td>
+			</tr>
+			<tr>
+					<td>78</td>
+					<td>micronaut-demo-bin</td>
+			</tr>
+			<tr>
+					<td>80</td>
+					<td>springboot-demo-web-bin</td>
+			</tr>
+			<tr>
+					<td>111</td>
+					<td>springboot-webflux-demo-bin</td>
+			</tr>
+			<tr>
+					<td>54</td>
+					<td>vertx-demo-bin</td>
+			</tr>
+			<tr>
+					<td>63</td>
+					<td>ktor-demo-bin</td>
+			</tr>
+	</tbody>
+</table>
+<hr>
+<p><a href="https://github.com/ozkanpakdil/test-microservice-frameworks">source code for the java and dotnet tests</a>  👈 <a href="https://github.com/ozkanpakdil/rust-examples">source code for the rust tests</a>  👈 <a href="https://github.com/ozkanpakdil/test-microservice-frameworks/actions/runs/26843375965">github action</a>  👈</p>
+<script src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+    google.charts.load('current', {
+        packages: ['corechart'],
+        callback: drawChart
+    });
+
+    function drawChart() {
+        var dataSource = new google.visualization.arrayToDataTable([
+            ['Framework', 'Response', 'Graal'],
+            ["Avaje", 10641, 12078],
+            ["Robaho", 16593, 16830],
+            ["Spring", 8142, 9763],
+            ["Webflux", 5897, 9502],
+            ["Quarkus", 7026, 10997],
+            ["Micronaut", 12379, 13206],
+            ['Vertx', 18808, 14363],
+            ['Ktor', 11342, 11603],
+            //['Helidon', HELIDON, GRAALH1ELIDON],
+            ['Kumuluz', 5091, 0],
+            ['R-Rocket', 18936, 0],
+            ['RustAxum', 21802, 0],
+            ['R-Actix', 20740, 0],
+            ['R-Warp', 22121, 0],
+            ['.net 7 AOT', 16106, 0],
+            ['.net 8 AOT', 17723, 0],
+            ['.net 9 AOT', 18208, 0],
+            ['Golang', 18321, 0],
+            ['ExpressJS', 4489, 0],
+            ['Bun', 23222, 0],
+        ]);
+        const postContentDiv = document.getElementsByClassName('post-content').item(0);
+        const chartDiv = document.createElement("div");
+        postContentDiv.prepend(chartDiv);
+
+        var chart = new google.visualization.BarChart(chartDiv);
+        var view = new google.visualization.DataView(dataSource);
+        view.setColumns([0, 1,
+            {calc: "stringify", sourceColumn: 1, type: "string", role: "annotation"},
+            2, {calc: "stringify", sourceColumn: 2, type: "string", role: "annotation"},]);
+
+        function drawDynamicChart() {
+            const containerWidth = postContentDiv.offsetWidth;
+            const chartOptions = {
+                width: containerWidth,
+                height: 800,
+                hAxis: {title: 'Requests per second'},
+                vAxis: {title: 'Framework', slantedText: true, slantedTextAngle: 45},
+                bar: {groupWidth: "95%"},
+                title: "Frameworks vs JVM vs Rust vs Graal (higher is better/faster)",
+                chartArea: {width: '80%', height: '80%'},
+                legend: {position: 'bottom'}
+            };
+            chart.draw(view, chartOptions);
+        }
+
+        drawDynamicChart();
+        window.addEventListener('resize', drawDynamicChart, false);
+
+        // Move the results table after the chart
+        const resultsTable = document.getElementById('resultsTable');
+        if (resultsTable) {
+            const tableStyle = resultsTable.previousElementSibling;
+            if (tableStyle && tableStyle.tagName === 'STYLE') {
+                chartDiv.after(tableStyle);
+            }
+            chartDiv.after(resultsTable);
+            // Also move the sort script if it exists
+            const sortScript = resultsTable.nextElementSibling;
+            if (sortScript && sortScript.tagName === 'SCRIPT') {
+                resultsTable.after(sortScript);
+            }
+        }
+    }
+</script>
+<style>
+.sortable-table { border-collapse: collapse; width: 100%; margin: 10px 0; font-size: 12px; }
+.sortable-table th, .sortable-table td { border: 1px solid #ccc; padding: 4px 6px; text-align: left; }
+.sortable-table th { background-color: #6a9f6a; color: white; cursor: pointer; }
+.sortable-table th:hover { background-color: #5a8f5a; }
+.sortable-table tr:nth-child(even) { background-color: #f7f7f7; }
+.sortable-table tr:hover { background-color: #eee; }
+</style>
+<table class="sortable-table" id="resultsTable">
+<thead>
+<tr>
+<th onclick="sortTable(0)">Framework ⇅</th>
+<th onclick="sortTable(1, true)">Requests ⇅</th>
+<th onclick="sortTable(2)">Min ⇅</th>
+<th onclick="sortTable(3)">Max ⇅</th>
+<th onclick="sortTable(4)">Mean ⇅</th>
+<th onclick="sortTable(5)">P90 ⇅</th>
+<th onclick="sortTable(6)">P95 ⇅</th>
+<th onclick="sortTable(7, true)">Req/Sec ⇅</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>AVAJE</td><td>172074</td><td>101.75µs</td><td>2.3s</td><td>20.29ms</td><td>47.41ms</td><td>59.67ms</td><td>10641.273475</td></tr>
+<tr><td>ROBAHO</td><td>250343</td><td>55.92µs</td><td>144.78ms</td><td>17.08ms</td><td>42.77ms</td><td>52.12ms</td><td>16593.012649</td></tr>
+<tr><td>Started DemoWebFluxApplication</td><td>89397</td><td>251.17µs</td><td>2.06s</td><td>54.73ms</td><td>108.68ms</td><td>141.57ms</td><td>5897.251008</td></tr>
+<tr><td>Started DemoApplication</td><td>122644</td><td>252.65µs</td><td>331.14ms</td><td>34.07ms</td><td>71.43ms</td><td>90.33ms</td><td>8142.385706</td></tr>
+<tr><td>QUARKUS</td><td>105951</td><td>298.43µs</td><td>367.88ms</td><td>37.5ms</td><td>82.06ms</td><td>98ms</td><td>7026.52357</td></tr>
+<tr><td>Startup completed in</td><td>186344</td><td>133.85µs</td><td>184.26ms</td><td>23.43ms</td><td>48.35ms</td><td>59.76ms</td><td>12379.400924</td></tr>
+<tr><td>VERTX</td><td>282983</td><td>44.1µs</td><td>167.7ms</td><td>15.9ms</td><td>38.05ms</td><td>51.27ms</td><td>18808.765273</td></tr>
+<tr><td>Server -- Started</td><td>76876</td><td>351.13µs</td><td>430.66ms</td><td>54ms</td><td>128.35ms</td><td>158.85ms</td><td>5091.608068</td></tr>
+<tr><td>KTOR</td><td>191481</td><td>88.99µs</td><td>1.85s</td><td>18.36ms</td><td>40.96ms</td><td>52.17ms</td><td>11342.08077</td></tr>
+<tr><td>WARP</td><td>332722</td><td>46.45µs</td><td>137.97ms</td><td>12.89ms</td><td>33.78ms</td><td>41.69ms</td><td>22121.690857</td></tr>
+<tr><td>ACTIX</td><td>312801</td><td>45.39µs</td><td>166.05ms</td><td>13.83ms</td><td>37.88ms</td><td>46.59ms</td><td>20740.587384</td></tr>
+<tr><td>ROCKET</td><td>286798</td><td>65.96µs</td><td>207.31ms</td><td>14.98ms</td><td>39.82ms</td><td>48.15ms</td><td>18936.746115</td></tr>
+<tr><td>AXUM</td><td>327940</td><td>46.42µs</td><td>147.51ms</td><td>13.08ms</td><td>34.76ms</td><td>42.92ms</td><td>21802.984595</td></tr>
+<tr><td>Dotnet 7 rest service</td><td>242414</td><td>85.33µs</td><td>174.8ms</td><td>17.67ms</td><td>44.52ms</td><td>53.11ms</td><td>16106.168267</td></tr>
+<tr><td>Dotnet 8 rest service</td><td>266675</td><td>77.07µs</td><td>175.83ms</td><td>16.2ms</td><td>40.94ms</td><td>49.9ms</td><td>17723.295751</td></tr>
+<tr><td>Dotnet 9 rest service</td><td>274205</td><td>74.17µs</td><td>167.74ms</td><td>15.74ms</td><td>41.2ms</td><td>50.55ms</td><td>18208.933916</td></tr>
+<tr><td>Golang rest service</td><td>276149</td><td>59.07µs</td><td>155.31ms</td><td>15.52ms</td><td>41.65ms</td><td>51.25ms</td><td>18321.596591</td></tr>
+<tr><td>Express.js rest service</td><td>71871</td><td>177.1µs</td><td>7.04s</td><td>69.63ms</td><td>58.74ms</td><td>63ms</td><td>4489.541786</td></tr>
+<tr><td>Bun rest service</td><td>349279</td><td>46.32µs</td><td>154.72ms</td><td>13.13ms</td><td>34.07ms</td><td>44.64ms</td><td>23222.716529</td></tr>
+<tr><td>graalvm native avaje-jex-jdk</td><td>198191</td><td>101.29µs</td><td>1.25s</td><td>15.78ms</td><td>34.29ms</td><td>43.2ms</td><td>12078.945331</td></tr>
+<tr><td>graalvm native avaje-jex-robaho</td><td>253427</td><td>74.83µs</td><td>184.62ms</td><td>16.83ms</td><td>44.32ms</td><td>57.21ms</td><td>16830.537667</td></tr>
+<tr><td>graalvm native quarkus</td><td>165721</td><td>161.76µs</td><td>249.02ms</td><td>27.37ms</td><td>69.58ms</td><td>86.46ms</td><td>10997.028584</td></tr>
+<tr><td>graalvm native micronaut</td><td>198863</td><td>109.17µs</td><td>278.92ms</td><td>22.64ms</td><td>61.66ms</td><td>81.44ms</td><td>13206.851605</td></tr>
+<tr><td>graalvm native spring-boot-web</td><td>147707</td><td>169.58µs</td><td>481.06ms</td><td>31.7ms</td><td>80.73ms</td><td>115.03ms</td><td>9763.558286</td></tr>
+<tr><td>graalvm native spring-boot-webflux</td><td>144241</td><td>173.13µs</td><td>1.07s</td><td>34.17ms</td><td>91.21ms</td><td>120.4ms</td><td>9502.351788</td></tr>
+<tr><td>graalvm native vertx</td><td>216287</td><td>67.38µs</td><td>204.84ms</td><td>22.65ms</td><td>59.22ms</td><td>72.72ms</td><td>14363.923434</td></tr>
+<tr><td>graalvm native ktor rest service</td><td>187092</td><td>109.96µs</td><td>2.31s</td><td>18.16ms</td><td>35.4ms</td><td>44.78ms</td><td>11603.032935</td></tr>
+</tbody>
+</table>
+<script>
+function sortTable(n, isNumeric = false) {
+  var table = document.getElementById("resultsTable");
+  var rows = Array.from(table.rows).slice(1);
+  var asc = table.getAttribute("data-sort-asc") !== "true";
+  table.setAttribute("data-sort-asc", asc);
+  rows.sort(function(a, b) {
+    var x = a.cells[n].innerText;
+    var y = b.cells[n].innerText;
+    if (isNumeric) {
+      x = parseFloat(x) || 0;
+      y = parseFloat(y) || 0;
+      return asc ? x - y : y - x;
+    }
+    return asc ? x.localeCompare(y) : y.localeCompare(x);
+  });
+  rows.forEach(function(row) { table.tBodies[0].appendChild(row); });
+}
+</script>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://ozkanpakdil.github.io/test-microservice-frameworks/tags/microservice/">Microservice</a></li>
+      <li><a href="https://ozkanpakdil.github.io/test-microservice-frameworks/tags/quarkus/">Quarkus</a></li>
+      <li><a href="https://ozkanpakdil.github.io/test-microservice-frameworks/tags/graalvm/">Graalvm</a></li>
+      <li><a href="https://ozkanpakdil.github.io/test-microservice-frameworks/tags/kotlin/">Kotlin</a></li>
+      <li><a href="https://ozkanpakdil.github.io/test-microservice-frameworks/tags/rust/">Rust</a></li>
+      <li><a href="https://ozkanpakdil.github.io/test-microservice-frameworks/tags/dotnet/">Dotnet</a></li>
+      <li><a href="https://ozkanpakdil.github.io/test-microservice-frameworks/tags/golang/">Golang</a></li>
+      <li><a href="https://ozkanpakdil.github.io/test-microservice-frameworks/tags/expressjs/">Expressjs</a></li>
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="https://ozkanpakdil.github.io/test-microservice-frameworks/">Microservice Framework Tests</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>
