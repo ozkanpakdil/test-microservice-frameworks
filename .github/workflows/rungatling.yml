@@ -16,13 +16,9 @@ jobs:
         java: [25]
     steps:
       - uses: actions/checkout@v4
-      - uses: graalvm/setup-graalvm@v1.6.0
+      - uses: ./.github/actions/install-graalvm
         with:
-          version: 'latest'
-          java-version: ${{ matrix.java }}
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          distribution: 'graalvm-community'
-          native-image-job-reports: 'true'
+          candidate: ''
       # - name: Set up JDK
       #   uses: actions/setup-java@v3
       #   with:
@@ -91,4 +87,3 @@ jobs:
 #          # Hugo builds to hugo/public when using `-s hugo -d public`
 #          # GitHub Pages cannot select an arbitrary folder like /hugo; when using the gh-pages branch, choose folder /
 #          publish_dir: ./hugo/public
-
