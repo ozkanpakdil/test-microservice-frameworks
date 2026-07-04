@@ -68,7 +68,7 @@ jobs:
               fi
             fi
           fi
-      - uses: graalvm/setup-graalvm@v1
+      - uses: graalvm/setup-graalvm@v1.6.0
         if: steps.changes.outputs.skip == 'false'
         with:
           version: 'latest'

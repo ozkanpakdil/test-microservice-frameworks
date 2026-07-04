@@ -16,7 +16,7 @@ jobs:
         java: [25]
     steps:
       - uses: actions/checkout@v4
-      - uses: graalvm/setup-graalvm@v1
+      - uses: graalvm/setup-graalvm@v1.6.0
         with:
           version: 'latest'
           java-version: ${{ matrix.java }}
