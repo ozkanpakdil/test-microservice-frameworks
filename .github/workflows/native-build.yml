@@ -68,14 +68,10 @@ jobs:
               fi
             fi
           fi
-      - uses: graalvm/setup-graalvm@v1.6.0
+      - uses: ./.github/actions/install-graalvm
         if: steps.changes.outputs.skip == 'false'
         with:
-          version: 'latest'
-          java-version: ${{ matrix.java }}
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          native-image-job-reports: 'true'
-          distribution: 'graalvm-community'
+          candidate: ''
       - name: Set up Go
         if: steps.changes.outputs.skip == 'false'
         uses: actions/setup-go@v5
