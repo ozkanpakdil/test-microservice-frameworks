@@ -1,0 +1,62 @@
+name: Install GraalVM via SDKMAN
+
+description: "Installs GraalVM using SDKMAN and exposes JAVA_HOME and PATH.\nIf `candidate` is empty, picks the latest graalvm candidate from `sdk list java`."
+
+inputs:
+  candidate:
+    description: 'SDKMAN candidate identifier (optional). Empty = auto-pick latest graalvm candidate'
+    required: false
+    default: ''
+
+runs:
+  using: "composite"
+  steps:
+    - name: Install prerequisites
+      shell: bash
+      run: |
+        set -eux
+        sudo apt-get update
+        sudo apt-get install -y unzip zip curl jq grep sed awk
+    - name: Install SDKMAN
+      shell: bash
+      run: |
+        set -eux
+        curl -s "https://get.sdkman.io" | bash
+        # shellcheck disable=SC1091
+        source "$HOME/.sdkman/bin/sdkman-init.sh"
+    - name: Install GraalVM via SDKMAN
+      shell: bash
+      run: |
+        set -eux
+        # if candidate provided, use it
+        if [ -n "${{ inputs.candidate }}" ]; then
+          CANDIDATE="${{ inputs.candidate }}"
+          echo "Installing specific candidate: $CANDIDATE"
+          sdk install java "$CANDIDATE" || true
+          sdk default java "$CANDIDATE"
+        else
+          echo "No candidate provided; picking latest graalvm candidate from 'sdk list java'"
+          LATEST=$(sdk list java | awk '/graalvm/ {gsub(/^[ \t]+|[ \t]+$/,""); print $NF}' | head -n1)
+          if [ -z "$LATEST" ]; then
+            echo "No GraalVM candidate found via sdk list java" >&2
+            sdk list java
+            exit 1
+          fi
+          echo "Latest candidate: $LATEST"
+          sdk install java "$LATEST" || true
+          sdk default java "$LATEST"
+        fi
+        export JAVA_HOME="$HOME/.sdkman/candidates/java/current"
+        export PATH="$JAVA_HOME/bin:$PATH"
+        echo "JAVA_HOME=$JAVA_HOME" >> $GITHUB_ENV
+        echo "PATH=$JAVA_HOME/bin:$PATH" >> $GITHUB_ENV
+        java -version || true
+    - name: Install native-image (if available)
+      shell: bash
+      run: |
+        set -eux
+        if command -v gu >/dev/null 2>&1; then
+          gu install native-image || true
+        else
+          echo "gu not available; native-image install skipped"
+        fi
