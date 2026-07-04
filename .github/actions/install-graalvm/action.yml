@@ -20,14 +20,9 @@ runs:
     - name: Install SDKMAN
       shell: bash
       run: |
-        set -eux
+        set -x
         curl -s "https://get.sdkman.io" | bash
-        # shellcheck disable=SC1091
-        source "$HOME/.sdkman/bin/sdkman-init.sh"
-    - name: Install GraalVM via SDKMAN
-      shell: bash
-      run: |
-        set -eux
+        source "/home/runner/.sdkman/bin/sdkman-init.sh"
         # if candidate provided, use it
         if [ -n "${{ inputs.candidate }}" ]; then
           CANDIDATE="${{ inputs.candidate }}"
@@ -36,7 +31,7 @@ runs:
           sdk default java "$CANDIDATE"
         else
           echo "No candidate provided; picking latest graalvm candidate from 'sdk list java'"
-          LATEST=$(sdk list java | awk '/graalvm/ {gsub(/^[ \t]+|[ \t]+$/,""); print $NF}' | head -n1)
+          LATEST=$(sdk list java --no-pager | awk '/(graalce|graal)/ {print $NF}' | head -n1)
           if [ -z "$LATEST" ]; then
             echo "No GraalVM candidate found via sdk list java" >&2
             sdk list java
