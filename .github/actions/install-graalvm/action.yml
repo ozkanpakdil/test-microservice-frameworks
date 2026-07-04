@@ -16,7 +16,7 @@ runs:
       run: |
         set -eux
         sudo apt-get update
-        sudo apt-get install -y unzip zip curl jq grep sed awk
+        sudo apt-get install -y unzip zip curl jq grep sed gawk
     - name: Install SDKMAN
       shell: bash
       run: |
