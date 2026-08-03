@@ -1,6 +1,18 @@
 version: 2
 updates:
 - package-ecosystem: maven
-  directory: "/"
+  directories:
+    - "/"
+    - "/avaje-jex-jdk"
+    - "/avaje-jex-robaho"
+    - "/eclipse-microprofile-kumuluz-test"
+    - "/gatling"
+    - "/helidon-se-netty"
+    - "/ktor"
+    - "/micronaut"
+    - "/quarkus"
+    - "/spring-boot-web"
+    - "/spring-boot-webflux"
+    - "/vertx"
   schedule:
     interval: monthly
