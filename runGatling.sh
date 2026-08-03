@@ -81,7 +81,7 @@ echo 'Running jars and collecting test results...'
 
 writeGraph(){
   TABLE=$1
-  MR=`echo $TABLE| tr '>' '\n'|grep 'mean requests/sec'|awk '{print $3}'|cut -d'.' -f1`
+  MR=`echo $TABLE| tr '>' '\n'|grep 'mean throughput'|awk -F'|' '{print $2}'|tr -d ' , '|cut -d'.' -f1`
   R1=`echo $2|sed 's/ //g'|sed 's/-//g'` # clearing empty string and dashes
   if [[ "$OSTYPE" == "darwin"* ]]; then
     sed -i '' "s/$R1/$MR/g" $FOLDERHOME/graph-gatling.html
@@ -94,16 +94,16 @@ writeGraph(){
 addToTable(){
   TABLE=$1
   FNAME=$2
-  REQ_COUNT=`echo "$TABLE"| tr '>' '\n'|grep 'request count'|awk '{print $3}'`
-  MIN_RT=`echo "$TABLE"| tr '>' '\n'|grep 'min response time'|awk '{print $4}'`
-  MAX_RT=`echo "$TABLE"| tr '>' '\n'|grep 'max response time'|awk '{print $4}'`
-  MEAN_RT=`echo "$TABLE"| tr '>' '\n'|grep 'mean response time'|awk '{print $4}'`
-  STD_DEV=`echo "$TABLE"| tr '>' '\n'|grep 'std deviation'|awk '{print $3}'`
-  P50_RT=`echo "$TABLE"| tr '>' '\n'|grep '50th percentile'|awk '{print $5}'`
-  P75_RT=`echo "$TABLE"| tr '>' '\n'|grep '75th percentile'|awk '{print $5}'`
-  P95_RT=`echo "$TABLE"| tr '>' '\n'|grep '95th percentile'|awk '{print $5}'`
-  P99_RT=`echo "$TABLE"| tr '>' '\n'|grep '99th percentile'|awk '{print $5}'`
-  REQ_SEC=`echo "$TABLE"| tr '>' '\n'|grep 'mean requests/sec'|awk '{print $3}'`
+  REQ_COUNT=`echo "$TABLE"| tr '>' '\n'|grep 'request count'|awk -F'|' '{print $2}'|tr -d ' '`
+  MIN_RT=`echo "$TABLE"| tr '>' '\n'|grep 'min response time'|awk -F'|' '{print $2}'|tr -d ' '`
+  MAX_RT=`echo "$TABLE"| tr '>' '\n'|grep 'max response time'|awk -F'|' '{print $2}'|tr -d ' '`
+  MEAN_RT=`echo "$TABLE"| tr '>' '\n'|grep 'mean response time'|awk -F'|' '{print $2}'|tr -d ' '`
+  STD_DEV=`echo "$TABLE"| tr '>' '\n'|grep 'std deviation'|awk -F'|' '{print $2}'|tr -d ' '`
+  P50_RT=`echo "$TABLE"| tr '>' '\n'|grep '50th percentile'|awk -F'|' '{print $2}'|tr -d ' '`
+  P75_RT=`echo "$TABLE"| tr '>' '\n'|grep '75th percentile'|awk -F'|' '{print $2}'|tr -d ' '`
+  P95_RT=`echo "$TABLE"| tr '>' '\n'|grep '95th percentile'|awk -F'|' '{print $2}'|tr -d ' '`
+  P99_RT=`echo "$TABLE"| tr '>' '\n'|grep '99th percentile'|awk -F'|' '{print $2}'|tr -d ' '`
+  REQ_SEC=`echo "$TABLE"| tr '>' '\n'|grep 'mean throughput'|awk -F'|' '{print $2}'|tr -d ' '`
   echo "$FNAME,$REQ_COUNT,$MIN_RT,$MAX_RT,$MEAN_RT,$STD_DEV,$P50_RT,$P75_RT,$P95_RT,$P99_RT,$REQ_SEC" >> test-results-gatling.csv
 }
 
@@ -219,10 +219,10 @@ rm -rf rust-examples
 git clone https://github.com/ozkanpakdil/rust-examples.git
 mkdir rust-examples/exe
 cd rust-examples/exe
-wget https://github.com/ozkanpakdil/rust-examples/releases/download/latest/actix-rest-api
-wget https://github.com/ozkanpakdil/rust-examples/releases/download/latest/rocket-rest-api
-wget https://github.com/ozkanpakdil/rust-examples/releases/download/latest/warp-rest-api
-wget https://github.com/ozkanpakdil/rust-examples/releases/download/latest/axum-rest-api
+curl -fsSL -O https://github.com/ozkanpakdil/rust-examples/releases/download/latest/actix-rest-api
+curl -fsSL -O https://github.com/ozkanpakdil/rust-examples/releases/download/latest/rocket-rest-api
+curl -fsSL -O https://github.com/ozkanpakdil/rust-examples/releases/download/latest/warp-rest-api
+curl -fsSL -O https://github.com/ozkanpakdil/rust-examples/releases/download/latest/axum-rest-api
 chmod a+x warp-rest-api actix-rest-api rocket-rest-api axum-rest-api
 cd ../..
 rustTest "./rust-examples/exe/warp-rest-api" "warp =" "WARP"
@@ -232,11 +232,11 @@ rustTest "./rust-examples/exe/axum-rest-api" "axum =" "AXUM"
 rm -rf rust-examples
 
 ##### DOTNET
-wget -qc https://github.com/ozkanpakdil/dotnet-examples/releases/download/latest/Dotnet7Microservice
+curl -fsSL -O https://github.com/ozkanpakdil/dotnet-examples/releases/download/latest/Dotnet7Microservice
 runNativeBinaryTests "./Dotnet7Microservice" "Dotnet 7 rest service" "DOTNET7AOT"
-wget -qc https://github.com/ozkanpakdil/dotnet-examples/releases/download/latest/Dotnet8Microservice
+curl -fsSL -O https://github.com/ozkanpakdil/dotnet-examples/releases/download/latest/Dotnet8Microservice
 runNativeBinaryTests "./Dotnet8Microservice" "Dotnet 8 rest service" "DOTNET8AOT"
-wget -qc https://github.com/ozkanpakdil/dotnet-examples/releases/download/latest/Dotnet9Microservice
+curl -fsSL -O https://github.com/ozkanpakdil/dotnet-examples/releases/download/latest/Dotnet9Microservice
 runNativeBinaryTests "./Dotnet9Microservice" "Dotnet 9 rest service" "DOTNET9AOT"
 ##### DOTNET
 
@@ -245,7 +245,7 @@ printf '***  \n' >> test-result.md
 printf '## Golang rest service \n' >> test-result.md
 echo $GO_VERSION >> test-result.md
 printf '\n\n' >> test-result.md
-wget -qc https://github.com/ozkanpakdil/test-microservice-frameworks/releases/download/latest/golang-demo
+curl -fsSL -O https://github.com/ozkanpakdil/test-microservice-frameworks/releases/download/latest/golang-demo
 runNativeBinaryTests "./golang-demo" "Golang rest service" "GOLANG"
 ##### GOLANG
 
@@ -254,7 +254,7 @@ printf '***  \n' >> test-result.md
 printf '## Express.js rest service \n' >> test-result.md
 echo "Node.js $(node --version)" >> test-result.md
 printf '\n\n' >> test-result.md
-wget -qc https://github.com/ozkanpakdil/test-microservice-frameworks/releases/download/latest/expressjs-demo
+curl -fsSL -O https://github.com/ozkanpakdil/test-microservice-frameworks/releases/download/latest/expressjs-demo
 runNativeBinaryTests "./expressjs-demo" "Express.js rest service" "EXPRESSJS"
 ##### EXPRESSJS
 
@@ -263,20 +263,20 @@ printf '***  \n' >> test-result.md
 printf '## Bun rest service \n' >> test-result.md
 echo "Bun $(bun --version)" >> test-result.md
 printf '\n\n' >> test-result.md
-wget -qc https://github.com/ozkanpakdil/test-microservice-frameworks/releases/download/latest/bun-demo
+curl -fsSL -O https://github.com/ozkanpakdil/test-microservice-frameworks/releases/download/latest/bun-demo
 runNativeBinaryTests "./bun-demo" "Bun rest service" "BUN"
 ##### BUN
 
 ##### graalvm
-wget -qc https://github.com/ozkanpakdil/test-microservice-frameworks/releases/download/latest/avaje-jex-jdk -O avaje-jex-jdk-bin
-wget -qc https://github.com/ozkanpakdil/test-microservice-frameworks/releases/download/latest/avaje-jex-robaho -O avaje-jex-robaho-bin
-wget -qc https://github.com/ozkanpakdil/test-microservice-frameworks/releases/download/latest/quarkus-demo-runner -O quarkus-demo-runner-bin
-wget -qc https://github.com/ozkanpakdil/test-microservice-frameworks/releases/download/latest/micronaut-demo -O micronaut-demo-bin
-wget -qc https://github.com/ozkanpakdil/test-microservice-frameworks/releases/download/latest/springboot-demo-web -O springboot-demo-web-bin
-wget -qc https://github.com/ozkanpakdil/test-microservice-frameworks/releases/download/latest/springboot-webflux-demo -O springboot-webflux-demo-bin
-wget -qc https://github.com/ozkanpakdil/test-microservice-frameworks/releases/download/latest/vertx-demo -O vertx-demo-bin
-#wget -qc https://github.com/ozkanpakdil/test-microservice-frameworks/releases/download/latest/helidon-quickstart-se
-wget -qc https://github.com/ozkanpakdil/test-microservice-frameworks/releases/download/latest/ktor-demo -O ktor-demo-bin
+curl -fsSL -o avaje-jex-jdk-bin https://github.com/ozkanpakdil/test-microservice-frameworks/releases/download/latest/avaje-jex-jdk
+curl -fsSL -o avaje-jex-robaho-bin https://github.com/ozkanpakdil/test-microservice-frameworks/releases/download/latest/avaje-jex-robaho
+curl -fsSL -o quarkus-demo-runner-bin https://github.com/ozkanpakdil/test-microservice-frameworks/releases/download/latest/quarkus-demo-runner
+curl -fsSL -o micronaut-demo-bin https://github.com/ozkanpakdil/test-microservice-frameworks/releases/download/latest/micronaut-demo
+curl -fsSL -o springboot-demo-web-bin https://github.com/ozkanpakdil/test-microservice-frameworks/releases/download/latest/springboot-demo-web
+curl -fsSL -o springboot-webflux-demo-bin https://github.com/ozkanpakdil/test-microservice-frameworks/releases/download/latest/springboot-webflux-demo
+curl -fsSL -o vertx-demo-bin https://github.com/ozkanpakdil/test-microservice-frameworks/releases/download/latest/vertx-demo
+#curl -fsSL -O https://github.com/ozkanpakdil/test-microservice-frameworks/releases/download/latest/helidon-quickstart-se
+curl -fsSL -o ktor-demo-bin https://github.com/ozkanpakdil/test-microservice-frameworks/releases/download/latest/ktor-demo
 chmod a+x avaje-jex-jdk-bin avaje-jex-robaho-bin quarkus-demo-runner-bin micronaut-demo-bin springboot-demo-web-bin springboot-webflux-demo-bin vertx-demo-bin ktor-demo-bin #helidon-quickstart-se
 
 runNativeBinaryTests "./avaje-jex-jdk-bin" "graalvm native avaje-jex-jdk" "GRAALA1VAJE"
