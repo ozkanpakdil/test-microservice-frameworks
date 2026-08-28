@@ -1,7 +1,7 @@
 package main
 
 import (
-	"encoding/json"
+	"encoding/json/v2"
 	"log"
 	"net/http"
 	"time"
@@ -12,13 +12,17 @@ type ApplicationInfo struct {
 	ReleaseYear int    `json:"releaseYear"`
 }
 
+var info =  ApplicationInfo{
+     Name: "golang",
+     ReleaseYear: time.Now().Year(),
+}
+
 func helloHandler(w http.ResponseWriter, r *http.Request) {
-	info := ApplicationInfo{
-		Name:        "golang",
-		ReleaseYear: time.Now().Year(),
-	}
 	w.Header().Set("Content-Type", "application/json")
-	json.NewEncoder(w).Encode(info)
+	err := json.MarshalWrite(w, info)
+	if err != nil {
+		panic("fail")
+	}
 }
 
 func main() {
