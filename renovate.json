@@ -1,6 +1,22 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "config:recommended"
-  ]
+  "extends": ["config:recommended"],
+  "dependencyDashboard": true,
+  "description": "Single cumulative PR: every dependency update across all modules lands in one PR",
+  "separateMajorMinor": false,
+  "separateMultipleMajor": false,
+  "packageRules": [
+    {
+      "groupName": "all dependencies",
+      "groupSlug": "all-updates",
+      "matchUpdateTypes": ["major", "minor", "patch", "pin", "digest", "lockFileMaintenance"]
+    }
+  ],
+  "automerge": true,
+  "automergeType": "pr",
+  "platformAutomerge": true,
+  "ignorePaths": ["rust-examples/**", "hugo/themes/**"],
+  "cargo": {
+    "enabled": false
+  }
 }

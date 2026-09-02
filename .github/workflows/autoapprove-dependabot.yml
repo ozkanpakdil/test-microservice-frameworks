@@ -1,4 +1,6 @@
-name: Dependabot auto-approve
+# Approves dependency-bot PRs (renovate[bot] and dependabot[bot]) so
+# auto-merge can pick them up once checks pass.
+name: Dependabot Renovate auto-approve
 on: pull_request_target
 
 permissions:
@@ -7,7 +9,7 @@ permissions:
 jobs:
   dependabot:
     runs-on: ubuntu-latest
-    if: ${{ github.actor == 'dependabot[bot]' }}
+    if: ${{ github.actor == 'renovate[bot]' || github.actor == 'dependabot[bot]' }}
     steps:
       - name: Dependabot metadata
         id: metadata
