@@ -1,41 +1,41 @@
 ---
 type: post
-title: 'Java microservice framework tests in A:3.6 SB:4.1.0 Q:3.39.1 M:5.0.1 V:5.1.5 H:4.3.2 Dotnet:7,8,9 openjdk version "25.0.4.1" 2026-08-18 rustc 1.98.0 (88d9e12ae 2026-08-18) go version go1.24.13 linux/amd64'
-date: 2026-09-02 17:17:43
+title: 'Java microservice framework tests in A:3.6 SB:4.1.1 Q:3.39.2 M:5.1.3 V:5.1.7 H:4.5.4 Dotnet:7,8,9 openjdk version "25.0.4.1" 2026-08-18 rustc 1.98.0 (88d9e12ae 2026-08-18) go version go1.24.13 linux/amd64'
+date: 2026-09-02 19:48:40
 tags: ["microservice","quarkus","graalvm","kotlin","rust","dotnet","golang","expressjs" ]
 ---
 In Linux runnervmgx7h7 6.17.0-1022-azure #22-Ubuntu SMP Mon Jul 27 17:24:03 UTC 2026 x86_64 x86_64 x86_64 GNU/Linux,
 ```bash
-Memory Usage: 1447/15988MB (9.05%)
-Disk Usage: 61/145GB (43%)
-CPU Load: 1.40
+Memory Usage: 1446/15989MB (9.04%)
+Disk Usage: 60/145GB (42%)
+CPU Load: 1.66
 CPU core count:4
 CPUs
-cpu MHz		: 3200.454
-cpu MHz		: 3199.236
-cpu MHz		: 3201.357
-cpu MHz		: 3202.636
+cpu MHz		: 2870.770
+cpu MHz		: 2870.294
+cpu MHz		: 2870.656
+cpu MHz		: 2871.480
 ```
 Below is total package generation times for separate modules,
 ```bash
-[INFO] [INFO] Avaje Jex Example 3.6 .............................. SUCCESS [  0.257 s]
-[INFO] [INFO] Avaje Jex Robaho Example 3.6 ....................... SUCCESS [  0.014 s]
-[INFO] [INFO] eclipse-microprofile-kumuluz-test 4.1.0 ............ SUCCESS [  0.297 s]
-[INFO] [INFO] ktor-demo 3.5.2-kotlin-2.4.10 ...................... SUCCESS [  1.184 s]
-[INFO] [INFO] micronaut-demo 5.0.1 ............................... SUCCESS [  1.241 s]
-[INFO] [INFO] quarkus-demo 3.39.1 ................................ SUCCESS [  0.839 s]
-[INFO] [INFO] springboot-webflux-demo 4.1.0 ...................... SUCCESS [  0.146 s]
-[INFO] [INFO] springboot-demo-web 4.1.0 .......................... SUCCESS [  0.016 s]
-[INFO] [INFO] vertx-demo 5.1.5 ................................... SUCCESS [  0.033 s]
-[INFO] Avaje Jex Example 3.6 .............................. SUCCESS [  2.497 s]
-[INFO] Avaje Jex Robaho Example 3.6 ....................... SUCCESS [  2.395 s]
-[INFO] eclipse-microprofile-kumuluz-test 4.1.0 ............ SUCCESS [  4.020 s]
-[INFO] ktor-demo 3.5.2-kotlin-2.4.10 ...................... SUCCESS [  9.917 s]
-[INFO] micronaut-demo 5.0.1 ............................... SUCCESS [ 21.934 s]
-[INFO] quarkus-demo 3.39.1 ................................ SUCCESS [ 11.954 s]
-[INFO] springboot-webflux-demo 4.1.0 ...................... SUCCESS [  1.598 s]
-[INFO] springboot-demo-web 4.1.0 .......................... SUCCESS [  1.600 s]
-[INFO] vertx-demo 5.1.5 ................................... SUCCESS [  4.687 s]
+[INFO] [INFO] Avaje Jex Example 3.6 .............................. SUCCESS [  0.224 s]
+[INFO] [INFO] Avaje Jex Robaho Example 3.6 ....................... SUCCESS [  0.017 s]
+[INFO] [INFO] eclipse-microprofile-kumuluz-test 4.1.0 ............ SUCCESS [  0.288 s]
+[INFO] [INFO] ktor-demo 3.5.2-kotlin-2.4.10 ...................... SUCCESS [  1.313 s]
+[INFO] [INFO] micronaut-demo 5.1.3 ............................... SUCCESS [  1.458 s]
+[INFO] [INFO] quarkus-demo 3.39.2 ................................ SUCCESS [  0.906 s]
+[INFO] [INFO] springboot-webflux-demo 4.1.1 ...................... SUCCESS [  0.127 s]
+[INFO] [INFO] springboot-demo-web 4.1.1 .......................... SUCCESS [  0.024 s]
+[INFO] [INFO] vertx-demo 5.1.7 ................................... SUCCESS [  0.036 s]
+[INFO] Avaje Jex Example 3.6 .............................. SUCCESS [  2.966 s]
+[INFO] Avaje Jex Robaho Example 3.6 ....................... SUCCESS [  3.127 s]
+[INFO] eclipse-microprofile-kumuluz-test 4.1.0 ............ SUCCESS [  4.808 s]
+[INFO] ktor-demo 3.5.2-kotlin-2.4.10 ...................... SUCCESS [ 11.513 s]
+[INFO] micronaut-demo 5.1.3 ............................... SUCCESS [ 25.401 s]
+[INFO] quarkus-demo 3.39.2 ................................ SUCCESS [ 13.784 s]
+[INFO] springboot-webflux-demo 4.1.1 ...................... SUCCESS [  2.147 s]
+[INFO] springboot-demo-web 4.1.1 .......................... SUCCESS [  2.145 s]
+[INFO] vertx-demo 5.1.7 ................................... SUCCESS [  5.399 s]
 ```
 Size of created packages:
 
@@ -47,176 +47,176 @@ Size of created packages:
 | 2.8M | ./avaje-jex-robaho/target/original-avaje-jex-robaho-3.6.jar |
 | 22M | ./eclipse-microprofile-kumuluz-test/target/eclipse-microprofile-kumuluz-test-4.1.0.jar |
 | 21M | ./ktor/target/ktor-demo-3.5.2-kotlin-2.4.10-jar-with-dependencies.jar |
-| 15M | ./micronaut/target/micronaut-demo-5.0.1.jar |
+| 15M | ./micronaut/target/micronaut-demo-5.1.3.jar |
 | 20M | ./quarkus/target/quarkus-demo-runner.jar |
-| 19M | ./spring-boot-web/target/springboot-demo-web-4.1.0.jar |
-| 34M | ./spring-boot-webflux/target/springboot-webflux-demo-4.1.0.jar |
-| 12M | ./vertx/target/vertx-demo-5.1.5-fat.jar |
+| 19M | ./spring-boot-web/target/springboot-demo-web-4.1.1.jar |
+| 34M | ./spring-boot-webflux/target/springboot-webflux-demo-4.1.1.jar |
+| 12M | ./vertx/target/vertx-demo-5.1.7-fat.jar |
 
 
-[Avaje Jex started class sun.net.httpserver.HttpServerImpl in 25ms on TCP http://0:0:0:0:0:0:0:0:8080](https://avaje.io/) 
-
-```bash
----- Global Information -------------------------------------------------------------|---Total---|-----OK----|----KO----
-> request count                                                                      |   471,414 |   471,414 |         -
-> min response time (ms)                                                             |         0 |         0 |         -
-> max response time (ms)                                                             |     3,291 |     3,291 |         -
-> mean response time (ms)                                                            |        19 |        19 |         -
-> response time std deviation (ms)                                                   |       111 |       111 |         -
-> response time 50th percentile (ms)                                                 |         8 |         8 |         -
-> response time 75th percentile (ms)                                                 |        12 |        12 |         -
-> response time 95th percentile (ms)                                                 |        58 |       127 |         -
-> response time 99th percentile (ms)                                                 |     1,322 |     1,424 |         -
-> mean throughput (rps)                                                              | 18,856.56 | 18,856.56 |         -
----- Response Time Distribution ----------------------------------------------------------------------------------------
-> OK: t < 800 ms                                                                                        467,432 (99.16%)
-> OK: 800 ms <= t < 1200 ms                                                                               3,176  (0.67%)
-> OK: t >= 1200 ms                                                                                          806  (0.17%)
-> KO                                                                                                          0     (0%)
-```
-
-[started class robaho.net.httpserver.HttpServerImpl in 48ms on TCP http://0.0.0.0:8080](https://github.com/robaho/httpserver) 
+[Avaje Jex started class sun.net.httpserver.HttpServerImpl in 28ms on TCP http://0:0:0:0:0:0:0:0:8080](https://avaje.io/) 
 
 ```bash
 ---- Global Information -------------------------------------------------------------|---Total---|-----OK----|----KO----
-> request count                                                                      |   847,225 |   847,225 |         -
+> request count                                                                      |   326,617 |   326,617 |         -
 > min response time (ms)                                                             |         0 |         0 |         -
-> max response time (ms)                                                             |       168 |       168 |         -
-> mean response time (ms)                                                            |        10 |        10 |         -
-> response time std deviation (ms)                                                   |         5 |         5 |         -
-> response time 50th percentile (ms)                                                 |         9 |         9 |         -
-> response time 75th percentile (ms)                                                 |        12 |        12 |         -
-> response time 95th percentile (ms)                                                 |        21 |        20 |         -
-> response time 99th percentile (ms)                                                 |       109 |        73 |         -
-> mean throughput (rps)                                                              |    33,889 |    33,889 |         -
----- Response Time Distribution ----------------------------------------------------------------------------------------
-> OK: t < 800 ms                                                                                        847,225   (100%)
-> OK: 800 ms <= t < 1200 ms                                                                                   0     (0%)
-> OK: t >= 1200 ms                                                                                            0     (0%)
-> KO                                                                                                          0     (0%)
-```
-
-[:: Spring Boot ::                (v4.1.0)](https://spring.io/projects/spring-boot) 
-Started DemoWebFluxApplication in 1.478 seconds (process running for 1.936)
-```bash
----- Global Information -------------------------------------------------------------|---Total---|-----OK----|----KO----
-> request count                                                                      |   214,594 |   214,594 |         -
-> min response time (ms)                                                             |         0 |         0 |         -
-> max response time (ms)                                                             |     5,427 |     5,427 |         -
-> mean response time (ms)                                                            |        44 |        44 |         -
-> response time std deviation (ms)                                                   |       222 |       222 |         -
-> response time 50th percentile (ms)                                                 |        31 |        31 |         -
-> response time 75th percentile (ms)                                                 |        40 |        40 |         -
-> response time 95th percentile (ms)                                                 |        54 |        55 |         -
-> response time 99th percentile (ms)                                                 |        84 |        85 |         -
-> mean throughput (rps)                                                              |  8,583.76 |  8,583.76 |         -
----- Response Time Distribution ----------------------------------------------------------------------------------------
-> OK: t < 800 ms                                                                                        213,984 (99.72%)
-> OK: 800 ms <= t < 1200 ms                                                                                  34  (0.02%)
-> OK: t >= 1200 ms                                                                                          576  (0.27%)
-> KO                                                                                                          0     (0%)
-```
-
-[:: Spring Boot ::                (v4.1.0)](https://spring.io/projects/spring-boot) 
-Started DemoApplication in 1.398 seconds (process running for 1.821)
-```bash
----- Global Information -------------------------------------------------------------|---Total---|-----OK----|----KO----
-> request count                                                                      |   194,153 |   194,153 |         -
-> min response time (ms)                                                             |         0 |         0 |         -
-> max response time (ms)                                                             |       701 |       701 |         -
-> mean response time (ms)                                                            |        47 |        47 |         -
-> response time std deviation (ms)                                                   |        30 |        30 |         -
-> response time 50th percentile (ms)                                                 |        44 |        44 |         -
-> response time 75th percentile (ms)                                                 |        59 |        59 |         -
-> response time 95th percentile (ms)                                                 |        94 |        90 |         -
-> response time 99th percentile (ms)                                                 |       187 |       166 |         -
-> mean throughput (rps)                                                              |  7,766.12 |  7,766.12 |         -
----- Response Time Distribution ----------------------------------------------------------------------------------------
-> OK: t < 800 ms                                                                                        194,153   (100%)
-> OK: 800 ms <= t < 1200 ms                                                                                   0     (0%)
-> OK: t >= 1200 ms                                                                                            0     (0%)
-> KO                                                                                                          0     (0%)
-```
-
-[powered by Quarkus 3.39.1) started in 1.005s. Listening on: http://0.0.0.0:8080](https://quarkus.io/) 
-
-```bash
----- Global Information -------------------------------------------------------------|---Total---|-----OK----|----KO----
-> request count                                                                      |   254,038 |   254,038 |         -
-> min response time (ms)                                                             |         0 |         0 |         -
-> max response time (ms)                                                             |       232 |       232 |         -
-> mean response time (ms)                                                            |        35 |        35 |         -
-> response time std deviation (ms)                                                   |        19 |        19 |         -
-> response time 50th percentile (ms)                                                 |        33 |        32 |         -
-> response time 75th percentile (ms)                                                 |        44 |        45 |         -
-> response time 95th percentile (ms)                                                 |        64 |        70 |         -
-> response time 99th percentile (ms)                                                 |        95 |        93 |         -
-> mean throughput (rps)                                                              | 10,161.52 | 10,161.52 |         -
----- Response Time Distribution ----------------------------------------------------------------------------------------
-> OK: t < 800 ms                                                                                        254,038   (100%)
-> OK: 800 ms <= t < 1200 ms                                                                                   0     (0%)
-> OK: t >= 1200 ms                                                                                            0     (0%)
-> KO                                                                                                          0     (0%)
-```
-
-[micronaut version: 4.9.0](https://micronaut.io/) 
-Startup completed in 682ms. Server Running: http://localhost:8080
-```bash
----- Global Information -------------------------------------------------------------|---Total---|-----OK----|----KO----
-> request count                                                                      |   733,155 |   733,155 |         -
-> min response time (ms)                                                             |         0 |         0 |         -
-> max response time (ms)                                                             |        79 |        79 |         -
-> mean response time (ms)                                                            |        13 |        13 |         -
-> response time std deviation (ms)                                                   |         6 |         6 |         -
-> response time 50th percentile (ms)                                                 |        12 |        12 |         -
+> max response time (ms)                                                             |     5,052 |     5,052 |         -
+> mean response time (ms)                                                            |        28 |        28 |         -
+> response time std deviation (ms)                                                   |       143 |       143 |         -
+> response time 50th percentile (ms)                                                 |        11 |        11 |         -
 > response time 75th percentile (ms)                                                 |        17 |        17 |         -
-> response time 95th percentile (ms)                                                 |        25 |        24 |         -
-> response time 99th percentile (ms)                                                 |        40 |        36 |         -
-> mean throughput (rps)                                                              |  29,326.2 |  29,326.2 |         -
+> response time 95th percentile (ms)                                                 |        40 |        39 |         -
+> response time 99th percentile (ms)                                                 |     1,954 |       713 |         -
+> mean throughput (rps)                                                              | 13,064.68 | 13,064.68 |         -
 ---- Response Time Distribution ----------------------------------------------------------------------------------------
-> OK: t < 800 ms                                                                                        733,155   (100%)
+> OK: t < 800 ms                                                                                        322,933 (98.87%)
+> OK: 800 ms <= t < 1200 ms                                                                               2,742  (0.84%)
+> OK: t >= 1200 ms                                                                                          942  (0.29%)
+> KO                                                                                                          0     (0%)
+```
+
+[started class robaho.net.httpserver.HttpServerImpl in 58ms on TCP http://0.0.0.0:8080](https://github.com/robaho/httpserver) 
+
+```bash
+---- Global Information -------------------------------------------------------------|---Total---|-----OK----|----KO----
+> request count                                                                      |   393,766 |   393,766 |         -
+> min response time (ms)                                                             |         0 |         0 |         -
+> max response time (ms)                                                             |       146 |       146 |         -
+> mean response time (ms)                                                            |        20 |        20 |         -
+> response time std deviation (ms)                                                   |        11 |        11 |         -
+> response time 50th percentile (ms)                                                 |        18 |        18 |         -
+> response time 75th percentile (ms)                                                 |        26 |        27 |         -
+> response time 95th percentile (ms)                                                 |        43 |        41 |         -
+> response time 99th percentile (ms)                                                 |        49 |        79 |         -
+> mean throughput (rps)                                                              | 15,750.64 | 15,750.64 |         -
+---- Response Time Distribution ----------------------------------------------------------------------------------------
+> OK: t < 800 ms                                                                                        393,766   (100%)
 > OK: 800 ms <= t < 1200 ms                                                                                   0     (0%)
 > OK: t >= 1200 ms                                                                                            0     (0%)
 > KO                                                                                                          0     (0%)
 ```
 
-[vertx version:5.1.5](https://vertx.io/) 
+[:: Spring Boot ::                (v4.1.1)](https://spring.io/projects/spring-boot) 
+Started DemoWebFluxApplication in 1.769 seconds (process running for 2.266)
+```bash
+---- Global Information -------------------------------------------------------------|---Total---|-----OK----|----KO----
+> request count                                                                      |   140,762 |   140,762 |         -
+> min response time (ms)                                                             |         1 |         1 |         -
+> max response time (ms)                                                             |     9,481 |     9,481 |         -
+> mean response time (ms)                                                            |        55 |        55 |         -
+> response time std deviation (ms)                                                   |       273 |       273 |         -
+> response time 50th percentile (ms)                                                 |        38 |        38 |         -
+> response time 75th percentile (ms)                                                 |        55 |        54 |         -
+> response time 95th percentile (ms)                                                 |        70 |        66 |         -
+> response time 99th percentile (ms)                                                 |     1,598 |       682 |         -
+> mean throughput (rps)                                                              |  5,630.48 |  5,630.48 |         -
+---- Response Time Distribution ----------------------------------------------------------------------------------------
+> OK: t < 800 ms                                                                                        140,397 (99.74%)
+> OK: 800 ms <= t < 1200 ms                                                                                  21  (0.01%)
+> OK: t >= 1200 ms                                                                                          344  (0.24%)
+> KO                                                                                                          0     (0%)
+```
+
+[:: Spring Boot ::                (v4.1.1)](https://spring.io/projects/spring-boot) 
+Started DemoApplication in 1.607 seconds (process running for 2.076)
+```bash
+---- Global Information -------------------------------------------------------------|---Total---|-----OK----|----KO----
+> request count                                                                      |   139,418 |   139,418 |         -
+> min response time (ms)                                                             |         0 |         0 |         -
+> max response time (ms)                                                             |     1,193 |     1,193 |         -
+> mean response time (ms)                                                            |        62 |        62 |         -
+> response time std deviation (ms)                                                   |        43 |        43 |         -
+> response time 50th percentile (ms)                                                 |        56 |        56 |         -
+> response time 75th percentile (ms)                                                 |        83 |        84 |         -
+> response time 95th percentile (ms)                                                 |       125 |       126 |         -
+> response time 99th percentile (ms)                                                 |       216 |       242 |         -
+> mean throughput (rps)                                                              |  5,576.72 |  5,576.72 |         -
+---- Response Time Distribution ----------------------------------------------------------------------------------------
+> OK: t < 800 ms                                                                                        139,346 (99.95%)
+> OK: 800 ms <= t < 1200 ms                                                                                  72  (0.05%)
+> OK: t >= 1200 ms                                                                                            0     (0%)
+> KO                                                                                                          0     (0%)
+```
+
+[powered by Quarkus 3.39.2) started in 1.165s. Listening on: http://0.0.0.0:8080](https://quarkus.io/) 
 
 ```bash
 ---- Global Information -------------------------------------------------------------|---Total---|-----OK----|----KO----
-> request count                                                                      | 1,170,602 | 1,170,602 |         -
+> request count                                                                      |   154,231 |   154,231 |         -
 > min response time (ms)                                                             |         0 |         0 |         -
-> max response time (ms)                                                             |        30 |        30 |         -
-> mean response time (ms)                                                            |         8 |         8 |         -
-> response time std deviation (ms)                                                   |         3 |         3 |         -
-> response time 50th percentile (ms)                                                 |         8 |         8 |         -
-> response time 75th percentile (ms)                                                 |        10 |        10 |         -
-> response time 95th percentile (ms)                                                 |        14 |        14 |         -
-> response time 99th percentile (ms)                                                 |        18 |        18 |         -
-> mean throughput (rps)                                                              | 46,824.08 | 46,824.08 |         -
+> max response time (ms)                                                             |       247 |       247 |         -
+> mean response time (ms)                                                            |        60 |        60 |         -
+> response time std deviation (ms)                                                   |        32 |        32 |         -
+> response time 50th percentile (ms)                                                 |        56 |        56 |         -
+> response time 75th percentile (ms)                                                 |        78 |        78 |         -
+> response time 95th percentile (ms)                                                 |       121 |       119 |         -
+> response time 99th percentile (ms)                                                 |       157 |       168 |         -
+> mean throughput (rps)                                                              |  6,169.24 |  6,169.24 |         -
 ---- Response Time Distribution ----------------------------------------------------------------------------------------
-> OK: t < 800 ms                                                                                      1,170,602   (100%)
+> OK: t < 800 ms                                                                                        154,231   (100%)
+> OK: 800 ms <= t < 1200 ms                                                                                   0     (0%)
+> OK: t >= 1200 ms                                                                                            0     (0%)
+> KO                                                                                                          0     (0%)
+```
+
+[micronaut version: unknown](https://micronaut.io/) 
+Startup completed in 764ms. Server Running: http://localhost:8080
+```bash
+---- Global Information -------------------------------------------------------------|---Total---|-----OK----|----KO----
+> request count                                                                      |   413,791 |   413,791 |         -
+> min response time (ms)                                                             |         0 |         0 |         -
+> max response time (ms)                                                             |       100 |       100 |         -
+> mean response time (ms)                                                            |        23 |        23 |         -
+> response time std deviation (ms)                                                   |        11 |        11 |         -
+> response time 50th percentile (ms)                                                 |        21 |        21 |         -
+> response time 75th percentile (ms)                                                 |        30 |        30 |         -
+> response time 95th percentile (ms)                                                 |        44 |        44 |         -
+> response time 99th percentile (ms)                                                 |        62 |        60 |         -
+> mean throughput (rps)                                                              | 16,551.64 | 16,551.64 |         -
+---- Response Time Distribution ----------------------------------------------------------------------------------------
+> OK: t < 800 ms                                                                                        413,791   (100%)
+> OK: 800 ms <= t < 1200 ms                                                                                   0     (0%)
+> OK: t >= 1200 ms                                                                                            0     (0%)
+> KO                                                                                                          0     (0%)
+```
+
+[vertx version:5.1.7](https://vertx.io/) 
+
+```bash
+---- Global Information -------------------------------------------------------------|---Total---|-----OK----|----KO----
+> request count                                                                      |   590,983 |   590,983 |         -
+> min response time (ms)                                                             |         0 |         0 |         -
+> max response time (ms)                                                             |        64 |        64 |         -
+> mean response time (ms)                                                            |        17 |        17 |         -
+> response time std deviation (ms)                                                   |         5 |         5 |         -
+> response time 50th percentile (ms)                                                 |        17 |        17 |         -
+> response time 75th percentile (ms)                                                 |        20 |        21 |         -
+> response time 95th percentile (ms)                                                 |        27 |        24 |         -
+> response time 99th percentile (ms)                                                 |        32 |        33 |         -
+> mean throughput (rps)                                                              | 23,639.32 | 23,639.32 |         -
+---- Response Time Distribution ----------------------------------------------------------------------------------------
+> OK: t < 800 ms                                                                                        590,983   (100%)
 > OK: 800 ms <= t < 1200 ms                                                                                   0     (0%)
 > OK: t >= 1200 ms                                                                                            0     (0%)
 > KO                                                                                                          0     (0%)
 ```
 
 [kumuluz version:4.1.0](https://ee.kumuluz.com/) 
-Server -- Started Server@4beaf6bd{STARTING}[10.0.9,sto=0] @2411ms
+Server -- Started Server@46c269e0{STARTING}[10.0.9,sto=0] @2858ms
 ```bash
 ---- Global Information -------------------------------------------------------------|---Total---|-----OK----|----KO----
-> request count                                                                      |   101,209 |   101,209 |         -
+> request count                                                                      |    93,607 |    93,607 |         -
 > min response time (ms)                                                             |         0 |         0 |         -
-> max response time (ms)                                                             |       537 |       537 |         -
-> mean response time (ms)                                                            |        96 |        96 |         -
-> response time std deviation (ms)                                                   |        82 |        82 |         -
-> response time 50th percentile (ms)                                                 |        72 |        72 |         -
-> response time 75th percentile (ms)                                                 |       168 |       169 |         -
-> response time 95th percentile (ms)                                                 |       244 |       231 |         -
-> response time 99th percentile (ms)                                                 |       353 |       293 |         -
-> mean throughput (rps)                                                              |  4,048.36 |  4,048.36 |         -
+> max response time (ms)                                                             |       550 |       550 |         -
+> mean response time (ms)                                                            |       101 |       101 |         -
+> response time std deviation (ms)                                                   |        81 |        81 |         -
+> response time 50th percentile (ms)                                                 |        77 |        76 |         -
+> response time 75th percentile (ms)                                                 |       163 |       165 |         -
+> response time 95th percentile (ms)                                                 |       246 |       236 |         -
+> response time 99th percentile (ms)                                                 |       353 |       288 |         -
+> mean throughput (rps)                                                              |  3,744.28 |  3,744.28 |         -
 ---- Response Time Distribution ----------------------------------------------------------------------------------------
-> OK: t < 800 ms                                                                                        101,209   (100%)
+> OK: t < 800 ms                                                                                         93,607   (100%)
 > OK: 800 ms <= t < 1200 ms                                                                                   0     (0%)
 > OK: t >= 1200 ms                                                                                            0     (0%)
 > KO                                                                                                          0     (0%)
@@ -226,20 +226,20 @@ Server -- Started Server@4beaf6bd{STARTING}[10.0.9,sto=0] @2411ms
 
 ```bash
 ---- Global Information -------------------------------------------------------------|---Total---|-----OK----|----KO----
-> request count                                                                      |   534,456 |   534,456 |         -
+> request count                                                                      |   303,789 |   303,789 |         -
 > min response time (ms)                                                             |         0 |         0 |         -
-> max response time (ms)                                                             |     3,139 |     3,139 |         -
-> mean response time (ms)                                                            |        17 |        17 |         -
-> response time std deviation (ms)                                                   |       103 |       103 |         -
-> response time 50th percentile (ms)                                                 |         8 |         7 |         -
-> response time 75th percentile (ms)                                                 |        11 |        11 |         -
-> response time 95th percentile (ms)                                                 |        20 |        19 |         -
-> response time 99th percentile (ms)                                                 |       112 |       531 |         -
-> mean throughput (rps)                                                              | 21,378.24 | 21,378.24 |         -
+> max response time (ms)                                                             |     4,155 |     4,155 |         -
+> mean response time (ms)                                                            |        29 |        29 |         -
+> response time std deviation (ms)                                                   |       148 |       148 |         -
+> response time 50th percentile (ms)                                                 |        12 |        12 |         -
+> response time 75th percentile (ms)                                                 |        18 |        18 |         -
+> response time 95th percentile (ms)                                                 |        37 |        37 |         -
+> response time 99th percentile (ms)                                                 |       907 |     1,050 |         -
+> mean throughput (rps)                                                              | 12,151.56 | 12,151.56 |         -
 ---- Response Time Distribution ----------------------------------------------------------------------------------------
-> OK: t < 800 ms                                                                                        530,470 (99.25%)
-> OK: 800 ms <= t < 1200 ms                                                                               3,271  (0.61%)
-> OK: t >= 1200 ms                                                                                          715  (0.13%)
+> OK: t < 800 ms                                                                                        300,128 (98.79%)
+> OK: 800 ms <= t < 1200 ms                                                                               2,837  (0.93%)
+> OK: t >= 1200 ms                                                                                          824  (0.27%)
 > KO                                                                                                          0     (0%)
 ```
 
@@ -251,18 +251,18 @@ rustc 1.98.0 (88d9e12ae 2026-08-18)
 [warp = { version = 0.4, features = [server] }](http://docs.rs/warp)
 ```bash
 ---- Global Information -------------------------------------------------------------|---Total---|-----OK----|----KO----
-> request count                                                                      | 1,310,372 | 1,310,372 |         -
+> request count                                                                      |   727,694 |   727,694 |         -
 > min response time (ms)                                                             |         0 |         0 |         -
-> max response time (ms)                                                             |        45 |        45 |         -
-> mean response time (ms)                                                            |         7 |         7 |         -
-> response time std deviation (ms)                                                   |         4 |         4 |         -
-> response time 50th percentile (ms)                                                 |         6 |         6 |         -
-> response time 75th percentile (ms)                                                 |         9 |         9 |         -
-> response time 95th percentile (ms)                                                 |        22 |        22 |         -
-> response time 99th percentile (ms)                                                 |        40 |        40 |         -
-> mean throughput (rps)                                                              | 52,414.88 | 52,414.88 |         -
+> max response time (ms)                                                             |        56 |        56 |         -
+> mean response time (ms)                                                            |        11 |        11 |         -
+> response time std deviation (ms)                                                   |         6 |         6 |         -
+> response time 50th percentile (ms)                                                 |        11 |        11 |         -
+> response time 75th percentile (ms)                                                 |        15 |        15 |         -
+> response time 95th percentile (ms)                                                 |        23 |        24 |         -
+> response time 99th percentile (ms)                                                 |        38 |        49 |         -
+> mean throughput (rps)                                                              | 29,107.76 | 29,107.76 |         -
 ---- Response Time Distribution ----------------------------------------------------------------------------------------
-> OK: t < 800 ms                                                                                      1,310,372   (100%)
+> OK: t < 800 ms                                                                                        727,694   (100%)
 > OK: 800 ms <= t < 1200 ms                                                                                   0     (0%)
 > OK: t >= 1200 ms                                                                                            0     (0%)
 > KO                                                                                                          0     (0%)
@@ -271,18 +271,18 @@ rustc 1.98.0 (88d9e12ae 2026-08-18)
 [actix-web = 4.9.0](http://docs.rs/actix-web)
 ```bash
 ---- Global Information -------------------------------------------------------------|---Total---|-----OK----|----KO----
-> request count                                                                      | 1,185,818 | 1,185,818 |         -
+> request count                                                                      |   623,594 |   623,594 |         -
 > min response time (ms)                                                             |         0 |         0 |         -
-> max response time (ms)                                                             |        42 |        42 |         -
-> mean response time (ms)                                                            |         7 |         7 |         -
-> response time std deviation (ms)                                                   |         4 |         4 |         -
-> response time 50th percentile (ms)                                                 |         7 |         7 |         -
-> response time 75th percentile (ms)                                                 |         9 |         9 |         -
-> response time 95th percentile (ms)                                                 |        14 |        14 |         -
-> response time 99th percentile (ms)                                                 |        35 |        34 |         -
-> mean throughput (rps)                                                              | 47,432.72 | 47,432.72 |         -
+> max response time (ms)                                                             |        65 |        65 |         -
+> mean response time (ms)                                                            |        13 |        13 |         -
+> response time std deviation (ms)                                                   |         7 |         7 |         -
+> response time 50th percentile (ms)                                                 |        12 |        11 |         -
+> response time 75th percentile (ms)                                                 |        17 |        17 |         -
+> response time 95th percentile (ms)                                                 |        28 |        27 |         -
+> response time 99th percentile (ms)                                                 |        52 |        48 |         -
+> mean throughput (rps)                                                              | 24,943.76 | 24,943.76 |         -
 ---- Response Time Distribution ----------------------------------------------------------------------------------------
-> OK: t < 800 ms                                                                                      1,185,818   (100%)
+> OK: t < 800 ms                                                                                        623,594   (100%)
 > OK: 800 ms <= t < 1200 ms                                                                                   0     (0%)
 > OK: t >= 1200 ms                                                                                            0     (0%)
 > KO                                                                                                          0     (0%)
@@ -291,18 +291,18 @@ rustc 1.98.0 (88d9e12ae 2026-08-18)
 [rocket = { version = 0.5.1, features = [json] }](http://docs.rs/rocket)
 ```bash
 ---- Global Information -------------------------------------------------------------|---Total---|-----OK----|----KO----
-> request count                                                                      |   923,215 |   923,215 |         -
+> request count                                                                      |   577,733 |   577,733 |         -
 > min response time (ms)                                                             |         0 |         0 |         -
-> max response time (ms)                                                             |        52 |        52 |         -
-> mean response time (ms)                                                            |        10 |        10 |         -
-> response time std deviation (ms)                                                   |         6 |         6 |         -
-> response time 50th percentile (ms)                                                 |         9 |         9 |         -
-> response time 75th percentile (ms)                                                 |        14 |        14 |         -
-> response time 95th percentile (ms)                                                 |        27 |        22 |         -
-> response time 99th percentile (ms)                                                 |        47 |        24 |         -
-> mean throughput (rps)                                                              |  36,928.6 |  36,928.6 |         -
+> max response time (ms)                                                             |        66 |        66 |         -
+> mean response time (ms)                                                            |        16 |        16 |         -
+> response time std deviation (ms)                                                   |         9 |         9 |         -
+> response time 50th percentile (ms)                                                 |        15 |        15 |         -
+> response time 75th percentile (ms)                                                 |        23 |        22 |         -
+> response time 95th percentile (ms)                                                 |        32 |        34 |         -
+> response time 99th percentile (ms)                                                 |        35 |        58 |         -
+> mean throughput (rps)                                                              | 23,109.32 | 23,109.32 |         -
 ---- Response Time Distribution ----------------------------------------------------------------------------------------
-> OK: t < 800 ms                                                                                        923,215   (100%)
+> OK: t < 800 ms                                                                                        577,733   (100%)
 > OK: 800 ms <= t < 1200 ms                                                                                   0     (0%)
 > OK: t >= 1200 ms                                                                                            0     (0%)
 > KO                                                                                                          0     (0%)
@@ -311,18 +311,18 @@ rustc 1.98.0 (88d9e12ae 2026-08-18)
 [axum = 0.8.1](http://docs.rs/axum)
 ```bash
 ---- Global Information -------------------------------------------------------------|---Total---|-----OK----|----KO----
-> request count                                                                      | 1,419,061 | 1,419,061 |         -
+> request count                                                                      |   662,842 |   662,842 |         -
 > min response time (ms)                                                             |         0 |         0 |         -
-> max response time (ms)                                                             |        42 |        42 |         -
-> mean response time (ms)                                                            |         6 |         6 |         -
-> response time std deviation (ms)                                                   |         4 |         4 |         -
-> response time 50th percentile (ms)                                                 |         6 |         6 |         -
-> response time 75th percentile (ms)                                                 |         9 |         9 |         -
-> response time 95th percentile (ms)                                                 |        14 |        14 |         -
-> response time 99th percentile (ms)                                                 |        22 |        17 |         -
-> mean throughput (rps)                                                              | 56,762.44 | 56,762.44 |         -
+> max response time (ms)                                                             |        60 |        60 |         -
+> mean response time (ms)                                                            |        13 |        13 |         -
+> response time std deviation (ms)                                                   |         7 |         7 |         -
+> response time 50th percentile (ms)                                                 |        11 |        11 |         -
+> response time 75th percentile (ms)                                                 |        17 |        17 |         -
+> response time 95th percentile (ms)                                                 |        26 |        26 |         -
+> response time 99th percentile (ms)                                                 |        42 |        44 |         -
+> mean throughput (rps)                                                              | 26,513.68 | 26,513.68 |         -
 ---- Response Time Distribution ----------------------------------------------------------------------------------------
-> OK: t < 800 ms                                                                                      1,419,061   (100%)
+> OK: t < 800 ms                                                                                        662,842   (100%)
 > OK: 800 ms <= t < 1200 ms                                                                                   0     (0%)
 > OK: t >= 1200 ms                                                                                            0     (0%)
 > KO                                                                                                          0     (0%)
@@ -332,18 +332,18 @@ rustc 1.98.0 (88d9e12ae 2026-08-18)
 ## Dotnet 7 rest service 
 ```bash
 ---- Global Information -------------------------------------------------------------|---Total---|-----OK----|----KO----
-> request count                                                                      |   835,775 |   835,775 |         -
+> request count                                                                      |   463,008 |   463,008 |         -
 > min response time (ms)                                                             |         0 |         0 |         -
-> max response time (ms)                                                             |        49 |        49 |         -
-> mean response time (ms)                                                            |        11 |        11 |         -
-> response time std deviation (ms)                                                   |         5 |         5 |         -
-> response time 50th percentile (ms)                                                 |        10 |        10 |         -
-> response time 75th percentile (ms)                                                 |        14 |        13 |         -
-> response time 95th percentile (ms)                                                 |        18 |        21 |         -
-> response time 99th percentile (ms)                                                 |        25 |        43 |         -
-> mean throughput (rps)                                                              |    33,431 |    33,431 |         -
+> max response time (ms)                                                             |       139 |       139 |         -
+> mean response time (ms)                                                            |        18 |        18 |         -
+> response time std deviation (ms)                                                   |        10 |        10 |         -
+> response time 50th percentile (ms)                                                 |        18 |        18 |         -
+> response time 75th percentile (ms)                                                 |        24 |        24 |         -
+> response time 95th percentile (ms)                                                 |        32 |        36 |         -
+> response time 99th percentile (ms)                                                 |        82 |        53 |         -
+> mean throughput (rps)                                                              | 18,520.32 | 18,520.32 |         -
 ---- Response Time Distribution ----------------------------------------------------------------------------------------
-> OK: t < 800 ms                                                                                        835,775   (100%)
+> OK: t < 800 ms                                                                                        463,008   (100%)
 > OK: 800 ms <= t < 1200 ms                                                                                   0     (0%)
 > OK: t >= 1200 ms                                                                                            0     (0%)
 > KO                                                                                                          0     (0%)
@@ -354,18 +354,18 @@ rustc 1.98.0 (88d9e12ae 2026-08-18)
 ## Dotnet 8 rest service 
 ```bash
 ---- Global Information -------------------------------------------------------------|---Total---|-----OK----|----KO----
-> request count                                                                      |   981,268 |   981,268 |         -
+> request count                                                                      |   484,093 |   484,093 |         -
 > min response time (ms)                                                             |         0 |         0 |         -
-> max response time (ms)                                                             |        51 |        51 |         -
-> mean response time (ms)                                                            |         9 |         9 |         -
-> response time std deviation (ms)                                                   |         4 |         4 |         -
-> response time 50th percentile (ms)                                                 |         9 |         9 |         -
-> response time 75th percentile (ms)                                                 |        11 |        11 |         -
-> response time 95th percentile (ms)                                                 |        17 |        24 |         -
-> response time 99th percentile (ms)                                                 |        43 |        46 |         -
-> mean throughput (rps)                                                              | 37,741.08 | 37,741.08 |         -
+> max response time (ms)                                                             |        79 |        79 |         -
+> mean response time (ms)                                                            |        17 |        17 |         -
+> response time std deviation (ms)                                                   |         9 |         9 |         -
+> response time 50th percentile (ms)                                                 |        16 |        16 |         -
+> response time 75th percentile (ms)                                                 |        23 |        22 |         -
+> response time 95th percentile (ms)                                                 |        34 |        34 |         -
+> response time 99th percentile (ms)                                                 |        53 |        44 |         -
+> mean throughput (rps)                                                              | 19,363.72 | 19,363.72 |         -
 ---- Response Time Distribution ----------------------------------------------------------------------------------------
-> OK: t < 800 ms                                                                                        981,268   (100%)
+> OK: t < 800 ms                                                                                        484,093   (100%)
 > OK: 800 ms <= t < 1200 ms                                                                                   0     (0%)
 > OK: t >= 1200 ms                                                                                            0     (0%)
 > KO                                                                                                          0     (0%)
@@ -376,18 +376,18 @@ rustc 1.98.0 (88d9e12ae 2026-08-18)
 ## Dotnet 9 rest service 
 ```bash
 ---- Global Information -------------------------------------------------------------|---Total---|-----OK----|----KO----
-> request count                                                                      |   927,135 |   927,135 |         -
+> request count                                                                      |   494,520 |   494,520 |         -
 > min response time (ms)                                                             |         0 |         0 |         -
-> max response time (ms)                                                             |        50 |        50 |         -
-> mean response time (ms)                                                            |         9 |         9 |         -
-> response time std deviation (ms)                                                   |         4 |         4 |         -
-> response time 50th percentile (ms)                                                 |         9 |         9 |         -
-> response time 75th percentile (ms)                                                 |        12 |        12 |         -
-> response time 95th percentile (ms)                                                 |        18 |        18 |         -
-> response time 99th percentile (ms)                                                 |        42 |        41 |         -
-> mean throughput (rps)                                                              |  37,085.4 |  37,085.4 |         -
+> max response time (ms)                                                             |        89 |        89 |         -
+> mean response time (ms)                                                            |        17 |        17 |         -
+> response time std deviation (ms)                                                   |         8 |         8 |         -
+> response time 50th percentile (ms)                                                 |        16 |        17 |         -
+> response time 75th percentile (ms)                                                 |        22 |        22 |         -
+> response time 95th percentile (ms)                                                 |        31 |        31 |         -
+> response time 99th percentile (ms)                                                 |        37 |        41 |         -
+> mean throughput (rps)                                                              |  19,780.8 |  19,780.8 |         -
 ---- Response Time Distribution ----------------------------------------------------------------------------------------
-> OK: t < 800 ms                                                                                        927,135   (100%)
+> OK: t < 800 ms                                                                                        494,520   (100%)
 > OK: 800 ms <= t < 1200 ms                                                                                   0     (0%)
 > OK: t >= 1200 ms                                                                                            0     (0%)
 > KO                                                                                                          0     (0%)
@@ -403,18 +403,18 @@ go version go1.24.13 linux/amd64
 ## Golang rest service 
 ```bash
 ---- Global Information -------------------------------------------------------------|---Total---|-----OK----|----KO----
-> request count                                                                      |   943,143 |   943,143 |         -
+> request count                                                                      |   483,273 |   483,273 |         -
 > min response time (ms)                                                             |         0 |         0 |         -
-> max response time (ms)                                                             |       172 |       172 |         -
-> mean response time (ms)                                                            |        10 |        10 |         -
-> response time std deviation (ms)                                                   |        10 |        10 |         -
-> response time 50th percentile (ms)                                                 |         8 |         8 |         -
-> response time 75th percentile (ms)                                                 |        14 |        14 |         -
-> response time 95th percentile (ms)                                                 |        38 |        39 |         -
-> response time 99th percentile (ms)                                                 |       145 |       145 |         -
-> mean throughput (rps)                                                              | 37,725.72 | 37,725.72 |         -
+> max response time (ms)                                                             |       147 |       147 |         -
+> mean response time (ms)                                                            |        19 |        19 |         -
+> response time std deviation (ms)                                                   |        15 |        15 |         -
+> response time 50th percentile (ms)                                                 |        15 |        15 |         -
+> response time 75th percentile (ms)                                                 |        24 |        23 |         -
+> response time 95th percentile (ms)                                                 |        56 |        54 |         -
+> response time 99th percentile (ms)                                                 |       118 |       127 |         -
+> mean throughput (rps)                                                              | 19,330.92 | 19,330.92 |         -
 ---- Response Time Distribution ----------------------------------------------------------------------------------------
-> OK: t < 800 ms                                                                                        943,143   (100%)
+> OK: t < 800 ms                                                                                        483,273   (100%)
 > OK: 800 ms <= t < 1200 ms                                                                                   0     (0%)
 > OK: t >= 1200 ms                                                                                            0     (0%)
 > KO                                                                                                          0     (0%)
@@ -430,21 +430,21 @@ Node.js v22.23.2
 ## Express.js rest service 
 ```bash
 ---- Global Information -------------------------------------------------------------|---Total---|-----OK----|----KO----
-> request count                                                                      |   170,726 |       586 |   170,140
+> request count                                                                      |   198,955 |       626 |   198,329
 > min response time (ms)                                                             |         0 |         2 |         0
-> max response time (ms)                                                             |     8,486 |     8,486 |       134
-> mean response time (ms)                                                            |        48 |     1,993 |        41
-> response time std deviation (ms)                                                   |       184 |     2,444 |        15
-> response time 50th percentile (ms)                                                 |        43 |       762 |        42
-> response time 75th percentile (ms)                                                 |        55 |     3,403 |        54
-> response time 95th percentile (ms)                                                 |        64 |     7,315 |        63
-> response time 99th percentile (ms)                                                 |       516 |     8,254 |        66
-> mean throughput (rps)                                                              |  6,829.04 |     23.44 |   6,805.6
+> max response time (ms)                                                             |     7,694 |     7,694 |       134
+> mean response time (ms)                                                            |        43 |     1,716 |        37
+> response time std deviation (ms)                                                   |       155 |     2,170 |        15
+> response time 50th percentile (ms)                                                 |        40 |       529 |        40
+> response time 75th percentile (ms)                                                 |        47 |     2,983 |        47
+> response time 95th percentile (ms)                                                 |        61 |     6,438 |        61
+> response time 99th percentile (ms)                                                 |       322 |     7,437 |        72
+> mean throughput (rps)                                                              |   7,958.2 |     25.04 |  7,933.16
 ---- Response Time Distribution ----------------------------------------------------------------------------------------
-> OK: t < 800 ms                                                                                            298  (0.17%)
-> OK: 800 ms <= t < 1200 ms                                                                                  30  (0.02%)
-> OK: t >= 1200 ms                                                                                          258  (0.15%)
-> KO                                                                                                    170,140 (99.66%)
+> OK: t < 800 ms                                                                                            342  (0.17%)
+> OK: 800 ms <= t < 1200 ms                                                                                  31  (0.02%)
+> OK: t >= 1200 ms                                                                                          253  (0.13%)
+> KO                                                                                                    198,329 (99.69%)
 ```
 
 
@@ -457,18 +457,18 @@ Bun 1.4.0
 ## Bun rest service 
 ```bash
 ---- Global Information -------------------------------------------------------------|---Total---|-----OK----|----KO----
-> request count                                                                      | 1,387,717 | 1,387,717 |         -
+> request count                                                                      |   706,073 |   706,073 |         -
 > min response time (ms)                                                             |         0 |         0 |         -
-> max response time (ms)                                                             |        24 |        24 |         -
-> mean response time (ms)                                                            |         7 |         7 |         -
-> response time std deviation (ms)                                                   |         2 |         2 |         -
-> response time 50th percentile (ms)                                                 |         7 |         7 |         -
-> response time 75th percentile (ms)                                                 |         9 |         8 |         -
-> response time 95th percentile (ms)                                                 |        14 |        11 |         -
-> response time 99th percentile (ms)                                                 |        22 |        15 |         -
-> mean throughput (rps)                                                              | 55,508.68 | 55,508.68 |         -
+> max response time (ms)                                                             |        41 |        41 |         -
+> mean response time (ms)                                                            |        14 |        14 |         -
+> response time std deviation (ms)                                                   |         4 |         4 |         -
+> response time 50th percentile (ms)                                                 |        14 |        14 |         -
+> response time 75th percentile (ms)                                                 |        17 |        17 |         -
+> response time 95th percentile (ms)                                                 |        21 |        21 |         -
+> response time 99th percentile (ms)                                                 |        36 |        25 |         -
+> mean throughput (rps)                                                              | 28,242.92 | 28,242.92 |         -
 ---- Response Time Distribution ----------------------------------------------------------------------------------------
-> OK: t < 800 ms                                                                                      1,387,717   (100%)
+> OK: t < 800 ms                                                                                        706,073   (100%)
 > OK: 800 ms <= t < 1200 ms                                                                                   0     (0%)
 > OK: t >= 1200 ms                                                                                            0     (0%)
 > KO                                                                                                          0     (0%)
@@ -479,20 +479,20 @@ Bun 1.4.0
 ## graalvm native avaje-jex-jdk 
 ```bash
 ---- Global Information -------------------------------------------------------------|---Total---|-----OK----|----KO----
-> request count                                                                      |   507,336 |   507,336 |         -
+> request count                                                                      |   313,459 |   313,459 |         -
 > min response time (ms)                                                             |         0 |         0 |         -
-> max response time (ms)                                                             |     2,499 |     2,499 |         -
-> mean response time (ms)                                                            |        19 |        19 |         -
-> response time std deviation (ms)                                                   |       108 |       108 |         -
-> response time 50th percentile (ms)                                                 |         8 |         8 |         -
-> response time 75th percentile (ms)                                                 |        11 |        11 |         -
-> response time 95th percentile (ms)                                                 |       126 |       143 |         -
-> response time 99th percentile (ms)                                                 |     1,062 |     1,232 |         -
-> mean throughput (rps)                                                              | 20,293.44 | 20,293.44 |         -
+> max response time (ms)                                                             |     2,829 |     2,829 |         -
+> mean response time (ms)                                                            |        29 |        29 |         -
+> response time std deviation (ms)                                                   |       132 |       132 |         -
+> response time 50th percentile (ms)                                                 |        13 |        13 |         -
+> response time 75th percentile (ms)                                                 |        19 |        19 |         -
+> response time 95th percentile (ms)                                                 |        35 |        34 |         -
+> response time 99th percentile (ms)                                                 |       813 |       831 |         -
+> mean throughput (rps)                                                              | 12,538.36 | 12,538.36 |         -
 ---- Response Time Distribution ----------------------------------------------------------------------------------------
-> OK: t < 800 ms                                                                                        503,137 (99.17%)
-> OK: 800 ms <= t < 1200 ms                                                                               3,313  (0.65%)
-> OK: t >= 1200 ms                                                                                          886  (0.17%)
+> OK: t < 800 ms                                                                                        309,468 (98.73%)
+> OK: 800 ms <= t < 1200 ms                                                                               3,126     (1%)
+> OK: t >= 1200 ms                                                                                          865  (0.28%)
 > KO                                                                                                          0     (0%)
 ```
 
@@ -501,20 +501,20 @@ Bun 1.4.0
 ## graalvm native avaje-jex-robaho 
 ```bash
 ---- Global Information -------------------------------------------------------------|---Total---|-----OK----|----KO----
-> request count                                                                      |   820,766 |   820,766 |         -
+> request count                                                                      |   452,961 |   452,961 |         -
 > min response time (ms)                                                             |         0 |         0 |         -
-> max response time (ms)                                                             |       681 |       681 |         -
-> mean response time (ms)                                                            |        11 |        11 |         -
-> response time std deviation (ms)                                                   |         8 |         8 |         -
-> response time 50th percentile (ms)                                                 |        11 |        11 |         -
-> response time 75th percentile (ms)                                                 |        16 |        16 |         -
-> response time 95th percentile (ms)                                                 |        24 |        26 |         -
-> response time 99th percentile (ms)                                                 |        30 |       521 |         -
-> mean throughput (rps)                                                              | 32,830.64 | 32,830.64 |         -
+> max response time (ms)                                                             |     1,250 |     1,250 |         -
+> mean response time (ms)                                                            |        20 |        20 |         -
+> response time std deviation (ms)                                                   |        18 |        18 |         -
+> response time 50th percentile (ms)                                                 |        20 |        19 |         -
+> response time 75th percentile (ms)                                                 |        28 |        28 |         -
+> response time 95th percentile (ms)                                                 |        51 |        37 |         -
+> response time 99th percentile (ms)                                                 |        95 |        43 |         -
+> mean throughput (rps)                                                              | 18,118.44 | 18,118.44 |         -
 ---- Response Time Distribution ----------------------------------------------------------------------------------------
-> OK: t < 800 ms                                                                                        820,766   (100%)
-> OK: 800 ms <= t < 1200 ms                                                                                   0     (0%)
-> OK: t >= 1200 ms                                                                                            0     (0%)
+> OK: t < 800 ms                                                                                        452,911 (99.99%)
+> OK: 800 ms <= t < 1200 ms                                                                                  46  (0.01%)
+> OK: t >= 1200 ms                                                                                            4     (0%)
 > KO                                                                                                          0     (0%)
 ```
 
@@ -523,18 +523,18 @@ Bun 1.4.0
 ## graalvm native quarkus 
 ```bash
 ---- Global Information -------------------------------------------------------------|---Total---|-----OK----|----KO----
-> request count                                                                      |   457,893 |   457,893 |         -
+> request count                                                                      |   263,860 |   263,860 |         -
 > min response time (ms)                                                             |         0 |         0 |         -
-> max response time (ms)                                                             |       116 |       116 |         -
-> mean response time (ms)                                                            |        20 |        20 |         -
-> response time std deviation (ms)                                                   |        13 |        13 |         -
-> response time 50th percentile (ms)                                                 |        17 |        18 |         -
-> response time 75th percentile (ms)                                                 |        26 |        27 |         -
-> response time 95th percentile (ms)                                                 |        48 |        48 |         -
-> response time 99th percentile (ms)                                                 |        97 |        95 |         -
-> mean throughput (rps)                                                              | 18,315.72 | 18,315.72 |         -
+> max response time (ms)                                                             |       145 |       145 |         -
+> mean response time (ms)                                                            |        34 |        34 |         -
+> response time std deviation (ms)                                                   |        22 |        22 |         -
+> response time 50th percentile (ms)                                                 |        32 |        32 |         -
+> response time 75th percentile (ms)                                                 |        46 |        46 |         -
+> response time 95th percentile (ms)                                                 |        75 |        75 |         -
+> response time 99th percentile (ms)                                                 |       100 |        95 |         -
+> mean throughput (rps)                                                              |  10,554.4 |  10,554.4 |         -
 ---- Response Time Distribution ----------------------------------------------------------------------------------------
-> OK: t < 800 ms                                                                                        457,893   (100%)
+> OK: t < 800 ms                                                                                        263,860   (100%)
 > OK: 800 ms <= t < 1200 ms                                                                                   0     (0%)
 > OK: t >= 1200 ms                                                                                            0     (0%)
 > KO                                                                                                          0     (0%)
@@ -545,18 +545,18 @@ Bun 1.4.0
 ## graalvm native micronaut 
 ```bash
 ---- Global Information -------------------------------------------------------------|---Total---|-----OK----|----KO----
-> request count                                                                      |   603,917 |   603,917 |         -
+> request count                                                                      |   306,034 |   306,034 |         -
 > min response time (ms)                                                             |         0 |         0 |         -
-> max response time (ms)                                                             |        77 |        77 |         -
-> mean response time (ms)                                                            |        16 |        16 |         -
-> response time std deviation (ms)                                                   |         9 |         9 |         -
-> response time 50th percentile (ms)                                                 |        15 |        15 |         -
-> response time 75th percentile (ms)                                                 |        21 |        21 |         -
-> response time 95th percentile (ms)                                                 |        34 |        34 |         -
-> response time 99th percentile (ms)                                                 |        65 |        51 |         -
-> mean throughput (rps)                                                              | 24,156.68 | 24,156.68 |         -
+> max response time (ms)                                                             |       139 |       139 |         -
+> mean response time (ms)                                                            |        32 |        32 |         -
+> response time std deviation (ms)                                                   |        17 |        17 |         -
+> response time 50th percentile (ms)                                                 |        30 |        30 |         -
+> response time 75th percentile (ms)                                                 |        42 |        43 |         -
+> response time 95th percentile (ms)                                                 |        67 |        63 |         -
+> response time 99th percentile (ms)                                                 |        71 |        92 |         -
+> mean throughput (rps)                                                              | 12,241.36 | 12,241.36 |         -
 ---- Response Time Distribution ----------------------------------------------------------------------------------------
-> OK: t < 800 ms                                                                                        603,917   (100%)
+> OK: t < 800 ms                                                                                        306,034   (100%)
 > OK: 800 ms <= t < 1200 ms                                                                                   0     (0%)
 > OK: t >= 1200 ms                                                                                            0     (0%)
 > KO                                                                                                          0     (0%)
@@ -567,18 +567,18 @@ Bun 1.4.0
 ## graalvm native spring-boot-web 
 ```bash
 ---- Global Information -------------------------------------------------------------|---Total---|-----OK----|----KO----
-> request count                                                                      |   413,777 |   413,777 |         -
+> request count                                                                      |   215,809 |   215,809 |         -
 > min response time (ms)                                                             |         0 |         0 |         -
-> max response time (ms)                                                             |       262 |       262 |         -
-> mean response time (ms)                                                            |        23 |        23 |         -
-> response time std deviation (ms)                                                   |        12 |        12 |         -
-> response time 50th percentile (ms)                                                 |        23 |        23 |         -
-> response time 75th percentile (ms)                                                 |        32 |        31 |         -
-> response time 95th percentile (ms)                                                 |        46 |        48 |         -
-> response time 99th percentile (ms)                                                 |       209 |       127 |         -
-> mean throughput (rps)                                                              | 16,551.08 | 16,551.08 |         -
+> max response time (ms)                                                             |       399 |       399 |         -
+> mean response time (ms)                                                            |        40 |        40 |         -
+> response time std deviation (ms)                                                   |        27 |        27 |         -
+> response time 50th percentile (ms)                                                 |        35 |        35 |         -
+> response time 75th percentile (ms)                                                 |        56 |        57 |         -
+> response time 95th percentile (ms)                                                 |        92 |       101 |         -
+> response time 99th percentile (ms)                                                 |       147 |       111 |         -
+> mean throughput (rps)                                                              |  8,632.36 |  8,632.36 |         -
 ---- Response Time Distribution ----------------------------------------------------------------------------------------
-> OK: t < 800 ms                                                                                        413,777   (100%)
+> OK: t < 800 ms                                                                                        215,809   (100%)
 > OK: 800 ms <= t < 1200 ms                                                                                   0     (0%)
 > OK: t >= 1200 ms                                                                                            0     (0%)
 > KO                                                                                                          0     (0%)
@@ -589,20 +589,20 @@ Bun 1.4.0
 ## graalvm native spring-boot-webflux 
 ```bash
 ---- Global Information -------------------------------------------------------------|---Total---|-----OK----|----KO----
-> request count                                                                      |   336,974 |   336,974 |         -
+> request count                                                                      |   198,812 |   198,812 |         -
 > min response time (ms)                                                             |         0 |         0 |         -
-> max response time (ms)                                                             |     4,451 |     4,451 |         -
-> mean response time (ms)                                                            |        28 |        28 |         -
-> response time std deviation (ms)                                                   |        81 |        81 |         -
-> response time 50th percentile (ms)                                                 |        25 |        25 |         -
-> response time 75th percentile (ms)                                                 |        32 |        33 |         -
-> response time 95th percentile (ms)                                                 |        44 |        45 |         -
-> response time 99th percentile (ms)                                                 |       304 |       576 |         -
-> mean throughput (rps)                                                              | 13,478.96 | 13,478.96 |         -
+> max response time (ms)                                                             |     7,133 |     7,133 |         -
+> mean response time (ms)                                                            |        44 |        44 |         -
+> response time std deviation (ms)                                                   |       152 |       152 |         -
+> response time 50th percentile (ms)                                                 |        38 |        38 |         -
+> response time 75th percentile (ms)                                                 |        52 |        51 |         -
+> response time 95th percentile (ms)                                                 |        67 |        68 |         -
+> response time 99th percentile (ms)                                                 |        96 |        98 |         -
+> mean throughput (rps)                                                              |  7,952.48 |  7,952.48 |         -
 ---- Response Time Distribution ----------------------------------------------------------------------------------------
-> OK: t < 800 ms                                                                                        336,692 (99.92%)
-> OK: 800 ms <= t < 1200 ms                                                                                  55  (0.02%)
-> OK: t >= 1200 ms                                                                                          227  (0.07%)
+> OK: t < 800 ms                                                                                        198,570 (99.88%)
+> OK: 800 ms <= t < 1200 ms                                                                                  15  (0.01%)
+> OK: t >= 1200 ms                                                                                          227  (0.11%)
 > KO                                                                                                          0     (0%)
 ```
 
@@ -611,18 +611,18 @@ Bun 1.4.0
 ## graalvm native vertx 
 ```bash
 ---- Global Information -------------------------------------------------------------|---Total---|-----OK----|----KO----
-> request count                                                                      |   618,943 |   618,943 |         -
+> request count                                                                      |   376,877 |   376,877 |         -
 > min response time (ms)                                                             |         0 |         0 |         -
-> max response time (ms)                                                             |        67 |        67 |         -
-> mean response time (ms)                                                            |        16 |        16 |         -
-> response time std deviation (ms)                                                   |         9 |         9 |         -
-> response time 50th percentile (ms)                                                 |        15 |        16 |         -
-> response time 75th percentile (ms)                                                 |        23 |        23 |         -
-> response time 95th percentile (ms)                                                 |        30 |        31 |         -
-> response time 99th percentile (ms)                                                 |        47 |        33 |         -
-> mean throughput (rps)                                                              | 24,757.72 | 24,757.72 |         -
+> max response time (ms)                                                             |        85 |        85 |         -
+> mean response time (ms)                                                            |        26 |        26 |         -
+> response time std deviation (ms)                                                   |        11 |        11 |         -
+> response time 50th percentile (ms)                                                 |        26 |        25 |         -
+> response time 75th percentile (ms)                                                 |        36 |        36 |         -
+> response time 95th percentile (ms)                                                 |        42 |        42 |         -
+> response time 99th percentile (ms)                                                 |        44 |        45 |         -
+> mean throughput (rps)                                                              | 15,075.08 | 15,075.08 |         -
 ---- Response Time Distribution ----------------------------------------------------------------------------------------
-> OK: t < 800 ms                                                                                        618,943   (100%)
+> OK: t < 800 ms                                                                                        376,877   (100%)
 > OK: 800 ms <= t < 1200 ms                                                                                   0     (0%)
 > OK: t >= 1200 ms                                                                                            0     (0%)
 > KO                                                                                                          0     (0%)
@@ -633,20 +633,20 @@ Bun 1.4.0
 ## graalvm native ktor rest service 
 ```bash
 ---- Global Information -------------------------------------------------------------|---Total---|-----OK----|----KO----
-> request count                                                                      |   573,928 |   573,928 |         -
+> request count                                                                      |   363,595 |   363,595 |         -
 > min response time (ms)                                                             |         0 |         0 |         -
-> max response time (ms)                                                             |     3,114 |     3,114 |         -
-> mean response time (ms)                                                            |        16 |        16 |         -
-> response time std deviation (ms)                                                   |       100 |       100 |         -
-> response time 50th percentile (ms)                                                 |         7 |         7 |         -
-> response time 75th percentile (ms)                                                 |        10 |        10 |         -
-> response time 95th percentile (ms)                                                 |       133 |        17 |         -
-> response time 99th percentile (ms)                                                 |       677 |       678 |         -
-> mean throughput (rps)                                                              | 22,957.12 | 22,957.12 |         -
+> max response time (ms)                                                             |     2,296 |     2,296 |         -
+> mean response time (ms)                                                            |        25 |        25 |         -
+> response time std deviation (ms)                                                   |       122 |       122 |         -
+> response time 50th percentile (ms)                                                 |        11 |        10 |         -
+> response time 75th percentile (ms)                                                 |        15 |        15 |         -
+> response time 95th percentile (ms)                                                 |        29 |        30 |         -
+> response time 99th percentile (ms)                                                 |       680 |       717 |         -
+> mean throughput (rps)                                                              |  14,543.8 |  14,543.8 |         -
 ---- Response Time Distribution ----------------------------------------------------------------------------------------
-> OK: t < 800 ms                                                                                        569,696 (99.26%)
-> OK: 800 ms <= t < 1200 ms                                                                               3,436   (0.6%)
-> OK: t >= 1200 ms                                                                                          796  (0.14%)
+> OK: t < 800 ms                                                                                        359,566 (98.89%)
+> OK: 800 ms <= t < 1200 ms                                                                               3,208  (0.88%)
+> OK: t >= 1200 ms                                                                                          821  (0.23%)
 > KO                                                                                                          0     (0%)
 ```
 
@@ -656,17 +656,17 @@ Bun 1.4.0
 
 | Size in MB |  Name |
 |------------|-------|
-| 48 | quarkus-demo-runner-bin |
-| 62 | micronaut-demo-bin |
-| 67 | springboot-demo-web-bin |
-| 98 | springboot-webflux-demo-bin |
+| 49 | quarkus-demo-runner-bin |
+| 63 | micronaut-demo-bin |
+| 72 | springboot-demo-web-bin |
+| 100 | springboot-webflux-demo-bin |
 | 51 | vertx-demo-bin |
 | 51 | ktor-demo-bin |
 
 
 ***  
 
-[source code for the java and dotnet tests](https://github.com/ozkanpakdil/test-microservice-frameworks)  👈 [source code for the rust tests](https://github.com/ozkanpakdil/rust-examples)  👈 [github action](https://github.com/ozkanpakdil/test-microservice-frameworks/actions/runs/33659752897)  👈 
+[source code for the java and dotnet tests](https://github.com/ozkanpakdil/test-microservice-frameworks)  👈 [source code for the rust tests](https://github.com/ozkanpakdil/rust-examples)  👈 [github action](https://github.com/ozkanpakdil/test-microservice-frameworks/actions/runs/33669897110)  👈 
 <script src="https://www.gstatic.com/charts/loader.js"></script>
 <script type="text/javascript">
     google.charts.load('current', {
@@ -677,26 +677,26 @@ Bun 1.4.0
     function drawChart() {
         var dataSource = new google.visualization.arrayToDataTable([
             ['Framework', 'Response', 'Graal'],
-            ["Avaje", 18856, 20293],
-            ["Robaho", 33889, 32830],
-            ["Spring", 7766, 16551],
-            ["Webflux", 8583, 13478],
-            ["Quarkus", 10161, 18315],
-            ["Micronaut", 29326, 24156],
-            ['Vertx', 46824, 24757],
-            ['Ktor', 21378, 22957],
+            ["Avaje", 13064, 12538],
+            ["Robaho", 15750, 18118],
+            ["Spring", 5576, 8632],
+            ["Webflux", 5630, 7952],
+            ["Quarkus", 6169, 10554],
+            ["Micronaut", 16551, 12241],
+            ['Vertx', 23639, 15075],
+            ['Ktor', 12151, 14543],
             //['Helidon', HELIDON, GRAALH1ELIDON],
-            ['Kumuluz', 4048, 0],
-            ['R-Rocket', 36928, 0],
-            ['RustAxum', 56762, 0],
-            ['R-Actix', 47432, 0],
-            ['R-Warp', 52414, 0],
-            ['.net 7 AOT', 33431, 0],
-            ['.net 8 AOT', 37741, 0],
-            ['.net 9 AOT', 37085, 0],
-            ['Golang', 37725, 0],
-            ['ExpressJS', 6829, 0],
-            ['Bun', 55508, 0],
+            ['Kumuluz', 3744, 0],
+            ['R-Rocket', 23109, 0],
+            ['RustAxum', 26513, 0],
+            ['R-Actix', 24943, 0],
+            ['R-Warp', 29107, 0],
+            ['.net 7 AOT', 18520, 0],
+            ['.net 8 AOT', 19363, 0],
+            ['.net 9 AOT', 19780, 0],
+            ['Golang', 19330, 0],
+            ['ExpressJS', 7958, 0],
+            ['Bun', 28242, 0],
         ]);
         const postContentDiv = document.getElementsByClassName('post-content').item(0);
         const chartDiv = document.createElement("div");
@@ -768,33 +768,33 @@ Bun 1.4.0
 </tr>
 </thead>
 <tbody>
-<tr><td>AVAJE</td><td>471</td><td>414</td><td>0</td><td>3</td><td>291</td><td>19</td><td>111</td><td>8</td><td>12</td><td>58,1,322,18,856.56</td></tr>
-<tr><td>ROBAHO</td><td>847</td><td>225</td><td>0</td><td>168</td><td>10</td><td>5</td><td>9</td><td>12</td><td>21</td><td>109,33,889</td></tr>
-<tr><td>Started DemoWebFluxApplication</td><td>214</td><td>594</td><td>0</td><td>5</td><td>427</td><td>44</td><td>222</td><td>31</td><td>40</td><td>54,84,8,583.76</td></tr>
-<tr><td>Started DemoApplication</td><td>194</td><td>153</td><td>0</td><td>701</td><td>47</td><td>30</td><td>44</td><td>59</td><td>94</td><td>187,7,766.12</td></tr>
-<tr><td>QUARKUS</td><td>254</td><td>038</td><td>0</td><td>232</td><td>35</td><td>19</td><td>33</td><td>44</td><td>64</td><td>95,10,161.52</td></tr>
-<tr><td>Startup completed in</td><td>733</td><td>155</td><td>0</td><td>79</td><td>13</td><td>6</td><td>12</td><td>17</td><td>25</td><td>40,29,326.2</td></tr>
-<tr><td>VERTX</td><td>1</td><td>170</td><td>602</td><td>0</td><td>30</td><td>8</td><td>3</td><td>8</td><td>10</td><td>14,18,46,824.08</td></tr>
-<tr><td>Server -- Started</td><td>101</td><td>209</td><td>0</td><td>537</td><td>96</td><td>82</td><td>72</td><td>168</td><td>244</td><td>353,4,048.36</td></tr>
-<tr><td>KTOR</td><td>534</td><td>456</td><td>0</td><td>3</td><td>139</td><td>17</td><td>103</td><td>8</td><td>11</td><td>20,112,21,378.24</td></tr>
-<tr><td>WARP</td><td>1</td><td>310</td><td>372</td><td>0</td><td>45</td><td>7</td><td>4</td><td>6</td><td>9</td><td>22,40,52,414.88</td></tr>
-<tr><td>ACTIX</td><td>1</td><td>185</td><td>818</td><td>0</td><td>42</td><td>7</td><td>4</td><td>7</td><td>9</td><td>14,35,47,432.72</td></tr>
-<tr><td>ROCKET</td><td>923</td><td>215</td><td>0</td><td>52</td><td>10</td><td>6</td><td>9</td><td>14</td><td>27</td><td>47,36,928.6</td></tr>
-<tr><td>AXUM</td><td>1</td><td>419</td><td>061</td><td>0</td><td>42</td><td>6</td><td>4</td><td>6</td><td>9</td><td>14,22,56,762.44</td></tr>
-<tr><td>Dotnet 7 rest service</td><td>835</td><td>775</td><td>0</td><td>49</td><td>11</td><td>5</td><td>10</td><td>14</td><td>18</td><td>25,33,431</td></tr>
-<tr><td>Dotnet 8 rest service</td><td>981</td><td>268</td><td>0</td><td>51</td><td>9</td><td>4</td><td>9</td><td>11</td><td>17</td><td>43,37,741.08</td></tr>
-<tr><td>Dotnet 9 rest service</td><td>927</td><td>135</td><td>0</td><td>50</td><td>9</td><td>4</td><td>9</td><td>12</td><td>18</td><td>42,37,085.4</td></tr>
-<tr><td>Golang rest service</td><td>943</td><td>143</td><td>0</td><td>172</td><td>10</td><td>10</td><td>8</td><td>14</td><td>38</td><td>145,37,725.72</td></tr>
-<tr><td>Express.js rest service</td><td>170</td><td>726</td><td>0</td><td>8</td><td>486</td><td>48</td><td>184</td><td>43</td><td>55</td><td>64,516,6,829.04</td></tr>
-<tr><td>Bun rest service</td><td>1</td><td>387</td><td>717</td><td>0</td><td>24</td><td>7</td><td>2</td><td>7</td><td>9</td><td>14,22,55,508.68</td></tr>
-<tr><td>graalvm native avaje-jex-jdk</td><td>507</td><td>336</td><td>0</td><td>2</td><td>499</td><td>19</td><td>108</td><td>8</td><td>11</td><td>126,1,062,20,293.44</td></tr>
-<tr><td>graalvm native avaje-jex-robaho</td><td>820</td><td>766</td><td>0</td><td>681</td><td>11</td><td>8</td><td>11</td><td>16</td><td>24</td><td>30,32,830.64</td></tr>
-<tr><td>graalvm native quarkus</td><td>457</td><td>893</td><td>0</td><td>116</td><td>20</td><td>13</td><td>17</td><td>26</td><td>48</td><td>97,18,315.72</td></tr>
-<tr><td>graalvm native micronaut</td><td>603</td><td>917</td><td>0</td><td>77</td><td>16</td><td>9</td><td>15</td><td>21</td><td>34</td><td>65,24,156.68</td></tr>
-<tr><td>graalvm native spring-boot-web</td><td>413</td><td>777</td><td>0</td><td>262</td><td>23</td><td>12</td><td>23</td><td>32</td><td>46</td><td>209,16,551.08</td></tr>
-<tr><td>graalvm native spring-boot-webflux</td><td>336</td><td>974</td><td>0</td><td>4</td><td>451</td><td>28</td><td>81</td><td>25</td><td>32</td><td>44,304,13,478.96</td></tr>
-<tr><td>graalvm native vertx</td><td>618</td><td>943</td><td>0</td><td>67</td><td>16</td><td>9</td><td>15</td><td>23</td><td>30</td><td>47,24,757.72</td></tr>
-<tr><td>graalvm native ktor rest service</td><td>573</td><td>928</td><td>0</td><td>3</td><td>114</td><td>16</td><td>100</td><td>7</td><td>10</td><td>133,677,22,957.12</td></tr>
+<tr><td>AVAJE</td><td>326</td><td>617</td><td>0</td><td>5</td><td>052</td><td>28</td><td>143</td><td>11</td><td>17</td><td>40,1,954,13,064.68</td></tr>
+<tr><td>ROBAHO</td><td>393</td><td>766</td><td>0</td><td>146</td><td>20</td><td>11</td><td>18</td><td>26</td><td>43</td><td>49,15,750.64</td></tr>
+<tr><td>Started DemoWebFluxApplication</td><td>140</td><td>762</td><td>1</td><td>9</td><td>481</td><td>55</td><td>273</td><td>38</td><td>55</td><td>70,1,598,5,630.48</td></tr>
+<tr><td>Started DemoApplication</td><td>139</td><td>418</td><td>0</td><td>1</td><td>193</td><td>62</td><td>43</td><td>56</td><td>83</td><td>125,216,5,576.72</td></tr>
+<tr><td>QUARKUS</td><td>154</td><td>231</td><td>0</td><td>247</td><td>60</td><td>32</td><td>56</td><td>78</td><td>121</td><td>157,6,169.24</td></tr>
+<tr><td>Startup completed in</td><td>413</td><td>791</td><td>0</td><td>100</td><td>23</td><td>11</td><td>21</td><td>30</td><td>44</td><td>62,16,551.64</td></tr>
+<tr><td>VERTX</td><td>590</td><td>983</td><td>0</td><td>64</td><td>17</td><td>5</td><td>17</td><td>20</td><td>27</td><td>32,23,639.32</td></tr>
+<tr><td>Server -- Started</td><td>93</td><td>607</td><td>0</td><td>550</td><td>101</td><td>81</td><td>77</td><td>163</td><td>246</td><td>353,3,744.28</td></tr>
+<tr><td>KTOR</td><td>303</td><td>789</td><td>0</td><td>4</td><td>155</td><td>29</td><td>148</td><td>12</td><td>18</td><td>37,907,12,151.56</td></tr>
+<tr><td>WARP</td><td>727</td><td>694</td><td>0</td><td>56</td><td>11</td><td>6</td><td>11</td><td>15</td><td>23</td><td>38,29,107.76</td></tr>
+<tr><td>ACTIX</td><td>623</td><td>594</td><td>0</td><td>65</td><td>13</td><td>7</td><td>12</td><td>17</td><td>28</td><td>52,24,943.76</td></tr>
+<tr><td>ROCKET</td><td>577</td><td>733</td><td>0</td><td>66</td><td>16</td><td>9</td><td>15</td><td>23</td><td>32</td><td>35,23,109.32</td></tr>
+<tr><td>AXUM</td><td>662</td><td>842</td><td>0</td><td>60</td><td>13</td><td>7</td><td>11</td><td>17</td><td>26</td><td>42,26,513.68</td></tr>
+<tr><td>Dotnet 7 rest service</td><td>463</td><td>008</td><td>0</td><td>139</td><td>18</td><td>10</td><td>18</td><td>24</td><td>32</td><td>82,18,520.32</td></tr>
+<tr><td>Dotnet 8 rest service</td><td>484</td><td>093</td><td>0</td><td>79</td><td>17</td><td>9</td><td>16</td><td>23</td><td>34</td><td>53,19,363.72</td></tr>
+<tr><td>Dotnet 9 rest service</td><td>494</td><td>520</td><td>0</td><td>89</td><td>17</td><td>8</td><td>16</td><td>22</td><td>31</td><td>37,19,780.8</td></tr>
+<tr><td>Golang rest service</td><td>483</td><td>273</td><td>0</td><td>147</td><td>19</td><td>15</td><td>15</td><td>24</td><td>56</td><td>118,19,330.92</td></tr>
+<tr><td>Express.js rest service</td><td>198</td><td>955</td><td>0</td><td>7</td><td>694</td><td>43</td><td>155</td><td>40</td><td>47</td><td>61,322,7,958.2</td></tr>
+<tr><td>Bun rest service</td><td>706</td><td>073</td><td>0</td><td>41</td><td>14</td><td>4</td><td>14</td><td>17</td><td>21</td><td>36,28,242.92</td></tr>
+<tr><td>graalvm native avaje-jex-jdk</td><td>313</td><td>459</td><td>0</td><td>2</td><td>829</td><td>29</td><td>132</td><td>13</td><td>19</td><td>35,813,12,538.36</td></tr>
+<tr><td>graalvm native avaje-jex-robaho</td><td>452</td><td>961</td><td>0</td><td>1</td><td>250</td><td>20</td><td>18</td><td>20</td><td>28</td><td>51,95,18,118.44</td></tr>
+<tr><td>graalvm native quarkus</td><td>263</td><td>860</td><td>0</td><td>145</td><td>34</td><td>22</td><td>32</td><td>46</td><td>75</td><td>100,10,554.4</td></tr>
+<tr><td>graalvm native micronaut</td><td>306</td><td>034</td><td>0</td><td>139</td><td>32</td><td>17</td><td>30</td><td>42</td><td>67</td><td>71,12,241.36</td></tr>
+<tr><td>graalvm native spring-boot-web</td><td>215</td><td>809</td><td>0</td><td>399</td><td>40</td><td>27</td><td>35</td><td>56</td><td>92</td><td>147,8,632.36</td></tr>
+<tr><td>graalvm native spring-boot-webflux</td><td>198</td><td>812</td><td>0</td><td>7</td><td>133</td><td>44</td><td>152</td><td>38</td><td>52</td><td>67,96,7,952.48</td></tr>
+<tr><td>graalvm native vertx</td><td>376</td><td>877</td><td>0</td><td>85</td><td>26</td><td>11</td><td>26</td><td>36</td><td>42</td><td>44,15,075.08</td></tr>
+<tr><td>graalvm native ktor rest service</td><td>363</td><td>595</td><td>0</td><td>2</td><td>296</td><td>25</td><td>122</td><td>11</td><td>15</td><td>29,680,14,543.8</td></tr>
 </tbody>
 </table>
 
