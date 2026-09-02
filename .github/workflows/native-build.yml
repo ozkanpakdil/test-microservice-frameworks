@@ -8,14 +8,6 @@ on:
         required: false
         type: string
   workflow_dispatch:
-  push:
-    paths:
-      - '**/pom.xml'
-      - '**/*.java'
-      - '**/*.kt'
-      - 'golang/**'
-      - 'expressjs/**'
-      - 'bun/**'
   pull_request:
     paths:
       - '**/pom.xml'
@@ -32,6 +24,12 @@ permissions:
   deployments: 'write'
   repository-projects: 'write'
   pull-requests: 'write'
+
+# Only one native build/release at a time — two concurrent runs racing to
+# publish the "latest" tag delete each other's release mid-upload.
+concurrency:
+  group: native-release-publish
+  cancel-in-progress: true
 
 jobs:
   build:
