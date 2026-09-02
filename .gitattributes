@@ -1,0 +1,6 @@
+# Keep manifests Renovate parses at LF — CRLF breaks Renovate's maven parser
+*.xml text eol=lf
+*.json text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+go.mod text eol=lf

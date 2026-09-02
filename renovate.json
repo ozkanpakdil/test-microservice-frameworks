@@ -14,7 +14,7 @@
   ],
   "automerge": true,
   "automergeType": "pr",
-  "platformAutomerge": true,
+  "platformAutomerge": false,
   "ignorePaths": ["rust-examples/**", "hugo/themes/**"],
   "cargo": {
     "enabled": false
