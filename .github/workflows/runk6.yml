@@ -15,7 +15,7 @@ jobs:
       matrix:
         java: [25]
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: ./.github/actions/install-graalvm
         with:
           candidate: ''
@@ -38,7 +38,7 @@ jobs:
       - name: Run jars and get test results (with k6)
         run: ./runK6.sh
       - name: Upload test result as artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: test-result-k6
           path: test-result-k6.md
@@ -70,7 +70,7 @@ jobs:
           fi
 
       - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v2
+        uses: peaceiris/actions-hugo@v3
         with:
           hugo-version: 'latest'
           extended: true

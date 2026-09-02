@@ -39,7 +39,7 @@ jobs:
       matrix:
         java: [25]
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 0
       - name: Check for relevant file changes
@@ -73,14 +73,14 @@ jobs:
           candidate: ''
       - name: Set up Go
         if: steps.changes.outputs.skip == 'false'
-        uses: actions/setup-go@v5
+        uses: actions/setup-go@v7
         with:
-          go-version: '1.25'
+          go-version: '1.27'
       - name: Set up Node.js
         if: steps.changes.outputs.skip == 'false'
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
-          node-version: '20'
+          node-version: '24'
       - name: Setup Bun
         if: steps.changes.outputs.skip == 'false'
         uses: oven-sh/setup-bun@v2
