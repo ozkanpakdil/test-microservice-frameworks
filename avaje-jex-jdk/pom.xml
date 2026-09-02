@@ -6,6 +6,7 @@
 		<groupId>io.avaje</groupId>
 		<artifactId>avaje-jex-parent</artifactId>
 		<version>3.6</version>
+		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 
 	<version>${parent.version}</version>
