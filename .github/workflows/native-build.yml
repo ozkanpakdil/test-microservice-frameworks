@@ -7,6 +7,7 @@ on:
         description: 'Files that have changed'
         required: false
         type: string
+  workflow_dispatch:
   push:
     paths:
       - '**/pom.xml'

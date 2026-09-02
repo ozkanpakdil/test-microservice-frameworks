@@ -16,3 +16,16 @@ updates:
     - "/vertx"
   schedule:
     interval: monthly
+  # Default is 5; without this, extra updates are silently dropped once 5
+  # dependabot PRs are open (this dropped ~23 PRs in the Sep 1 run).
+  open-pull-requests-limit: 20
+  # Bundle all version updates into one cumulative PR per dependency,
+  # across all directories (no more duplicate PRs for the same bump).
+  groups:
+    maven-dependencies:
+      applies-to: version-updates
+      update-types:
+        - "major"
+        - "minor"
+        - "patch"
+      group-by: dependency-name
