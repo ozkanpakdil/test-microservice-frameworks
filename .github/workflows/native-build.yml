@@ -25,11 +25,15 @@ permissions:
   repository-projects: 'write'
   pull-requests: 'write'
 
-# Only one native build/release at a time — two concurrent runs racing to
-# publish the "latest" tag delete each other's release mid-upload.
+# GraalVM native builds are extremely resource heavy — at most ONE may run
+# at any time in this repository, whatever the trigger (main push, PR or
+# manual dispatch). Later runs queue behind the current one instead of
+# running in parallel, and nothing is cancelled mid-build: a PR validation
+# can never kill a main-line release build (or vice versa), and two runs can
+# never race to publish the "latest" release tag.
 concurrency:
-  group: native-release-publish
-  cancel-in-progress: true
+  group: native-build-singleton
+  cancel-in-progress: false
 
 jobs:
   build:
@@ -119,8 +123,9 @@ jobs:
           cd bun
           bun build --compile ./main.ts --outfile bun-demo
 
+      # PR runs are validation-only: never publish unmerged PR binaries to "latest"
       - uses: marvinpinto/action-automatic-releases@latest
-        if: steps.changes.outputs.skip == 'false'
+        if: steps.changes.outputs.skip == 'false' && github.event_name != 'pull_request'
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           automatic_release_tag: latest
