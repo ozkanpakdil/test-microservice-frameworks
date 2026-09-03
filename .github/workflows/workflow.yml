@@ -1,9 +1,14 @@
 name: Workflow for tests
 
 on:
-  push:
-    branches:
-      - main
+  schedule:
+    # The ONLY automatic full test suite run: native builds + "latest"
+    # release + gatling + k6 + mastodon, on the 5th of each month at
+    # 10:00 UTC (11:00 UK). Dependency updates are validated by Native CI
+    # on their PRs and can merge any day; the binaries on "latest" refresh
+    # here once a month. Also runnable manually at any time.
+    - cron: '0 10 5 * *'
+  workflow_dispatch:
 permissions:
   contents: write
   id-token: write
