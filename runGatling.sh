@@ -223,12 +223,22 @@ curl -fsSL -O https://github.com/ozkanpakdil/rust-examples/releases/download/lat
 curl -fsSL -O https://github.com/ozkanpakdil/rust-examples/releases/download/latest/rocket-rest-api
 curl -fsSL -O https://github.com/ozkanpakdil/rust-examples/releases/download/latest/warp-rest-api
 curl -fsSL -O https://github.com/ozkanpakdil/rust-examples/releases/download/latest/axum-rest-api
-chmod a+x warp-rest-api actix-rest-api rocket-rest-api axum-rest-api
+curl -fsSL -O https://github.com/ozkanpakdil/rust-examples/releases/download/latest/gotham-rest-api
+curl -fsSL -O https://github.com/ozkanpakdil/rust-examples/releases/download/latest/poem-rest-api
+curl -fsSL -O https://github.com/ozkanpakdil/rust-examples/releases/download/latest/salvo-rest-api
+curl -fsSL -O https://github.com/ozkanpakdil/rust-examples/releases/download/latest/trillium-rest-api
+curl -fsSL -O https://github.com/ozkanpakdil/rust-examples/releases/download/latest/viz-rest-api
+chmod a+x warp-rest-api actix-rest-api rocket-rest-api axum-rest-api gotham-rest-api poem-rest-api salvo-rest-api trillium-rest-api viz-rest-api
 cd ../..
 rustTest "./rust-examples/exe/warp-rest-api" "warp =" "WARP"
 rustTest "./rust-examples/exe/actix-rest-api" "actix-web =" "ACTIX"
 rustTest "./rust-examples/exe/rocket-rest-api" "rocket =" "ROCKET"
 rustTest "./rust-examples/exe/axum-rest-api" "axum =" "AXUM"
+rustTest "./rust-examples/exe/gotham-rest-api" "gotham =" "GOTHAM"
+rustTest "./rust-examples/exe/poem-rest-api" "poem =" "POEM"
+rustTest "./rust-examples/exe/salvo-rest-api" "salvo =" "SALVO"
+rustTest "./rust-examples/exe/trillium-rest-api" "trillium =" "TRILLIUM"
+rustTest "./rust-examples/exe/viz-rest-api" "viz =" "VIZ"
 rm -rf rust-examples
 
 ##### DOTNET
