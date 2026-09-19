@@ -8,14 +8,9 @@ on:
         required: false
         type: string
   workflow_dispatch:
-  pull_request:
-    paths:
-      - '**/pom.xml'
-      - '**/*.java'
-      - '**/*.kt'
-      - 'golang/**'
-      - 'expressjs/**'
-      - 'bun/**'
+  # pull_request trigger removed (2026-09-19): dependency/renovate PRs no
+  # longer burn a ~2h native build per PR. Full build runs once a month via
+  # workflow.yml (cron 5th) or manually via workflow_dispatch.
 
 permissions:
   contents: 'write'
@@ -26,7 +21,7 @@ permissions:
   pull-requests: 'write'
 
 # GraalVM native builds are extremely resource heavy — at most ONE may run
-# at any time in this repository, whatever the trigger (main push, PR or
+# at any time in this repository, whatever the trigger (monthly run or
 # manual dispatch). Later runs queue behind the current one instead of
 # running in parallel, and nothing is cancelled mid-build: a PR validation
 # can never kill a main-line release build (or vice versa), and two runs can

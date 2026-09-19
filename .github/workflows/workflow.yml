@@ -4,9 +4,10 @@ on:
   schedule:
     # The ONLY automatic full test suite run: native builds + "latest"
     # release + gatling + k6 + mastodon, on the 5th of each month at
-    # 10:00 UTC (11:00 UK). Dependency updates are validated by Native CI
-    # on their PRs and can merge any day; the binaries on "latest" refresh
-    # here once a month. Also runnable manually at any time.
+    # 10:00 UTC (11:00 UK). PR builds are disabled entirely (no pull_request
+    # trigger in native-build.yml): renovate PRs auto-merge without a CI
+    # gate and any breakage is caught and fixed at the next monthly run.
+    # Also runnable manually at any time.
     - cron: '0 10 5 * *'
   workflow_dispatch:
 permissions:
