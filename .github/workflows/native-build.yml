@@ -74,7 +74,7 @@ jobs:
         if: steps.changes.outputs.skip == 'false'
         uses: actions/setup-node@v7
         with:
-          node-version: '24'
+          node-version: '26'
       - name: Setup Bun
         if: steps.changes.outputs.skip == 'false'
         uses: oven-sh/setup-bun@v2
